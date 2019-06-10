@@ -1,10 +1,10 @@
 module.exports = {
   Query: {
-		async placeholder(parent, { input }, { dataSources, req, app, postgres }){
+		async placeholder(parent, { input }, { dataSources }){
 			return await dataSources.database.queryPlaceholder('placeholder')
 		},
 
-		async placeholderApi(parent, { input }, { dataSources, req, app, postgres }){
+		async placeholderApi(parent, { input }, { dataSources }){
 			return await dataSources.placeholderApi.queryPlaceholder('placeholder')
 		},
   },
