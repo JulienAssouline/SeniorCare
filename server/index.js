@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser')
 const chalk = require('chalk')
 const cors = require('cors')
 const path = require('path')
+const fallback = require('express-history-api-fallback')
 const { ApolloServer } = require('apollo-server-express')
 const { makeExecutableSchema } = require('graphql-tools')
 
@@ -11,6 +12,7 @@ const PlaceholderApi = require('./datasources/placeholderApi')
 
 const postgres = require('./config/postgres')
 const typeDefs = require('./schema')
+const http = require('http')
 let resolvers = require('./resolvers')
 
 const app = express()
@@ -54,7 +56,11 @@ const schema = makeExecutableSchema({
 })
 
 const apolloServer = new ApolloServer({
-  context: ({ req }) => {
+  context: ({ req, connection }) => {
+		if (connection) {
+			return connection.context
+		}
+
     if (
       req.headers.referer === 'http://localhost:8080/graphql' &&
       process.env.NODE_ENV !== 'production'
@@ -78,12 +84,16 @@ apolloServer.applyMiddleware({
   cors: app.get('CORS_CONFIG'),
 })
 
+let server = http.createServer(app)
+
+apolloServer.installSubscriptionHandlers(server)
+
 postgres.on('error', (err, client) => {
   console.error('Unexpected error on idle postgres client', err)
   process.exit(-1)
 })
 
-const server = app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`>> ${chalk.blue('Express running:')} http://localhost:${PORT}`)
 
   console.log(`>> ${chalk.magenta('GraphQL playground:')} http://localhost:${PORT}/graphql`)
