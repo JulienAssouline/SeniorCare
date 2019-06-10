@@ -18,5 +18,9 @@ module.exports = gql`
 	type MutationPlaceholder {
 		id: ID
 	}
+
+	# type Subscription {
+		
+	# }
 `
 
