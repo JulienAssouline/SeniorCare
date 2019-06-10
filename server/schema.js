@@ -2,12 +2,22 @@ const { gql } = require('apollo-server-express')
 
 module.exports = gql`
   type Query {
-    placeholder: QueryPlaceholder
+    getCaregiver: QueryGetCaregiver
 		placeholderApi: QueryPlaceholder
   }
 
-	type QueryPlaceholder {
+  type QueryPlaceholder{
+  	id: ID
+  }
+
+	type QueryGetCaregiver {
 		id: ID
+		fullname: String
+		location: String
+		years_experience: Int
+		num_hired: Int
+		birthdate: String
+		hourly_rate: Int
 	}
 
 	type Mutation {
@@ -20,7 +30,7 @@ module.exports = gql`
 	}
 
 	# type Subscription {
-		
+
 	# }
 `
 
