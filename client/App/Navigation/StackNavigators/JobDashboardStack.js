@@ -6,6 +6,8 @@ import { createStackNavigator } from 'react-navigation'
 
 
 import JobDashboardScreen from '../../Components/KeyContact/JobDashboard/JobDashboardScreen'
+import SearchScreen from '../../Components/Search/SearchScreen'
+
 
 
 export const JobDashboardStack = createStackNavigator(

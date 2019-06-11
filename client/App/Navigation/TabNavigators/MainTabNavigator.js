@@ -3,11 +3,15 @@ import { createBottomTabNavigator } from 'react-navigation'
 
 import Icons from 'react-native-vector-icons/FontAwesome5'
 
+
 import { JobDashboardStack } from '../StackNavigators/JobDashboardStack'
+import { SearchStack } from '../StackNavigators/SearchStack'
+
 
 const MainBottomTabNavigator = createBottomTabNavigator(
   {
     JobDashboard: { screen: JobDashboardStack },
+    Search: { screen: SearchStack }
     // Hotel: { screen: HotelStack },
     // Info: { screen: InfoStack },
   },
@@ -19,6 +23,9 @@ const MainBottomTabNavigator = createBottomTabNavigator(
         let iconName
         if (routeName === 'JobDashboard') {
           iconName = `home`
+        }
+        else if(routeName === "Search") {
+          iconName = `search`
         }
         // Sometimes we want to add badges to some icons.
         // You can check the implementation below.
