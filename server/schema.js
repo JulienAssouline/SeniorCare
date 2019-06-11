@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express')
 
 module.exports = gql`
   type Query {
-    getCaregiver: QueryGetCaregiver
+    getCaregiver: [QueryGetCaregiver]
 		placeholderApi: QueryPlaceholder
   }
 
@@ -18,6 +18,9 @@ module.exports = gql`
 		num_hired: Int
 		birthdate: String
 		hourly_rate: Int
+    gender: String
+    availability: String
+    average_rating: Float
 	}
 
 	type Mutation {

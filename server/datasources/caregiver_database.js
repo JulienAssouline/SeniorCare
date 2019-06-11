@@ -11,12 +11,18 @@ class CaregiverDatabase extends DataSource {
     this.context = config.context
   }
 
-  async getCaregiver(input) {
-
-    // this.context.postgres
+  async queryCaregiver(input) {
 
     try {
-      return
+    // this.context.postgres
+      const selectCaregiver = {
+        text: "SELECT * FROM seniorcare.caregiver",
+      }
+
+      const result = await this.context.postgres.query(selectCaregiver)
+
+      return result.rows
+
     } catch(err) {
       throw err
     }
