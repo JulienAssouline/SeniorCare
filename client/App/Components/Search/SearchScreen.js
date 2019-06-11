@@ -34,7 +34,7 @@ const SearchScreen = () => {
     <ScrollView>
       {
         data.getCaregiver.map((d,i) => (
-          <View>
+          <View key = {i}>
             <Text> {d.fullname} </Text>
             <Text> {d.location} </Text>
             <Text> {d.average_rating} </Text>
