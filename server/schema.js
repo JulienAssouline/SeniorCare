@@ -27,7 +27,17 @@ module.exports = gql`
 	type Mutation {
 		placeholder: MutationPlaceholder
 		placeholderApi: MutationPlaceholder
+    login(input: LoginObject!): LoginResponse!
 	}
+
+  input LoginObject {
+    email: String!,
+    password: String!,
+  }
+
+  type LoginResponse {
+    message: String
+  }
 
 	type MutationPlaceholder {
 		id: ID
