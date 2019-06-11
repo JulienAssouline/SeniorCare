@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     marginBottom: 5,
+    justifyContent: "space-between",
   },
   ratingText: {
     color: "#3F7DFB",

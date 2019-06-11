@@ -6,6 +6,7 @@ import gql from "graphql-tag";
 import styles from "../Styles/searchStyles/searchStyles"
 import StarRating from 'react-native-star-rating';
 import Ratings from "./Ratings"
+import calcAge from "../utils/calcAge"
 
 
 
@@ -34,11 +35,8 @@ const SearchScreen = () => {
 
   if (data.getCaregiver === undefined) { return (<Text> ...loading </Text>)}
 
-  const currentYear = new Date().getFullYear()
-
   data.getCaregiver.forEach((d,i) => {
-    const year = d.birthdate.split("-")[0]
-    d.Age = currentYear - year
+    calcAge(d)
   })
 
   function onStarRatingPress(rating) {
