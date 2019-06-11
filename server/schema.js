@@ -4,6 +4,7 @@ module.exports = gql`
   type Query {
     getCaregiver: QueryGetCaregiver
 		placeholderApi: QueryPlaceholder
+		testDatabase: QueryPlaceholder
   }
 
   type QueryPlaceholder{
