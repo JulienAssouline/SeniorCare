@@ -1,6 +1,6 @@
 const { DataSource } = require('apollo-datasource')
 
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const saltRounds = 12
 const crypto = require('crypto')
@@ -16,29 +16,35 @@ class UserDatabase extends DataSource {
 		this.context = config.context
 	}
 
-  async signup(input, req, app) {
-    
+  async mutationSignUp(input) {
+    console.log( 'helloooo',input)
     let fullname = input.fullname.toLowerCase();
-    let email =  input.email.toLowerCase();
+    let email = input.email.toLowerCase();
+    let phonenumber = input.phonenumber;
+    let location = input.location;
+    // console.log('wa email', email)
     let hashedpassword = await bcrypt.hash(input.password, saltRounds)
-
-    const newUserInsert ={
-      text: "INSERT INTO bazaar.users( fullname,email,password ) VALUES ($1, $2, $3) RETURNING *",
-      values: [fullname, email, hashedpassword]
-    }
-
-    try {
-
-    await this.context.postgres.query(newUserInsert)
-
-    let myjwttoken = await jwt.sign({
-      data: insertResult.rows[0],
-      exp: Math.floor(Date.now()/ 1000) + (60* 60),
-  }, 'secret');
-    
-    } catch(err) {
-      throw err
-    }
+      console.log('hashedpassword',hashedpassword)
+      
+      const newUserInsert ={
+        text: "INSERT INTO seniorcare.key_contact( fullname,email,phone_number,location,password ) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+        values: [fullname, email, phonenumber, location, hashedpassword]
+      }
+  
+      try {
+  
+      let answer = await this.context.postgres.query(newUserInsert)
+        console.log('my answer!!!!!!!! ',answer)
+    //   let myjwttoken = await jwt.sign({
+    //     data: insertResult.rows[0],
+    //     exp: Math.floor(Date.now()/ 1000) + (60* 60),
+    // }, 'secret');
+  
+    return "hello"
+      
+      } catch(err) {
+        return err
+      }
   }
 }
 
