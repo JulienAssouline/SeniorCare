@@ -25,11 +25,10 @@ exports.up = pgm => {
 			"location" VARCHAR(64),
 			"birthdate" VARCHAR(64),
 			"years_experience" INT,
-			"num_hired" INT,
 			"description" TEXT,
 			"gender" VARCHAR(32),
 			"availability" VARCHAR(10),
-			"average_rating" INT,
+			"average_rating" FLOAT(2),
 			"hourly_rate" INT
 		);
 	`),
