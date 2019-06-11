@@ -13,7 +13,7 @@ switch (process.env.NODE_ENV) {
     host = 'localhost'
     user = 'postgres'
     password = 'root'
-    database = 'seniorcare'
+    database = 'postgres'
     break;
   case 'production':
 		host = 'localhost'
@@ -24,7 +24,7 @@ switch (process.env.NODE_ENV) {
 		host = 'localhost'
 		user = 'postgres'
 		password = 'root'
-		database = 'seniorcare'
+		database = 'postges'
     break;
 }
 
