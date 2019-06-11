@@ -22,6 +22,7 @@ module.exports = gql`
     gender: String
     availability: String
     average_rating: Float
+    avatar: String
 	}
 
 	type Mutation {
