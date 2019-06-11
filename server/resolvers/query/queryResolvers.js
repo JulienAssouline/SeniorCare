@@ -7,5 +7,9 @@ module.exports = {
 		async placeholderApi(parent, { input }, { dataSources }){
 			return await dataSources.placeholderApi.queryPlaceholder('placeholder')
 		},
+
+		async testDatabase(parent, { input }, { dataSources }) {
+			return await dataSources.database.queryPlaceholder('placeholder')
+		}
   },
 }
