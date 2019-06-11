@@ -13,14 +13,16 @@ module.exports = gql`
 	type Mutation {
 		placeholder: MutationPlaceholder
 		placeholderApi: MutationPlaceholder
+		signUp(fullName: String!, email: String!, password: String!): SignUpResponse!
 	}
 
 	type MutationPlaceholder {
 		id: ID
 	}
 
-	# type Subscription {
-		
-	# }
+	type SignUpResponse {
+  message:String
+}
 `
+
 

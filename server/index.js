@@ -8,6 +8,7 @@ const { ApolloServer } = require('apollo-server-express')
 const { makeExecutableSchema } = require('graphql-tools')
 
 const Database = require('./datasources/database')
+const UserDatabase = require('./datasources/userDatabase')
 const PlaceholderApi = require('./datasources/placeholderApi')
 
 const postgres = require('./config/postgres')
@@ -44,7 +45,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const dataSources = () => ({
-	database: new Database(),
+  database: new Database(),
+  userDatabase: new UserDatabase(),
 	placeholderApi: new PlaceholderApi(),
 })
 
