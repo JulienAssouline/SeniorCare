@@ -1,0 +1,23 @@
+query {
+  getCaregiver{
+    id
+    fullname
+    location
+    years_experience
+    num_hired
+    birthdate
+    hourly_rate
+    gender
+    availability
+    average_rating
+  }
+}
+
+mutation {
+  login(input: {
+    email: "alam@alam.com",
+    password: "12341234"
+  }) {
+    message
+  }
+}
