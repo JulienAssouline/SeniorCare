@@ -24,7 +24,7 @@ switch (process.env.NODE_ENV) {
 		host = 'localhost'
 		user = 'postgres'
 		password = 'root'
-		database = 'postges'
+		database = 'postgres'
     break;
 }
 
