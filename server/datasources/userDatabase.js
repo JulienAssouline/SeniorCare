@@ -17,34 +17,32 @@ class UserDatabase extends DataSource {
 	}
 
   async mutationSignUp(input) {
-    console.log( 'helloooo',input)
-    let fullname = input.fullname.toLowerCase();
-    let email = input.email.toLowerCase();
-    let phonenumber = input.phonenumber;
-    let location = input.location;
-    // console.log('wa email', email)
-    let hashedpassword = await bcrypt.hash(input.password, saltRounds)
-      console.log('hashedpassword',hashedpassword)
-      
+    try {
+      let fullname = input.fullname.toLowerCase();
+      let email = input.email.toLowerCase();
+      let phonenumber = input.phonenumber;
+      let location = input.location;
+
+      let hashedpassword = await bcrypt.hash(input.password, saltRounds)
+        
       const newUserInsert ={
         text: "INSERT INTO seniorcare.key_contact( fullname,email,phone_number,location,password ) VALUES ($1, $2, $3, $4, $5) RETURNING *",
         values: [fullname, email, phonenumber, location, hashedpassword]
       }
   
-      try {
-  
       let answer = await this.context.postgres.query(newUserInsert)
-        console.log('my answer!!!!!!!! ',answer)
     //   let myjwttoken = await jwt.sign({
     //     data: insertResult.rows[0],
     //     exp: Math.floor(Date.now()/ 1000) + (60* 60),
     // }, 'secret');
   
-    return "hello"
-      
-      } catch(err) {
-        return err
+      return { 
+        message: 'success'
       }
+      
+    } catch(err) {
+      throw err
+    }
   }
 }
 
