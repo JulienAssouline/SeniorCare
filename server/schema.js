@@ -15,7 +15,7 @@ module.exports = gql`
 		id: ID
 		fullname: String
 		location: String
-		years_experience: Int
+		years_experience: Int 
 		num_hired: Int
 		birthdate: String
 		hourly_rate: Int
@@ -28,9 +28,19 @@ module.exports = gql`
 	type Mutation {
 		placeholder: MutationPlaceholder
 		placeholderApi: MutationPlaceholder
-    login(input: LoginObject!): LoginResponse!
+		signUp(input:SignUpObjects!): MessageResponse
+		login(input: LoginObject!): LoginResponse!
 	}
 
+	input SignUpObjects{
+		 fullname: String,
+		 email: String, 
+		 phonenumber:String,
+		 location:String,
+		 password: String,
+
+	}
+   
   input LoginObject {
     email: String!,
     password: String!,
@@ -44,8 +54,9 @@ module.exports = gql`
 		id: ID
 	}
 
-	# type Subscription {
-
-	# }
+	type MessageResponse {
+  	message: String
+	}
 `
+
 

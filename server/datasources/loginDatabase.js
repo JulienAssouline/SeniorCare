@@ -1,6 +1,6 @@
 const { DataSource } = require('apollo-datasource')
 const authenticate = require('../utils/DSHelperFunctions/authenticate')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const saltRounds = 12
 const { createCookie, setCookie } = require('../resolvers/mutation/setCookie')
