@@ -1,9 +1,6 @@
-
 import React from 'react'
 import { createStackNavigator } from 'react-navigation'
-
-import ProfileScreen from '../../Components/KeyContact/JobDashboard/JobDashboardScreen'
-
+import ProfileScreen from '../../Components/KeyContact/Profile/ProfileScreen'
 
 export const ProfileStack = createStackNavigator(
   {
@@ -20,4 +17,3 @@ export const ProfileStack = createStackNavigator(
     },
   }
 )
-
