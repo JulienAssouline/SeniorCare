@@ -12,8 +12,12 @@ export const SearchStack = createStackNavigator(
     {
       defaultNavigationOptions: {
         title: 'Job Dashboard',
-        headerTintColor: '#fff',
-        headerTitleStyle: { color: '#fff', fontFamily: 'SFProText-Light' },
+        headerTintColor: '#000',
+        headerTitleStyle: { color: '#000', fontFamily: 'SFProText-Light' },
+        headerStyle: {
+          color: '#000',
+          backgroundColor: 'transparent'
+        },
       },
       navigationOptions: {
         tabBarLabel: 'Search',

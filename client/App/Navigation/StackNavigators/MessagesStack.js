@@ -9,8 +9,12 @@ export const MessagesStack = createStackNavigator(
   {
     defaultNavigationOptions: {
       title: 'Messages',
-      headerTintColor: '#fff',
-      headerTitleStyle: { color: '#fff', fontFamily: 'SFProText-Light' },
+      headerTintColor: '#000',
+      headerTitleStyle: { color: '#000', fontFamily: 'SFProText-Light' },
+      headerStyle: {
+        color: '#000',
+        backgroundColor: 'transparent'
+      },
     },
     navigationOptions: {
       tabBarLabel: 'Messages',
