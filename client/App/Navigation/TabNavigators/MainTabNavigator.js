@@ -5,7 +5,6 @@ import { JobDashboardStack } from '../StackNavigators/JobDashboardStack'
 import { SearchStack } from '../StackNavigators/SearchStack'
 import { ProfileStack } from '../StackNavigators/ProfileStack'
 import { MessagesStack } from '../StackNavigators/MessagesStack'
-import { DevLinksStack } from '../StackNavigators/DevLinksStack'
 import DevLinksScreen from '../../Components/Dev/DevLinksScreen'
 
 const MainBottomTabNavigator = createBottomTabNavigator(
