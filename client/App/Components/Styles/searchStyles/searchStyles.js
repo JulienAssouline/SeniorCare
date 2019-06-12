@@ -7,8 +7,13 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     flex: 1,
+    flexDirection: 'row',
     margin: 20,
-    padding: 10,
+    backgroundColor: "#FFFFFF",
+  },
+  infoContainer: {
+    flex: 1,
+    margin: 10,
     backgroundColor: "#FFFFFF",
   },
   ratingLocationContainer: {

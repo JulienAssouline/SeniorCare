@@ -7,8 +7,7 @@ import styles from "../Styles/searchStyles/searchStyles"
 import StarRating from 'react-native-star-rating';
 import Ratings from "./Ratings"
 import calcAge from "../utils/calcAge"
-
-
+import { Avatar } from 'react-native-elements';
 
 const GET_CAREGIVERS = gql`
    {
@@ -49,20 +48,26 @@ const SearchScreen = () => {
       {
         data.getCaregiver.map((d,i) => (
           <View style = {styles.searchContainer} key = {i}>
-            <Text style = {styles.fullName}> {d.fullname} </Text>
-            <View style = {styles.ratingLocationContainer}>
-              <Ratings data = {d.average_rating} />
-              <Text style = {styles.ratingText}> {d.average_rating} </Text>
-              <Text style = {styles.locationText}> | </Text>
-              <Text style = {styles.locationText}> {d.location} </Text>
+            <Avatar
+              icon={{name: 'user', type: 'font-awesome'}}
+              size="large"
+              containerStyle={{ height: "100%"}}
+            />
+            <View style = {styles.infoContainer}>
+              <Text style = {styles.fullName}> {d.fullname} </Text>
+              <View style = {styles.ratingLocationContainer}>
+                <Ratings data = {d.average_rating} />
+                <Text style = {styles.ratingText}> {d.average_rating} </Text>
+                <Text style = {styles.locationText}> | </Text>
+                <Text style = {styles.locationText}> {d.location} </Text>
+              </View>
+              <View style = {styles.experienceRateContainer}>
+                <Text style = {styles.backgroundInfoText}> {`${d.years_experience} years experience`} </Text>
+                <Text style = {styles.backgroundInfoText}> {`From $${d.hourly_rate / 100}/hour`} </Text>
+              </View>
+              <Text style = {styles.backgroundInfoText}> {`${d.Age} years old`} </Text>
             </View>
-            <View style = {styles.experienceRateContainer}>
-              <Text style = {styles.backgroundInfoText}> {`${d.years_experience} years experience`} </Text>
-              <Text style = {styles.backgroundInfoText}> {`From $${d.hourly_rate / 100}/hour`} </Text>
-            </View>
-            <Text style = {styles.backgroundInfoText}> {`${d.Age} years old`} </Text>
           </View>
-
           ))
       }
     </View>
