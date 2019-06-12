@@ -5,6 +5,8 @@ import { JobDashboardStack } from '../StackNavigators/JobDashboardStack'
 import { SearchStack } from '../StackNavigators/SearchStack'
 import { ProfileStack } from '../StackNavigators/ProfileStack'
 import { MessagesStack } from '../StackNavigators/MessagesStack'
+import { DevLinksStack } from '../StackNavigators/DevLinksStack'
+import DevLinksScreen from '../../Components/Dev/DevLinksScreen'
 
 const MainBottomTabNavigator = createBottomTabNavigator(
   {
@@ -12,6 +14,7 @@ const MainBottomTabNavigator = createBottomTabNavigator(
     Search: { screen: SearchStack },
     Profile: { screen: ProfileStack},
     Messages: { screen: MessagesStack },
+    DevLinks: { screen: DevLinksScreen },
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -23,10 +26,12 @@ const MainBottomTabNavigator = createBottomTabNavigator(
           iconName = `home`
         } else  if (routeName === 'Profile') {
           iconName = `user`
-        } else if(routeName === "Search") {
+        } else if (routeName === 'Search') {
           iconName = `search`
         } else if (routeName === 'Messages') {
           iconName = `comment`
+        } else if (routeName === 'DevLinks') {
+          iconName = `brain`
         }
         // Sometimes we want to add badges to some icons.
         // You can check the implementation below.
