@@ -1,21 +1,44 @@
-import React from 'react'
-import { createStackNavigator } from 'react-navigation'
-import JobDashboardScreen from '../../Components/KeyContact/JobDashboard/JobDashboardScreen'
-import SearchScreen from '../../Components/Search/SearchScreen'
+import { createStackNavigator, createSwitchNavigator } from 'react-navigation'
 
-export const JobDashboardStack = createStackNavigator(
+import Overview from '../../Components/KeyContact/JobPost/Overview'
+import { PostAJobStack } from './PostAJobStack'
+import JobDashboardScreen from '../../Components/KeyContact/JobDashboard/JobDashboardScreen'
+
+const JobDashboardStack = createStackNavigator(
   {
-    JobDashboard: { screen: JobDashboardScreen },
-  },
+		JobDashboard: { screen: JobDashboardScreen },
+		Overview: {
+			screen: Overview,
+			navigationOptions: {
+				title: 'Overview',
+			}
+		},
+		PostAJobStack: PostAJobStack			
+	},
   {
     defaultNavigationOptions: {
       title: 'Job Dashboard',
-      headerTintColor: '#fff',
-      headerTitleStyle: { color: '#fff', fontFamily: 'SFProText-Light' },
+      headerTintColor: '#000',
+      headerTitleStyle: { color: '#000', fontFamily: 'SFProText-Light' },
     },
     navigationOptions: {
-      tabBarLabel: 'Job Dashboard',
+			tabBarLabel: 'Job Dashboard',
     },
   }
 )
 
+// This hides bottom tab navigator for post a job
+JobDashboardStack.navigationOptions = ({ navigation }) => {
+	let { routeName } = navigation.state.routes[navigation.state.index]
+	
+	let tabBarVisible = true
+	if (routeName === 'Overview' || routeName === 'PostAJobStack') {
+		tabBarVisible = false
+	}
+
+  return {
+		tabBarVisible
+	}
+}
+
+export { JobDashboardStack }
