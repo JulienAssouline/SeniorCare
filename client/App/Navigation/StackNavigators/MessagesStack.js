@@ -1,19 +1,20 @@
 import React from 'react'
 import { createStackNavigator } from 'react-navigation'
-import ProfileScreen from '../../Components/KeyContact/Profile/ProfileScreen'
+import MessagesScreen from '../../Components/Messages/MessagesScreen.js'
 
-export const ProfileStack = createStackNavigator(
+export const MessagesStack = createStackNavigator(
   {
-    Profile: { screen: ProfileScreen },
+    Messages: { screen: MessagesScreen },
   },
   {
     defaultNavigationOptions: {
-      title: 'Profile',
+      title: 'Messages',
       headerTintColor: '#fff',
       headerTitleStyle: { color: '#fff', fontFamily: 'SFProText-Light' },
     },
     navigationOptions: {
-      tabBarLabel: 'Profile',
+      tabBarLabel: 'Messages',
     },
   }
 )
+
