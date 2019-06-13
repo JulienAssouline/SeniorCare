@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.0",
     "node-pg-migrate": "^3.16.0",
     "pg": "^7.8.0",
+    "react-native-elements": "^1.1.0",
     "squel": "^5.12.2"
   },
   "devDependencies": {

@@ -53,6 +53,7 @@ exports.up = pgm => {
 	pgm.sql(`
 		CREATE TABLE "seniorcare"."job_posting" (
 			"id" SERIAL PRIMARY KEY,
+			"key_contact_id" INT NOT NULL,
 			"date_created" DATE NOT NULL DEFAULT CURRENT_DATE,
 			"title" VARCHAR(64) NOT NULL,
 			"start_date" DATE NOT NULL,

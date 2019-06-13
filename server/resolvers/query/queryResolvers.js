@@ -10,6 +10,10 @@ module.exports = {
 
 		async testDatabase(parent, { input }, { dataSources }) {
 			return await dataSources.database.queryPlaceholder('placeholder')
-		}
+		},
+
+		async ArchivedJobs(parent,  input, { dataSources }) {
+			return await dataSources.jobsDatabase.queryArchiveJobs(input)
+		},
   },
 }

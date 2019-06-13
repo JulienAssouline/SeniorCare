@@ -3,6 +3,8 @@ import { createStackNavigator, createSwitchNavigator } from 'react-navigation'
 import Overview from '../../Components/KeyContact/JobPost/Overview'
 import { PostAJobStack } from './PostAJobStack'
 import JobDashboardScreen from '../../Components/KeyContact/JobDashboard/JobDashboardScreen'
+import ArchiveScreen from '../../Components/KeyContact/JobDashboard/Archive'
+
 
 const JobDashboardStack = createStackNavigator(
   {
@@ -20,7 +22,8 @@ const JobDashboardStack = createStackNavigator(
       },
     },
 		PostAJobStack: PostAJobStack			
-	},
+  },
+  
   {
     defaultNavigationOptions: {
       title: 'Job Dashboard',
