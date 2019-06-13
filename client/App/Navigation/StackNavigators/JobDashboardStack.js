@@ -12,7 +12,13 @@ const JobDashboardStack = createStackNavigator(
 			navigationOptions: {
 				title: 'Overview',
 			}
-		},
+    },
+    Archive:{
+      screen:ArchiveScreen,
+      navigationOptions: {
+        headerTitle: 'Archive',
+      },
+    },
 		PostAJobStack: PostAJobStack			
 	},
   {
