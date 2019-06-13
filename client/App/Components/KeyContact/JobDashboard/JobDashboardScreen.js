@@ -11,7 +11,6 @@ const JobDashboardScreen = props => {
   return (
     <ScrollView style={styles.MainContainer}>
       <Text style={styles.ExempleText}>This is JobDashboardScreen!</Text>
-      <Button type="primary" style={styles.ExempleButton}>Hello</Button>
 			<Button
 				type='primary'
 				style={styles.ExempleButton}

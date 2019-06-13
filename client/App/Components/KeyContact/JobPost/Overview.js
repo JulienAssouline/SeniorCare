@@ -8,6 +8,9 @@ export default Overview = props => {
 	const handleGoToSeniorDetails = async () => {
 		props.navigation.navigate('PostAJobStack')
 	}
+	const handleBasicInformation = () => {
+		props.navigation.navigate('BasicInformation')
+	}
 
 	return (
 		<ScrollView>
@@ -16,7 +19,13 @@ export default Overview = props => {
 				type='primary'
 				onPress={handleGoToSeniorDetails}
 			>
-				Go to Post A Job
+				Go to Senior Details
+			</Button>
+			<Button
+				type='primary'
+				onPress={handleBasicInformation}
+			>
+				Go to Job Post Basic Information
 			</Button>
 		</ScrollView>
 	)
