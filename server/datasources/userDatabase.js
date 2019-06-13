@@ -31,10 +31,10 @@ class UserDatabase extends DataSource {
       }
   
       let answer = await this.context.postgres.query(newUserInsert)
-    //   let myjwttoken = await jwt.sign({
-    //     data: insertResult.rows[0],
-    //     exp: Math.floor(Date.now()/ 1000) + (60* 60),
-    // }, 'secret');
+      let myjwttoken = await jwt.sign({
+        data: insertResult.rows[0],
+        exp: Math.floor(Date.now()/ 1000) + (60* 60),
+    }, 'secret');
   
       return { 
         message: 'success'
