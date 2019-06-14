@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -82,10 +83,6 @@
 		A223867B954149DC9D444CA0 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7145226CC3C642C7AA72F715 /* libRNGestureHandler.a */; };
 		AD55A4F380E34E6B89513F16 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6946BE7A6EBF4648B211B089 /* MaterialIcons.ttf */; };
 		B6FD984ADDD147988ECAF5A3 /* libRNAWSCognito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA73CBA72314FCFBEC2D424 /* libRNAWSCognito.a */; };
-		BF3D74A622B2BDF4004B28EA /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF3D747922B2BDF4004B28EA /* ItunesArtwork@2x.png */; };
-		BF3D74A722B2BDF4004B28EA /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF3D747922B2BDF4004B28EA /* ItunesArtwork@2x.png */; };
-		BF3D74A822B2BDF4004B28EA /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF3D747922B2BDF4004B28EA /* ItunesArtwork@2x.png */; };
-		BF3D74A922B2BDF4004B28EA /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF3D747922B2BDF4004B28EA /* ItunesArtwork@2x.png */; };
 		C31C0C389BFB474C857DFD44 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DCF42B48FED4E7894CFB94E /* AntDesign.ttf */; };
 		C8AD3C28CC9748D784E88A7D /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3C26E3E9D0E474C86297A20 /* Foundation.ttf */; };
 		C9083A51206943E88F971A85 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3D37DE7AD840959A3E019D /* Octicons.ttf */; };
@@ -487,7 +484,6 @@
 		B5ACAEB47D2B4C9DBDB53AE8 /* RNReanimated.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNReanimated.xcodeproj; path = "../node_modules/react-native-reanimated/ios/RNReanimated.xcodeproj"; sourceTree = "<group>"; };
 		B70F8230DA59416FB0277F4D /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCAsyncStorage.xcodeproj; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; };
 		BB2BE033D8D3436F84F51AD7 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
-		BF3D747922B2BDF4004B28EA /* ItunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ItunesArtwork@2x.png"; path = "../../../../../Downloads/appicon 6/ios/AppIcon.appiconset/ItunesArtwork@2x.png"; sourceTree = "<group>"; };
 		D9635C74C2834CDCA988533D /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		E083B81030BA4C30A1036824 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -706,7 +702,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				BF3D747922B2BDF4004B28EA /* ItunesArtwork@2x.png */,
 				66F69AFC22B033A700082EA8 /* SFProText-Bold.otf */,
 				66F69AF922B033A600082EA8 /* SFProText-Heavy.otf */,
 				66F69AFD22B033A700082EA8 /* SFProText-Light.otf */,
@@ -1393,7 +1388,6 @@
 				66F69B1422B033A700082EA8 /* SFProText-Medium.otf in Resources */,
 				66F69B0822B033A700082EA8 /* SFProText-Regular.otf in Resources */,
 				66F69B0C22B033A700082EA8 /* SFProText-Bold.otf in Resources */,
-				BF3D74A722B2BDF4004B28EA /* ItunesArtwork@2x.png in Resources */,
 				66F69B0022B033A700082EA8 /* SFProText-Heavy.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1427,7 +1421,6 @@
 				48A7AF0A267C43B1A753C677 /* rubicon-icon-font.ttf in Resources */,
 				9EC6725F1A01435EA0186106 /* SimpleLineIcons.ttf in Resources */,
 				401AE72B87FC479CB9B30781 /* Zocial.ttf in Resources */,
-				BF3D74A622B2BDF4004B28EA /* ItunesArtwork@2x.png in Resources */,
 				0FFED0BEC62344E1ACB6F561 /* Entypo.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1439,7 +1432,6 @@
 				66F69B1122B033A700082EA8 /* SFProText-Light.otf in Resources */,
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
 				66F69B0522B033A700082EA8 /* SFProText-Semibold.otf in Resources */,
-				BF3D74A822B2BDF4004B28EA /* ItunesArtwork@2x.png in Resources */,
 				66F69B0D22B033A700082EA8 /* SFProText-Bold.otf in Resources */,
 				66F69B0922B033A700082EA8 /* SFProText-Regular.otf in Resources */,
 				66F69B0122B033A700082EA8 /* SFProText-Heavy.otf in Resources */,
@@ -1456,7 +1448,6 @@
 				66F69B1622B033A700082EA8 /* SFProText-Medium.otf in Resources */,
 				66F69B0A22B033A700082EA8 /* SFProText-Regular.otf in Resources */,
 				66F69B0E22B033A700082EA8 /* SFProText-Bold.otf in Resources */,
-				BF3D74A922B2BDF4004B28EA /* ItunesArtwork@2x.png in Resources */,
 				66F69B0222B033A700082EA8 /* SFProText-Heavy.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
