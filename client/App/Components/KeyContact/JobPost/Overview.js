@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScrollView, Text } from 'react-native'
 
-import { Button } from '@ant-design/react-native'
+import { Button } from 'react-native-elements'
 
 
 export default Overview = props => {
@@ -16,17 +16,18 @@ export default Overview = props => {
 		<ScrollView>
 			<Text>Job Overview</Text>
 			<Button
+				title="Go to Senior Details"
 				type='primary'
 				onPress={handleGoToSeniorDetails}
-			>
-				Go to Senior Details
-			</Button>
+			/>
+
+
 			<Button
+				title="	Go to Job Post Basic Information"
 				type='primary'
 				onPress={handleBasicInformation}
-			>
-				Go to Job Post Basic Information
-			</Button>
+			/>
+
 		</ScrollView>
 	)
 }

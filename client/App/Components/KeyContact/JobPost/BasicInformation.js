@@ -4,11 +4,11 @@ import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 import PostJobTop from './PostJobTop'
 import BasicInformationBody from './BasicInformationBody'
 import PostJobBottomButtons from './PostJobBottomButtons'
-import { Button } from '@ant-design/react-native';
+
 
 
 const BasicInformation = props => {
-    
+
     let currentPosition = 1;
 
     return (
@@ -17,7 +17,7 @@ const BasicInformation = props => {
                 title={'Basic information'}
                 currentPosition={currentPosition}
             />
-            <BasicInformationBody 
+            <BasicInformationBody
                 currentPosition={currentPosition}
             />
             <PostJobBottomButtons />

@@ -1,14 +1,14 @@
 import React from 'react'
 import { createStackNavigator } from 'react-navigation'
-import ProfileScreen from '../../Components/KeyContact/Profile/ProfileScreen'
 
 // import { SignUpScreen } from './SignUpStack';
+import ProfileScreen from '../../Components/Profile/ProfileScreen'
 
 
 export const ProfileStack = createStackNavigator(
   {
     Profile: { screen: ProfileScreen },
-    
+
   },
 
   {
@@ -18,7 +18,7 @@ export const ProfileStack = createStackNavigator(
       headerTitleStyle: { color: '#000', fontFamily: 'SFProText-Light' },
       headerStyle: {
         color: '#000',
-        backgroundColor: 'transparent'
+        backgroundColor: '#f8f8f8'
       },
     },
     navigationOptions: {
