@@ -121,13 +121,13 @@ const seniorSeeds = [
 	},
 	{
 		fullname: 'Erien',
-		key_contact_id: 1,
+		key_contact_id: 2,
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'female'
 	},
 	{
 		fullname: 'Vaughn',
-		key_contact_id: 1,
+		key_contact_id: 2,
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'male'
 	},

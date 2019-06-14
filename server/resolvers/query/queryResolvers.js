@@ -10,6 +10,15 @@ module.exports = {
 
 		async testDatabase(parent, { input }, { dataSources }) {
 			return await dataSources.database.queryPlaceholder('placeholder')
-		}
+    },
+    
+    async getKeyContactProfile(parent, input, { dataSources }) {
+      return await dataSources.keyContactDatabase.getKeyContactProfile(input)
+    },
+    
+    async getSeniors(parent, { input }, { dataSources }) {
+      return await dataSources.seniorDatabase.getSenior()
+
+    }
   },
 }

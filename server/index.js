@@ -9,9 +9,11 @@ const { makeExecutableSchema } = require('graphql-tools')
 
 const Database = require('./datasources/database')
 const CaregiverDatabase = require("./datasources/caregiver_database")
+const KeyContactDatabase = require('./datasources/keyContactDatabase')
 const PlaceholderApi = require('./datasources/placeholderApi')
 const UserDatabase = require('./datasources/userDatabase.js')
 const LoginDatabase = require('./datasources/loginDatabase')
+const SeniorDatabase = require('./datasources/seniorDatabase')
 
 
 const postgres = require('./config/postgres')
@@ -50,7 +52,9 @@ if (process.env.NODE_ENV !== 'production') {
 const dataSources = () => ({
   database: new Database(),
   userDatabase: new UserDatabase(),
-	placeholderApi: new PlaceholderApi(),
+  placeholderApi: new PlaceholderApi(),
+  keyContactDatabase: new KeyContactDatabase(),
+  seniorDatabase: new SeniorDatabase(),
   caregiverDatabase: new CaregiverDatabase(),
   loginDatabase: new LoginDatabase(),
 })
