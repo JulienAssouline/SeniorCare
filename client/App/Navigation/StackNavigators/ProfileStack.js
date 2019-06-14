@@ -2,8 +2,7 @@ import React from 'react'
 import { createStackNavigator } from 'react-navigation'
 import ProfileScreen from '../../Components/KeyContact/Profile/ProfileScreen'
 
-import ProfileScreen from '../../Components/KeyContact/JobDashboard/JobDashboardScreen'
-import { SignUpScreen } from './SignUpStack';
+// import { SignUpScreen } from './SignUpStack';
 
 
 export const ProfileStack = createStackNavigator(
