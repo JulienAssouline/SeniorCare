@@ -1,12 +1,14 @@
 import React from 'react'
 import { Text, ScrollView, View } from 'react-native'
+import { Card } from 'react-native-elements';
 
 import gql from 'graphql-tag'
 import { useQuery } from 'react-apollo-hooks'
 import styles from '../../Styles/JobDashboardScreen/ArchiveScreenStyles'
+import { Button } from '@ant-design/react-native';
 
 
-const ARCHIVED_JOBS = gql`
+const ARCHIVED_JOBS = gql `
   query{
     ArchivedJobs(id: 1){
       id
@@ -24,46 +26,66 @@ const ARCHIVED_JOBS = gql`
   }
 `
 
-const ArchiveScreen = (props) => {
+const ArchiveScreen = (props) =>{
 
   const { data, error, loading } = useQuery(ARCHIVED_JOBS);
-  console.log('hellllo', data.ArchivedJobs)
-  if (loading) {
+console.log('hellllo',data.ArchivedJobs)
+  if(loading){
     return <Text>...Loading</Text>;
   };
-  if (error) {
+  if (error){
     return <Text>Error!</Text>
   }
   return (
 
     <ScrollView style={styles.MainContainer}>
 
-      {data.ArchivedJobs.map(elem => {
+      {data.ArchivedJobs.map(elem =>{
 
-        let datecreated = Date(elem.date_created)
-        let startdate = Date(elem.start_date);
-        let enddate = Date(elem.end_date);
 
-        return (
-          <ScrollView>
-            <View>
-              <Text key={elem.id}>{elem.title}</Text>
-              <Text >{datecreated}</Text>
-              <Text >{startdate}</Text>
-              <Text >{enddate}</Text>
-              <Text >{elem.address}</Text>
-              <Text >{elem.city}</Text>
-              <Text >{elem.province}</Text>
-              <Text >{elem.availability}</Text>
-              <Text >{elem.hourly_rate}</Text>
-              <Text >{elem.gender_pref}</Text>
-            </View>
-          </ScrollView>
 
-        )
+        let date = new Date(parseInt(elem.date_created));
+        let options = {
+          month: 'long', year: 'numeric', day: 'numeric',
+          };
+        let dateCreated = date.toLocaleDateString('en', options);
 
-      })}
+        let newDate = new Date(parseInt(elem.start_date));
+        let startDate = newDate.toLocaleDateString('en',options)
+ 
+
+  return(
+    <ScrollView>
+
+    <Text style={styles.AppText}>Receiving Applicants (num)</Text>
+<View style={styles.MainView}>
+      <Card >
+        <View>
+          <Text style={styles.DateText}> Posted {dateCreated}</Text>
+          <Text key = {elem.id} style={styles.JobText}> {elem.title}</Text>
+        </View>
+        
+        <View style={styles.JobInfo}>
+          <Text style={{fontSize: 16}}> Starts {startDate}</Text>
+          <Text style={{fontSize: 16}}> ${elem.hourly_rate}/hr</Text>  
+        </View>
+       
+      </Card>
+
+      <Card>
+      <Button style={styles.Button}>
+        <Text style={styles.Archived}>0</Text>
+        <Text>Applicants</Text>
+        </Button>
+      </Card>
+
+</View>
     </ScrollView>
+    
+  )
+
+})}
+</ScrollView>
   )
 }
 
