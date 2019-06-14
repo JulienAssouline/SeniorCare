@@ -5,8 +5,6 @@ import PostJobTop from './PostJobTop'
 import BasicInformationBody from './BasicInformationBody'
 import PostJobBottomButtons from './PostJobBottomButtons'
 
-
-
 const BasicInformation = props => {
 
     let currentPosition = 1;

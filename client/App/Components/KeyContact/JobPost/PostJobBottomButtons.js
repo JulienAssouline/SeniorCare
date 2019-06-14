@@ -3,7 +3,6 @@ import { View } from 'react-native'
 import { Button } from 'react-native-elements'
 import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 
-
 const PostJobBottomButtons = props => {
     return (
         <View>

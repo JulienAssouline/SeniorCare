@@ -1,8 +1,6 @@
 import React from 'react'
 import { ScrollView, Text } from 'react-native'
-
 import { Button } from 'react-native-elements'
-
 
 export default Overview = props => {
 	const handleGoToSeniorDetails = async () => {

@@ -10,6 +10,9 @@ const PostJobTop = props => {
             <StepIndicator
                 customStyles={styles}
                 currentPosition={props.currentPosition}
+                stepCount={props.stepCount}
+                // labels={labels}
+
                 stepCount={4}
             // labels={labels}
             />
