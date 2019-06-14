@@ -4,9 +4,7 @@ import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 import Slider from '@react-native-community/slider';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 import { Formik } from 'formik';
-// import { Button, Form} from '@ant-design/react-native';
-import { Button } from '@ant-design/react-native'
-import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 
 
 const BasicInformationBody = props => {
@@ -139,9 +137,9 @@ const BasicInformationBody = props => {
                                 {/* {errors.password && touched.password && errors.password} */}
                                 <Button 
                                     // disabled={isSubmitting}
-                                    onPress={handleSubmit}>
-                                        Submit
-                                </Button>   
+                                    title="Submit"
+                                    onPress={handleSubmit}
+                                />   
                             </View>
                         )}
                     </Formik>
