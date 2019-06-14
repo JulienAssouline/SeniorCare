@@ -1,12 +1,24 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, {useState} from 'react'
+import { View, Text, TextInput } from 'react-native'
 import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 import Slider from '@react-native-community/slider';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
+import { Formik } from 'formik';
+// import { Button, Form} from '@ant-design/react-native';
+import { Button } from '@ant-design/react-native'
+import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 
 const BasicInformationBody = props => {
     
     let body;
+
+    const [valuesStore, setValues] = useState({})
+
+    const submitValues = (values) => {
+        setValues(values)
+        props.currentPosition = 3;
+        console.log('values in submitValues', values)
+    }
 
     if (props.currentPosition === 0) {
         body =  <View><Text>What is the title of this job?</Text></View>
@@ -50,7 +62,89 @@ const BasicInformationBody = props => {
                     />
                 </View>
     } else if (props.currentPosition === 2) {
-        body =  <View><Text>Where will the service take place?</Text></View>
+        body =  <View>
+                    <Text>Where will the service take place?</Text>
+                    <Formik
+                        initialValues={{ address: '', city: '', province: '', postalCode: '' }}
+                        //onSubmit={values => console.log(values)}
+                        onSubmit={values => submitValues(values)}
+                        // validate={values => {
+                        //     let errors = {};
+                        //     if (!values.email) {
+                        //     errors.email = 'Required';
+                        //     } else if (
+                        //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                        //     ) {
+                        //     errors.email = 'Invalid email address';
+                        //     }
+                        //     return errors;
+                        // }}
+                        // onSubmit={(values, { setSubmitting }) => {
+                        //     setTimeout(() => {
+                        //     alert(JSON.stringify(values, null, 2));
+                        //     setSubmitting(false);
+                        //     }, 400);
+                        // }}
+                        >
+                        {({
+                            values,
+                            errors,
+                            touched,
+                            handleChange,
+                            handleBlur,
+                            handleSubmit,
+                            isSubmitting,
+                        }) => (
+                            <View>
+                                <Text>Address</Text>
+                                <TextInput
+                                    type="text"
+                                    name="address"
+                                    onChangeText={handleChange('address')}
+                                    onBlur={handleBlur}
+                                    value={values.address}
+                                />
+                                 {/* <TextInput
+                                    onChangeText={props.handleChange('email')}
+                                    onBlur={props.handleBlur('email')}
+                                    value={props.values.email}
+                                /> */}
+                                {/* {errors.email && touched.email && errors.email} */}
+                                <Text>City</Text>
+                                <TextInput
+                                    type="text"
+                                    name="city"
+                                    onChangeText={handleChange('city')}
+                                    onBlur={handleBlur}
+                                    value={values.city}
+                                />
+                                <Text>Province</Text>
+                                <TextInput
+                                    type="text"
+                                    name="province"
+                                    onChangeText={handleChange('province')}
+                                    onBlur={handleBlur}
+                                    value={values.province}
+                                />
+                                <Text>Postal Code</Text>
+                                    <TextInput
+                                    type="text"
+                                    name="postalCode"
+                                    onChangeText={handleChange('postalCode')}
+                                    onBlur={handleBlur}
+                                    value={values.postalCode}
+                                />
+                                <Text></Text>
+                                {/* {errors.password && touched.password && errors.password} */}
+                                <Button 
+                                    // disabled={isSubmitting}
+                                    onPress={handleSubmit}>
+                                        Submit
+                                </Button>   
+                            </View>
+                        )}
+                    </Formik>
+                </View>
     } else if (props.currentPosition === 3) {
         body =  <View>
                     <Text>The hourly rate is</Text>

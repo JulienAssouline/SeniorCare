@@ -9,7 +9,7 @@ import { Button } from '@ant-design/react-native';
 
 const BasicInformation = props => {
     
-    let currentPosition = 1;
+    let currentPosition = 2;
 
     return (
         <ScrollView>
