@@ -6,22 +6,22 @@ import { createStackNavigator } from 'react-navigation'
 import SearchScreen from '../../Components/Search/SearchScreen'
 
 export const SearchStack = createStackNavigator(
-    {
-      Search: { screen: SearchScreen },
+  {
+    Search: { screen: SearchScreen },
+  },
+  {
+    defaultNavigationOptions: {
+      title: 'Search',
+      headerTintColor: '#000',
+      headerTitleStyle: { color: '#000', fontFamily: 'SFProText-Light' },
+      headerStyle: {
+        color: '#000',
+        backgroundColor: '#f8f8f8'
+      },
     },
-    {
-      defaultNavigationOptions: {
-        title: 'Job Dashboard',
-        headerTintColor: '#000',
-        headerTitleStyle: { color: '#000', fontFamily: 'SFProText-Light' },
-        headerStyle: {
-          color: '#000',
-          backgroundColor: 'transparent'
-        },
-      },
-      navigationOptions: {
-        tabBarLabel: 'Search',
-      },
-    }
-  )
+    navigationOptions: {
+      tabBarLabel: 'Search',
+    },
+  }
+)
 
