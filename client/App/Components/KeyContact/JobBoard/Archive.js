@@ -1,12 +1,10 @@
 import React from 'react'
 import { Text, ScrollView, View } from 'react-native'
-import { Card } from 'react-native-elements';
+import { Button, Card } from 'react-native-elements';
 
 import gql from 'graphql-tag'
 import { useQuery } from 'react-apollo-hooks'
 import styles from '../../Styles/JobDashboardScreen/ArchiveScreenStyles'
-import { Button } from '@ant-design/react-native';
-
 
 const ARCHIVED_JOBS = gql `
   query{
@@ -73,10 +71,11 @@ console.log('hellllo',data.ArchivedJobs)
       </Card>
 
       <Card>
-      <Button style={styles.Button}>
-        <Text style={styles.Archived}>0</Text>
-        <Text>Applicants</Text>
-        </Button>
+				<Button
+					style={styles.Button}
+					title={0, 'Applicants'}
+					titleStyle={styles.Archived}
+				/>
       </Card>
 
 </View>

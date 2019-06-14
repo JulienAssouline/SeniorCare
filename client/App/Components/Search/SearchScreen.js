@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { ScrollView, Text, View } from 'react-native'
-import { Button } from '@ant-design/react-native';
-import { useQuery } from 'react-apollo-hooks';
+import { useQuery } from 'react-apollo-hooks'
 import gql from "graphql-tag";
 import styles from "../Styles/searchStyles/searchStyles"
-import StarRating from 'react-native-star-rating';
 import Ratings from "./Ratings"
 import calcAge from "../utils/calcAge"
-import { Avatar } from 'react-native-elements';
+import { Avatar } from 'react-native-elements'
 
 const GET_CAREGIVERS = gql`
    {
