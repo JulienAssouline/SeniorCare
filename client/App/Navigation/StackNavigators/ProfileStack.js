@@ -3,8 +3,8 @@ import { createStackNavigator } from 'react-navigation'
 
 //import ProfileScreen from '../../Components/KeyContact/JobDashboard/JobDashboardScreen'
 import { SignUpScreen } from './SignUpStack';
-import ProfileScreen from '../../Components/KeyContact/Profile/ProfileScreen'
-import Senior from '../../Components/KeyContact/Profile/Senior/Senior'
+import ProfileScreen from '../../Components/Profile/ProfileScreen'
+import Senior from '../../Components/Profile/Senior/Senior'
 
 export const ProfileStack = createStackNavigator(
   {
