@@ -1,13 +1,18 @@
 import React from 'react'
 import { createStackNavigator } from 'react-navigation'
 
-// import { SignUpScreen } from './SignUpStack';
-import ProfileScreen from '../../Components/Profile/ProfileScreen'
 
+import ProfileScreen from '../../Components/KeyContact/Profile/ProfileScreen'
+import Senior from '../../Components/KeyContact/Profile/Senior/Senior'
 
 export const ProfileStack = createStackNavigator(
   {
-    Profile: { screen: ProfileScreen },
+    Profile: { 
+      screen: ProfileScreen 
+    },
+    Seniors: {
+      screen: Senior
+    }
 
   },
 

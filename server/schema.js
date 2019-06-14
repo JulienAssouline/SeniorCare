@@ -5,12 +5,34 @@ module.exports = gql`
     getCaregiver: [QueryGetCaregiver]
 		placeholderApi: QueryPlaceholder
 		testDatabase: QueryPlaceholder
+    getKeyContactProfile(id: ID!): KeyContact
+    getSeniors: [QueryGetSenior]
 		ArchivedJobs(id:ID): [QueryArchiveJobs]
   }
 
   type QueryPlaceholder{
   	id: ID
   }
+
+  type KeyContact {
+    id: ID
+    fullname: String
+    avatar: String
+    getSeniors: [QueryGetSenior]
+  }
+ 
+  type QueryGetSenior {
+		id: ID
+		fullname: String
+		date_created: String
+		birthdate: String 
+		gender: String
+		relation: String
+		language: String
+    medical_condition: String
+    bio: String
+    avatar: String
+	}
 
 	type QueryGetCaregiver {
 		id: ID
