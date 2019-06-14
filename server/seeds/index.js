@@ -127,7 +127,7 @@ const seniorSeeds = [
 	},
 	{
 		fullname: 'Vaughn',
-		key_contact_id: 1,
+		key_contact_id: 2,
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'male'
 	},
@@ -138,7 +138,7 @@ const JobPostings = [
 		key_contact_id: 1,
 		date_created: '2001-06-22 19:10:25-07',
 		title: "Take Care of Mom",
-		start_date:"2001-06-22 19:10:25-07",
+		start_date:"2001-07-22 19:10:25-07",
 		end_date:"2001-06-22 19:10:25-07",
 		address:'',
 		city:'',
