@@ -7,6 +7,7 @@ module.exports = gql`
 		testDatabase: QueryPlaceholder
     getKeyContactProfile(id: ID!): KeyContact
     getSeniors: [QueryGetSenior]
+		ArchivedJobs(id:ID): [QueryArchiveJobs]
   }
 
   type QueryPlaceholder{
@@ -45,6 +46,27 @@ module.exports = gql`
     availability: String
     average_rating: Float
     avatar: String
+	}
+
+	type QueryArchiveJobs {
+		id: ID
+		key_contact_id: ID
+		date_created: String
+		title: String
+		start_date: String 
+		end_date: String
+		address: String
+		city:String
+    province:String
+    postal_code:String
+    availability:String
+    hourly_rate:Int
+    gender_pref:String
+    req_drivers_license: Boolean,
+    cig_smoking: Boolean,
+    pets: Boolean,
+    cannabis: Boolean
+
 	}
 
 	type Mutation {

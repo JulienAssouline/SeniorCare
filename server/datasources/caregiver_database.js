@@ -16,7 +16,8 @@ class CaregiverDatabase extends DataSource {
     try {
     // this.context.postgres
       const selectCaregiver = {
-        text: "SELECT * FROM seniorcare.caregiver",
+        text: "SELECT * FROM seniorcare.caregiver WHERE key_contact_id = $1	",
+        input:[ key_contact ]
       }
 
       const result = await this.context.postgres.query(selectCaregiver)

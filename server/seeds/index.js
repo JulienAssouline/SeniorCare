@@ -120,8 +120,8 @@ const seniorSeeds = [
 		gender: 'male'
 	},
 	{
-		fullname: 'Erien',
-		key_contact_id: 2,
+		fullname: 'Eirian',
+		key_contact_id: 1,
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'female'
 	},
@@ -131,6 +131,27 @@ const seniorSeeds = [
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'male'
 	},
+]
+
+const JobPostings = [
+  {
+		key_contact_id: 1,
+		date_created: '2001-06-22 19:10:25-07',
+		title: "Take Care of Mom",
+		start_date:"2001-07-22 19:10:25-07",
+		end_date:"2001-06-22 19:10:25-07",
+		address:'',
+		city:'',
+		province:'',
+		postal_code :'',
+		availability:'',
+		hourly_rate: 12,
+		gender_pref:'female',
+		req_drivers_license:true,
+		cig_smoking:false,
+		pets: true,
+		cannabis: true
+  },
 ]
 
 const seed = async () => {
@@ -165,6 +186,15 @@ const seed = async () => {
           squel
             .insert()
             .into('seniorcare.senior')
+            .setFields(seed)
+            .toParam()
+        )
+			),
+			JobPostings.map(seed =>
+        pg.query(
+          squel
+            .insert()
+            .into('seniorcare.job_posting')
             .setFields(seed)
             .toParam()
         )
