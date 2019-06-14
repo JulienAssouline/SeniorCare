@@ -13,7 +13,7 @@ export const MessagesStack = createStackNavigator(
       headerTitleStyle: { color: '#000', fontFamily: 'SFProText-Light' },
       headerStyle: {
         color: '#000',
-        backgroundColor: 'transparent'
+        backgroundColor: '#f8f8f8'
       },
     },
     navigationOptions: {

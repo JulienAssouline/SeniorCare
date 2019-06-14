@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import { Button } from '@ant-design/react-native';
 import StepIndicator from 'react-native-step-indicator';
 import styles from '../../Styles/JobDashboardScreen/PostJobStyle'
 
@@ -12,7 +11,7 @@ const PostJobTop = props => {
                 customStyles={styles}
                 currentPosition={props.currentPosition}
                 stepCount={4}
-                // labels={labels}
+            // labels={labels}
             />
         </View>
     )

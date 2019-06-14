@@ -1,0 +1,8 @@
+{
+	"auth": {
+		"seniorcareaws106871de8": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
