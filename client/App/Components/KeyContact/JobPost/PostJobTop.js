@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import StepIndicator from 'react-native-step-indicator';
+import StepIndicator from 'react-native-step-indicator'
 import styles from '../../Styles/JobDashboardScreen/PostJobStyle'
 
 const PostJobTop = props => {
