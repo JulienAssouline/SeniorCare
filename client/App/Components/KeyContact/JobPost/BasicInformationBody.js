@@ -6,7 +6,6 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 import { Formik } from 'formik';
 import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 
-
 const BasicInformationBody = props => {
 
     let body;
