@@ -14,7 +14,7 @@ const BasicInformationBody = props => {
 
     const submitValues = (values) => {
         setValues(values)
-        props.currentPosition = 3;
+        //props.currentPosition = 3;
         console.log('values in submitValues', values)
     }
 
@@ -156,6 +156,7 @@ const BasicInformationBody = props => {
                 maximumValue={500}
                 minimumTrackTintColor="#000000"
                 maximumTrackTintColor="#000000"
+                onSlidingComplete={value => console.log('slider value: ', value)}
             />
         </View>
     }

@@ -6,8 +6,8 @@ import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 const PostJobBottomButtons = props => {
     return (
         <View>
-            <Button title="Back" type='primary' />
-            <Button title="Next" type='primary' />
+            <Button title="Back" type='solid' />
+            <Button title="Next" type='solid' />
         </View>
     )
 }
