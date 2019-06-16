@@ -1,8 +1,14 @@
 const initialState = {
-  address: 'Test Address in Redux State'
+  address: ''
 }
 
 const reducer = (state = initialState, action )  => {
+  if(action.type === 'ADDRESS') {
+    return {
+      address: action.val
+    }
+  }
+
   return state
 }
 

@@ -43,8 +43,8 @@ const BasicInformationBody = props => {
 		}	
 
     const submitAddressValues = (values) => {
-        setAddressValues(values)
-        //props.currentPosition = 3;
+        //setAddressValues(values)
+        
         console.log('values in submitAddressValues', values)
     }
 
@@ -164,7 +164,8 @@ const BasicInformationBody = props => {
                 postalCode: ""
               }}
               //onSubmit={values => console.log(values)}
-              onSubmit={values => submitAddressValues(values)}
+              //onSubmit={values => submitAddressValues(values)}
+              onSubmit={values => props.onAddressUpdate(values)}
               // validate={values => {
               //     let errors = {};
               //     if (!values.email) {
@@ -276,4 +277,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(BasicInformationBody)
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddressUpdate: (values) => dispatch({type: 'ADDRESS', val: values.address})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BasicInformationBody)
