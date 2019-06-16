@@ -7,7 +7,7 @@ const MessagesScreen = () => {
   return (
     <ScrollView style={styles.MainContainer}>
       <Text style={styles.ExempleText}>This is MessagesScreen!</Text>
-      <Button title='I am cool' type="primary" style={styles.ExempleButton} />
+      <Button title='I am cool' type="solid" style={styles.ExempleButton} />
     </ScrollView>
   )
 }

@@ -15,14 +15,14 @@ export default Overview = props => {
 			<Text>Job Overview</Text>
 			<Button
 				title="Go to Senior Details"
-				type='primary'
+				type='solid'
 				onPress={handleGoToSeniorDetails}
 			/>
 
 
 			<Button
 				title="	Go to Job Post Basic Information"
-				type='primary'
+				type='solid'
 				onPress={handleBasicInformation}
 			/>
 
