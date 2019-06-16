@@ -20,38 +20,38 @@ const BasicInformationBody = props => {
 		// let startDateString = 'Start Date';
 		// let endDate = 'End Date';
 
-		const [valueTitleStore, setTitleValue] = useState(0)
+		// const [valueTitleStore, setTitleValue] = useState(0)
 		const [calendarButtonIndex, setCalendarButtonIndex] = useState(0)
-		const [startDayStore, setStartDate] = useState('')
-    const [valuesAddressStore, setAddressValues] = useState({})
-    const [valueRateStore, setRate] = useState(0)
+		// const [startDayStore, setStartDate] = useState('')
+    // const [valuesAddressStore, setAddressValues] = useState({})
+    // const [valueRateStore, setRate] = useState(0)
 
-		const submitTitleValue = (value) => {
-			setTitleValue(value)
-			console.log('value of title in submitTitleValue ', value);
-		}
+		// const submitTitleValue = (value) => {
+		// 	setTitleValue(value)
+		// 	console.log('value of title in submitTitleValue ', value);
+		// }
 
 		const updateIndex = (selectedIndex) => {
 			setCalendarButtonIndex(selectedIndex)
 		}
 
-		const submitStartDate = (dateString) => {
-      let date = moment(dateString).format('MMMM DD')
-      console.log('date is ', date)
-      setStartDate(date)
-			//console.log('value of start date in submitDayStart', dateString)
-		}	
+		// const submitStartDate = (dateString) => {
+    //   let date = moment(dateString).format('MMMM DD')
+    //   console.log('date is ', date)
+    //   setStartDate(date)
+		// 	//console.log('value of start date in submitDayStart', dateString)
+		// }	
 
-    const submitAddressValues = (values) => {
-        //setAddressValues(values)
+    // const submitAddressValues = (values) => {
+    //     //setAddressValues(values)
         
-        console.log('values in submitAddressValues', values)
-    }
+    //     console.log('values in submitAddressValues', values)
+    // }
 
-    const submitRateValue = (value) => {
-        setRate(value)
-        console.log('value in valueRateStore', value)
-		}
+    // const submitRateValue = (value) => {
+    //     setRate(value)
+    //     console.log('value in valueRateStore', value)
+		// }
 
     if (props.currentPosition === 0) {
         body = 
@@ -60,7 +60,8 @@ const BasicInformationBody = props => {
           <Formik
 						initialValues={{ title: '' }}
 						//onSubmit={values => console.log(values)}
-						onSubmit={values => submitTitleValue(values)}
+            // onSubmit={values => submitTitleValue(values)}
+            onSubmit={values => props.onTitleUpdate(values)}
 						// validate={values => {
 						//     let errors = {};
 						//     if (!values.email) {
@@ -96,7 +97,7 @@ const BasicInformationBody = props => {
 									onBlur={handleBlur}
 									value={values.title}
 								/>
-								<Text></Text>
+								<Text>Redux state: {props.title}</Text>
 								<Button 
 									// disabled={isSubmitting}
 									title="Submit"
@@ -124,9 +125,10 @@ const BasicInformationBody = props => {
 						// Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
 						// maxDate={'2012-05-30'}
 						// Handler which gets executed on day press. Default = undefined
-						onDayPress={(day) => { submitStartDate(day.dateString) }}
+            // onDayPress={(day) => { submitStartDate(day.dateString) }}
+            onDayPress={(day) => props.onStartDateUpdate(day) }
 						// Handler which gets executed on day long press. Default = undefined
-						onDayLongPress={(day) => { submitStartDate(day.dateString) }}
+						onDayLongPress={(day) => props.onStartDateUpdate(day) }
 						// Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
 						monthFormat={'MMMM yyyy'}
 						// Handler which gets executed when visible month changes in calendar. Default = undefined
@@ -151,6 +153,7 @@ const BasicInformationBody = props => {
 						// Handler which gets executed when press arrow icon left. It receive a callback can go next month
 						onPressArrowRight={addMonth => addMonth()}
 						/>
+            <Text>Redux state: {props.startDate}</Text>
         	</View>
     } else if (props.currentPosition === 2) {
         body = (
@@ -234,7 +237,7 @@ const BasicInformationBody = props => {
                   />
                   <Text />
                   {/* {errors.password && touched.password && errors.password} */}
-                  <Text>Address in Redux State: {props.address}</Text>
+                  <Text>Redux State: {props.address} {props.city} {props.postalCode} {props.province}</Text>
                   <Button
                     // disabled={isSubmitting}
                     title="Submit"
@@ -253,15 +256,17 @@ const BasicInformationBody = props => {
 				<View>
 					<Text>The hourly rate is</Text>
 					<Text>*Minimum wage varies per province/territory in Canada</Text>
-					<Text>${Math.round(valueRateStore)}</Text>
+					<Text>${Math.round(props.rate)}</Text>
 					<Slider
 							// style={{width: 200, height: 40}}
 							minimumValue={minimumRate}
 							maximumValue={maximumRate}
 							minimumTrackTintColor="#000000"
 							maximumTrackTintColor="#000000"
-							onSlidingComplete={value => submitRateValue(value)}
+              // onSlidingComplete={value => submitRateValue(value)}
+              onSlidingComplete={value => props.onRateUpdate(value)}
 					/>
+          <Text>Redux state: {props.rate}</Text>
 					<Text>${Math.round(minimumRate)}</Text>
         </View>
     }
@@ -273,13 +278,22 @@ const BasicInformationBody = props => {
 
 const mapStateToProps = state => {
   return {
-    address: state.address
+    address: state.address,
+    city: state.city,
+    postalCode: state.postalCode,
+    province: state.province,
+    title: state.title,
+    startDate: state.startDate,
+    rate: state.rate
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddressUpdate: (values) => dispatch({type: 'ADDRESS', val: values.address})
+    onAddressUpdate: (values) => dispatch({type: 'ADDRESS', payload: values}),
+    onTitleUpdate: (values) => dispatch({type: 'TITLE', payload: values}),
+    onStartDateUpdate: (day) => dispatch({type: 'STARTDATE', payload: day.dateString}),
+    onRateUpdate: (value) => dispatch({type: 'RATE', payload: value})
   }
 }
 
