@@ -8,6 +8,8 @@ import { Button, ButtonGroup, FormLabel, FormInput, FormValidationMessage } from
 import Reactotron from 'reactotron-react-native'
 import moment from 'moment';
 
+import { connect } from 'react-redux'
+
 const BasicInformationBody = props => {
 
     const minimumRate = 14
@@ -231,6 +233,7 @@ const BasicInformationBody = props => {
                   />
                   <Text />
                   {/* {errors.password && touched.password && errors.password} */}
+                  <Text>Address in Redux State: {props.address}</Text>
                   <Button
                     // disabled={isSubmitting}
                     title="Submit"
@@ -242,7 +245,7 @@ const BasicInformationBody = props => {
           </View>
         );
 
-        body = <View><Text>Where will the service take place?</Text></View>
+        // body = <View><Text>Where will the service take place?</Text></View>
 
     } else if (props.currentPosition === 3) {
         body = 
@@ -267,4 +270,10 @@ const BasicInformationBody = props => {
     )
 }
 
-export default BasicInformationBody
+const mapStateToProps = state => {
+  return {
+    address: state.address
+  }
+}
+
+export default connect(mapStateToProps)(BasicInformationBody)

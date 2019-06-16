@@ -1,5 +1,5 @@
 const initialState = {
-  address: ''
+  address: 'Test Address in Redux State'
 }
 
 const reducer = (state = initialState, action )  => {
