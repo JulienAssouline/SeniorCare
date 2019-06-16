@@ -6,6 +6,7 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 import { Formik } from 'formik';
 import { Button, ButtonGroup, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 import Reactotron from 'reactotron-react-native'
+import moment from 'moment';
 
 const BasicInformationBody = props => {
 
@@ -14,12 +15,12 @@ const BasicInformationBody = props => {
 
 		let body;
 		
-		let startDate = '';
-		let endDate = '';
+		// let startDateString = 'Start Date';
+		// let endDate = 'End Date';
 
 		const [valueTitleStore, setTitleValue] = useState(0)
 		const [calendarButtonIndex, setCalendarButtonIndex] = useState(0)
-		const [startDayStore, setStartDate] = useState({})
+		const [startDayStore, setStartDate] = useState('')
     const [valuesAddressStore, setAddressValues] = useState({})
     const [valueRateStore, setRate] = useState(0)
 
@@ -32,9 +33,11 @@ const BasicInformationBody = props => {
 			setCalendarButtonIndex(selectedIndex)
 		}
 
-		const submitStartDate = (day) => {
-			setStartDate(day)
-			console.log('value of start date in submitDayStart', day)
+		const submitStartDate = (dateString) => {
+      let date = moment(dateString).format('MMMM DD')
+      console.log('date is ', date)
+      setStartDate(date)
+			//console.log('value of start date in submitDayStart', dateString)
 		}	
 
     const submitAddressValues = (values) => {
@@ -104,11 +107,11 @@ const BasicInformationBody = props => {
     } else if (props.currentPosition === 1) {
         body = 
 				<View>
-          {Reactotron.log('hello rendering world')}
+          {/* {Reactotron.log('hello rendering world')} */}
 					<ButtonGroup
 						onPress={updateIndex}
 						selectedIndex={calendarButtonIndex}
-						buttons={[startDate, endDate]}
+						buttons={['Start date ' + startDayStore, 'End Date']}
 						// containerStyle={{height: 100}}
 					/>
 					<Calendar
@@ -119,11 +122,11 @@ const BasicInformationBody = props => {
 						// Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
 						// maxDate={'2012-05-30'}
 						// Handler which gets executed on day press. Default = undefined
-						onDayPress={(day) => { submitStartDate(day) }}
+						onDayPress={(day) => { submitStartDate(day.dateString) }}
 						// Handler which gets executed on day long press. Default = undefined
-						onDayLongPress={(day) => { submitStartDate(day) }}
+						onDayLongPress={(day) => { submitStartDate(day.dateString) }}
 						// Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
-						monthFormat={'yyyy MM'}
+						monthFormat={'MMMM yyyy'}
 						// Handler which gets executed when visible month changes in calendar. Default = undefined
 						onMonthChange={(month) => { console.log('month changed', month) }}
 						// Hide month navigation arrows. Default = false
