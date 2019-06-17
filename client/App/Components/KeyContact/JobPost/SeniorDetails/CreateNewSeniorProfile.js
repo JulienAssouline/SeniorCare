@@ -1,13 +1,20 @@
 import React, { useState } from 'react'
 import { ScrollView, Text, View } from 'react-native'
-import { Button, Input } from 'react-native-elements'
 
 import { Formik } from 'formik'
 
 import PostJobTop from '../PostJobTop'
 import PostJobBottomButtons from '../PostJobBottomButtons'
+import SeniorName from './SeniorName'
+import SeniorGender from './SeniorGender';
+import SeniorBirthdate from './SeniorBirthdate';
+import SeniorRelation from './SeniorRelation';
+import SeniorBio from './SeniorBio';
+import SeniorMedicalCondition from './SeniorMedicalCondition';
+import SeniorLanguage from './SeniorLanguage';
+import SeniorUploadAvatar from './SeniorUploadAvatar';
 
-import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+import { defaultStyles } from '../../../Styles/PostJob/SeniorDetailsStyles'
 
 export default CreateNewSeniorProfile = props => {
 	const [formPosition, setFormPosition] = useState(0)
@@ -16,14 +23,14 @@ export default CreateNewSeniorProfile = props => {
 		seniorName: '',
 		gender: '',
 		birthdate: '',
-		
+		relationship: '',
 		bio: '',
 		medicalCondition: '',
 		language: '',
 	}
 	
 	return (
-		<ScrollView>
+		<ScrollView style={defaultStyles.background}>
 			<PostJobTop
 				title="Senior's Profile"
 				currentPosition={formPosition}
@@ -58,129 +65,69 @@ export default CreateNewSeniorProfile = props => {
 				switch (formPosition) {
 					case 0:
 						return (
-							<View style={createSeniorProfile.mainContainer}>
-								<Text style={createSeniorProfile.question}>
-									What is the Senior's Name?
-								</Text>
-								<Input
-									placeholder='Angel'
-									value={values.seniorName}
-									onChangeText={handleChange('seniorName')}
-									onBlur={handleBlur}
-								/>
-							</View>
+							<SeniorName
+								values={values}
+								handleChange={handleChange}
+								handleBlur={handleBlur}
+							/>
 						)
 
 					case 1:
 						return (
-							<View style={createSeniorProfile.mainContainer}>
-								<Text style={createSeniorProfile.question}>
-									What is {values.seniorName} Gender?
-								</Text>
-								<Button
-									title='Female'
-									type='outline'
-									onPress={() => setFieldValue('gender', 'female')}
-								/>
-								<Button
-									title='Male'
-									type='outline'
-									onPress={() => setFieldValue('gender', 'male')}
-								/>
-								<Button
-									title='Other'
-									type='outline'
-									onPress={() => setFieldValue('gender', 'female')}
-								/>
-							</View>
+							<SeniorGender
+								values={values}
+								setFieldValue={setFieldValue}
+							/>
 						)
 
 					case 2:
 						return (
-							<View style={createSeniorProfile.mainContainer}>
-								<Text style={createSeniorProfile.question}>
-									When is {values.seniorName}'s birth date?
-								</Text>
-								<Text>Page 3</Text>
-							</View>
+							<SeniorBirthdate
+								values={values}
+							/>
 						)
 
 					case 3:
 						return (
-							<View style={createSeniorProfile.mainContainer}>
-								<Text style={createSeniorProfile.question}>
-									What is your relationship to {values.seniorName}?
-								</Text>
-								<Input
-									placeholder='Daughter/Friend/Neighbour'
-									value={values.relationship}
-									onChangeText={handleChange('relationship')}
-									onBlur={handleBlur}
-								/>
-							</View>
+							<SeniorRelation
+								values={values}
+								handleChange={handleChange}
+								handleBlur={handleBlur}
+							/>
 						)
 
 					case 4:
 						return (
-							<View style={createSeniorProfile.mainContainer}>
-								<Text style={createSeniorProfile.question}>
-									Tell us more about {values.seniorName}!
-								</Text>
-								<Input
-									placeholder='Tell us anything! You can tell us about likes/dislikes or any activities they enjoy. We like to get a sense of personality.'
-									value={values.bio}
-									onChangeText={handleChange('bio')}
-									onBlur={handleBlur}
-								/>
-							</View>
+							<SeniorBio
+								values={values}
+								handleChange={handleChange}
+								handleBlur={handleBlur}
+							/>
 						)
 
 					case 5:
 						return (
-							<View style={createSeniorProfile.mainContainer}>
-								<Text style={createSeniorProfile.question}>
-									Are there any medical conditions to be aware of?
-								</Text>
-								<Input
-									placeholder='Tell us about any medical conditions that we need to be aware of.'
-									value={values.medicalCondition}
-									onChangeText={handleChange('medicalCondition')}
-									onBlur={handleBlur}
-								/>
-							</View>
+							<SeniorMedicalCondition
+								values={values}
+								handleChange={handleChange}
+								handleBlur={handleBlur}
+							/>
 						)
 
 					case 6:
 						return (
-							<View style={createSeniorProfile.mainContainer}>
-								<Text style={createSeniorProfile.question}>
-									Do you have any language Preferences?
-								</Text>
-								<Input
-									placeholder='Knows some English but mostly speaks french, etc.'
-									value={values.language}
-									onChangeText={handleChange('language')}
-									onBlur={handleBlur}
-								/>
-							</View>
+							<SeniorLanguage
+								values={values}
+								handleChange={handleChange}
+								handleBlur={handleBlur}
+							/>
 						)
 
 					case 7:
 						return (
-							<View style={createSeniorProfile.mainContainer}>
-								<Text style={createSeniorProfile.question}>
-									Please add a picture of {values.seniorName}.
-								</Text>
-								<Text>
-									Adding a picture helps complete your profile and increases your chances to be viewed.
-								</Text>
-								<Input
-									placeholder='Knows some English but mostly speaks french, etc.'
-									value={values.language}
-									onChangeText={handleChange('language')}
-									onBlur={handleBlur}
-								/>
-							</View>
+							<SeniorUploadAvatar
+								values={values}
+							/>
 						)
 				
 					default:
@@ -192,7 +139,7 @@ export default CreateNewSeniorProfile = props => {
 				}
 			}}
 			</Formik>
-			
+
 			<PostJobBottomButtons
 				navigation={props.navigation}
 			 	setFormPosition={setFormPosition}
