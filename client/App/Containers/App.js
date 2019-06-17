@@ -15,9 +15,13 @@ import AppContainer from './AppContainer'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
+import Reactotron from '../../ReactotronConfig'
+
 import reducer from '../Redux/Store/reducer'
 
-const store = createStore(reducer)
+//const store = createStore(reducer)
+
+const store = createStore(reducer, undefined, Reactotron.createEnhancer())
 
 const App = () => {
   return (

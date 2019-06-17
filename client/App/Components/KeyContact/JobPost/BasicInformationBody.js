@@ -5,7 +5,6 @@ import Slider from '@react-native-community/slider';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 import { Formik } from 'formik';
 import { Button, ButtonGroup, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
-import Reactotron from 'reactotron-react-native'
 import moment from 'moment';
 
 import { connect } from 'react-redux'
@@ -114,7 +113,7 @@ const BasicInformationBody = props => {
 					<ButtonGroup
 						onPress={updateIndex}
 						selectedIndex={calendarButtonIndex}
-						buttons={['Start date ' + startDayStore, 'End Date']}
+						buttons={['Start date ' + props.startDate, 'End Date']}
 						// containerStyle={{height: 100}}
 					/>
 					<Calendar
