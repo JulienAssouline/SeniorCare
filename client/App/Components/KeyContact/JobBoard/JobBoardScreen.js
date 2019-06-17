@@ -13,7 +13,6 @@ const JobBoardScreen = props => {
       <Text style={styles.ExempleText}>This is JobDashboardScreen!</Text>
       <Button
         title='Go to: Post a Job'
-        type='primary'
         style={styles.ExempleButton}
         onPress={handleGoToSeniorDetails}
       />
