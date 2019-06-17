@@ -5,7 +5,14 @@ const initialState = {
   postalCode: '',
   title: '',
   startDate: '',
-  rate: 0
+	rate: 0,
+	seniorName: '',
+	gender: '',
+	birthdate: new Date(),
+	relationship: '',
+	bio: '',
+	medicalCondition: '',
+	language: '',
 }
 
 const reducer = (state = initialState, action )  => {
@@ -32,6 +39,14 @@ const reducer = (state = initialState, action )  => {
       rate: action.payload.rate
     }
   }
+	switch (action.type) {
+		case 'SENIORNAME':
+			return {
+				seniorName: action.payload
+			}
+		// default:
+		// 	break;
+	}
 
   return state
 }

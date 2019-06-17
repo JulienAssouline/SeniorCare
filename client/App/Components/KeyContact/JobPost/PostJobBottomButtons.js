@@ -1,14 +1,14 @@
 import React from 'react'
 import { View } from 'react-native'
 import { Button } from 'react-native-elements'
-import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 
 const PostJobBottomButtons = props => {
-	const { setFormPosition } = props
+	const { setFormPosition, storeReduxFunction, storeReduxData } = props
 
 	const handleFormPosition = direction => {
 		direction ? 
 			setFormPosition(prevState => {
+				storeReduxFunction(storeReduxData)
 				return ++prevState
 			}) :
 			setFormPosition(prevState => {

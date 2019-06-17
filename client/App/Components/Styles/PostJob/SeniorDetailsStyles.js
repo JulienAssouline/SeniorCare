@@ -3,12 +3,6 @@ import { StyleSheet } from 'react-native'
 const basicBlueColor = '#244397'
 const multilineTextHeight = 300
 
-export const defaultStyles = StyleSheet.create({
-	background: {
-		backgroundColor: '#EEF5FB'
-	}
-})
-
 export const chooseProfile = StyleSheet.create({
 	mainContainer: {
 		marginVertical: 10,

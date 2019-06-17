@@ -3,18 +3,18 @@ import { ScrollView, Text, View } from 'react-native'
 
 import { Formik } from 'formik'
 
+import { backgroundStyles } from '../../../Styles/GeneralStyles'
+
 import PostJobTop from '../PostJobTop'
 import PostJobBottomButtons from '../PostJobBottomButtons'
 import SeniorName from './SeniorName'
-import SeniorGender from './SeniorGender';
-import SeniorBirthdate from './SeniorBirthdate';
-import SeniorRelation from './SeniorRelation';
-import SeniorBio from './SeniorBio';
-import SeniorMedicalCondition from './SeniorMedicalCondition';
-import SeniorLanguage from './SeniorLanguage';
-import SeniorUploadAvatar from './SeniorUploadAvatar';
-
-import { defaultStyles } from '../../../Styles/PostJob/SeniorDetailsStyles'
+import SeniorGender from './SeniorGender'
+import SeniorBirthdate from './SeniorBirthdate'
+import SeniorRelation from './SeniorRelation'
+import SeniorBio from './SeniorBio'
+import SeniorMedicalCondition from './SeniorMedicalCondition'
+import SeniorLanguage from './SeniorLanguage'
+import SeniorUploadAvatar from './SeniorUploadAvatar'
 
 export default CreateNewSeniorProfile = props => {
 	const [formPosition, setFormPosition] = useState(0)
@@ -22,7 +22,7 @@ export default CreateNewSeniorProfile = props => {
 	const initialFormValues = {
 		seniorName: '',
 		gender: '',
-		birthdate: '',
+		birthdate: new Date(),
 		relationship: '',
 		bio: '',
 		medicalCondition: '',
@@ -30,7 +30,7 @@ export default CreateNewSeniorProfile = props => {
 	}
 	
 	return (
-		<ScrollView style={defaultStyles.background}>
+		<ScrollView style={backgroundStyles.background}>
 			<PostJobTop
 				title="Senior's Profile"
 				currentPosition={formPosition}
@@ -69,6 +69,8 @@ export default CreateNewSeniorProfile = props => {
 								values={values}
 								handleChange={handleChange}
 								handleBlur={handleBlur}
+								setFormPosition={setFormPosition}
+								navigation={props.navigation}
 							/>
 						)
 
@@ -84,6 +86,7 @@ export default CreateNewSeniorProfile = props => {
 						return (
 							<SeniorBirthdate
 								values={values}
+								setFieldValue={setFieldValue}
 							/>
 						)
 
@@ -139,11 +142,6 @@ export default CreateNewSeniorProfile = props => {
 				}
 			}}
 			</Formik>
-
-			<PostJobBottomButtons
-				navigation={props.navigation}
-			 	setFormPosition={setFormPosition}
-			/>
 		</ScrollView>
 	)
 }

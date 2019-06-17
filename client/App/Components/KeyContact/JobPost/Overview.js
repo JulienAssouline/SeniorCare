@@ -10,6 +10,10 @@ export default Overview = props => {
 		props.navigation.navigate('BasicInformation')
 	}
 
+	const handleHouseDetails = () => {
+		props.navigation.navigate('HouseDetails')
+	}
+
 	return (
 		<ScrollView>
 			<Text>Job Overview</Text>
@@ -17,6 +21,12 @@ export default Overview = props => {
 				title="Go to Senior Details"
 				type='solid'
 				onPress={handleGoToSeniorDetails}
+			/>
+
+			<Button
+				title="Go to House Details"
+				type='solid'
+				onPress={handleHouseDetails}
 			/>
 
 			<Button

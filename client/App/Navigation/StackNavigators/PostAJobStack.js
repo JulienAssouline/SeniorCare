@@ -5,6 +5,8 @@ import SeniorDetails from '../../Components/KeyContact/JobPost/SeniorDetails/Sen
 import BasicInformation from '../../Components/KeyContact/JobPost/BasicInformation'
 import CreateNewSeniorProfile from '../../Components/KeyContact/JobPost/SeniorDetails/CreateNewSeniorProfile'
 
+import HouseDetails from '../../Components/KeyContact/JobPost/HouseDetails/HouseDetails'
+
 export const PostAJobStack = createSwitchNavigator(
 	{
 		JobPostSeniorDetails: {
@@ -18,7 +20,10 @@ export const PostAJobStack = createSwitchNavigator(
 		},
 		CreateNewSeniorProfile: {
 			screen: CreateNewSeniorProfile,
-		}
+		},
+		HouseDetails: {
+			screen: HouseDetails
+		},
 	},
 	{
 		// initialRouteName: 'Overview',
