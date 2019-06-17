@@ -14,13 +14,14 @@ export default Overview = props => {
 		<ScrollView>
 			<Text>Job Overview</Text>
 			<Button
-				title='Go to Senior Details'
+				title="Go to Senior Details"
+				type='solid'
 				onPress={handleGoToSeniorDetails}
 			/>
 
-
 			<Button
 				title="	Go to Job Post Basic Information"
+				type='solid'
 				onPress={handleBasicInformation}
 			/>
 
