@@ -1,6 +1,10 @@
+import { reactotronRedux } from 'reactotron-redux'
 import Reactotron from 'reactotron-react-native'
 
-Reactotron
-  .configure() // controls connection & communication settings
-  .useReactNative() // add all built-in react native plugins
-  .connect() // let's connect!
+
+const reactotron = Reactotron
+  .configure({ name: 'Senior Care' })
+  .use(reactotronRedux())
+  .connect()
+
+  export default reactotron

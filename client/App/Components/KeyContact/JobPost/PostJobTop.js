@@ -12,9 +12,7 @@ const PostJobTop = props => {
                 currentPosition={props.currentPosition}
                 stepCount={props.stepCount}
                 // labels={labels}
-
                 stepCount={4}
-            // labels={labels}
             />
         </View>
     )
