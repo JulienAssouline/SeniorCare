@@ -1,11 +1,39 @@
 import React from 'react'
-import { ScrollView, Text } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 
+import { Button } from 'react-native-elements'
 
-export default SeniorDetails = () => {
+import { chooseProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+
+export default SeniorDetails = props => {
+	const handleCreateNewProfile = () => {
+		props.navigation.navigate('CreateNewSeniorProfile')
+	}
+
 	return (
 		<ScrollView>
-			<Text>Senior Details</Text>
+			<View style={chooseProfile.mainContainer}>
+				<View style={chooseProfile.titleContainer}>
+					<Text style={chooseProfile.title}>Senior's Profile</Text>
+				</View>
+				<View style={chooseProfile.buttonContainer}>
+					<Button
+						type='outline'
+						title='Create new profile'
+						style={chooseProfile.button}
+						containerStyle={chooseProfile.buttonOuter}
+						titleStyle={chooseProfile.buttonText}
+						onPress={handleCreateNewProfile}
+					/>
+					<Button
+						type='outline'
+						title='Use existing profile'
+						style={chooseProfile.button}
+						containerStyle={chooseProfile.buttonOuter}
+						titleStyle={chooseProfile.buttonText}
+					/>
+				</View>
+			</View>
 		</ScrollView>
 	)
 }

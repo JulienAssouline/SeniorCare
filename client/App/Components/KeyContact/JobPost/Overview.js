@@ -4,7 +4,7 @@ import { Button } from 'react-native-elements'
 
 export default Overview = props => {
 	const handleGoToSeniorDetails = async () => {
-		props.navigation.navigate('PostAJobStack')
+		props.navigation.navigate('SeniorDetails')
 	}
 	const handleBasicInformation = () => {
 		props.navigation.navigate('BasicInformation')
@@ -18,7 +18,6 @@ export default Overview = props => {
 				type='solid'
 				onPress={handleGoToSeniorDetails}
 			/>
-
 
 			<Button
 				title="	Go to Job Post Basic Information"
