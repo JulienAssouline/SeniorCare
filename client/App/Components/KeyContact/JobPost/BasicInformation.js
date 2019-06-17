@@ -7,7 +7,7 @@ import PostJobBottomButtons from './PostJobBottomButtons'
 
 const BasicInformation = props => {
 
-    let currentPosition = 1 ;
+    let currentPosition = 2;
 
     return (
         <ScrollView>
