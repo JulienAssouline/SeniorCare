@@ -15,9 +15,6 @@ class CaregiverDatabase extends DataSource {
 
   async queryCaregiver(input) {
 
-   let gender = input.activeGender
-   let availability = input.availability
-
     try {
       const selectCaregiver = buildSelect(input)
 

@@ -10,6 +10,7 @@ import YearsExpFilter from "./YearsExpFilter"
 
 
 const SearchFilter = (props) => {
+  // TODO: improve performance
 
   const [filterObj, setFilterObj] = useState({gender: null, availability: null, hourly_rate: 17, years_experience: 5})
 

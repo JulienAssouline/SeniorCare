@@ -5,9 +5,17 @@ const buildSelect = (input) => {
     );
 
   const finalString = validKeys
-    .map((key, i) => `${key} = $${i + 1}`)
+    .map((key, i) => {
+      switch (key) {
+        case "hourly_rate":
+          return `${key} <= $${i + 1} AND ${key} >= 14`
+        case "years_experience":
+          return `${key} >= $${i + 1}`
+        default:
+          return `${key} = $${i + 1}`
+      }
+    })
     .join(" AND ")
-
 
   const queryValues = validKeys.map(key => input[key]);
 
