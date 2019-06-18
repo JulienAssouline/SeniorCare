@@ -12,10 +12,23 @@ import apolloClient from '../../apolloClient'
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks'
 import AppContainer from './AppContainer'
 
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+import Reactotron from '../../ReactotronConfig'
+
+import reducer from '../Redux/Store/reducer'
+
+//const store = createStore(reducer)
+
+const store = createStore(reducer, undefined, Reactotron.createEnhancer())
+
 const App = () => {
   return (
     <ApolloHooksProvider client={apolloClient}>
-      <AppContainer />
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
     </ApolloHooksProvider>
   )
 }
