@@ -7,7 +7,9 @@ const styles = StyleSheet.create({
   },
   MainView:{
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    margin: 20,
+    backgroundColor: "#FFFFFF",
   },
   AppText:{
     fontFamily: 'SFProText-Bold',
@@ -35,10 +37,6 @@ const styles = StyleSheet.create({
   Archived:{
     fontSize: 45, 
   },
-  Button:{
-    flex:1,
-    flexDirection: 'column',
-  }
   }
 )
 

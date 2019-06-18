@@ -74,6 +74,7 @@ module.exports = gql`
 		placeholderApi: MutationPlaceholder
 		signUp(input:SignUpObjects!): MessageResponse
 		login(input: LoginObject!): LoginResponse!
+		Delete(id:ID!):DeleteResponse!
 	}
 
 	input SignUpObjects{
@@ -100,6 +101,10 @@ module.exports = gql`
 
 	type MessageResponse {
   	message: String
+	}
+
+	type DeleteResponse{
+		message: String
 	}
 `
 
