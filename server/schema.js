@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express')
 
 module.exports = gql`
   type Query {
-    getCaregiver: [QueryGetCaregiver]
+    getCaregiver(input: FilterInput!): [QueryGetCaregiver]
 		placeholderApi: QueryPlaceholder
 		testDatabase: QueryPlaceholder
     getKeyContactProfile(id: ID!): KeyContact
@@ -20,12 +20,12 @@ module.exports = gql`
     avatar: String
     getSeniors: [QueryGetSenior]
   }
- 
+
   type QueryGetSenior {
 		id: ID
 		fullname: String
 		date_created: String
-		birthdate: String 
+		birthdate: String
 		gender: String
 		relation: String
 		language: String
@@ -33,12 +33,18 @@ module.exports = gql`
     bio: String
     avatar: String
 	}
+  input FilterInput {
+    gender: String
+    availability: String
+    hourly_rate: Int
+    years_experience: Int
+  }
 
 	type QueryGetCaregiver {
 		id: ID
 		fullname: String
 		location: String
-		years_experience: Int 
+		years_experience: Int
 		num_hired: Int
 		birthdate: String
 		hourly_rate: Int
@@ -53,7 +59,7 @@ module.exports = gql`
 		key_contact_id: ID
 		date_created: String
 		title: String
-		start_date: String 
+		start_date: String
 		end_date: String
 		address: String
 		city:String
@@ -79,13 +85,13 @@ module.exports = gql`
 
 	input SignUpObjects{
 		 fullname: String,
-		 email: String, 
+		 email: String,
 		 phonenumber:String,
 		 location:String,
 		 password: String,
 
 	}
-   
+
   input LoginObject {
     email: String!,
     password: String!,
