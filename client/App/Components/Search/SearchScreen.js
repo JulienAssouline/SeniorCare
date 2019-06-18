@@ -40,8 +40,6 @@ const SearchScreen = (props) => {
 
   if (data.getCaregiver.length === 0) { return (<Text> No Results Found </Text>)}
 
-    console.log(data.getCaregiver)
-
   data.getCaregiver.forEach((d,i) => {
     calcAge(d)
   })
