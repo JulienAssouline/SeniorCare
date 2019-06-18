@@ -1,7 +1,7 @@
 module.exports = {
   Query: {
 		async getCaregiver(parent, { input }, { dataSources }){
-			return await dataSources.caregiverDatabase.queryCaregiver()
+			return await dataSources.caregiverDatabase.queryCaregiver(input)
 		},
 
 		async placeholderApi(parent, { input }, { dataSources }){

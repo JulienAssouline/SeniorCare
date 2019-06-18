@@ -8,8 +8,8 @@ import calcAge from "../utils/calcAge"
 import { Avatar } from 'react-native-elements'
 
 const GET_CAREGIVERS = gql`
-   {
-    getCaregiver{
+   query GetCaregiver($input: FilterInput!) {
+    getCaregiver(input: $input){
       id
       fullname
       location
@@ -24,11 +24,17 @@ const GET_CAREGIVERS = gql`
   }
 `;
 
-const SearchScreen = () => {
+const SearchScreen = (props) => {
+
+  let filterObj = {};
+
+  if (props.navigation.getParam('filterObj') !== undefined) {
+    filterObj = props.navigation.getParam('filterObj');
+  }
 
   const [starCount, setStarCount] = useState(0)
 
-  const {data, error, loading} = useQuery(GET_CAREGIVERS)
+  const {data, error, loading} = useQuery(GET_CAREGIVERS, {variables: { input: filterObj }})
 
   if (data.getCaregiver === undefined) { return (<Text> ...loading </Text>)}
 
