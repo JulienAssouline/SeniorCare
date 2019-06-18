@@ -1,5 +1,5 @@
-import React from 'react'
-import { Text, ScrollView, View } from 'react-native'
+import React, {useEffect} from 'react'
+import { Text, ScrollView, View, ActionSheetIOS } from 'react-native'
 import { Button, Card } from 'react-native-elements';
 
 import gql from 'graphql-tag'
@@ -26,8 +26,36 @@ const ARCHIVED_JOBS = gql `
 
 const ArchiveScreen = (props) =>{
 
+  useEffect(() => {
+    props.navigation.setParams({
+        headerTitle: 'words',
+        headerRight: (
+          <Button
+            onPress={() => alert('This is a button!')}
+            title="Info"
+            color="#fff"
+          />
+        )
+    })
+}, [])
+
+
   const { data, error, loading } = useQuery(ARCHIVED_JOBS);
-console.log('hellllo',data.ArchivedJobs)
+
+onclick = () => {
+  ActionSheetIOS.showActionSheetWithOptions(
+    {
+      options: ['Cancel', 'Delete Job', 'Duplicate and Repost Job'],
+      destructiveButtonIndex: 1,
+      cancelButtonIndex: 0,
+    },
+    (buttonIndex) => {
+      if (buttonIndex === 1) {
+        useQuery()
+      }
+    },
+  ); 
+}
   if(loading){
     return <Text>...Loading</Text>;
   };
@@ -39,8 +67,6 @@ console.log('hellllo',data.ArchivedJobs)
     <ScrollView style={styles.MainContainer}>
 
       {data.ArchivedJobs.map(elem =>{
-
-
 
         let date = new Date(parseInt(elem.date_created));
         let options = {
@@ -54,13 +80,15 @@ console.log('hellllo',data.ArchivedJobs)
 
   return(
     <ScrollView>
-
+   
     <Text style={styles.AppText}>Receiving Applicants (num)</Text>
-<View style={styles.MainView}>
-      <Card >
+        <View style={styles.MainView}>
+      <View >
         <View>
           <Text style={styles.DateText}> Posted {dateCreated}</Text>
-          <Text key = {elem.id} style={styles.JobText}> {elem.title}</Text>
+          <Text onPress={ () => onclick()}>...</Text>
+          <Text key = {elem.id} style={styles.JobText}> {elem.title}</Text> 
+        
         </View>
         
         <View style={styles.JobInfo}>
@@ -68,15 +96,15 @@ console.log('hellllo',data.ArchivedJobs)
           <Text style={{fontSize: 16}}> ${elem.hourly_rate}/hr</Text>  
         </View>
        
-      </Card>
-
+      </View>
+{/* 
       <Card>
 				<Button
 					style={styles.Button}
-					title={0, 'Applicants'}
+					title={'Applicants'}
 					titleStyle={styles.Archived}
 				/>
-      </Card>
+      </Card> */}
 
 </View>
     </ScrollView>
@@ -87,5 +115,9 @@ console.log('hellllo',data.ArchivedJobs)
 </ScrollView>
   )
 }
+ArchiveScreen.navigationOptions ={
+  title:'Home'
+}
+
 
 export default ArchiveScreen
