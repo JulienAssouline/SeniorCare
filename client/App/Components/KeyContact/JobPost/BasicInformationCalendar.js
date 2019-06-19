@@ -20,10 +20,26 @@ const mapDispatchToProps = dispatch => {
 const BasicInformationCalendar = (props) => {
 
   const [calendarButtonIndex, setCalendarButtonIndex] = useState(0)
+  const [dateSelected, setMarkedDates] = useState({})
 
   const updateIndex = (selectedIndex) => {
     setCalendarButtonIndex(selectedIndex)
   }
+
+  const handleDayPress = (day) => {
+    // console.log('day: ', day.dateString)
+    //dateString = day.dateString
+    // console.log('dateString', dateString)
+    //setMarkedDates({day: dateString})
+    // setMarkedDates([...markedDates, dateString])
+    setMarkedDates({[day.dateString]:{selected: true, color: 'blue'}})
+    console.log('marked dates', dateSelected)
+    //props.onStartDateUpdate(day)
+  }
+
+  // '2019-06-24': {startingDay: true, color: 'gray'},
+  // '2019-06-25': {color: 'gray'},
+  // '2019-06-26': {endingDay: true, color: 'blue'}}}
 
   return (
     <View>
@@ -43,7 +59,8 @@ const BasicInformationCalendar = (props) => {
         // maxDate={'2012-05-30'}
         // Handler which gets executed on day press. Default = undefined
         // onDayPress={(day) => { submitStartDate(day.dateString) }}
-        onDayPress={(day) => props.onStartDateUpdate(day) }
+        // onDayPress={(day) => props.onStartDateUpdate(day) }
+        onDayPress={(day) => handleDayPress(day) }
         // Handler which gets executed on day long press. Default = undefined
         onDayLongPress={(day) => props.onStartDateUpdate(day) }
         // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
@@ -69,6 +86,12 @@ const BasicInformationCalendar = (props) => {
         onPressArrowLeft={substractMonth => substractMonth()}
         // Handler which gets executed when press arrow icon left. It receive a callback can go next month
         onPressArrowRight={addMonth => addMonth()}
+        markingType={'period'}
+        // markedDates={{
+        //   '2019-06-24': {startingDay: true, color: 'gray'},
+        //   '2019-06-25': {color: 'gray'},
+        //   '2019-06-26': {endingDay: true, color: 'blue'}}}
+        markedDates={dateSelected}
         />
         <Text>Redux state: {props.startDate}</Text>
       </View>

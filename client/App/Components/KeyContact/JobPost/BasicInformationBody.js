@@ -9,13 +9,13 @@ const BasicInformationBody = props => {
 
 		let body;
 
-    if (props.currentPosition === 0) {
+    if (props.formPosition === 0) {
         body = <BasicInformationTitle />
-    } else if (props.currentPosition === 1) {
+    } else if (props.formPosition === 1) {
         body = <BasicInformationCalendar />
-    } else if (props.currentPosition === 2) {
+    } else if (props.formPosition === 2) {
         body = <BasicInformationAddress />
-    } else if (props.currentPosition === 3) {
+    } else if (props.formPosition === 3) {
         body = <BasicInformationRate />
     }
 

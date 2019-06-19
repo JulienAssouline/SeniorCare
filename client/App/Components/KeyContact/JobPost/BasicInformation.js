@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ScrollView, Text } from 'react-native'
 import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 import PostJobTop from './PostJobTop'
@@ -7,18 +7,24 @@ import PostJobBottomButtons from './PostJobBottomButtons'
 
 const BasicInformation = props => {
 
-    let currentPosition = 2;
+	const [formPosition, setFormPosition] = useState(0)
+
+    const stepCount = 4
 
     return (
         <ScrollView>
             <PostJobTop
                 title={'Basic information'}
-                currentPosition={currentPosition}
+                formPosition={formPosition}
+                stepCount={stepCount}
             />
             <BasicInformationBody
-                currentPosition={currentPosition}
+                formPosition={formPosition}
             />
-            <PostJobBottomButtons />
+            <PostJobBottomButtons
+                navigation={props.navigation}
+                setFormPosition={setFormPosition}
+			/>
         </ScrollView>
     )
 };

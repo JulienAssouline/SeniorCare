@@ -1,3 +1,5 @@
+
+
 const initialState = {
   address: '',
   city: '',
@@ -9,6 +11,8 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action )  => {
+  console.log("REDUCER: ", action, state)
+
   if (action.type === 'ADDRESS') {
     return {
       address: action.payload.address,
@@ -24,12 +28,12 @@ const reducer = (state = initialState, action )  => {
   }
   if (action.type === 'STARTDATE') {
     return {
-      startDate: action.payload.startDate
+      startDate: action.payload
     }
   }
   if (action.type === 'RATE') {
     return {
-      rate: action.payload.rate
+      rate: action.payload
     }
   }
 
