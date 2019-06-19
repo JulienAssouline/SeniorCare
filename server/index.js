@@ -15,6 +15,10 @@ const PlaceholderApi = require('./datasources/placeholderApi')
 const UserDatabase = require('./datasources/userDatabase.js')
 const LoginDatabase = require('./datasources/loginDatabase')
 const SeniorDatabase = require('./datasources/seniorDatabase')
+const ChatDatabase = require('./datasources/chatDatabase')
+const ConversationDatabase = require('./datasources/conversationDatabase')
+
+
 
 
 const postgres = require('./config/postgres')
@@ -59,6 +63,8 @@ const dataSources = () => ({
 	placeholderApi: new PlaceholderApi(),
   caregiverDatabase: new CaregiverDatabase(),
   loginDatabase: new LoginDatabase(),
+  chatDatabase: new ChatDatabase(),
+  conversationDatabase: new ConversationDatabase(),
 })
 
 resolvers = resolvers()

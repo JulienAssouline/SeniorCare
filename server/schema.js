@@ -8,6 +8,14 @@ module.exports = gql`
     getKeyContactProfile(id: ID!): KeyContact
     getSeniors: [QueryGetSenior]
 		ArchivedJobs(id:ID): [QueryArchiveJobs]
+    getConversation(id:ID): ConversationRoom
+    getConversations: [ConversationRoom]
+  }
+
+  type ConversationRoom {
+    id:ID
+    caregiver_id: ID
+    key_contact_id: ID
   }
 
   type QueryPlaceholder{
@@ -75,13 +83,37 @@ module.exports = gql`
 
 	}
 
+   type Subscription{
+    messageAdded(conversation_id: ID!): Messages
+  }
+
+  type Messages {
+    id: ID!
+    conversation_id: ID!
+    from_user: ID!
+    date_created: String
+    content: String
+  }
+
+
 	type Mutation {
 		placeholder: MutationPlaceholder
 		placeholderApi: MutationPlaceholder
 		signUp(input:SignUpObjects!): MessageResponse
 		login(input: LoginObject!): LoginResponse!
 		Delete(id:ID!):DeleteResponse!
+    addMessages(content: String, conversation_id: Int): addMessagesResponse!
+    addConversation(caregiver_id: ID): addConversationResponse!
 	}
+
+  type addConversationResponse {
+    id: ID
+  }
+
+  type addMessagesResponse {
+    message: String
+  }
+
 
 	input SignUpObjects{
 		 fullname: String,
