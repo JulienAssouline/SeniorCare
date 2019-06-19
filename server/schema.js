@@ -1,6 +1,9 @@
 const { gql } = require('apollo-server-express')
 
 module.exports = gql`
+
+  scalar Date
+
   type Query {
     getCaregiver(input: FilterInput!): [QueryGetCaregiver]
 		placeholderApi: QueryPlaceholder
@@ -8,9 +11,17 @@ module.exports = gql`
     getKeyContactProfile(id: ID!): KeyContact
     getSeniors: [QueryGetSenior]
 		ArchivedJobs(id:ID): [QueryArchiveJobs]
+    getMessages(conversation_id:ID):[Messages]
     getConversation(id:ID): ConversationRoom
     getConversations: [ConversationRoom]
   }
+
+  type Messages{
+      from_user:Int,
+      conversation_id: Int,
+      content:String,
+      date_created:Date
+    }
 
   type ConversationRoom {
     id:ID
@@ -84,10 +95,10 @@ module.exports = gql`
 	}
 
    type Subscription{
-    messageAdded(conversation_id: ID!): Messages
+    messageAdded(conversation_id: ID!): messageSubscription
   }
 
-  type Messages {
+  type messageSubscription {
     id: ID!
     conversation_id: ID!
     from_user: ID!

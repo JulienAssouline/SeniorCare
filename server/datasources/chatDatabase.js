@@ -43,6 +43,18 @@ class Database extends DataSource {
           }
 
   }
+  async queryGetMessages(input) {
+    let conversation = input.conversation_id;
+
+    const messages = {
+      text: `SELECT * FROM seniorcare.messages WHERE conversation_id = $1`,
+      values: [conversation]
+    };
+
+    const results = await this.context.postgres.query(messages);
+
+    return results.rows;
+  }
 }
 
 module.exports = Database

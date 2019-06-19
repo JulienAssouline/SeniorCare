@@ -9,6 +9,9 @@ module.exports = {
 		async getConversations(parent, input, { dataSources }){
 			return await dataSources.conversationDatabase.queryGetConversations(input)
 		},
+		async getMessages(parent, input, { dataSources }){
+			return await dataSources.chatDatabase.queryGetMessages(input)
+		},
 		async placeholderApi(parent, { input }, { dataSources }){
 			return await dataSources.placeholderApi.queryPlaceholder('placeholder')
 		},
