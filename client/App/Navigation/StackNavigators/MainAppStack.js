@@ -37,7 +37,7 @@ const configurations = {
     navigationOptions: {
       tabBarLabel: 'Search',
       tabBarIcon: ({ tintColor }) => (
-        <Icon style={{ fontSize: 26, color: tintColor }} name="search1" />
+        <Icon style={{ fontSize: 26, color: tintColor }} name="magnifier" />
       )
     }
   },
@@ -55,7 +55,7 @@ const configurations = {
     navigationOptions: {
       tabBarLabel: 'Messages',
       tabBarIcon: ({ tintColor }) => (
-        <Icon style={{ fontSize: 24, color: tintColor }} name="message1" />
+        <Icon style={{ fontSize: 24, color: tintColor }} name="bubbles" />
       )
     }
   },

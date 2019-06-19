@@ -1,6 +1,9 @@
 const { gql } = require('apollo-server-express')
 
 module.exports = gql`
+
+  scalar Date
+
   type Query {
     getCaregiver(input: FilterInput!): [QueryGetCaregiver]
 		placeholderApi: QueryPlaceholder
@@ -8,6 +11,15 @@ module.exports = gql`
     getKeyContactProfile(id: ID!): KeyContact
     getSeniors: [QueryGetSenior]
 		ArchivedJobs(id:ID): [QueryArchiveJobs]
+    getMessages(conversation_id:ID):[Messages]
+    getConversation(id:ID): ConversationRoom
+    getConversations: [ConversationRoom]
+  }
+
+  type ConversationRoom {
+    id:ID
+    caregiver_id: ID
+    key_contact_id: ID
   }
 
   type QueryPlaceholder{
@@ -24,7 +36,7 @@ module.exports = gql`
   type QueryGetSenior {
 		id: ID
 		fullname: String
-		date_created: String
+		date_created: Date
 		birthdate: String
 		gender: String
 		relation: String
@@ -57,7 +69,7 @@ module.exports = gql`
 	type QueryArchiveJobs {
 		id: ID
 		key_contact_id: ID
-		date_created: String
+		date_created: Date
 		title: String
 		start_date: String
 		end_date: String
@@ -75,13 +87,39 @@ module.exports = gql`
 
 	}
 
+
+  type Messages {
+    id: ID!
+    conversation_id: ID!
+    from_user: ID!
+    date_created: Date
+    content: String
+  }
+
+   type Subscription{
+    messageAdded(conversation_id: ID!): Messages
+  }
+
+
+
 	type Mutation {
 		placeholder: MutationPlaceholder
 		placeholderApi: MutationPlaceholder
 		signUp(input:SignUpObjects!): MessageResponse
 		login(input: LoginObject!): LoginResponse!
 		Delete(id:ID!):DeleteResponse!
+    addMessages(content: String, conversation_id: Int): addMessagesResponse!
+    addConversation(caregiver_id: ID): addConversationResponse!
 	}
+
+  type addConversationResponse {
+    id: ID
+  }
+
+  type addMessagesResponse {
+    message: String
+  }
+
 
 	input SignUpObjects{
 		 fullname: String,
