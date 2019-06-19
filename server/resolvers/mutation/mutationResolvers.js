@@ -16,9 +16,14 @@ module.exports = {
 			return dataSources.userDatabase.mutationSignUp(input)
 		},
 
-		async Delete(parent, {input} , { dataSources }) {
-			return dataSources.mutationDelete(input)
-		}
+		async delete(parent, input, { dataSources }) {
+			return dataSources.jobsDatabase.deleteJob(input)
+		},
+
+		async duplicateRepost(parent, input, { dataSources }) {
+			console.log('hellooo input backend', input)
+			return dataSources.jobsDatabase.duplicateRepost(input)
+		},
 	}
 }
 

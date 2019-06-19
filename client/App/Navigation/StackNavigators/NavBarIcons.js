@@ -3,7 +3,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { Button, TouchableOpacity, View} from 'react-native'
 
 const NavBarIcons = (props) =>{
- console.log('hello propls',props)
+ 
 
   return(
     <View  style={{flex: 1, flexDirection: 'row'}}>

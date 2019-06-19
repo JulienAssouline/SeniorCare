@@ -74,7 +74,8 @@ module.exports = gql`
 		placeholderApi: MutationPlaceholder
 		signUp(input:SignUpObjects!): MessageResponse
 		login(input: LoginObject!): LoginResponse!
-		Delete(id:ID!):DeleteResponse!
+		delete(id:ID!):DeleteResponse!
+		duplicateRepost(id:ID!):duplicateRepostMessage!
 	}
 
 	input SignUpObjects{
@@ -106,6 +107,11 @@ module.exports = gql`
 	type DeleteResponse{
 		message: String
 	}
+
+	type duplicateRepostMessage{
+		message: String
+	}
+
 `
 
 

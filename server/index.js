@@ -17,6 +17,7 @@ const LoginDatabase = require('./datasources/loginDatabase')
 const SeniorDatabase = require('./datasources/seniorDatabase')
 
 
+
 const postgres = require('./config/postgres')
 const typeDefs = require('./schema')
 const http = require('http')
@@ -59,6 +60,7 @@ const dataSources = () => ({
 	placeholderApi: new PlaceholderApi(),
   caregiverDatabase: new CaregiverDatabase(),
   loginDatabase: new LoginDatabase(),
+  
 })
 
 resolvers = resolvers()

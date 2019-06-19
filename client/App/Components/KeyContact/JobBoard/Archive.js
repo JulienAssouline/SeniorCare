@@ -3,8 +3,9 @@ import { Text, ScrollView, View, ActionSheetIOS } from 'react-native'
 import { Button, Card } from 'react-native-elements';
 
 import gql from 'graphql-tag'
-import { useQuery } from 'react-apollo-hooks'
+import { useQuery,useMutation } from 'react-apollo-hooks'
 import styles from '../../Styles/JobDashboardScreen/ArchiveScreenStyles'
+
 
 const ARCHIVED_JOBS = gql `
   query{
@@ -39,8 +40,32 @@ const ArchiveScreen = (props) =>{
     })
 }, [])
 
+const DUPLICATE  = gql`
+  mutation duplicateRepost($id: ID!) {
+    duplicateRepost(id:2){
+      message
+    }
+  }
+`;
+const DELETE  = gql`
+  mutation deleteJob($id: ID!) {
+    deleteJob(id: $id){
+      message
+    }
+  }
+`;
 
-  const { data, error, loading } = useQuery(ARCHIVED_JOBS);
+const { data, error, loading } = useQuery(ARCHIVED_JOBS);
+
+
+const duplicate = useMutation(DUPLICATE,{
+  variables: {id: 2}
+})
+
+const remove = useMutation(DELETE,{
+  variables: {id: 2}
+})
+
 
 onclick = () => {
   ActionSheetIOS.showActionSheetWithOptions(
@@ -51,7 +76,11 @@ onclick = () => {
     },
     (buttonIndex) => {
       if (buttonIndex === 1) {
-        useQuery()
+        console.log('remove', remove)
+        remove()
+      }if (buttonIndex === 2) {
+        console.log('hellooo')
+        duplicate()
       }
     },
   ); 
