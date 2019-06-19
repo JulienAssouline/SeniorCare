@@ -13,6 +13,8 @@ const initialState = {
 	bio: '',
 	medicalCondition: '',
 	language: '',
+	formPosition: 0,
+	overviewPosition: 0,
 }
 
 const reducer = (state = initialState, action )  => {
@@ -31,18 +33,26 @@ const reducer = (state = initialState, action )  => {
   }
   if (action.type === 'STARTDATE') {
     return {
-      startDate: action.payload.startDate
+      startDate: action.payload
     }
   }
   if (action.type === 'RATE') {
     return {
-      rate: action.payload.rate
+      rate: action.payload
     }
   }
 	switch (action.type) {
 		case 'SENIORNAME':
 			return {
 				seniorName: action.payload
+			}
+		case 'CHANGEFORMPOSITION':
+			return{
+				formPosition: action.payload
+			}
+		case 'CHANGEOVERVIEWPOSITION':
+			return{
+				overviewPosition: action.payload
 			}
 		// default:
 		// 	break;

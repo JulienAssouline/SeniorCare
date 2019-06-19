@@ -26,7 +26,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const SeniorGender = props => {
-	const { setFormPosition } = props
 
 	const initialFormValues = {
 		gender: '',
@@ -80,9 +79,10 @@ const SeniorGender = props => {
 						/>
 						<PostJobBottomButtons
 							navigation={props.navigation}
-							setFormPosition={setFormPosition}
 							storeReduxData={values.gender}
 							storeReduxFunction={props.onSeniorGenderUpdate}
+							handleSubmit={handleSubmit}
+							errors={errors}
 						/>
 					</View>
 				)

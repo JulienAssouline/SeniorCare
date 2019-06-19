@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { DatePickerIOS, Text, View } from 'react-native'
-import { Input } from 'react-native-elements'
 
 import { Formik } from 'formik'
 import { connect } from 'react-redux'
@@ -26,7 +25,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const SeniorBirthdate = props => {
-	const { setFormPosition } = props
 
 	const initialFormValues = {
 		birthdate: new Date(),
@@ -70,9 +68,10 @@ const SeniorBirthdate = props => {
 						/>
 						<PostJobBottomButtons
 							navigation={props.navigation}
-							setFormPosition={setFormPosition}
 							storeReduxData={values.birthdate}
 							storeReduxFunction={props.onSeniorBirthdateUpdate}
+							handleSubmit={handleSubmit}
+							error={errors}
 						/>
 					</View>
 				)

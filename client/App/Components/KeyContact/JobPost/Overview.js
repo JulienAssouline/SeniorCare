@@ -2,15 +2,40 @@ import React from 'react'
 import { ScrollView, Text } from 'react-native'
 import { Button } from 'react-native-elements'
 
-export default Overview = props => {
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => {
+	return {
+		formPosition: state.formPosition,
+		overviewPosition: state.overviewPosition
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onPositionUpdate: (value) => dispatch({
+			type: 'CHANGEFORMPOSITION',
+			payload: value
+		}),
+		onOverviewUpdate: (value) => dispatch({
+			type: 'CHANGEOVERVIEWPOSITION',
+			payload: value
+		})
+	}
+}
+
+const Overview = props => {
 	const handleGoToSeniorDetails = async () => {
+		props.onPositionUpdate(0)
 		props.navigation.navigate('SeniorDetails')
 	}
 	const handleBasicInformation = () => {
+		props.onPositionUpdate(0)
 		props.navigation.navigate('BasicInformation')
 	}
 
 	const handleHouseDetails = () => {
+		props.onPositionUpdate(0)
 		props.navigation.navigate('HouseDetails')
 	}
 
@@ -39,3 +64,4 @@ export default Overview = props => {
 	)
 }
 
+export default connect(mapStateToProps, mapDispatchToProps)(Overview) 

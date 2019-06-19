@@ -71,9 +71,10 @@ const SeniorLanguage = props => {
 						/>
 						<PostJobBottomButtons
 							navigation={props.navigation}
-							setFormPosition={setFormPosition}
 							storeReduxData={values.language}
 							storeReduxFunction={props.onSeniorLanguageUpdate}
+							handleSubmit={handleSubmit}
+							errors={errors}
 						/>
 					</View>
 				)
