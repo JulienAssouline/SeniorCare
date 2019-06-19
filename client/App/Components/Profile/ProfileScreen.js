@@ -18,7 +18,7 @@ const GET_KEYCONTACT = gql`
 `;
 
 const ProfileScreen = props => {
-  let id = 2
+  let id = 1
   const {data, error, loading} = useQuery(GET_KEYCONTACT, {
     variables: {id}
   })
@@ -30,6 +30,9 @@ const ProfileScreen = props => {
     props.navigation.navigate('Seniors')
   }
 
+  const handleGoToAccount = () =>{
+    props.navigation.navigate('Account')
+  }
   return (
     <ScrollView style={styles.MainContainer}>
         <View style={styles.Profile}>
@@ -47,7 +50,10 @@ const ProfileScreen = props => {
           <Icons name = {`user`} style={styles.ProfileButtonIcon} /> 
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.ProfileButton}>
+        <TouchableOpacity 
+          style={styles.ProfileButton}
+          onPress = {handleGoToAccount}
+          >
           <Text style={styles.ProfileButtonText}> Account</Text>
           <Icons name = {`cog`} style={styles.ProfileButtonIcon} /> 
         </TouchableOpacity>

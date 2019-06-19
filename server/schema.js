@@ -7,6 +7,7 @@ module.exports = gql`
 		testDatabase: QueryPlaceholder
     getKeyContactProfile(id: ID!): KeyContact
     getSeniors: [QueryGetSenior]
+    getSenior(id: ID!): QueryGetSenior
 		ArchivedJobs(id:ID): [QueryArchiveJobs]
   }
 
@@ -18,6 +19,8 @@ module.exports = gql`
     id: ID
     fullname: String
     avatar: String
+    phone_number: String
+    email: String
     getSeniors: [QueryGetSenior]
   }
  
