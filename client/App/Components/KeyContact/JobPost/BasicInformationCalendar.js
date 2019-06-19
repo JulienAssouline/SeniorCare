@@ -8,38 +8,60 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 const mapStateToProps = state => {
   return {
     startDate: state.startDate,
+    endDate: state.endDate,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     onStartDateUpdate: (day) => dispatch({type: 'STARTDATE', payload: day.dateString}),
+    onEndDateUpdate: (day) => dispatch({type: 'ENDDATE', payload: day.dateString}),
   }
 }
 
 const BasicInformationCalendar = (props) => {
 
   const [calendarButtonIndex, setCalendarButtonIndex] = useState(0)
-  const [dateSelected, setMarkedDates] = useState({})
+  const [startDateSelected, setStartDateSelected] = useState({})
+  // const [endDateSelected, setEndDateSelected] = useState({})
 
   const updateIndex = (selectedIndex) => {
     setCalendarButtonIndex(selectedIndex)
   }
 
-  const handleDayPress = (day) => {
-    // console.log('day: ', day.dateString)
-    //dateString = day.dateString
-    // console.log('dateString', dateString)
-    //setMarkedDates({day: dateString})
-    // setMarkedDates([...markedDates, dateString])
-    setMarkedDates({[day.dateString]:{selected: true, color: 'blue'}})
-    console.log('marked dates', dateSelected)
-    //props.onStartDateUpdate(day)
+  const handleStartDayPress = (day) => {
+    
+    // if (startDate.Selected[day].startingDa
+
+    setStartDateSelected(
+      {...startDateSelected,
+        [day.dateString]:{startingDay: 'true', endingDay: 'false', selected: true, color: 'blue'}
+      }
+    )
+    console.log('this is calendarButtonIndex', calendarButtonIndex)
+    console.log('start date in startdateselected', startDateSelected)
+    updateIndex(1)
+    // console.log('start date key : ', Object.keys(startDateSelected))
   }
 
-  // '2019-06-24': {startingDay: true, color: 'gray'},
-  // '2019-06-25': {color: 'gray'},
-  // '2019-06-26': {endingDay: true, color: 'blue'}}}
+  const handleEndDayPress = (day) => {
+    
+    // // if (Object.entries(startDateSelected).length !== 0) {
+    // //   console.log("what's up Mark")
+    // if (startDateSelected[day.dateString]
+    //   if (startDateSelected[day.dateString].selected === true) {
+    //     console.log('do stuff') 
+    //   }
+    // // }
+    
+    setStartDateSelected(
+      {...startDateSelected,
+        [day.dateString]:{startingDay: 'false', endingDay: 'true', selected: true, color: 'red'}
+      }
+    )
+    console.log('start date in handleendday', startDateSelected)
+    console.log('this is calendarButtonIndex', calendarButtonIndex)
+  }
 
   return (
     <View>
@@ -60,7 +82,7 @@ const BasicInformationCalendar = (props) => {
         // Handler which gets executed on day press. Default = undefined
         // onDayPress={(day) => { submitStartDate(day.dateString) }}
         // onDayPress={(day) => props.onStartDateUpdate(day) }
-        onDayPress={(day) => handleDayPress(day) }
+        onDayPress={(day) => { calendarButtonIndex === 0 ? handleStartDayPress(day) : handleEndDayPress(day) } }
         // Handler which gets executed on day long press. Default = undefined
         onDayLongPress={(day) => props.onStartDateUpdate(day) }
         // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
@@ -91,7 +113,7 @@ const BasicInformationCalendar = (props) => {
         //   '2019-06-24': {startingDay: true, color: 'gray'},
         //   '2019-06-25': {color: 'gray'},
         //   '2019-06-26': {endingDay: true, color: 'blue'}}}
-        markedDates={dateSelected}
+        markedDates={startDateSelected}
         />
         <Text>Redux state: {props.startDate}</Text>
       </View>

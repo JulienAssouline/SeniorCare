@@ -36,6 +36,11 @@ const reducer = (state = initialState, action )  => {
       rate: action.payload
     }
   }
+  if (action.type === 'ENDDATE') {
+    return {
+      endDate: action.payload
+    }
+  }
 
   return state
 }
