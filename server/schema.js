@@ -16,13 +16,6 @@ module.exports = gql`
     getConversations: [ConversationRoom]
   }
 
-  type Messages{
-      from_user:Int,
-      conversation_id: Int,
-      content:String,
-      date_created:Date
-    }
-
   type ConversationRoom {
     id:ID
     caregiver_id: ID
@@ -94,17 +87,19 @@ module.exports = gql`
 
 	}
 
-   type Subscription{
-    messageAdded(conversation_id: ID!): messageSubscription
-  }
 
-  type messageSubscription {
+  type Messages {
     id: ID!
     conversation_id: ID!
     from_user: ID!
     date_created: Date
     content: String
   }
+
+   type Subscription{
+    messageAdded(conversation_id: ID!): Messages
+  }
+
 
 
 	type Mutation {

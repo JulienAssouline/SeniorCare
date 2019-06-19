@@ -75,27 +75,27 @@ const schema = makeExecutableSchema({
 })
 
 const apolloServer = new ApolloServer({
-  context: ({ req, connection }) => {
-		if (connection) {
-			return connection.context
-		}
+    context: ({ req, connection }) => {
+  		if (connection) {
+  			return connection.context
+  		}
 
-    if (
-      req.headers.referer === 'http://localhost:8080/graphql' &&
-      process.env.NODE_ENV !== 'production'
-    ) {
-      app.set('SKIP_AUTH', true)
-    } else {
-      app.set('SKIP_AUTH', false)
-    }
-    return {
-      app,
-      req,
-      postgres,
-    }
-  },
-	schema,
-	dataSources
+      if (
+        req.headers.referer === 'http://localhost:8080/graphql' &&
+        process.env.NODE_ENV !== 'production'
+      ) {
+        app.set('SKIP_AUTH', true)
+      } else {
+        app.set('SKIP_AUTH', false)
+      }
+      return {
+        app,
+        req,
+        postgres,
+      }
+    },
+  	schema,
+  	dataSources
 })
 
 apolloServer.applyMiddleware({
