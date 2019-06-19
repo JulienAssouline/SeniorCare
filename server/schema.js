@@ -43,7 +43,7 @@ module.exports = gql`
   type QueryGetSenior {
 		id: ID
 		fullname: String
-		date_created: String
+		date_created: Date
 		birthdate: String
 		gender: String
 		relation: String
@@ -76,7 +76,7 @@ module.exports = gql`
 	type QueryArchiveJobs {
 		id: ID
 		key_contact_id: ID
-		date_created: String
+		date_created: Date
 		title: String
 		start_date: String
 		end_date: String
@@ -102,7 +102,7 @@ module.exports = gql`
     id: ID!
     conversation_id: ID!
     from_user: ID!
-    date_created: String
+    date_created: Date
     content: String
   }
 
