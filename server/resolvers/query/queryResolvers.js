@@ -6,8 +6,11 @@ module.exports = {
 		async getConversation(parent, input, { dataSources }){
 			return await dataSources.conversationDatabase.queryGetConversation(input)
 		},
-		async getConversations(parent, input, { dataSources }){
-			return await dataSources.conversationDatabase.queryGetConversations(input)
+		async getCaregiverConvos(parent, input, { dataSources }){
+			return await dataSources.conversationDatabase.queryGetCaregiverConvos(input)
+		},
+		async getKeyContactConvos(parent, input, { dataSources }){
+			return await dataSources.conversationDatabase.queryGetKeyContactConvos(input)
 		},
 		async getMessages(parent, input, { dataSources }){
 			return await dataSources.chatDatabase.queryGetMessages(input)

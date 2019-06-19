@@ -13,12 +13,15 @@ module.exports = gql`
 		ArchivedJobs(id:ID): [QueryArchiveJobs]
     getMessages(conversation_id:ID):[Messages]
     getConversation(id:ID): ConversationRoom
-    getConversations: [ConversationRoom]
+    getCaregiverConvos: [ConversationRoom]
+    getKeyContactConvos: [ConversationRoom]
   }
 
   type ConversationRoom {
-    id:ID
+    email:String
     caregiver_id: ID
+    fullname: String
+    conversation_id: ID
     key_contact_id: ID
   }
 
