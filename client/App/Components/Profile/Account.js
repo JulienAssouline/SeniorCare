@@ -24,7 +24,7 @@ const Account = props => {
   let id = 'ThisIsSimonSternKeyContactSeed'
 
   // Sign out from the app
-  const signOutAlert1 = async () => {
+  const signOutAlertLogout = async () => {
     await Alert.alert(
       'Sign Out',
       'Are you sure you want to sign out from the app?',
@@ -36,7 +36,7 @@ const Account = props => {
     )
   }
 
-  const signOutAlert2 = async () => {
+  const signOutAlertForgotPassword = async () => {
     await Alert.alert(
       'Reset your password',
       'In order to reset your password, we will first sign you out of the app.  Are you sure you want to sign out from the app?',
@@ -111,13 +111,13 @@ const Account = props => {
       <Text style={styles.Title}></Text>
       <TouchableOpacity
         style={styles.ProfileButtonForgot}
-        onPress={() => signOutAlert2()}
+        onPress={() => signOutAlertForgotPassword()}
       >
         <Text style={styles.logout}> Reset your password</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.ProfileButton}
-        onPress={() => signOutAlert1()}
+        onPress={() => signOutAlertLogout()}
       >
         <Text style={styles.logout}> Log out</Text>
       </TouchableOpacity>
