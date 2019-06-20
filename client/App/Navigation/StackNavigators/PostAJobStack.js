@@ -4,6 +4,8 @@ import Overview from '../../Components/KeyContact/JobPost/Overview'
 import SeniorDetails from '../../Components/KeyContact/JobPost/SeniorDetails/SeniorDetails'
 import BasicInformation from '../../Components/KeyContact/JobPost/BasicInformation'
 import CreateNewSeniorProfile from '../../Components/KeyContact/JobPost/SeniorDetails/CreateNewSeniorProfile'
+import HouseDetails from '../../Components/KeyContact/JobPost/HouseDetails/HouseDetails'
+import CaregiverPreferences from '../../Components/KeyContact/JobPost/CaregiverPreferences/CaregiverPreferences'
 
 export const PostAJobStack = createSwitchNavigator(
 	{
@@ -18,6 +20,12 @@ export const PostAJobStack = createSwitchNavigator(
 		},
 		CreateNewSeniorProfile: {
 			screen: CreateNewSeniorProfile,
+		},
+		HouseDetails: {
+			screen: HouseDetails,
+		},
+		CaregiverPreferences: {
+			screen: CaregiverPreferences,
 		}
 	},
 	{

@@ -1,23 +1,65 @@
 import React from 'react'
 import { View } from 'react-native'
 import { Button } from 'react-native-elements'
-import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => {
+	const { formPosition, overviewPosition, completedSections } = state.postJob.position
+	return {
+		formPosition: formPosition,
+		overviewPosition: overviewPosition,
+		completedSections: completedSections,
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onPositionUpdate: (value) => dispatch({
+			type: 'CHANGEFORMPOSITION',
+			payload: value
+		}),
+		onOverviewUpdate: (value) => dispatch({
+			type: 'CHANGEOVERVIEWPOSITION',
+			payload: value
+		}),
+		onCompletedSectionsUpdate: value => dispatch({
+			type: 'CHANGECOMPLETEDSECTIONS',
+			payload: value
+		})
+	}
+}
 
 const PostJobBottomButtons = props => {
-	const { setFormPosition } = props
+	const { storeReduxFunction, storeReduxData, handleSubmit, errors, touched, lastPosition } = props
 
-	const handleFormPosition = direction => {
-		direction ? 
-			setFormPosition(prevState => {
-				return ++prevState
-			}) :
-			setFormPosition(prevState => {
-				if (prevState) {
-					return --prevState
+	const handleFormPosition = directionForward => {
+		if (directionForward) {
+			handleSubmit()
+
+			if (Object.keys(errors).length === 0 && Object.keys(touched).length !== 0 || storeReduxData) {
+				storeReduxFunction(storeReduxData)
+				
+				if (props.formPosition === lastPosition ) {
+					if (props.completedSections.includes(props.overviewPosition)) {
+						props.completedSections.push(props.overviewPosition)
+					} 
+					props.navigation.navigate('Overview')
 				} else {
-					props.navigation.navigate('SeniorDetails')
+					props.onPositionUpdate(++props.formPosition)
 				}
-			})
+			}
+		} else {
+			storeReduxFunction(storeReduxData)
+			if (props.formPosition !== 0) {
+				props.onPositionUpdate(--props.formPosition)
+			} else {
+				if (props.overviewPosition === 2) {
+					props.navigation.navigate('SeniorDetails')
+				} else {
+					props.navigation.navigate('Overview')
+				}
+			}
+		}
 	}
 
 	return (
@@ -34,4 +76,4 @@ const PostJobBottomButtons = props => {
 	)
 }
 
-export default PostJobBottomButtons
+export default connect(mapStateToProps, mapDispatchToProps)(PostJobBottomButtons)

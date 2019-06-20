@@ -1,13 +1,12 @@
 import React from 'react'
-
-import { ScrollView } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 
 import { connect } from 'react-redux'
 
 import { backgroundStyles } from '../../../Styles/GeneralStyles'
 
 import PostJobTop from '../PostJobTop'
-import SeniorDetailsBody from './SeniorDetailsBody'
+import CaregiverPreferenceBody from './CaregiverPreferenceBody'
 
 const mapStateToProps = state => {
 	const { formPosition } = state.postJob.position
@@ -16,16 +15,16 @@ const mapStateToProps = state => {
 	}
 }
 
-const CreateNewSeniorProfile = props => {
+const CaregiverPreferences = props => {
 	return (
 		<ScrollView style={backgroundStyles.background}>
 			<PostJobTop
-				title="Senior's Profile"
+				title='Caregiver Preference'
 				currentPosition={props.formPosition}
-				stepCount={8}
+				stepCount={2}
 			/>
 
-			<SeniorDetailsBody
+			<CaregiverPreferenceBody
 				navigation={props.navigation}
 				formPosition={props.formPosition}
 			/>
@@ -33,4 +32,4 @@ const CreateNewSeniorProfile = props => {
 	)
 }
 
-export default connect(mapStateToProps)(CreateNewSeniorProfile)
+export default connect(mapStateToProps)(CaregiverPreferences)
