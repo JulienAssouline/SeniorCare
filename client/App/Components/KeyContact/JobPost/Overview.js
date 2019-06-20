@@ -1,6 +1,7 @@
 import React from 'react'
-import { ScrollView, Text } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import { Button, ListItem, Avatar } from 'react-native-elements'
+import IonIcon from 'react-native-vector-icons/Ionicons'
 
 import { connect } from 'react-redux'
 
@@ -74,23 +75,31 @@ const Overview = props => {
 
 	return (
 		<ScrollView>
-			<Text>Let's create a job post</Text>
-			<Text>A great connection is important to finding a good fit. To help us find the best care for your loved one, we’ll ask a series of questions to understand your family’s needs.</Text>
+			<View style={overview.explanationContainer}>
+				<Text style={overview.title}>Let's create a job post</Text>
+				<Text style={overview.description}>A great connection is important to finding a good fit. To help us find the best care for your loved one, we’ll ask a series of questions to understand your family’s needs.</Text>
+			</View>
 			
-			{mapOverviewPosition.map((overviewSpot, index) => (
-				<ListItem
-					key={index}
-					title={overviewSpot.title}
-					leftAvatar={
-						<Avatar
-							rounded
-							title={`${overviewSpot.iconNumber}`}
-							avatarStyle={overview.buttonIcon}
-						/>
-					}
-					onPress={() => handleDirectNavigation(overviewSpot.destination, index)}
-				/>
-			))}
+			<View style={overview.sectionsContainer}>
+				{mapOverviewPosition.map((overviewSpot, index) => (
+					<ListItem
+						key={index}
+						title={overviewSpot.title}
+						containerStyle={overview.overviewItem}
+						leftAvatar={
+							props.completedSections.includes(index) ?
+							<IonIcon name='ios-checkmark-circle' color='#244392' size={33}/> :
+							<Avatar
+								rounded
+								size={27}
+								title={`${overviewSpot.iconNumber}`}
+								avatarStyle={overview.buttonIcon}
+							/>
+						}
+						onPress={() => handleDirectNavigation(overviewSpot.destination, index)}
+					/>
+				))}
+			</View>
 
 			<Button
 				title={props.overviewPosition === 0 ? 'Get Started' : 'Continue'}

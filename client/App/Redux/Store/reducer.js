@@ -25,7 +25,12 @@ const initialState = {
 			cigSmoking: '',
 			pets: '',
 			cannabis: '',
-		}
+		},
+		caregiverPreferences: {
+			availability: '',
+			preferredGender: '',
+			validDriverLicense: '',
+		},
 	}
 }
 
@@ -81,6 +86,93 @@ const reducer = (state = initialState, action )  => {
 					},
 				}
 			}
+		
+		case 'SENIORBIRTHDATE':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					seniorDetails: {
+						...state.postJob.seniorDetails,
+						birthdate: action.payload,
+					},
+				}
+			}
+
+			case 'SENIORRELATION':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					seniorDetails: {
+						...state.postJob.seniorDetails,
+						relationship: action.payload,
+					},
+				}
+			}
+
+			case 'SENIORBIO':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					seniorDetails: {
+						...state.postJob.seniorDetails,
+						bio: action.payload,
+					},
+				}
+			}
+
+			case 'SENIORMEDICALCONDITION':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					seniorDetails: {
+						...state.postJob.seniorDetails,
+						medicalCondition: action.payload,
+					},
+				}
+			}
+
+			case 'SENIORLANGUAGE':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					seniorDetails: {
+						...state.postJob.seniorDetails,
+						language: action.payload,
+					},
+				}
+			}
+
+
+		case 'CAREGIVERPREF1':
+			console.log('caregiver pref 1 action payload', action.payload)
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					caregiverPreferences: {
+						...state.postJob.caregiverPreferences,
+						availability: action.payload,
+						preferredGender: action.payload 
+					}
+				}
+			}
+		
+		case 'CAREGIVERPREF2':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					caregiverPreferences: {
+						...state.postJob.caregiverPreferences,
+						validDriverLicense: action.payload
+					}
+				}
+			}
 
 		case 'CHANGEFORMPOSITION':
 			return{
@@ -105,8 +197,6 @@ const reducer = (state = initialState, action )  => {
 					}
 				}
 			}
-		// default:
-		// 	break;
 	}
 
   return state

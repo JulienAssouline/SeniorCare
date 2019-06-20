@@ -19,7 +19,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		onSeniorMedicalConditionUpdate: (value) => dispatch({
-			type: 'SENIORMEDICALCONDITON',
+			type: 'SENIORMEDICALCONDITION',
 			payload: value
 		})
 	}
