@@ -113,9 +113,10 @@ const BasicInformationCalendar = (props) => {
         // Handler which gets executed when visible month changes in calendar. Default = undefined
         onMonthChange={(month) => { console.log('month changed', month) }}
         // Hide month navigation arrows. Default = false
-        hideArrows={true}
+        hideArrows={false}
         // Replace default arrows with custom ones (direction can be 'left' or 'right')
-        renderArrow={(direction) => (<Arrow />)}
+        // renderArrow={(direction) => (<Arrow />)}
+        // renderArrow={() => (<Arrow />)}
         // Do not show days of other months in month page. Default = false
         hideExtraDays={true}
         // If hideArrows=false and hideExtraDays=false do not switch month when tapping on greyed out
