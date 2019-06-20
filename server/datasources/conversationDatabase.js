@@ -13,14 +13,11 @@ class ConversationDatabase extends DataSource {
   async mutationAddConversation(input){
 
     const key_contact_id = 1
-    const caregiver_id = input.caregiver_id
-
-    const start_convo = [key_contact_id, caregiver_id]
-    const receive_convo = [key_contact_id, caregiver_id]
+    const caregiver_id = +input.caregiver_id
 
     const checkConversation = {
-        text: "SELECT * FROM seniorcare.conversations WHERE seniorcare.conversations.key_contact_id = ANY($1) AND seniorcare.conversations.caregiver_id = ANY($2)",
-        values: [start_convo, receive_convo]
+        text: "SELECT * FROM seniorcare.conversations WHERE seniorcare.conversations.key_contact_id = $1 AND seniorcare.conversations.caregiver_id = $2",
+        values: [key_contact_id, caregiver_id]
       }
 
     const results = await this.context.postgres.query(checkConversation)
@@ -64,14 +61,36 @@ class ConversationDatabase extends DataSource {
 
     return result.rows[0]
   }
-  async queryGetConversations(){
+  async queryGetCaregiverConvos(){
     const user_id = 1
 
-    const conversations = {
-      text: "SELECT * FROM seniorcare.conversations WHERE caregiver_id = $1 OR key_contact_id = $1",
+    const caregiverConversations = {
+      text: `SELECT email, fullname, seniorcare.conversations.caregiver_id, seniorcare.conversations.key_contact_id, seniorcare.conversations.id AS conversation_id
+             FROM seniorcare.caregiver
+             INNER JOIN seniorcare.conversations
+             ON seniorcare.caregiver.id = seniorcare.conversations.caregiver_id
+             WHERE seniorcare.conversations.key_contact_id = $1`,
       values: [user_id]
     };
-    const result = await this.context.postgres.query(conversations);
+
+    const result = await this.context.postgres.query(caregiverConversations);
+    console.log(result.rows)
+
+    return result.rows
+  }
+    async queryGetKeyContactConvos(){
+    const user_id = 1
+
+    const keyContactConversations = {
+      text: `SELECT email, fullname, seniorcare.conversations.caregiver_id, seniorcare.conversations.key_contact_id, seniorcare.conversations.id AS conversation_id
+             FROM seniorcare.key_contact
+             INNER JOIN seniorcare.conversations
+             ON seniorcare.key_contact.id = seniorcare.conversations.key_contact_id
+             WHERE seniorcare.conversations.caregiver_id = $1`,
+      values: [user_id]
+    };
+
+    const result = await this.context.postgres.query(keyContactConversations);
 
     return result.rows
   }

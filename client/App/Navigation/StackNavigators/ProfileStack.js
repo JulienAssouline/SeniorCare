@@ -5,7 +5,9 @@ import { createStackNavigator, navigation } from 'react-navigation'
 //import { SignUpScreen } from './SignUpStack';
 import ProfileScreen from '../../Components/Profile/ProfileScreen'
 import Senior from '../../Components/Profile/Senior/Senior'
+
 import Help from '../../Components/Profile/Help/Help'
+
 import AccountDetails from '../../Components/Profile/Account'
 import SeniorIndex from '../../Components/Profile/Senior/Index'
 
@@ -22,8 +24,16 @@ export const ProfileStack = createStackNavigator(
       navigationOptions: {
         title: 'Seniors'
       },
+<<<<<<< HEAD
       
       
+=======
+
+      Help: {
+        screen: Help
+      },
+
+>>>>>>> 7f6d1ede3c550141588cdcb2845d52906cd3a55e
     },
     SeniorDetails:{
       screen: SeniorIndex,
