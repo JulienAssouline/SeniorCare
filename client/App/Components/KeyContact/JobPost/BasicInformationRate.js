@@ -32,15 +32,12 @@ const BasicInformationRate = (props) => {
 					<Text>*Minimum wage varies per province/territory in Canada</Text>
 					<Text>${Math.round(props.rate)}</Text>
 					<Slider
-							// style={{width: 200, height: 40}}
 							minimumValue={minimumRate}
 							maximumValue={maximumRate}
 							minimumTrackTintColor="#000000"
 							maximumTrackTintColor="#000000"
-              // onSlidingComplete={value => submitRateValue(value)}
-              onSlidingComplete={value => props.onRateUpdate(value)}
+              onSlidingComplete={value => props.onRateUpdate(Math.round(value))}
 					/>
-          <Text>Redux state: {props.rate}</Text>
 					<Text>${Math.round(minimumRate)}</Text>
         </View>
   )

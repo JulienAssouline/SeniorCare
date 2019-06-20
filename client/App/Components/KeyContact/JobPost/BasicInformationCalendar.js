@@ -65,7 +65,7 @@ const BasicInformationCalendar = (props) => {
       setDateSelected(
         {
           ...dateSelected,
-          [day.dateString]:{startingDay: 'false', endingDay: 'true', selected: true, color: 'red'}
+          [day.dateString]:{startingDay: 'false', endingDay: 'true', selected: true, color: 'blue'}
         }
       )
       updateIndex()
@@ -78,7 +78,7 @@ const BasicInformationCalendar = (props) => {
         setDateSelected(
           {
             ...dateSelected,
-            [day.dateString]:{startingDay: 'false', endingDay: 'true', selected: true, color: 'red'}
+            [day.dateString]:{startingDay: 'false', endingDay: 'true', selected: true, color: 'blue'}
           }
         )
         updateIndex()
