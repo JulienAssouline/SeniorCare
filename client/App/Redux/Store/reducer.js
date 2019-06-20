@@ -6,53 +6,99 @@ const initialState = {
   title: '',
   startDate: '',
 	rate: 0,
-	seniorName: '',
-	gender: '',
-	birthdate: new Date(),
-	relationship: '',
-	bio: '',
-	medicalCondition: '',
-	language: '',
-	formPosition: 0,
-	overviewPosition: 0,
+	postJob: {
+		position: {
+			formPosition: 0,
+			overviewPosition: 0,
+			completedSections: []
+		},
+		seniorDetails: {
+			seniorName: '',
+			gender: '',
+			birthdate: new Date(),
+			relationship: '',
+			bio: '',
+			medicalCondition: '',
+			language: '',
+		},
+	}
 }
 
 const reducer = (state = initialState, action )  => {
-  if (action.type === 'ADDRESS') {
-    return {
-      address: action.payload.address,
-      city: action.payload.city,
-      province: action.payload.province,
-      postalCode: action.payload.postalCode,
-    }
-  }
-  if (action.type === 'TITLE') {
-    return {
-      title: action.payload.title
-    }
-  }
-  if (action.type === 'STARTDATE') {
-    return {
-      startDate: action.payload
-    }
-  }
-  if (action.type === 'RATE') {
-    return {
-      rate: action.payload
-    }
-  }
 	switch (action.type) {
+		case 'ADDRESS':
+			return {
+				...state,
+				address: action.payload.address,
+				city: action.payload.city,
+				province: action.payload.province,
+				postalCode: action.payload.postalCode,
+			}
+
+		case 'TITLE':
+			return {
+				...state,
+				title: action.payload.title
+			}
+
+		case 'STARTDATE':
+			return {
+				...state,
+				startDate: action.payload
+			}
+
+		case 'RATE':
+			return {
+				...state,
+				rate: action.payload
+			}
+
 		case 'SENIORNAME':
 			return {
-				seniorName: action.payload
+				...state,
+				postJob: {
+					...state.postJob,
+					seniorDetails: {
+						...state.postJob.seniorDetails,
+						seniorName: action.payload,
+					},
+				}
 			}
+
+		case 'SENIORGENDER':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					seniorDetails: {
+						...state.postJob.seniorDetails,
+						gender: action.payload,
+					},
+				}
+			}
+
 		case 'CHANGEFORMPOSITION':
 			return{
-				formPosition: action.payload
+				...state,
+				postJob: {
+					...state.postJob,
+					position: {
+						...state.postJob.position,
+						formPosition: action.payload,
+					}
+				}
 			}
+
 		case 'CHANGEOVERVIEWPOSITION':
 			return{
-				overviewPosition: action.payload
+				...state,
+				postJob: {
+					...state.postJob,
+					position: {
+						...state.postJob.position,
+						overviewPosition: action.payload,
+					}
+				}
 			}
 		// default:
 		// 	break;

@@ -11,8 +11,9 @@ import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
 const mapStateToProps = state => {
+	const { language } = state.postJob.seniorDetails
 	return {
-		seniorLanguage: state.seniorLanguage
+		language: language
 	}
 }
 
@@ -26,8 +27,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const SeniorLanguage = props => {
-	const { setFormPosition } = props
-
 	const initialFormValues = {
 		language: '',
 	}
@@ -75,6 +74,8 @@ const SeniorLanguage = props => {
 							storeReduxFunction={props.onSeniorLanguageUpdate}
 							handleSubmit={handleSubmit}
 							errors={errors}
+							touched={touched}
+							lastPosition={7}
 						/>
 					</View>
 				)

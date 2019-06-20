@@ -11,8 +11,10 @@ import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
 const mapStateToProps = state => {
+	const { gender, seniorName } = state.postJob.seniorDetails
 	return {
-		seniorGender: state.seniorGender
+		seniorName: seniorName,
+		gender: gender
 	}
 }
 
@@ -28,7 +30,7 @@ const mapDispatchToProps = dispatch => {
 const SeniorGender = props => {
 
 	const initialFormValues = {
-		gender: '',
+		gender: props.gender,
 	}
 
 	return (
@@ -60,7 +62,7 @@ const SeniorGender = props => {
 				return (
 					<View style={createSeniorProfile.mainContainer}>
 						<Text style={createSeniorProfile.question}>
-							What is (insert seinor name) Gender?
+							What is {props.seniorName}'s Gender?
 						</Text>
 						<Button
 							title='Female'
@@ -83,6 +85,8 @@ const SeniorGender = props => {
 							storeReduxFunction={props.onSeniorGenderUpdate}
 							handleSubmit={handleSubmit}
 							errors={errors}
+							touched={touched}
+							lastPosition={7}
 						/>
 					</View>
 				)

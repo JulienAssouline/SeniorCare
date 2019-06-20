@@ -4,9 +4,11 @@ import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
+	const { formPosition, overviewPosition, completedSections } = state.postJob.position
 	return {
-		formPosition: state.formPosition,
-		overviewPosition: state.overviewPosition
+		formPosition: formPosition,
+		overviewPosition: overviewPosition,
+		completedSections: completedSections,
 	}
 }
 
@@ -19,39 +21,49 @@ const mapDispatchToProps = dispatch => {
 		onOverviewUpdate: (value) => dispatch({
 			type: 'CHANGEOVERVIEWPOSITION',
 			payload: value
+		}),
+		onCompletedSectionsUpdate: value => dispatch({
+			type: 'CHANGECOMPLETEDSECTIONS',
+			payload: value
 		})
 	}
 }
 
 const PostJobBottomButtons = props => {
-	const { storeReduxFunction, storeReduxData, handleSubmit, errors, touched } = props
+	const { storeReduxFunction, storeReduxData, handleSubmit, errors, touched, lastPosition } = props
 
 	const handleFormPosition = directionForward => {
 		if (directionForward) {
 			handleSubmit()
-			console.log('checkpoint A')
-			if (Object.keys(errors).length === 0 && Object.keys(touched).length !== 0) {
-				console.log('checkpoint B')
+
+			if (Object.keys(errors).length === 0 && Object.keys(touched).length !== 0 || storeReduxData) {
 				storeReduxFunction(storeReduxData)
-				props.onPositionUpdate(++props.formPosition)
-				console.log('form position', props.formPosition)
+				
+				if (props.formPosition === lastPosition ) {
+					if (props.completedSections.includes(props.overviewPosition)) {
+						props.completedSections.push(props.overviewPosition)
+					} 
+					props.navigation.navigate('Overview')
+				} else {
+					props.onPositionUpdate(++props.formPosition)
+				}
 			}
 		} else {
 			storeReduxFunction(storeReduxData)
 			if (props.formPosition !== 0) {
 				props.onPositionUpdate(--props.formPosition)
 			} else {
-				props.navigation.navigate('Overview')
+				if (props.overviewPosition === 2) {
+					props.navigation.navigate('SeniorDetails')
+				} else {
+					props.navigation.navigate('Overview')
+				}
 			}
 		}
 	}
 
 	return (
 		<View>
-			<Button
-				title='test'
-				onPress={() => props.navigation.navigate('overview')}
-			/>
 			<Button
 				title="Back"
 				onPress={() => handleFormPosition(false)}
@@ -65,23 +77,3 @@ const PostJobBottomButtons = props => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostJobBottomButtons)
-
-	// const handleFormPosition = direction => {
-	// 	console.log('handle submit function', handleSubmit)
-	// 	// console.log('handle submit diff', handleSubmit())
-	// 	handleSubmit()
-
-	// 	storeReduxFunction(storeReduxData)
-
-	// 	direction ? 
-	// 		setFormPosition(prevState => {
-	// 			return ++prevState
-	// 		}) :
-	// 		setFormPosition(prevState => {
-	// 			if (prevState) {
-	// 				return --prevState
-	// 			} else {
-	// 				props.navigation.navigate('SeniorDetails')
-	// 			}
-	// 		})
-	// }

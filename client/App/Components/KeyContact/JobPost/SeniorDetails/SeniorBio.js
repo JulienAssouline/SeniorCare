@@ -10,8 +10,10 @@ import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
 const mapStateToProps = state => {
+	const { seniorName, bio } = state.postJob.seniorDetails
 	return {
-		seniorBio: state.seniorBio
+		seniorName: seniorName,
+		bio: bio
 	}
 }
 
@@ -25,8 +27,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const SeniorBio = props => {
-	const { setFormPosition } = props
-
 	const initialFormValues = {
 		bio: '',
 	}
@@ -60,7 +60,7 @@ const SeniorBio = props => {
 				return (
 					<View style={createSeniorProfile.mainContainer}>
 						<Text style={createSeniorProfile.question}>
-							Tell us more about (insert senior name)!
+							Tell us more about {props.seniorName}!
 						</Text>
 						<View style={createSeniorProfile.multilineTextBox}>
 							<TextInput
@@ -75,9 +75,12 @@ const SeniorBio = props => {
 						</View>
 						<PostJobBottomButtons
 							navigation={props.navigation}
-							setFormPosition={setFormPosition}
 							storeReduxData={values.bio}
 							storeReduxFunction={props.onSeniorBioUpdate}
+							handleSubmit={handleSubmit}
+							errors={errors}
+							touched={touched}
+							lastPosition={7}
 						/>
 					</View>
 				)

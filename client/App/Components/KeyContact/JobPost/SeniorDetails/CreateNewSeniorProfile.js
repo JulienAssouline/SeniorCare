@@ -1,28 +1,36 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { ScrollView } from 'react-native'
+
+import { connect } from 'react-redux'
 
 import { backgroundStyles } from '../../../Styles/GeneralStyles'
 
 import PostJobTop from '../PostJobTop'
 import SeniorDetailsBody from './SeniorDetailsBody'
 
-export default CreateNewSeniorProfile = props => {
-	const [formPosition, setFormPosition] = useState(0)
+const mapStateToProps = state => {
+	const { formPosition } = state.postJob.position
+	return {
+		formPosition: formPosition,
+	}
+}
 
+const CreateNewSeniorProfile = props => {
 	return (
 		<ScrollView style={backgroundStyles.background}>
 			<PostJobTop
 				title="Senior's Profile"
-				currentPosition={formPosition}
+				currentPosition={props.formPosition}
 				stepCount={8}
 			/>
 
 			<SeniorDetailsBody
 				navigation={props.navigation}
-				formPosition={formPosition}
-				setFormPosition={setFormPosition}
+				formPosition={props.formPosition}
 			/>
 		</ScrollView>
 	)
 }
+
+export default connect(mapStateToProps)(CreateNewSeniorProfile)

@@ -11,8 +11,10 @@ import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
 const mapStateToProps = state => {
+	const { seniorName, relationship } = state.postJob.seniorDetails
 	return {
-		seniorRelation: state.seniorRelation
+		seniorName: seniorName,
+		relationship: relationship
 	}
 }
 
@@ -26,8 +28,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const SeniorRelation = props => {
-	const { setFormPosition } = props
-
 	const initialFormValues = {
 		relationship: '',
 	}
@@ -61,7 +61,7 @@ const SeniorRelation = props => {
 				return (
 					<View style={createSeniorProfile.mainContainer}>
 						<Text style={createSeniorProfile.question}>
-							What is your relationship to (insert seinor name)?
+							What is your relationship to {props.seniorName}?
 						</Text>
 						<Input
 							placeholder='Daughter/Friend/Neighbour'
@@ -71,9 +71,12 @@ const SeniorRelation = props => {
 						/>
 						<PostJobBottomButtons
 							navigation={props.navigation}
-							setFormPosition={setFormPosition}
 							storeReduxData={values.relationship}
 							storeReduxFunction={props.onSeniorRelationUpdate}
+							handleSubmit={handleSubmit}
+							errors={errors}
+							touched={touched}
+							lastPosition={7}
 						/>
 					</View>
 				)

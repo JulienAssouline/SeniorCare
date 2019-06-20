@@ -12,8 +12,9 @@ import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
 const mapStateToProps = state => {
+	const { seniorName } = state.postJob.seniorDetails
 	return {
-		seniorName: state.seniorName
+		seniorName: seniorName
 	}
 }
 
@@ -30,7 +31,7 @@ const SeniorName = props => {
 	const { setFormPosition } = props
 
 	const initialFormValues = {
-		seniorName: '',
+		seniorName: props.seniorName,
 	}
 
 	return (
@@ -75,12 +76,12 @@ const SeniorName = props => {
 						/>
 						<PostJobBottomButtons
 							navigation={props.navigation}
-							setFormPosition={setFormPosition}
 							storeReduxData={values.seniorName}
 							storeReduxFunction={props.onSeniorNameUpdate}
 							handleSubmit={handleSubmit}
 							errors={errors}
 							touched={touched}
+							lastPosition={7}
 						/>
 					</View>
 				)

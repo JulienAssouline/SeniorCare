@@ -10,8 +10,9 @@ import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
 const mapStateToProps = state => {
+	const { medicalCondition } = state.postJob.seniorDetails
 	return {
-		seniorMedicalCondition: state.seniorMedicalCondition
+		medicalCondition: medicalCondition
 	}
 }
 
@@ -25,8 +26,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const SeniorMedicalCondition = props => {
-	const { setFormPosition } = props
-
 	const initialFormValues = {
 		medicalCondition: '',
 	}
@@ -75,9 +74,12 @@ const SeniorMedicalCondition = props => {
 						</View>
 						<PostJobBottomButtons
 							navigation={props.navigation}
-							setFormPosition={setFormPosition}
 							storeReduxData={values.medicalCondition}
 							storeReduxFunction={props.onSeniorMedicalConditionUpdate}
+							handleSubmit={handleSubmit}
+							errors={errors}
+							touched={touched}
+							lastPosition={7}
 						/>
 						</View>
 				)

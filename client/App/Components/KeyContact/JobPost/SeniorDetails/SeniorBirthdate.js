@@ -10,8 +10,10 @@ import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
 const mapStateToProps = state => {
+	const { birthdate, seniorName } = state.postJob.seniorDetails
 	return {
-		seniorBirthdate: state.seniorBirthdate
+		seniorName: seniorName,
+		birthdate: birthdate
 	}
 }
 
@@ -25,9 +27,8 @@ const mapDispatchToProps = dispatch => {
 }
 
 const SeniorBirthdate = props => {
-
 	const initialFormValues = {
-		birthdate: new Date(),
+		birthdate: props.birthdate,
 	}
 
 	return (
@@ -59,7 +60,7 @@ const SeniorBirthdate = props => {
 				return (
 					<View style={createSeniorProfile.mainContainer}>
 						<Text style={createSeniorProfile.question}>
-							When is (insert seinor name)'s birth date?
+							When is {props.seniorName}'s birth date?
 						</Text>
 						<DatePickerIOS
 							date={values.birthdate}
@@ -71,7 +72,9 @@ const SeniorBirthdate = props => {
 							storeReduxData={values.birthdate}
 							storeReduxFunction={props.onSeniorBirthdateUpdate}
 							handleSubmit={handleSubmit}
-							error={errors}
+							errors={errors}
+							touched={touched}
+							lastPosition={7}
 						/>
 					</View>
 				)
