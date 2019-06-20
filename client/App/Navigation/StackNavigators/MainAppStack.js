@@ -8,7 +8,7 @@ import {
   createMaterialTopTabNavigator,
 } from 'react-navigation'
 
-import Icons from 'react-native-vector-icons/AntDesign'
+
 import Icon from 'react-native-vector-icons/SimpleLineIcons'
 
 // Auth stack screen imports
@@ -37,12 +37,12 @@ const configurations = {
     navigationOptions: {
       tabBarLabel: 'Search',
       tabBarIcon: ({ tintColor }) => (
-        <Icons style={{ fontSize: 26, color: tintColor }} name="search1" />
+        <Icon style={{ fontSize: 26, color: tintColor }} name="magnifier" />
       )
     }
   },
   JobBoard: {
-    screen: JobBoardStack,
+    screen: JobBoardStack ,
     navigationOptions: {
       tabBarLabel: 'Job',
       tabBarIcon: ({ tintColor }) => (
@@ -55,7 +55,7 @@ const configurations = {
     navigationOptions: {
       tabBarLabel: 'Messages',
       tabBarIcon: ({ tintColor }) => (
-        <Icons style={{ fontSize: 24, color: tintColor }} name="message1" />
+        <Icon style={{ fontSize: 24, color: tintColor }} name="bubbles" />
       )
     }
   },
@@ -64,7 +64,7 @@ const configurations = {
     navigationOptions: {
       tabBarLabel: 'Profile',
       tabBarIcon: ({ tintColor }) => (
-        <Icons style={{ fontSize: 24, color: tintColor }} name="user" />
+        <Icon style={{ fontSize: 24, color: tintColor }} name="user" />
       )
     }
   },
