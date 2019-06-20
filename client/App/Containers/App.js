@@ -28,7 +28,9 @@ const App = () => {
   return (
     <ApolloProvider client={apolloClient}>
       <ApolloHooksProvider client={apolloClient}>
-        <AppContainer />
+				<Provider store={store}>
+					<AppContainer />
+				</Provider>
       </ApolloHooksProvider>
     </ApolloProvider>
   )
