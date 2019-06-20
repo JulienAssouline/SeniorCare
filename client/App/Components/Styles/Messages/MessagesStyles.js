@@ -3,15 +3,25 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
   MainContainer: {
     flex: 1,
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#EEF5FB',
   },
-  ExempleText: {
-    fontFamily: 'SFProText-Bold',
-    fontSize: 22,
-    color: '#98A6B5'
+  conversationContainer: {
+    margin: 20,
+    backgroundColor: "#FFFFFF",
+    borderWidth: 1,
+    borderBottomColor: "transparent",
+    borderStyle: "solid",
+    borderTopColor: "transparent",
+    borderRightColor: "transparent",
+    borderLeftColor: "transparent",
   },
-  ExempleButton: {
-    backgroundColor: '#569CF2',
+  fullName: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  arrowIcon: {
+    marginRight: "auto",
   },
 })
 

@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { ScrollView, Text, View } from 'react-native'
-import { useQuery } from 'react-apollo-hooks'
+import { Dimensions, ScrollView, Text, View } from 'react-native'
+import { useQuery, useMutation } from 'react-apollo-hooks'
 import gql from "graphql-tag";
 import styles from "../Styles/searchStyles/searchStyles"
 import Ratings from "./Ratings"
 import calcAge from "../utils/calcAge"
-import { Avatar } from 'react-native-elements'
+import { Avatar, Button } from 'react-native-elements'
+import MessageButton from "./MessageButton"
+import {ADD_CONVERSATION_MUTATION} from "../../graphql-queries/mutation"
 
 const GET_CAREGIVERS = gql`
    query GetCaregiver($input: FilterInput!) {
@@ -24,6 +26,8 @@ const GET_CAREGIVERS = gql`
   }
 `;
 
+
+
 const SearchScreen = (props) => {
 
   let filterObj = {};
@@ -36,6 +40,8 @@ const SearchScreen = (props) => {
 
   const {data, error, loading} = useQuery(GET_CAREGIVERS, {variables: { input: filterObj }})
 
+  const addConversation = useMutation(ADD_CONVERSATION_MUTATION);
+
   if (data.getCaregiver === undefined) { return (<Text> ...loading </Text>)}
 
   if (data.getCaregiver.length === 0) { return (<Text> No Results Found </Text>)}
@@ -44,8 +50,19 @@ const SearchScreen = (props) => {
     calcAge(d)
   })
 
+
   function onStarRatingPress(rating) {
     setStarCount(rating)
+  }
+
+  function handlePress(caregiver_id) {
+    addConversation({variables: {caregiver_id: caregiver_id}})
+    props.navigation.navigate("Messages")
+  }
+
+  const screen = {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height
   }
 
   return (
@@ -71,7 +88,7 @@ const SearchScreen = (props) => {
                 <Text style = {styles.backgroundInfoText}> {`${d.years_experience} years experience`} </Text>
                 <Text style = {styles.backgroundInfoText}> {`From $${d.hourly_rate / 100}/hour`} </Text>
               </View>
-              <Text style = {styles.backgroundInfoText}> {`${d.Age} years old`} </Text>
+              <MessageButton caregiver_id = {d.id} handlePress = {handlePress} />
             </View>
           </View>
           ))

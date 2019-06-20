@@ -1,10 +1,12 @@
 import React from 'react'
 import { createStackNavigator } from 'react-navigation'
+import ConversationScreen from '../../Components/Messages/ConversationScreen.js'
 import MessagesScreen from '../../Components/Messages/MessagesScreen.js'
 
 export const MessagesStack = createStackNavigator(
   {
-    Messages: { screen: MessagesScreen },
+    Messages: { screen: ConversationScreen },
+    MessagesScreen: { screen: MessagesScreen }
   },
   {
     defaultNavigationOptions: {

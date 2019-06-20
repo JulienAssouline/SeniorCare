@@ -16,6 +16,7 @@ class CaregiverDatabase extends DataSource {
   async queryCaregiver(input) {
 
     try {
+
       const selectCaregiver = buildSelect(input)
 
       const result = await this.context.postgres.query(selectCaregiver)
