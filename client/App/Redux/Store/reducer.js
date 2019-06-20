@@ -21,6 +21,11 @@ const initialState = {
 			medicalCondition: '',
 			language: '',
 		},
+		houseDetails: {
+			cigSmoking: '',
+			pets: '',
+			cannabis: '',
+		}
 	}
 }
 

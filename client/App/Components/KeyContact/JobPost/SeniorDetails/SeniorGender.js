@@ -66,18 +66,18 @@ const SeniorGender = props => {
 						</Text>
 						<Button
 							title='Female'
-							type='outline'
+							type={values.gender === 'female' ? 'solid' : 'outline'}
 							onPress={() => setFieldValue('gender', 'female')}
 						/>
 						<Button
 							title='Male'
-							type='outline'
+							type={values.gender === 'male' ? 'solid' : 'outline'}
 							onPress={() => setFieldValue('gender', 'male')}
 						/>
 						<Button
 							title='Other'
-							type='outline'
-							onPress={() => setFieldValue('gender', 'female')}
+							type={values.gender === 'other' ? 'solid' : 'outline'}
+							onPress={() => setFieldValue('gender', 'other')}
 						/>
 						<PostJobBottomButtons
 							navigation={props.navigation}

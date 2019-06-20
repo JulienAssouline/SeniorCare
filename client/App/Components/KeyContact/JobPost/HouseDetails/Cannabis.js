@@ -6,7 +6,7 @@ import { Button } from 'react-native-elements'
 import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
 
 export default Cannabis = props => {
-	const { setFieldValue } = props
+	const { setFieldValue, values } = props
 
 	return (
 		<View>
@@ -15,12 +15,12 @@ export default Cannabis = props => {
 			</Text>
 			<Button
 				title='Yes'
-				type='outline'
+				type={values.cannabis === true ? 'solid' : 'outline'}
 				onPress={() => setFieldValue('cannabis', true)}
 			/>
 			<Button
 				title='No'
-				type='outline'
+				type={values.cannabis === false ? 'solid' : 'outline'}
 				onPress={() => setFieldValue('cannabis', false)}
 			/>
 		</View>
