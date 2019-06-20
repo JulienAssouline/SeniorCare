@@ -24,3 +24,15 @@ export const GET_CAREGIVER_CONVO = gql`
     }
   }
 `
+
+export const GET_MESSAGES = gql`
+  query getMessagesQuery($conversation_id:ID) {
+    getMessages (conversation_id: $conversation_id){
+      id
+      conversation_id
+      from_user
+      date_created
+      content
+    }
+  }
+`

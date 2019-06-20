@@ -1,9 +1,23 @@
 import { StyleSheet } from 'react-native'
+import { Dimensions } from 'react-native'
+
+const height = Dimensions.get("window").height
 
 const styles = StyleSheet.create({
   MainContainer: {
     flex: 1,
     backgroundColor: '#EEF5FB',
+  },
+  InputContainer: {
+    position: "absolute",
+    bottom: 0,
+  },
+  MessagesContainer: {
+   padding: 20,
+   // overflow-y: scroll;
+   // height: height - 20,
+   marginBottom: 10,
+   backgroundColor: '#EEF5FB',
   },
   conversationContainer: {
     margin: 20,
@@ -22,6 +36,23 @@ const styles = StyleSheet.create({
   },
   arrowIcon: {
     marginRight: "auto",
+  },
+  fromText: {
+    fontSize: 16,
+  },
+  fromMessageBubble: {
+    position: "relative",
+    borderRadius: 20,
+    backgroundColor: "lightgrey",
+    padding: 10,
+    marginBottom: 10,
+    color: "black",
+  },
+  messages: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
   },
 })
 

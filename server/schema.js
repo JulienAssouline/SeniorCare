@@ -117,7 +117,7 @@ module.exports = gql`
 		login(input: LoginObject!): LoginResponse!
 		deleteit(id:ID!):ID!
 		duplicateRepost(id:ID!):QueryArchiveJobs!
-    addMessages(content: String, conversation_id: Int): addMessagesResponse!
+    addMessages(content: String, conversation_id: ID): addMessagesResponse!
     addConversation(caregiver_id: ID): addConversationResponse!
 	}
   
