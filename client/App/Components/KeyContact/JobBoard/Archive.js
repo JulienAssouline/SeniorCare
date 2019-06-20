@@ -66,7 +66,7 @@ onclick = (id) => {
     },
     (buttonIndex) => {
       if (buttonIndex === 1) {
-        console.log(id)
+        
         remove({
           variables: {id},
           optimisticResponse: {
@@ -74,13 +74,13 @@ onclick = (id) => {
             deleteit: {id},
             },
           update: (cache, {data: {deleteit}}) => {
-            console.log("Duplicate Repost return", deleteit)
+            
             let data = cache.readQuery({ query: ARCHIVED_JOBS  });
-            console.log("remove data: ", data)
+           
             let newArchivedJobs = data.ArchivedJobs.filter(elem => {
               return elem.id !== deleteit
             })
-            console.log("remove newArchivedJobs: ", newArchivedJobs)
+         
             cache.writeQuery({ query: ARCHIVED_JOBS, data: {
               ...data,
               ArchivedJobs: newArchivedJobs
@@ -102,10 +102,9 @@ onclick = (id) => {
             }
           },
           update: (cache, {data: {duplicateRepost}}) => {
-            console.log("Duplicate Repost return", duplicateRepost)
+            
             const data = cache.readQuery({ query: ARCHIVED_JOBS });
-            console.log('cache',cache)
-            console.log("data: ", data)
+           
             cache.writeQuery({ query: ARCHIVED_JOBS, data: {
               ...data,
               ArchivedJobs: [...data.ArchivedJobs, duplicateRepost]

@@ -25,7 +25,7 @@ module.exports = {
 		},
 
 		async duplicateRepost(parent, input, { dataSources }) {
-			console.log('hellooo input backend', input)
+		
 			return dataSources.jobsDatabase.duplicateRepost(input)
 		},
 	}

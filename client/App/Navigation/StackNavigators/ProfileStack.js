@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation'
 //import { SignUpScreen } from './SignUpStack';
 import ProfileScreen from '../../Components/Profile/ProfileScreen'
 import Senior from '../../Components/Profile/Senior/Senior'
+import Help from '../../Components/Profile/Help/Help'
 
 export const ProfileStack = createStackNavigator(
   {
@@ -13,6 +14,9 @@ export const ProfileStack = createStackNavigator(
     },
     Seniors: {
       screen: Senior
+    },
+    Help: {
+      screen: Help
     }
 
   },
