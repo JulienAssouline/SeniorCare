@@ -1,6 +1,5 @@
 import React from 'react'
 import { ScrollView, Text, View , Image} from 'react-native'
-import { Button } from '@ant-design/react-native';
 import { useQuery } from 'react-apollo-hooks';
 import gql from "graphql-tag";
 import styles from '../Styles/Profile/ProfileScreen'
@@ -30,6 +29,12 @@ const ProfileScreen = props => {
     props.navigation.navigate('Seniors')
   }
 
+ actionsheet_fix
+  const handleGoToHelp = () => {
+    props.navigation.navigate('Help')
+  }
+
+ master
   const handleGoToAccount = () =>{
     props.navigation.navigate('Account')
   }
@@ -57,7 +62,7 @@ const ProfileScreen = props => {
           <Text style={styles.ProfileButtonText}> Account</Text>
           <Icons name = {`cog`} style={styles.ProfileButtonIcon} /> 
         </TouchableOpacity>
-        <TouchableOpacity style={styles.ProfileButton}>
+        <TouchableOpacity style={styles.ProfileButton}  onPress={handleGoToHelp}>
           <Text style={styles.ProfileButtonText}> Help</Text>
           <Icons name = {`question-circle`} style={styles.ProfileButtonIcon} /> 
         </TouchableOpacity>

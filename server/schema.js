@@ -17,6 +17,7 @@ module.exports = gql`
     getConversations: [ConversationRoom]
   }
 
+
   type ConversationRoom {
     id:ID
     caregiver_id: ID
@@ -110,10 +111,12 @@ module.exports = gql`
 		placeholderApi: MutationPlaceholder
 		signUp(input:SignUpObjects!): MessageResponse
 		login(input: LoginObject!): LoginResponse!
-		Delete(id:ID!):DeleteResponse!
+		deleteit(id:ID!):ID!
+		duplicateRepost(id:ID!):QueryArchiveJobs!
     addMessages(content: String, conversation_id: Int): addMessagesResponse!
     addConversation(caregiver_id: ID): addConversationResponse!
 	}
+
 
   type addConversationResponse {
     id: ID
@@ -153,6 +156,11 @@ module.exports = gql`
 	type DeleteResponse{
 		message: String
 	}
+
+	type duplicateRepostMessage{
+		message: String
+	}
+
 `
 
 

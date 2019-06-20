@@ -3,26 +3,38 @@ import { Text, ScrollView, View, ActionSheetIOS } from 'react-native'
 import { Button, Card } from 'react-native-elements';
 
 import gql from 'graphql-tag'
-import { useQuery } from 'react-apollo-hooks'
+import { useQuery,useMutation } from 'react-apollo-hooks'
 import styles from '../../Styles/JobDashboardScreen/ArchiveScreenStyles'
+
 
 const ARCHIVED_JOBS = gql `
   query{
-    ArchivedJobs(id: 1){
+    ArchivedJobs{
       id
       title
       date_created
       start_date
-      end_date
-      address
-      city
-      province
-      availability
       hourly_rate
-      gender_pref
     }
   }
 `
+const DUPLICATE  = gql`
+  mutation duplicateRepost($id: ID!) {
+    duplicateRepost(id:$id){
+      id
+      title
+      date_created
+      start_date
+      hourly_rate
+    }
+  }
+`;
+const DELETE  = gql`
+  mutation deleteit($id: ID!) {
+    deleteit(id: $id)
+  }
+`;
+
 
 const ArchiveScreen = (props) =>{
 
@@ -39,10 +51,13 @@ const ArchiveScreen = (props) =>{
     })
 }, [])
 
+const { data, error, loading } = useQuery(ARCHIVED_JOBS);
 
-  const { data, error, loading } = useQuery(ARCHIVED_JOBS);
+const duplicate = useMutation(DUPLICATE)
 
-onclick = () => {
+const remove = useMutation(DELETE)
+
+onclick = (id) => {
   ActionSheetIOS.showActionSheetWithOptions(
     {
       options: ['Cancel', 'Delete Job', 'Duplicate and Repost Job'],
@@ -51,7 +66,51 @@ onclick = () => {
     },
     (buttonIndex) => {
       if (buttonIndex === 1) {
-        useQuery()
+        
+        remove({
+          variables: {id},
+          optimisticResponse: {
+            __typename: "Mutation",
+            deleteit: {id},
+            },
+          update: (cache, {data: {deleteit}}) => {
+            
+            let data = cache.readQuery({ query: ARCHIVED_JOBS  });
+           
+            let newArchivedJobs = data.ArchivedJobs.filter(elem => {
+              return elem.id !== deleteit
+            })
+         
+            cache.writeQuery({ query: ARCHIVED_JOBS, data: {
+              ...data,
+              ArchivedJobs: newArchivedJobs
+            }})
+          },
+        })
+      }if (buttonIndex === 2) {
+        duplicate({
+          variables: {id},
+          optimisticResponse: {
+            __typename: "Mutation",
+            duplicateRepost: {
+              __typename: "QueryArchiveJobs",
+              id: id,
+              date_created: "Loading...",
+              title: "Loading...",
+              start_date: "Loading..." ,
+              hourly_rate: "Loading..."
+            }
+          },
+          update: (cache, {data: {duplicateRepost}}) => {
+            
+            const data = cache.readQuery({ query: ARCHIVED_JOBS });
+           
+            cache.writeQuery({ query: ARCHIVED_JOBS, data: {
+              ...data,
+              ArchivedJobs: [...data.ArchivedJobs, duplicateRepost]
+            }})
+          },
+      })
       }
     },
   ); 
@@ -77,7 +136,6 @@ onclick = () => {
         let newDate = new Date(parseInt(elem.start_date));
         let startDate = newDate.toLocaleDateString('en',options)
  
-
   return(
     <ScrollView>
    
@@ -86,7 +144,7 @@ onclick = () => {
       <View >
         <View>
           <Text style={styles.DateText}> Posted {dateCreated}</Text>
-          <Text onPress={ () => onclick()}>...</Text>
+          <Text onPress={ () => onclick(elem.id)}>...</Text>
           <Text key = {elem.id} style={styles.JobText}> {elem.title}</Text> 
         
         </View>
@@ -97,14 +155,6 @@ onclick = () => {
         </View>
        
       </View>
-{/* 
-      <Card>
-				<Button
-					style={styles.Button}
-					title={'Applicants'}
-					titleStyle={styles.Archived}
-				/>
-      </Card> */}
 
 </View>
     </ScrollView>
