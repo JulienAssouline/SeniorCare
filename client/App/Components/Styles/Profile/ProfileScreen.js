@@ -25,6 +25,17 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginLeft: 20,
   },
+  ProfileButtonForgot: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderWidth: 2,
+    borderBottomColor: '#eee',
+    borderColor: '#fff',
+    borderStyle: 'solid',
+    marginRight: 20,
+    marginLeft: 20,
+  },
   ProfileButtonText: {
     fontSize: 16,
     padding: 15,

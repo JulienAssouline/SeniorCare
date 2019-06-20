@@ -1,10 +1,15 @@
 import React from 'react'
-import { createStackNavigator } from 'react-navigation'
+import { createStackNavigator, navigation } from 'react-navigation'
 
 //import ProfileScreen from '../../Components/KeyContact/JobDashboard/JobDashboardScreen'
 //import { SignUpScreen } from './SignUpStack';
 import ProfileScreen from '../../Components/Profile/ProfileScreen'
 import Senior from '../../Components/Profile/Senior/Senior'
+
+import Help from '../../Components/Profile/Help/Help'
+
+import AccountDetails from '../../Components/Profile/Account'
+import SeniorIndex from '../../Components/Profile/Senior/Index'
 
 export const ProfileStack = createStackNavigator(
   {
@@ -12,7 +17,28 @@ export const ProfileStack = createStackNavigator(
       screen: ProfileScreen 
     },
     Seniors: {
-      screen: Senior
+      screen: Senior,
+      navigationOptions: {
+        title: 'Seniors'
+      },
+
+      Help: {
+        screen: Help
+      },
+
+    },
+    SeniorDetails:{
+      screen: SeniorIndex,
+        navigationOptions: {
+          title: 'Caregiver for'
+          // title: `${navigation.title}`,
+        },
+    },
+    Account: {
+      screen: AccountDetails,
+      navigationOptions: {
+        title: 'Account'
+      }
     }
 
   },

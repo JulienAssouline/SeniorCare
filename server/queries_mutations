@@ -21,3 +21,27 @@ mutation {
     message
   }
 }
+
+# query {
+#   getConversations {
+#     id
+#     caregiver_id
+#     key_contact_id
+#   }
+# }
+
+
+mutation{
+  addMessages(content: "hi", conversation_id: 2) {
+    message
+  }
+}
+
+query {
+  getMessages(conversation_id: 2) {
+    from_user
+    conversation_id
+    content
+    date_created
+  }
+}

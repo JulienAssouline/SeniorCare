@@ -1,5 +1,7 @@
 const { DataSource } = require('apollo-datasource')
 const authenticate = require('../utils/DSHelperFunctions/authenticate')
+const buildSelect = require('../utils/DSHelperFunctions/buildSelect')
+
 
 
 class CaregiverDatabase extends DataSource {
@@ -14,11 +16,8 @@ class CaregiverDatabase extends DataSource {
   async queryCaregiver(input) {
 
     try {
-    // this.context.postgres
-      const selectCaregiver = {
-        text: "SELECT * FROM seniorcare.caregiver WHERE key_contact_id = $1	",
-        input:[ key_contact ]
-      }
+
+      const selectCaregiver = buildSelect(input)
 
       const result = await this.context.postgres.query(selectCaregiver)
 

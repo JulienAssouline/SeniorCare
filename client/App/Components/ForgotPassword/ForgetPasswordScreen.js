@@ -1,31 +1,37 @@
 import React from 'react'
 import {
+  StyleSheet,
+  View,
+  Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  StyleSheet,
-  Text,
   SafeAreaView,
   StatusBar,
   KeyboardAvoidingView,
   Keyboard,
-  View,
   Alert,
-  Animated
+  Animated,
+  Image
 } from 'react-native'
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icons from 'react-native-vector-icons/AntDesign'
+
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import {
   Container,
-  Item,
-  Input
+  Input,
+  Card,
+  CardItem,
+  Item
 } from 'native-base'
 
 // AWS Amplify modular import
 import Auth from '@aws-amplify/auth'
 
 // Load the app logo
-const logo = require('../../Images/logo.png')
+const logo = require('../../Images/WelcomeScreen/logo-circle.png')
+const yellowCurve = require('../../Images/WelcomeScreen/yellow-curve.png')
 
 export default class ForgetPasswordScreen extends React.Component {
   state = {
@@ -117,34 +123,40 @@ export default class ForgetPasswordScreen extends React.Component {
                   isHidden ?
                     <Animated.Image
                       source={logo}
-                      style={{ opacity: fadeIn, width: 160, height: 167 }}
+                      style={{ width: wp(30), height: wp(30) }}
                     />
                     :
                     <Animated.Image
                       source={logo}
-                      style={{ opacity: fadeOut, width: 160, height: 167 }}
+                      style={{ width: wp(30), height: wp(30) }}
                     />
                 }
               </View>
               {/* Infos */}
               <Container style={styles.infoContainer}>
                 <View style={styles.container}>
+                  <Text style={styles.h1}>
+                    Reset password
+                </Text>
                   {/* Username */}
-                  <Item style={styles.itemStyle}>
-                    <Ionicons name="ios-person" style={styles.iconStyle} />
-                    <Input
-                      style={styles.input}
-                      placeholder='Username'
-                      placeholderTextColor='#adb4bc'
-                      keyboardType={'email-address'}
-                      returnKeyType='go'
-                      autoCapitalize='none'
-                      autoCorrect={false}
-                      onChangeText={value => this.onChangeText('username', value)}
-                      onFocus={this.fadeOut.bind(this)}
-                      onEndEditing={this.fadeIn.bind(this)}
-                    />
-                  </Item>
+                  <Card>
+                    <CardItem style={styles.itemStyle2}>
+                      <Icons name="mail" style={styles.iconStyle} />
+                      <Input
+                        style={styles.input}
+                        placeholder='Email'
+                        placeholderTextColor='#adb4bc'
+                        keyboardType={'email-address'}
+                        returnKeyType='go'
+                        autoCapitalize='none'
+                        autoCorrect={false}
+                        onChangeText={value => this.onChangeText('username', value)}
+                        onFocus={this.fadeOut.bind(this)}
+                        onEndEditing={this.fadeIn.bind(this)}
+                      />
+                    </CardItem>
+                  </Card>
+
                   <TouchableOpacity
                     onPress={() => this.forgotPassword()}
                     style={styles.buttonStyle}>
@@ -153,40 +165,42 @@ export default class ForgetPasswordScreen extends React.Component {
                     </Text>
                   </TouchableOpacity>
                   {/* the New password section  */}
-                  <Item style={styles.itemStyle}>
-                    <Ionicons name="ios-lock" style={styles.iconStyle} />
-                    <Input
-                      style={styles.input}
-                      placeholder='New password'
-                      placeholderTextColor='#adb4bc'
-                      returnKeyType='next'
-                      autoCapitalize='none'
-                      autoCorrect={false}
-                      secureTextEntry={true}
-                      onSubmitEditing={(event) => { this.refs.SecondInput._root.focus() }}
-                      onChangeText={value => this.onChangeText('newPassword', value)}
-                      onFocus={this.fadeOut.bind(this)}
-                      onEndEditing={this.fadeIn.bind(this)}
-                    />
-                  </Item>
-                  {/* Code confirmation section  */}
-                  <Item style={styles.itemStyle}>
-                    <Ionicons name="md-apps" style={styles.iconStyle} />
-                    <Input
-                      style={styles.input}
-                      placeholder='Confirmation code'
-                      placeholderTextColor='#adb4bc'
-                      keyboardType={'numeric'}
-                      returnKeyType='done'
-                      autoCapitalize='none'
-                      autoCorrect={false}
-                      secureTextEntry={false}
-                      ref='SecondInput'
-                      onChangeText={value => this.onChangeText('authCode', value)}
-                      onFocus={this.fadeOut.bind(this)}
-                      onEndEditing={this.fadeIn.bind(this)}
-                    />
-                  </Item>
+                  <Card>
+                    <CardItem style={styles.itemStyle}>
+                      <Icons name="lock" style={styles.iconStyle} />
+                      <Input
+                        style={styles.input}
+                        placeholder='New password'
+                        placeholderTextColor='#adb4bc'
+                        returnKeyType='next'
+                        autoCapitalize='none'
+                        autoCorrect={false}
+                        secureTextEntry={true}
+                        onSubmitEditing={(event) => { this.refs.SecondInput._root.focus() }}
+                        onChangeText={value => this.onChangeText('newPassword', value)}
+                        onFocus={this.fadeOut.bind(this)}
+                        onEndEditing={this.fadeIn.bind(this)}
+                      />
+                    </CardItem>
+                    {/* Code confirmation section  */}
+                    <CardItem style={styles.itemStyle2}>
+                      <Icons name="check" style={styles.iconStyle} />
+                      <Input
+                        style={styles.input}
+                        placeholder='Confirmation code'
+                        placeholderTextColor='#adb4bc'
+                        keyboardType={'numeric'}
+                        returnKeyType='done'
+                        autoCapitalize='none'
+                        autoCorrect={false}
+                        secureTextEntry={false}
+                        ref='SecondInput'
+                        onChangeText={value => this.onChangeText('authCode', value)}
+                        onFocus={this.fadeOut.bind(this)}
+                        onEndEditing={this.fadeIn.bind(this)}
+                      />
+                    </CardItem>
+                  </Card>
                   <TouchableOpacity
                     onPress={() => this.forgotPasswordSubmit()}
                     style={styles.buttonStyle}>
@@ -194,6 +208,7 @@ export default class ForgetPasswordScreen extends React.Component {
                       Confirm the new password
                     </Text>
                   </TouchableOpacity>
+
                 </View>
               </Container>
             </View>
@@ -203,59 +218,118 @@ export default class ForgetPasswordScreen extends React.Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#5059ae',
+    backgroundColor: '#eef5fb',
     justifyContent: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
+  },
+  container2: {
+    flex: 1,
+    backgroundColor: '#eef5fb',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    zIndex: 1
   },
   input: {
     flex: 1,
     fontSize: 17,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#525252',
   },
   infoContainer: {
     position: 'absolute',
     left: 0,
     right: 0,
-    height: 200,
-    bottom: 25,
+    height: hp(37),
+    bottom: hp(8),
+    marginHorizontal: wp(5),
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 30,
-    backgroundColor: '#5059ae',
+
+    backgroundColor: '#eef5fb',
+    zIndex: 1,
   },
   itemStyle: {
-    marginBottom: 20,
+    marginBottom: 5,
+    borderBottomWidth: 0.7,
+    borderColor: '#cccccc',
+    zIndex: 1,
+  },
+  itemStyleNoBorder: {
+    marginBottom: 10,
   },
   iconStyle: {
-    color: '#fff',
+    color: '#F89522',
     fontSize: 28,
     marginRight: 15
   },
   buttonStyle: {
     alignItems: 'center',
-    backgroundColor: '#b44666',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    borderWidth: 1.2,
+    borderColor: '#244392',
     padding: 14,
-    marginBottom: 20,
-    borderRadius: 3,
+    marginTop: hp(2),
+    marginBottom: hp(1),
+    width: wp(90),
+    borderRadius: 24,
+    zIndex: 1,
+  },
+  forgotTextStyle: {
+    fontFamily: 'SFProText-Medium',
+    color: '#3F7DFB',
+    textAlign: 'center',
+    marginTop: hp(2),
+    marginBottom: hp(3),
+    zIndex: 1,
   },
   buttonText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: "#fff",
+    color: "#244392",
   },
   logoContainer: {
     position: 'absolute',
     left: 0,
     right: 0,
-    height: 600,
-    bottom: 180,
+    height: hp(80),
+    bottom: hp(35),
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
+    zIndex: 1,
   },
+  h1: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 22,
+    color: '#244392',
+    fontFamily: 'GothamRounded-Bold',
+    marginBottom: hp(2),
+    zIndex: 1,
+  },
+  textStyle: {
+    padding: 5,
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: 'bold'
+  },
+  countryStyle: {
+    flex: 1,
+    backgroundColor: '#eef5fb',
+    borderTopColor: '#cccccc',
+    borderTopWidth: 1,
+    padding: 12,
+  },
+  closeButtonStyle: {
+    flex: 1,
+    padding: 12,
+    alignItems: 'center',
+    backgroundColor: '#F89522',
+  }
 })

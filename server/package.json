@@ -21,6 +21,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-history-api-fallback": "^2.2.1",
+    "formik": "^1.5.7",
     "graphql": "^14.1.1",
     "graphql-subscriptions": "^1.1.0",
     "http": "^0.0.0",
@@ -28,6 +29,7 @@
     "node-pg-migrate": "^3.16.0",
     "pg": "^7.8.0",
     "react-native-elements": "^1.1.0",
+    "react-native-tab-view": "^2.6.1",
     "squel": "^5.12.2"
   },
   "devDependencies": {
