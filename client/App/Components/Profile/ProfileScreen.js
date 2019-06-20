@@ -8,7 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const GET_KEYCONTACT = gql`
-  query getProfile($id: ID!){ 
+  query getProfile($id: ID!){
     getKeyContactProfile(id: $id){
       fullname
       avatar
@@ -21,20 +21,18 @@ const ProfileScreen = props => {
   const {data, error, loading} = useQuery(GET_KEYCONTACT, {
     variables: {id}
   })
-  if (data.getKeyContactProfile === undefined) { 
+  if (data.getKeyContactProfile === undefined) {
     return (<Text> Loading...</Text>)
   }
-   
+
   const handleGoToSeniors = () => {
     props.navigation.navigate('Seniors')
   }
 
- actionsheet_fix
   const handleGoToHelp = () => {
     props.navigation.navigate('Help')
   }
 
- master
   const handleGoToAccount = () =>{
     props.navigation.navigate('Account')
   }
@@ -46,25 +44,25 @@ const ProfileScreen = props => {
             source={{uri: data.getKeyContactProfile.avatar}}
           />
           <Text style={styles.ProfileName}> {data.getKeyContactProfile.fullname} </Text>
-        </View> 
+        </View>
         <TouchableOpacity
           style={styles.ProfileButton}
           onPress={handleGoToSeniors}
         >
           <Text style={styles.ProfileButtonText}> Seniors</Text>
-          <Icons name = {`user`} style={styles.ProfileButtonIcon} /> 
+          <Icons name = {`user`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>
 
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.ProfileButton}
           onPress = {handleGoToAccount}
           >
           <Text style={styles.ProfileButtonText}> Account</Text>
-          <Icons name = {`cog`} style={styles.ProfileButtonIcon} /> 
+          <Icons name = {`cog`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.ProfileButton}  onPress={handleGoToHelp}>
           <Text style={styles.ProfileButtonText}> Help</Text>
-          <Icons name = {`question-circle`} style={styles.ProfileButtonIcon} /> 
+          <Icons name = {`question-circle`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>
 
     </ScrollView>

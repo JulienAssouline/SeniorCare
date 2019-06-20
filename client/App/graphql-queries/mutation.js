@@ -8,3 +8,11 @@ export const ADD_CONVERSATION_MUTATION = gql`
     }
   }
 `
+
+export const ADD_MESSAGES = gql`
+mutation addMessageMutation($content: String, $conversation_id: ID){
+  addMessages(content: $content, conversation_id: $conversation_id) {
+    message
+  }
+}
+`

@@ -74,7 +74,6 @@ class ConversationDatabase extends DataSource {
     };
 
     const result = await this.context.postgres.query(caregiverConversations);
-    console.log(result.rows)
 
     return result.rows
   }
