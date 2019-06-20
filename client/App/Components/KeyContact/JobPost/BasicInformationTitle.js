@@ -7,6 +7,7 @@ import { Button } from 'react-native-elements'
 
 const mapStateToProps = state => {
   return {
+    ...state,
     title: state.title
   }
 }

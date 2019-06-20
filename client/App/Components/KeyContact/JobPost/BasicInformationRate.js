@@ -10,6 +10,7 @@ import Slider from '@react-native-community/slider';
 
 const mapStateToProps = state => {
   return {
+    ...state,
     rate: state.rate
   }
 }
