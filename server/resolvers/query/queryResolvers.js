@@ -26,6 +26,10 @@ module.exports = {
 			return await dataSources.seniorDatabase.getSenior()
 		},
 
+    async getSenior(parent, input, { dataSources }) {
+			return await dataSources.seniorDatabase.getSenior(input.id)
+		},
+
 		async ArchivedJobs(parent,  input, { dataSources }) {
 			return await dataSources.jobsDatabase.queryArchiveJobs(input)
 		},
