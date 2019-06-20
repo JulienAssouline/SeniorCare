@@ -6,15 +6,15 @@ import Icons from 'react-native-vector-icons/Octicons'
 // packages imports
 import { createStackNavigator } from 'react-navigation'
 
-import FindScreen from '../../Components/Find/FindScreen'
-import FindFilter from '../../Components/Find/FindFilter'
+import SearchScreen from '../../Components/Search/SearchScreen'
+import SearchFilter from '../../Components/Search/SearchFilter'
 
 
-export const FindStack = createStackNavigator(
+export const SearchStack = createStackNavigator(
   {
-    Find:
+    Search:
     {
-      screen: FindScreen,
+      screen: SearchScreen,
       navigationOptions: ({ navigation }) => ({
         headerRight:
           <View style={{ padding: 10 }}>
@@ -22,23 +22,23 @@ export const FindStack = createStackNavigator(
               name={"settings"}
               size={20}
               color={"#3F7DFB"}
-              onPress={() => navigation.navigate("FindFilter")}
+              onPress={() => navigation.navigate("SearchFilter")}
             />
           </View>
       })
     },
-    FindFilter: {
-      screen: FindFilter
+    SearchFilter: {
+      screen: SearchFilter
     }
   },
   {
     defaultNavigationOptions: {
-      title: 'Find',
+      title: 'Search',
       headerTintColor: '#000',
       headerTitleStyle: { color: '#000', fontFamily: 'SFProText-Light' },
     },
     navigationOptions: {
-      tabBarLabel: 'Find',
+      tabBarLabel: 'Search',
     },
   }
 )

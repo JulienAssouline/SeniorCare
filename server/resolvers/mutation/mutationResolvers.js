@@ -24,9 +24,9 @@ module.exports = {
 		async addConversation(parent, input, { dataSources }) {
 			return await dataSources.conversationDatabase.mutationAddConversation(input)
 		},
-		async Delete(parent, { input }, { dataSources }) {
-			return dataSources.mutationDelete(input)
-		},
+		// async Delete(parent, { input }, { dataSources }) {
+		// 	return dataSources.mutationDelete(input)
+		// },
 	}
 }
 

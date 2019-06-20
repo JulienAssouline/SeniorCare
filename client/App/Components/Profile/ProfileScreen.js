@@ -29,12 +29,12 @@ const ProfileScreen = props => {
     props.navigation.navigate('Seniors')
   }
 
-  actionsheet_fix
+ 
   const handleGoToHelp = () => {
     props.navigation.navigate('Help')
   }
 
-  master
+
   const handleGoToAccount = () => {
     props.navigation.navigate('Account')
   }

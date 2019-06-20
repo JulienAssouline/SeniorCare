@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Dimensions, ScrollView, Text, View } from 'react-native'
-import styles from "../Styles/findStyles/findFilterStyles"
+import styles from "../Styles/searchStyles/searchFilterStyles"
 import { Button } from 'react-native-elements';
 import GenderFilter from "./GenderFilter"
 import AvailabilityFilter from "./AvailabilityFilter"
@@ -8,8 +8,7 @@ import HourlyRateFilter from "./HourlyRateFilter"
 import YearsExpFilter from "./YearsExpFilter"
 
 
-
-const FindFilter = (props) => {
+const SearchFilter = (props) => {
   // TODO: improve performance
 
   const [filterObj, setFilterObj] = useState({ gender: null, availability: null, hourly_rate: 17, years_experience: 5 })
@@ -32,7 +31,9 @@ const FindFilter = (props) => {
   }
 
   function handleResultsPress() {
-    props.navigation.navigate("Find", {
+    console.log('button pressed')
+    console.log(filterObj)
+    props.navigation.navigate("Search", {
       filterObj: filterObj,
     })
   }
@@ -92,6 +93,6 @@ const FindFilter = (props) => {
   )
 }
 
-export default FindFilter
+export default SearchFilter
 
 

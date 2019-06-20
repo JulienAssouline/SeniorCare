@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ScrollView, Text, View } from 'react-native'
-import styles from "../Styles/findStyles/findStyles"
+import styles from "../Styles/searchStyles/searchStyles"
 import StarRating from 'react-native-star-rating';
 
 const Ratings = (props) => {

@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#EEF5FB',
   },
-  findContainer: {
+  searchContainer: {
     flex: 1,
     flexDirection: 'row',
     margin: 20,

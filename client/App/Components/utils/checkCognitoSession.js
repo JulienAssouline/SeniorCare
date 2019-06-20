@@ -1,5 +1,4 @@
 import React from 'react'
-// AWS Amplify modular import
 import Auth from '@aws-amplify/auth'
 
 export default async function checkCognitoSession(props) {

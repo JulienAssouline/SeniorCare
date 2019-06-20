@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ScrollView, Text, View } from 'react-native'
-import styles from "../Styles/findStyles/findFilterStyles"
+import styles from "../Styles/searchStyles/searchFilterStyles"
 import { Button } from 'react-native-elements';
 
 function AvailabilityFilter(props) {

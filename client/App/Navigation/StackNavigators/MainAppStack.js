@@ -19,7 +19,7 @@ import VerificationCodeScreen from '../../Components/SignUp/VerificationCodeScre
 import ForgetPasswordScreen from '../../Components/ForgotPassword/ForgetPasswordScreen'
 
 // App stack screen imports
-import { FindStack } from './FindStack'
+import { SearchStack } from './SearchStack'
 import { JobBoardStack } from './JobBoardStack'
 import { MessagesStack } from './MessagesStack'
 import { ProfileStack } from './ProfileStack'
@@ -34,10 +34,10 @@ Amplify.configure(config)
 
 // Configurations and options for the AppTabNavigator
 const configurations = {
-  Find: {
-    screen: FindStack,
+  Search: {
+    screen: SearchStack,
     navigationOptions: {
-      tabBarLabel: 'Find',
+      tabBarLabel: 'Search',
       tabBarIcon: ({ tintColor }) => (
         <Icon style={{ fontSize: 26, color: tintColor }} name="magnifier" />
       )

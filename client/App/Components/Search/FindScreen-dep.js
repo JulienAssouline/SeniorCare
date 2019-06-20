@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ScrollView, Text, View, Alert } from 'react-native'
 import { useQuery } from 'react-apollo-hooks';
 import gql from "graphql-tag";
-import styles from "../Styles/findStyles/findStyles"
+import styles from "../Styles/searchStyles/searchStyles"
 import Ratings from "./Ratings"
 import calcAge from "../utils/calcAge"
 import { Avatar } from 'react-native-elements'
@@ -30,7 +30,7 @@ const GET_CAREGIVERS = gql`
   }
 `;
 
-const FindScreen = props => {
+const SearchScreen = props => {
 
 
   let [userId, setUserID] = useState('')
@@ -49,20 +49,20 @@ const FindScreen = props => {
         setUserID(data.accessToken.payload.username)
       })
       .catch(err => console.log(err))
-    await checkSignedInUserId(
-      (userId, props) => {
-        if (userId == null) {
-          signOut = async props => {
-            await Auth.signOut()
-              .then(() => {
-                console.log('Sign out complete')
-                props.navigation.navigate('Authloading')
-              })
-              .catch(err => console.log('Error while signing out!', err))
-          }
-        }
-      }
-    )
+    // await checkSignedInUserId(
+    //   (userId, props) => {
+    //     if (userId == null) {
+    //       signOut = async props => {
+    //         await Auth.signOut()
+    //           .then(() => {
+    //             console.log('Sign out complete')
+    //             props.navigation.navigate('Authloading')
+    //           })
+    //           .catch(err => console.log('Error while signing out!', err))
+    //       }
+    //     }
+    //   }
+    // )
   }
 
 
@@ -118,6 +118,6 @@ const FindScreen = props => {
   )
 }
 
-export default FindScreen
+export default SearchScreen
 
 
