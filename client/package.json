@@ -34,6 +34,7 @@
     "react-native-reanimated": "^1.0.1",
     "react-native-star-rating": "^1.1.0",
     "react-native-step-indicator": "^0.0.11",
+    "react-native-tab-view": "^2.6.1",
     "react-native-vector-icons": "^6.5.0",
     "react-navigation": "^3.11.0",
     "react-redux": "^7.1.0",

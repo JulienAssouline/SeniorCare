@@ -6,35 +6,29 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF'
   },
   Senior: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderWidth: 2,
-    borderBottomColor: '#eee',
+    borderWidth: 1,
+    borderBottomColor: '#CCCCCC',
     borderColor: '#fff',
     borderStyle: 'solid',
-    marginRight: 20,
-    marginLeft: 20,
-    padding: 10,
+  },
+  SeniorRow: {
+    display: 'flex',
+    flexDirection: 'column',
+    paddingLeft: 20,
   },
   SeniorName: {
     fontSize: 16,
+    paddingBottom: 5,
   },
-  SeniorButton: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    
-  },
-  SeniorButtonText: {
-    fontSize: 16,
-    padding: 15,
+  Relation: {
+    fontSize: 12,
+    color: '#A3A3A3',
+    paddingLeft: 5,
   },
   SeniorButtonIcon: {
     fontSize: 16,
     padding: 15,
-    color: '#A3A3A3'
+    color: '#A3A3A3',
   },
   SeniorContainer: {
     display: 'flex',
