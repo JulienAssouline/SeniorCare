@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 const basicBlueColor = '#244397'
+const multilineTextHeight = 300
 
 export const chooseProfile = StyleSheet.create({
 	mainContainer: {
@@ -56,5 +57,14 @@ export const createSeniorProfile = StyleSheet.create({
 		color: basicBlueColor,
 		fontSize: 22,
 		fontWeight: '500',
+	},
+
+	multilineTextBox: {
+		backgroundColor: '#FFF',
+		height: multilineTextHeight,
+	},
+
+	multilineTextArea: {
+		height: multilineTextHeight,
 	}
 })

@@ -112,15 +112,15 @@ module.exports = gql`
 	type Mutation {
 		placeholder: MutationPlaceholder
 		placeholderApi: MutationPlaceholder
-		signUp(input:SignUpObjects!): MessageResponse
+		keyContactSignup(input: SignupObject!): TokenResponse
+		caregiverSignup(input: SignupObject!): TokenResponse
 		login(input: LoginObject!): LoginResponse!
 		deleteit(id:ID!):ID!
 		duplicateRepost(id:ID!):QueryArchiveJobs!
     addMessages(content: String, conversation_id: ID): addMessagesResponse!
     addConversation(caregiver_id: ID): addConversationResponse!
 	}
-
-
+  
   type addConversationResponse {
     id: ID
   }
@@ -128,14 +128,12 @@ module.exports = gql`
   type addMessagesResponse {
     message: String
   }
-
-
-	input SignUpObjects{
-		 fullname: String,
-		 email: String,
-		 phonenumber:String,
-		 location:String,
-		 password: String,
+  
+	input SignupObject{
+		id: ID!,
+	  fullname: String,
+		email: String, 
+		phone_number:String,
 
 	}
 
@@ -152,8 +150,8 @@ module.exports = gql`
 		id: ID
 	}
 
-	type MessageResponse {
-  	message: String
+	type TokenResponse {
+  	token: String
 	}
 
 	type DeleteResponse{
