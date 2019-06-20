@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native'
 
 import {
   createSwitchNavigator,
@@ -8,14 +7,15 @@ import {
   createMaterialTopTabNavigator,
 } from 'react-navigation'
 
-
 import Icon from 'react-native-vector-icons/SimpleLineIcons'
 
 // Auth stack screen imports
 import AuthLoadingScreen from '../../Components/AuthLoading/AuthLoadingScreen'
 import WelcomeScreen from '../../Components/Welcome/WelcomeScreen'
 import SignUpScreen from '../../Components/SignUp/SignUpScreen'
+import SelectRoleScreen from '../../Components/SignUp/SelectRoleScreen'
 import SignInScreen from '../../Components/Login/SignInScreen'
+import VerificationCodeScreen from '../../Components/SignUp/VerificationCodeScreen'
 import ForgetPasswordScreen from '../../Components/ForgotPassword/ForgetPasswordScreen'
 
 // App stack screen imports
@@ -23,6 +23,8 @@ import { SearchStack } from './SearchStack'
 import { JobBoardStack } from './JobBoardStack'
 import { MessagesStack } from './MessagesStack'
 import { ProfileStack } from './ProfileStack'
+
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 
 // Amplify imports and config
@@ -42,7 +44,7 @@ const configurations = {
     }
   },
   JobBoard: {
-    screen: JobBoardStack ,
+    screen: JobBoardStack,
     navigationOptions: {
       tabBarLabel: 'Job',
       tabBarIcon: ({ tintColor }) => (
@@ -89,8 +91,7 @@ const options = {
     labelStyle: {
       fontSize: 12,
       fontWeight: 'bold',
-      marginBottom: 12,
-      marginTop: 12,
+      marginBottom: hp(1),
     },
     upperCaseLabel: false,
     indicatorStyle: {
@@ -134,26 +135,39 @@ const AuthStackNavigator = createStackNavigator({
   Welcome: {
     screen: WelcomeScreen,
     navigationOptions: () => ({
-      title: `Welcome to this App`, // for the header screen
-      headerBackTitle: 'Back'
+      // title: `Welcome to this App`, // for the header screen
+      headerBackTitle: 'Back',
+      header: null
     }),
   },
   SignUp: {
     screen: SignUpScreen,
     navigationOptions: () => ({
-      title: `Create a new account`,
+      title: `Sign Up`,
+    }),
+  },
+  SelectRole: {
+    screen: SelectRoleScreen,
+    navigationOptions: () => ({
+      title: `Your Role`,
     }),
   },
   SignIn: {
     screen: SignInScreen,
     navigationOptions: () => ({
-      title: `Log in to your account`,
+      title: `Log In`,
+    }),
+  },
+  Verification: {
+    screen: VerificationCodeScreen,
+    navigationOptions: () => ({
+      title: `Verify your account`,
     }),
   },
   ForgetPassword: {
     screen: ForgetPasswordScreen,
     navigationOptions: () => ({
-      title: `Create a new password`,
+      title: `Reset your password`,
     }),
   },
 })

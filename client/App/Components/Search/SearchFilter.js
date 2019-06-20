@@ -8,30 +8,31 @@ import HourlyRateFilter from "./HourlyRateFilter"
 import YearsExpFilter from "./YearsExpFilter"
 
 
-
 const SearchFilter = (props) => {
   // TODO: improve performance
 
-  const [filterObj, setFilterObj] = useState({gender: null, availability: null, hourly_rate: 17, years_experience: 5})
+  const [filterObj, setFilterObj] = useState({ gender: null, availability: null, hourly_rate: 17, years_experience: 5 })
 
   function handleGenderPress(newGender) {
     // spread operator takes all other keys and sticks them into the object
-    setFilterObj({...filterObj, gender: newGender})
+    setFilterObj({ ...filterObj, gender: newGender })
   }
 
   function handleLivePress(newLive) {
-    setFilterObj({...filterObj, availability: newLive})
+    setFilterObj({ ...filterObj, availability: newLive })
   }
 
   function hourlyRateChange(value) {
-    setFilterObj({...filterObj, hourly_rate: value})
+    setFilterObj({ ...filterObj, hourly_rate: value })
   }
 
   function yearsExpChange(value) {
-    setFilterObj({...filterObj, years_experience: value})
+    setFilterObj({ ...filterObj, years_experience: value })
   }
 
   function handleResultsPress() {
+    console.log('button pressed')
+    console.log(filterObj)
     props.navigation.navigate("Search", {
       filterObj: filterObj,
     })
@@ -44,39 +45,39 @@ const SearchFilter = (props) => {
 
   return (
     <ScrollView>
-      <View style = {styles.MainContainer}>
-        <View style = {styles.genderContainer}>
-          <Text style = {{fontSize: 16, color: "#244397", marginTop: 10}}> Gender </Text>
+      <View style={styles.MainContainer}>
+        <View style={styles.genderContainer}>
+          <Text style={{ fontSize: 16, color: "#244397", marginTop: 10 }}> Gender </Text>
           <GenderFilter
-            filterObj = {filterObj}
-            args = {{female: "female", male: "male", other: "other", no_preference: undefined}}
-            handlePress = {handleGenderPress}
-            />
+            filterObj={filterObj}
+            args={{ female: "female", male: "male", other: "other", no_preference: undefined }}
+            handlePress={handleGenderPress}
+          />
         </View>
-        <View style = {styles.availabilityContainer}>
-          <Text style = {styles.filterTitleText}> Availability </Text>
+        <View style={styles.availabilityContainer}>
+          <Text style={styles.filterTitleText}> Availability </Text>
           <AvailabilityFilter
-            filterObj = {filterObj}
-            args = {{live_in: "live in", live_out: "live out", no_preference: undefined}}
-            handlePress = {handleLivePress}
-           />
+            filterObj={filterObj}
+            args={{ live_in: "live in", live_out: "live out", no_preference: undefined }}
+            handlePress={handleLivePress}
+          />
         </View>
         <View>
-          <Text style = {styles.filterTitleText}> Maximum hourly rate: </Text>
-          <Text style = {styles.sliderDescText}> *Minimum wage varies per province/territory in Canada </Text>
+          <Text style={styles.filterTitleText}> Maximum hourly rate: </Text>
+          <Text style={styles.sliderDescText}> *Minimum wage varies per province/territory in Canada </Text>
         </View>
         <View style={styles.sliderContainer}>
-          <HourlyRateFilter hourlyRateChange = {hourlyRateChange} filterObj = {filterObj} />
+          <HourlyRateFilter hourlyRateChange={hourlyRateChange} filterObj={filterObj} />
         </View>
         <View>
-          <Text style = {styles.filterTitleText}> Minimum years of experience </Text>
+          <Text style={styles.filterTitleText}> Minimum years of experience </Text>
         </View>
         <View style={styles.sliderContainer}>
-          <YearsExpFilter yearsExpChange = {yearsExpChange} filterObj = {filterObj} />
+          <YearsExpFilter yearsExpChange={yearsExpChange} filterObj={filterObj} />
         </View>
         <Button
-          onPress = {handleResultsPress}
-          buttonStyle = {{
+          onPress={handleResultsPress}
+          buttonStyle={{
             backgroundColor: "#244397",
             borderWidth: 1,
             borderColor: '#244397',
@@ -84,9 +85,9 @@ const SearchFilter = (props) => {
             borderRadius: 0,
             height: 60,
           }}
-          containerStyle = {{ width: "40%",marginRight: 5}}
-          titleStyle = {{color: "white"}}
-          title = "See Results"/>
+          containerStyle={{ width: "40%", marginRight: 5 }}
+          titleStyle={{ color: "white" }}
+          title="See Results" />
       </View>
     </ScrollView>
   )

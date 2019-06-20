@@ -14,15 +14,15 @@ const Ratings = (props) => {
 
   return (
     <StarRating
-          disabled={false}
-          maxStars={5}
-          rating={starCount}
-          starSize = {15}
-          fullStarColor = "#FAB730"
-          emptyStarColor = "#FAB730"
-          starStyle = {styles.starRating}
-          selectedStar={(rating) => onStarRatingPress(rating)}
-        />
+      disabled={false}
+      maxStars={5}
+      rating={starCount}
+      starSize={15}
+      fullStarColor="#FAB730"
+      emptyStarColor="#FAB730"
+      starStyle={styles.starRating}
+      selectedStar={(rating) => onStarRatingPress(rating)}
+    />
   )
 }
 

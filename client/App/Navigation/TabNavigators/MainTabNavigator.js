@@ -11,7 +11,7 @@ const MainBottomTabNavigator = createBottomTabNavigator(
   {
     JobDashboard: { screen: JobDashboardStack },
     Search: { screen: SearchStack },
-    Profile: { screen: ProfileStack},
+    Profile: { screen: ProfileStack },
     Messages: { screen: MessagesStack },
     DevLinks: { screen: DevLinksScreen },
   },
@@ -23,26 +23,16 @@ const MainBottomTabNavigator = createBottomTabNavigator(
         let iconName
         if (routeName === 'JobDashboard') {
           iconName = `home`
-        } else  if (routeName === 'Profile') {
+        } else if (routeName === 'Profile') {
           iconName = `user`
         } else if (routeName === 'Search') {
-          iconName = `search`
+          iconName = `Find`
         } else if (routeName === 'Messages') {
           iconName = `comment`
         } else if (routeName === 'DevLinks') {
           iconName = `brain`
         }
-        // Sometimes we want to add badges to some icons.
-        // You can check the implementation below.
-        // IconComponent = HomeIconWithBadge
-        //  else if (routeName === 'Hotel') {
-        //   iconName = `hotel`
-        //   // } else if (routeName === 'Favoris') {
-        //   //   iconName = `heart`
-        // } else if (routeName === 'Info') {
-        //   iconName = `info-circle`
-        // }
-
+       
         // You can return any component that you like here!
         return <IconComponent name={iconName} size={25} color={tintColor} />
       },
@@ -59,3 +49,14 @@ const MainBottomTabNavigator = createBottomTabNavigator(
 )
 
 export default MainBottomTabNavigator
+
+ // Sometimes we want to add badges to some icons.
+        // You can check the implementation below.
+        // IconComponent = HomeIconWithBadge
+        //  else if (routeName === 'Hotel') {
+        //   iconName = `hotel`
+        //   // } else if (routeName === 'Favoris') {
+        //   //   iconName = `heart`
+        // } else if (routeName === 'Info') {
+        //   iconName = `info-circle`
+        // }

@@ -39,7 +39,9 @@ const SearchScreen = (props) => {
   const [starCount, setStarCount] = useState(0)
 
   const {data, error, loading} = useQuery(GET_CAREGIVERS, {variables: { input: filterObj }})
-
+  // console.log('show data: ', data)
+  // console.log('show error: ', error)
+  // console.log('show loading: ', loading)
   const addConversation = useMutation(ADD_CONVERSATION_MUTATION);
 
   if (data.getCaregiver === undefined) { return (<Text> ...loading </Text>)}

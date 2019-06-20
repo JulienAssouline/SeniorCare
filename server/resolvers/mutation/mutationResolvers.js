@@ -1,33 +1,32 @@
 module.exports = {
-  Mutation: {
-		async placeholder(parent, { input }, { dataSources }){
+	Mutation: {
+		async placeholder(parent, { input }, { dataSources }) {
 			return await dataSources.database.mutationPlaceholder('placeholder')
 		},
-		 async addMessages(parent, input, { dataSources }) {
-		 	return await dataSources.chatDatabase.mutationAddMessage(input)
-		 },
-		 async addConversation(parent, input, { dataSources }){
-		 	return await dataSources.conversationDatabase.mutationAddConversation(input)
-		 },
-     async login(parent, { input }, { dataSources }){
-      return await dataSources.loginDatabase.mutateLogin(input)
-		},
-		async placeholderApi(parent, { input }, { dataSources }){
+		async placeholderApi(parent, { input }, { dataSources }) {
 			return await dataSources.placeholderApi.mutationPlaceholder('placeholder')
 		},
-
-		async signUp(parent, {input} , { dataSources }) {
-			return dataSources.userDatabase.mutationSignUp(input)
+		async keyContactSignup(parent, { input }, { dataSources }) {
+			return await dataSources.userDatabase.keyContactSignup(input)
 		},
-
 		async deleteit(parent, input, { dataSources }) {
 			return dataSources.jobsDatabase.deleteit(input)
 		},
-
 		async duplicateRepost(parent, input, { dataSources }) {
-		
 			return dataSources.jobsDatabase.duplicateRepost(input)
 		},
+		async caregiverSignup(parent, { input }, { dataSources }) {
+			return await dataSources.userDatabase.caregiverSignup(input)
+		},
+		async addMessages(parent, input, { dataSources }) {
+			return await dataSources.chatDatabase.mutationAddMessage(input)
+		},
+		async addConversation(parent, input, { dataSources }) {
+			return await dataSources.conversationDatabase.mutationAddConversation(input)
+		},
+		// async Delete(parent, { input }, { dataSources }) {
+		// 	return dataSources.mutationDelete(input)
+		// },
 	}
 }
 
