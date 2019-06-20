@@ -20,8 +20,8 @@ module.exports = {
 			return dataSources.userDatabase.mutationSignUp(input)
 		},
 
-		async delete(parent, input, { dataSources }) {
-			return dataSources.jobsDatabase.deleteJob(input)
+		async deleteit(parent, input, { dataSources }) {
+			return dataSources.jobsDatabase.deleteit(input)
 		},
 
 		async duplicateRepost(parent, input, { dataSources }) {

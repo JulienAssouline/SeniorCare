@@ -27,7 +27,7 @@ class JobsDatabase extends DataSource {
     }
   }
 
-  async deleteJob(input){
+  async deleteit(input){
     console.log('whats is it',input.id)
     try{
       const removeJob ={
@@ -37,7 +37,7 @@ class JobsDatabase extends DataSource {
       const result = await this.context.postgres.query(removeJob)
 
       console.log('ehllllo', result.rows)
-      return result
+      return input.id
 
     }catch(err){
       throw err
@@ -45,31 +45,52 @@ class JobsDatabase extends DataSource {
   }
 
   async duplicateRepost(input){
-console.log('query area',input)
+    console.log('query area',input.id)
     try{
+
       const getJob = {
-        text: `INSERT INTO seniorcare.job_posting(  
-        key_contact_id, date_created, title, start_date, end_date, address, city,province, postal_code, availability, hourly_rate, gender_pref, req_drivers_license, cig_smoking, pets, cannabis )
-        
-       SELECT key_contact_id, date_created, title, start_date, end_date, address, city, province, postal_code, availability, hourly_rate, gender_pref, req_drivers_license, cig_smoking, pets, cannabis
-       FROM seniorcare.job_posting WHERE id=$1 RETURNING  *; `,
+       
+        text: `SELECT key_contact_id, title, start_date, end_date, address, city, province, postal_code, availability, hourly_rate, gender_pref, req_drivers_license, cig_smoking, pets, cannabis
+        FROM seniorcare.job_posting WHERE id=$1`,
         values : [input.id]
+ 
       }
-      const result = await this.context.postgres.query(getJob)
-      console.log('duplicateJob', result)
-      return result.rows
       
+       const result = await this.context.postgres.query(getJob)
+       console.log('duplicateJob', result.rows[0])
+
+      console.log('date_created:', result.rows[0].date_created)
+      const newJob = {
+        ...result.rows[0]
+      }
+       
+      //  return result.rows
+
+      const addNewJob = {
+        text:`INSERT INTO seniorcare.job_posting(title, start_date, key_contact_id, end_date, hourly_rate ) VALUES($1, $2, $3, $4, $5) RETURNING *`,
+        values:[ newJob.title, newJob.start_date, newJob.key_contact_id, newJob.end_date, newJob.hourly_rate  ]
+      }
+
+      // const text = 'INSERT INTO users(name, email) VALUES($1, $2) RETURNING *'
+      // const values = ['brianc', 'brian.m.carlson@gmail.com']
+
+      //  const insertJob ={
+      //   text: `INSERT INTO seniorcare.job_posting(  
+      //     ${result.rows[0].key_contact_id}, ${result.rows[0].date_created}, ${result.rows[0].title}, ${result.rows[0].start_date}, ${result.rows[0].end_date}, ${result.rows[0].address}, ${result.rows[0].city},${result.rows[0].province}, ${result.rows[0].postal_code}, ${result.rows[0].availability}, ${result.rows[0].hourly_rate}, ${result.rows[0].gender_pref}, ${result.rows[0].req_drivers_license}, ${result.rows[0].cig_smoking}, ${result.rows[0].pets}, ${result.rows[0].cannabis})`
+      //   }
+       
+      const answer = await this.context.postgres.query(addNewJob)
+      console.log('duplicateJob', answer)
+
+      return answer.rows[0]    
     }
 
     catch(err){
+      console.log('my error',err)
       throw err
     }
   }
-
 }
-
-
-
 
 module.exports = JobsDatabase
 

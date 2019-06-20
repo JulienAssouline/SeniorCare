@@ -10,16 +10,7 @@ module.exports = gql`
 		testDatabase: QueryPlaceholder
     getKeyContactProfile(id: ID!): KeyContact
     getSeniors: [QueryGetSenior]
-		ArchivedJobs(id:ID): [QueryArchiveJobs]
-    getMessages(conversation_id:ID):[Messages]
-    getConversation(id:ID): ConversationRoom
-    getConversations: [ConversationRoom]
-  }
-
-  type ConversationRoom {
-    id:ID
-    caregiver_id: ID
-    key_contact_id: ID
+		ArchivedJobs: [QueryArchiveJobs]
   }
 
   type QueryPlaceholder{
@@ -107,8 +98,8 @@ module.exports = gql`
 		placeholderApi: MutationPlaceholder
 		signUp(input:SignUpObjects!): MessageResponse
 		login(input: LoginObject!): LoginResponse!
-		delete(id:ID!):DeleteResponse!
-		duplicateRepost(id:ID!):duplicateRepostMessage!
+		deleteit(id:ID!):ID!
+		duplicateRepost(id:ID!):QueryArchiveJobs!
 	}
 
   type addConversationResponse {
