@@ -10,7 +10,17 @@ module.exports = gql`
 		testDatabase: QueryPlaceholder
     getKeyContactProfile(id: ID!): KeyContact
     getSeniors: [QueryGetSenior]
-		ArchivedJobs: [QueryArchiveJobs]
+		ArchivedJobs(id:ID): [QueryArchiveJobs]
+    getMessages(conversation_id:ID):[Messages]
+    getConversation(id:ID): ConversationRoom
+    getConversations: [ConversationRoom]
+  }
+
+
+  type ConversationRoom {
+    id:ID
+    caregiver_id: ID
+    key_contact_id: ID
   }
 
   type QueryPlaceholder{
@@ -100,7 +110,10 @@ module.exports = gql`
 		login(input: LoginObject!): LoginResponse!
 		deleteit(id:ID!):ID!
 		duplicateRepost(id:ID!):QueryArchiveJobs!
+    addMessages(content: String, conversation_id: Int): addMessagesResponse!
+    addConversation(caregiver_id: ID): addConversationResponse!
 	}
+
 
   type addConversationResponse {
     id: ID
