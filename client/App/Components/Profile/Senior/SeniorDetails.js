@@ -25,7 +25,7 @@ query profileVar($id: ID!){
 const SeniorDetails = () => {
 
   const { data, error, loading } = useQuery(GET_SENIOR, {
-    variables: { id: 3 }
+    variables: { id:3 }
   })
   if (data.getSenior === undefined) { return (<Text> ...loading </Text>) }
   const seniorData = data.getSenior

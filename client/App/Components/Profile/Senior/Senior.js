@@ -25,7 +25,7 @@ const GET_SENIOR = gql`
 const Senior = props => {
 
   const { data, error, loading } = useQuery(GET_SENIOR, {
-    variables: { id: 2 }
+    variables: { id: "ThisIsSimonSternKeyContactSeed" }
   })
 
   if (data.getKeyContactProfile === undefined) { return (<Text> ...loading </Text>) }
