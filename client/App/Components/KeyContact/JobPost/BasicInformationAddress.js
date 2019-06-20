@@ -8,7 +8,6 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 
 const mapStateToProps = state => {
   return {
-    ...state,
     address: state.address,
     city: state.city,
     postalCode: state.postalCode,
