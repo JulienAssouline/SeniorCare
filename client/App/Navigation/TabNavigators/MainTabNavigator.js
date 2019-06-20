@@ -2,7 +2,7 @@ import React from 'react'
 import { createBottomTabNavigator } from 'react-navigation'
 import Icons from 'react-native-vector-icons/FontAwesome5'
 import { JobDashboardStack } from '../StackNavigators/JobDashboardStack'
-import { SearchStack } from '../StackNavigators/SearchStack'
+import { FindStack } from '../StackNavigators/FindStack'
 import { ProfileStack } from '../StackNavigators/ProfileStack'
 import { MessagesStack } from '../StackNavigators/MessagesStack'
 import DevLinksScreen from '../../Components/Dev/DevLinksScreen'
@@ -10,8 +10,8 @@ import DevLinksScreen from '../../Components/Dev/DevLinksScreen'
 const MainBottomTabNavigator = createBottomTabNavigator(
   {
     JobDashboard: { screen: JobDashboardStack },
-    Search: { screen: SearchStack },
-    Profile: { screen: ProfileStack},
+    Find: { screen: FindStack },
+    Profile: { screen: ProfileStack },
     Messages: { screen: MessagesStack },
     DevLinks: { screen: DevLinksScreen },
   },
@@ -23,10 +23,10 @@ const MainBottomTabNavigator = createBottomTabNavigator(
         let iconName
         if (routeName === 'JobDashboard') {
           iconName = `home`
-        } else  if (routeName === 'Profile') {
+        } else if (routeName === 'Profile') {
           iconName = `user`
-        } else if (routeName === 'Search') {
-          iconName = `search`
+        } else if (routeName === 'Find') {
+          iconName = `Find`
         } else if (routeName === 'Messages') {
           iconName = `comment`
         } else if (routeName === 'DevLinks') {

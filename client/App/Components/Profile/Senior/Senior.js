@@ -24,43 +24,43 @@ const GET_SENIOR = gql`
 
 const Senior = props => {
 
-  const {data, error, loading} = useQuery(GET_SENIOR, {
-    variables: {id: 2}
+  const { data, error, loading } = useQuery(GET_SENIOR, {
+    variables: { id: 2 }
   })
-  
-  if (data.getKeyContactProfile === undefined) { return (<Text> ...loading </Text>)}
+
+  if (data.getKeyContactProfile === undefined) { return (<Text> ...loading </Text>) }
   // calcAge(data.getKeyContactProfile)
-  
+
   const seniorData = data.getKeyContactProfile.getSeniors
   const relation = seniorData.relation
-  seniorData.forEach((d,i) => {
+  seniorData.forEach((d, i) => {
     calcAge(d)
   })
 
   const handleSeniorDetails = () => {
-    props.navigation.navigate('SeniorDetails', {title: 'Test'})
+    props.navigation.navigate('SeniorDetails', { title: 'Test' })
   }
   return (
     <ScrollView style={styles.MainContainer}>
       {
-        seniorData.map((d,i) => (
-        <TouchableOpacity key = {i} style={styles.Senior}
-          onPress={handleSeniorDetails}
+        seniorData.map((d, i) => (
+          <TouchableOpacity key={i} style={styles.Senior}
+            onPress={handleSeniorDetails}
           >
-          <ListItem
-                  key={i}
-                  leftAvatar={{ source: { uri: d.avatar } }}
-                  title={<Text style={styles.SeniorName}> {d.fullname}, {d.Age} </Text>}
-                  subtitle={
-                    <Text style={styles.Relation}>{d.relation} </Text>
-                  }
-                  rightIcon={{ name: 'chevron-right' }}
-                />
-            </TouchableOpacity>
+            <ListItem
+              key={i}
+              leftAvatar={{ source: { uri: d.avatar } }}
+              title={<Text style={styles.SeniorName}> {d.fullname}, {d.Age} </Text>}
+              subtitle={
+                <Text style={styles.Relation}>{d.relation} </Text>
+              }
+              rightIcon={{ name: 'chevron-right' }}
+            />
+          </TouchableOpacity>
         ))
       }
       <TouchableOpacity style={styles.SeniorContainer}>
-        <Icons name = {`plus-circle`} style={styles.SeniorPlusIcon} /> 
+        <Icons name={`plus-circle`} style={styles.SeniorPlusIcon} />
         <Text style={styles.SeniorName}>Create a new senior profile</Text>
       </TouchableOpacity>
     </ScrollView>

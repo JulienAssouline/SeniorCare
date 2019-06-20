@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF'
   },
-  
+
   Title: {
     fontSize: 16,
     color: '#525252',
@@ -55,6 +55,15 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  ProfileButtonForgot: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderBottomColor: '#eee',
+    borderColor: '#fff',
+    borderStyle: 'solid',
   },
   SeniorContainer: {
     display: 'flex',
