@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Dimensions, ScrollView, Text, View } from 'react-native'
 import { useQuery, useMutation } from 'react-apollo-hooks'
 import gql from "graphql-tag";
@@ -15,6 +15,15 @@ const mapStateToProps = state => {
     key_contact_id: state.key_contact_id
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onKeyContactIdUpdate: (value) => dispatch({type: 'KEYCONTACTID', payload: value})
+  }
+}
+
+// AWS Amplify modular import
+import Auth from '@aws-amplify/auth'
 
 const GET_CAREGIVERS = gql`
    query GetCaregiver($input: FilterInput!) {
@@ -38,6 +47,38 @@ const SearchScreen = (props) => {
   //Use this to access key_contact_id. It's a prop!
   //props.key_contact_id
 
+  let [userId, setUserID] = useState('')
+
+  useEffect(
+    // Effect function from second render
+    () => {
+      checkCognitoSession(props)
+    },
+    [])
+
+  async function checkCognitoSession(props) {
+    await Auth.currentSession()
+      .then(data => {
+        // setUserID(data.accessToken.payload.username)
+        props.onKeyContactIdUpdate(data.accessToken.payload.username)
+      })
+      .catch(err => console.log(err))
+    // await checkSignedInUserId(
+    //   (userId, props) => {
+    //     if (userId == null) {
+    //       signOut = async props => {
+    //         await Auth.signOut()
+    //           .then(() => {
+    //             console.log('Sign out complete')
+    //             props.navigation.navigate('Authloading')
+    //           })
+    //           .catch(err => console.log('Error while signing out!', err))
+    //       }
+    //     }
+    //   }
+    // )
+  }
+
   let filterObj = {};
 
   if (props.navigation.getParam('filterObj') !== undefined) {
@@ -47,9 +88,7 @@ const SearchScreen = (props) => {
   const [starCount, setStarCount] = useState(0)
 
   const {data, error, loading} = useQuery(GET_CAREGIVERS, {variables: { input: filterObj }})
-  // console.log('show data: ', data)
-  // console.log('show error: ', error)
-  // console.log('show loading: ', loading)
+
   const addConversation = useMutation(ADD_CONVERSATION_MUTATION);
 
   if (data.getCaregiver === undefined) { return (<Text> ...loading </Text>)}
@@ -87,6 +126,7 @@ const SearchScreen = (props) => {
               containerStyle={{ height: "100%"}}
             />
             <View style = {styles.infoContainer}>
+              <Text style = {styles.fullName}> THIS IS IT {props.key_contact_id} </Text>
               <Text style = {styles.fullName}> {d.fullname} </Text>
               <View style = {styles.ratingLocationContainer}>
                 <Ratings data = {d.average_rating} />
@@ -108,6 +148,6 @@ const SearchScreen = (props) => {
   )
 }
 
-export default connect(mapStateToProps)(SearchScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchScreen)
 
 

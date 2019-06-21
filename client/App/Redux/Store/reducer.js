@@ -1,5 +1,5 @@
 const initialState = {
-	key_contact_id: 'ThisIsSimonSternKeyContactSeed',
+	key_contact_id: '',
 	address: '',
   city: '',
   province: '',
