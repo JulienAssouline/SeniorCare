@@ -13,6 +13,7 @@ import ToUserMessage from "./ToUserMessage"
 const MessagesScreen = (props) => {
 
   const conversation_id = +props.navigation.getParam('conversation_id');
+  const key_contact_id = props.navigation.getParam('key_contact_id');
 
   const {data: queryData, error, loading} = useQuery(GET_MESSAGES, {variables: { conversation_id } });
 
@@ -21,21 +22,19 @@ const MessagesScreen = (props) => {
 
   if (queryData.getMessages === undefined) { return (<Text> ...loading </Text>)}
 
-  const userAuthenticate = "1";
-
   return (
     <View style = {styles.MainContainer}>
     <ScrollView>
       <View style = {styles.MessagesContainer}>
         <View>
             {queryData.getMessages.map((d,i) =>
-              d.from_user === userAuthenticate ? <FromUserMessage key = {i} d = {d} i = {i} /> : <ToUserMessage key = {i} d = {d} i = {i} />
+              d.from_user === key_contact_id ? <FromUserMessage key = {i} d = {d} i = {i} /> : <ToUserMessage key = {i} d = {d} i = {i} />
               )
             }
          </View>
       </View>
       </ScrollView>
-      <MessageInput addMessages = {addMessages} pageNumber = {conversation_id} />
+      <MessageInput key_contact_id = {key_contact_id}  addMessages = {addMessages} pageNumber = {conversation_id} />
       </View>
   )
 }

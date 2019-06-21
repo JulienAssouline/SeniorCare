@@ -84,7 +84,7 @@ exports.up = pgm => {
 		CREATE TABLE "seniorcare"."messages" (
 			"id" SERIAL PRIMARY KEY,
 			"conversation_id" INT NOT NULL,
-			"from_user" INT NOT NULL,
+			"from_user" VARCHAR(255) NOT NULL,
 			"date_created" DATE NOT NULL DEFAULT CURRENT_DATE,
 			"content" TEXT,
 			FOREIGN KEY (conversation_id) REFERENCES seniorcare.conversations (id)

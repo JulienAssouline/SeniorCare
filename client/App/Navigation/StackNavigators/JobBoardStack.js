@@ -11,10 +11,10 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 export const JobBoardStack = createStackNavigator(
   {
-    JobBoard: { 
+    JobBoard: {
       screen: JobBoardScreen,
       navigationOptions: (props) => ({
-        headerTitle: 'Job Board',  
+        headerTitle: 'Job Board',
         headerRight: <NavBarIcons {...props} />
       })
     },
@@ -22,14 +22,14 @@ export const JobBoardStack = createStackNavigator(
       screen: Overview,
       navigationOptions: {
         title: 'Overview',
-        
+
       }
     },
     Archive: {
       screen: ArchiveScreen,
       navigationOptions: {
         headerTitle: 'Archive'
-      
+
       },
     },
     PostAJobStack: PostAJobStack

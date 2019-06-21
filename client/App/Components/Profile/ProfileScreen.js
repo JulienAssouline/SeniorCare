@@ -14,7 +14,7 @@ const mapStateToProps = state => {
 }
 
 const GET_KEYCONTACT = gql`
-  query getProfile($id: ID!){ 
+  query getProfile($id: ID!){
     getKeyContactProfile(id: $id){
       fullname
       avatar
@@ -35,7 +35,7 @@ const ProfileScreen = props => {
     props.navigation.navigate('Seniors')
   }
 
- 
+
   const handleGoToHelp = () => {
     props.navigation.navigate('Help')
   }
@@ -74,7 +74,7 @@ const ProfileScreen = props => {
         <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
       </TouchableOpacity>
 
-    </ScrollView >
+    </ScrollView>
   )
 }
 
