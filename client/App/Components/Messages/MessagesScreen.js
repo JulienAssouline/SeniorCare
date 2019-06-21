@@ -7,11 +7,13 @@ import {GET_MESSAGES} from "../../graphql-queries/queries"
 import { Avatar } from 'react-native-elements'
 import Icon from "react-native-vector-icons/Ionicons";
 import MessageInput from "./MessageInput"
-
+import FromUserMessage from "./fromUserMessage"
+import ToUserMessage from "./ToUserMessage"
 
 const MessagesScreen = (props) => {
 
-      const conversation_id = +props.navigation.getParam('conversation_id');
+  const conversation_id = +props.navigation.getParam('conversation_id');
+  const key_contact_id = props.navigation.getParam('key_contact_id');
 
   const {data: queryData, error, loading} = useQuery(GET_MESSAGES, {variables: { conversation_id } });
 
@@ -26,18 +28,13 @@ const MessagesScreen = (props) => {
       <View style = {styles.MessagesContainer}>
         <View>
             {queryData.getMessages.map((d,i) =>
-              <View key = {"something" + i } style = {styles.messages}>
-                <Text> {d.from_user}  </Text>
-                <View style = {styles.fromMessageBubble}>
-                  <Text style = {styles.fromText}> {d.content} </Text>
-                </View>
-              </View>
+              d.from_user === key_contact_id ? <FromUserMessage key = {i} d = {d} i = {i} /> : <ToUserMessage key = {i} d = {d} i = {i} />
               )
             }
          </View>
       </View>
       </ScrollView>
-      <MessageInput addMessages = {addMessages} pageNumber = {conversation_id} />
+      <MessageInput key_contact_id = {key_contact_id}  addMessages = {addMessages} pageNumber = {conversation_id} />
       </View>
   )
 }

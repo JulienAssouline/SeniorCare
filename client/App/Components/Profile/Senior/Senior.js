@@ -7,12 +7,20 @@ import styles from '../../Styles/Profile/Senior/Senior'
 import Icons from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import calcAge from '../../utils/calcAge';
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => {
+  return {
+    key_contact_id: state.key_contact_id
+  }
+}
 
 const GET_SENIOR = gql`
   query profileVar($id: ID!){
     getKeyContactProfile(id: $id) {
       id
       getSeniors {
+        id
         fullname
         relation
         birthdate
@@ -25,7 +33,7 @@ const GET_SENIOR = gql`
 const Senior = props => {
 
   const { data, error, loading } = useQuery(GET_SENIOR, {
-    variables: { id: "ThisIsSimonSternKeyContactSeed" }
+    variables: { id: props.key_contact_id }
   })
 
   if (data.getKeyContactProfile === undefined) { return (<Text> ...loading </Text>) }
@@ -46,6 +54,7 @@ const Senior = props => {
         seniorData.map((d, i) => (
           <TouchableOpacity key={i} style={styles.Senior}
             onPress={handleSeniorDetails}
+            id={d.id}
           >
             <ListItem
               key={i}
@@ -67,6 +76,6 @@ const Senior = props => {
   )
 }
 
-export default Senior
+export default connect(mapStateToProps)(Senior)
 
 

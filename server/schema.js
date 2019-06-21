@@ -15,8 +15,9 @@ module.exports = gql`
 		ArchivedJobs(id:ID): [QueryArchiveJobs]
     getMessages(conversation_id:ID):[Messages]
     getConversation(id:ID): ConversationRoom
-    getCaregiverConvos: [ConversationRoom]
+    getCaregiverConvos(key_contact_id: ID): [ConversationRoom]
     getKeyContactConvos: [ConversationRoom]
+		getJobPosts: [JobPost]
   }
 
 
@@ -96,6 +97,48 @@ module.exports = gql`
 
 	}
 
+	type JobPost {
+		id: ID
+		key_contact_id: ID
+		date_created: Date
+		getBasicInformation: BasicInformation
+		getSeniorDetails: SeniorDetails
+		getHouseDetails: HouseDetails
+		getCaregiverPreferences: CaregiverPreferences
+	}
+
+	type BasicInformation {
+		title: String
+		start_date: Date
+		end_date: Date
+		address: String
+		city: String
+		province: String
+		postal_code: String
+		hourly_rate: Int
+	}
+
+	type SeniorDetails {
+		fullname: String!
+		gender: Gender
+		birthdate: Date
+		relation: String
+		bio: String
+		medical_condition: String
+		language: String
+	}
+
+	type HouseDetails {
+		cig_smoking: Boolean
+		pets: Boolean
+		cannabis: Boolean
+	}
+
+	type CaregiverPreferences {
+		availability: LiveInAvailability
+		gender_pref: Gender
+		req_drivers_license: Boolean
+	}
 
   type Messages {
     id: ID!
@@ -119,10 +162,13 @@ module.exports = gql`
 		login(input: LoginObject!): LoginResponse!
 		deleteit(id:ID!):ID!
 		duplicateRepost(id:ID!):QueryArchiveJobs!
-    addMessages(content: String, conversation_id: ID): addMessagesResponse!
-    addConversation(caregiver_id: ID): addConversationResponse!
+    addMessages(content: String, conversation_id: ID, from_user: ID): addMessagesResponse!
+    addConversation(caregiver_id: ID, key_contact_id: ID): addConversationResponse!
+		addJobRequest(input: NewJobObject!): MessageResponse!
 	}
-  
+
+
+
   type addConversationResponse {
     id: ID
   }
@@ -130,11 +176,14 @@ module.exports = gql`
   type addMessagesResponse {
     message: String
   }
-  
-	input SignupObject{
+
+	type MessageResponse {
+		message: String
+	}
+  	input SignupObject{
 		id: ID!,
 	  fullname: String,
-		email: String, 
+		email: String,
 		phone_number:String,
 
 	}
@@ -143,6 +192,59 @@ module.exports = gql`
     email: String!,
     password: String!,
   }
+
+	input NewJobObject {
+		key_contact_id: ID
+		basicInformation: BasicInformationObject
+		seniorDetails: SeniorDetailsObject
+		houseDetails: HouseDetailsObject
+		caregiverPreferences: CaregiverPreferencesObject
+	}
+
+	input BasicInformationObject {
+		title: String
+		start_date: Date
+		end_date: Date
+		address: String
+		city: String
+		province: String
+		postal_code: String
+		hourly_rate: Int
+	}
+
+	input SeniorDetailsObject {
+		fullname: String!
+		gender: Gender
+		birthdate: Date
+		relation: String
+		bio: String
+		medical_condition: String
+		language: String
+	}
+
+	input HouseDetailsObject {
+		cig_smoking: Boolean
+		pets: Boolean
+		cannabis: Boolean
+	}
+
+	input CaregiverPreferencesObject {
+		availability: LiveInAvailability
+		gender_pref: Gender
+		req_drivers_license: Boolean
+	}
+
+	enum LiveInAvailability {
+		LIVEIN
+		LIVEOUT
+	}
+
+	enum Gender {
+		FEMALE
+		MALE
+		OTHER
+		NOPREFERENCE
+	}
 
   type LoginResponse {
     message: String

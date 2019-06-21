@@ -14,8 +14,8 @@ export const GET_KEY_CONTACT_CONVO = gql`
 `
 
 export const GET_CAREGIVER_CONVO = gql`
-  query {
-    getCaregiverConvos {
+  query getCaregiverConvoQuery ($key_contact_id: ID) {
+    getCaregiverConvos(key_contact_id: $key_contact_id) {
       email
       fullname
       caregiver_id
@@ -36,3 +36,7 @@ export const GET_MESSAGES = gql`
     }
   }
 `
+
+// export const GET_JOBS_FOR_CAREGIVERS = gql`
+// 	query 
+// `

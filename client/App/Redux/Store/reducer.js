@@ -1,5 +1,6 @@
 const initialState = {
-  address: '',
+	key_contact_id: '',
+	address: '',
   city: '',
   province: '',
   postalCode: '',
@@ -36,6 +37,12 @@ const initialState = {
 
 const reducer = (state = initialState, action )  => {
 	switch (action.type) {
+		case 'KEYCONTACTID':
+			return {
+				...state,
+				key_contact_id: action.payload
+			}
+		
 		case 'ADDRESS':
 			return {
 				...state,
@@ -99,7 +106,7 @@ const reducer = (state = initialState, action )  => {
 				}
 			}
 
-			case 'SENIORRELATION':
+		case 'SENIORRELATION':
 			return {
 				...state,
 				postJob: {
@@ -111,7 +118,7 @@ const reducer = (state = initialState, action )  => {
 				}
 			}
 
-			case 'SENIORBIO':
+		case 'SENIORBIO':
 			return {
 				...state,
 				postJob: {
@@ -123,7 +130,7 @@ const reducer = (state = initialState, action )  => {
 				}
 			}
 
-			case 'SENIORMEDICALCONDITION':
+		case 'SENIORMEDICALCONDITION':
 			return {
 				...state,
 				postJob: {
@@ -135,7 +142,7 @@ const reducer = (state = initialState, action )  => {
 				}
 			}
 
-			case 'SENIORLANGUAGE':
+		case 'SENIORLANGUAGE':
 			return {
 				...state,
 				postJob: {
@@ -147,17 +154,24 @@ const reducer = (state = initialState, action )  => {
 				}
 			}
 
+		case 'HOUSEDETAILS':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					houseDetails: action.payload
+				}
+			}
 
 		case 'CAREGIVERPREF1':
-			console.log('caregiver pref 1 action payload', action.payload)
 			return {
 				...state,
 				postJob: {
 					...state.postJob,
 					caregiverPreferences: {
 						...state.postJob.caregiverPreferences,
-						availability: action.payload,
-						preferredGender: action.payload 
+						availability: action.payload.availability,
+						preferredGender: action.payload.preferredGender, 
 					}
 				}
 			}

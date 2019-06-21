@@ -1,6 +1,7 @@
 const { DataSource } = require('apollo-datasource')
 const pubsub = require('../utils/subscriptions/pubsub')
 
+
 class ConversationDatabase extends DataSource {
   constructor() {
     super()
@@ -12,8 +13,8 @@ class ConversationDatabase extends DataSource {
 
   async mutationAddConversation(input){
 
-    const key_contact_id = 1
-    const caregiver_id = +input.caregiver_id
+    const key_contact_id = input.key_contact_id
+    const caregiver_id = input.caregiver_id
 
     const checkConversation = {
         text: "SELECT * FROM seniorcare.conversations WHERE seniorcare.conversations.key_contact_id = $1 AND seniorcare.conversations.caregiver_id = $2",
@@ -31,8 +32,6 @@ class ConversationDatabase extends DataSource {
             }
           }
           else {
-
-            console.log("new convo")
 
             const newConversation = {
               text: 'INSERT INTO seniorcare.conversations (key_contact_id, caregiver_id) VALUES ($1, $2) RETURNING *',
@@ -61,8 +60,8 @@ class ConversationDatabase extends DataSource {
 
     return result.rows[0]
   }
-  async queryGetCaregiverConvos(){
-    const user_id = 1
+  async queryGetCaregiverConvos(input){
+    const key_contact_id = input.key_contact_id
 
     const caregiverConversations = {
       text: `SELECT email, fullname, seniorcare.conversations.caregiver_id, seniorcare.conversations.key_contact_id, seniorcare.conversations.id AS conversation_id
@@ -70,7 +69,7 @@ class ConversationDatabase extends DataSource {
              INNER JOIN seniorcare.conversations
              ON seniorcare.caregiver.id = seniorcare.conversations.caregiver_id
              WHERE seniorcare.conversations.key_contact_id = $1`,
-      values: [user_id]
+      values: [key_contact_id]
     };
 
     const result = await this.context.postgres.query(caregiverConversations);

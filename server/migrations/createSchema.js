@@ -2,11 +2,11 @@ exports.up = pgm => {
 	//1. Users Table
 	pgm.sql(`
     CREATE TABLE "seniorcare"."key_contact" (
-			"id" VARCHAR(255) PRIMARY KEY NOT NULL, 
+			"id" VARCHAR(255) PRIMARY KEY NOT NULL,
       "email" VARCHAR(255) NOT NULL,
       "date_created" DATE NOT NULL DEFAULT CURRENT_DATE,
 			"fullname" VARCHAR(128),
-			"phone_number" VARCHAR(32), 
+			"phone_number" VARCHAR(32),
 			"avatar" TEXT,
 			"location" VARCHAR(64)
     );
@@ -84,7 +84,7 @@ exports.up = pgm => {
 		CREATE TABLE "seniorcare"."messages" (
 			"id" SERIAL PRIMARY KEY,
 			"conversation_id" INT NOT NULL,
-			"from_user" INT NOT NULL,
+			"from_user" VARCHAR(255) NOT NULL,
 			"date_created" DATE NOT NULL DEFAULT CURRENT_DATE,
 			"content" TEXT,
 			FOREIGN KEY (conversation_id) REFERENCES seniorcare.conversations (id)

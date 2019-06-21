@@ -5,10 +5,16 @@ import gql from "graphql-tag";
 import styles from '../Styles/Profile/ProfileScreen'
 import Icons from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { connect } from 'react-redux'
 
+const mapStateToProps = state => {
+  return {
+    key_contact_id: state.key_contact_id
+  }
+}
 
 const GET_KEYCONTACT = gql`
-  query getProfile($id: ID!){ 
+  query getProfile($id: ID!){
     getKeyContactProfile(id: $id){
       fullname
       avatar
@@ -17,7 +23,7 @@ const GET_KEYCONTACT = gql`
 `;
 
 const ProfileScreen = props => {
-  let id = 'ThisIsSimonSternKeyContactSeed'
+  let id = props.key_contact_id
   const { data, error, loading } = useQuery(GET_KEYCONTACT, {
     variables: { id }
   })
@@ -29,7 +35,7 @@ const ProfileScreen = props => {
     props.navigation.navigate('Seniors')
   }
 
- 
+
   const handleGoToHelp = () => {
     props.navigation.navigate('Help')
   }
@@ -68,11 +74,11 @@ const ProfileScreen = props => {
         <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
       </TouchableOpacity>
 
-    </ScrollView >
+    </ScrollView>
   )
 }
 
-export default ProfileScreen
+export default connect(mapStateToProps)(ProfileScreen)
 
 
 

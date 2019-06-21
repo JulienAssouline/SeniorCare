@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { View, Text } from 'react-native'
-import { Button, Input } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 
 import { Formik } from 'formik'
 import { connect } from 'react-redux'
@@ -18,7 +18,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		onSeniorGenderUpdate: (value) => dispatch({
+		onCaregiverPref1Update: (value) => dispatch({
 			type: 'CAREGIVERPREF1',
 			payload: value
 		})
@@ -96,6 +96,16 @@ const CaregiverPref1 = props => {
 								onPress={() => setFieldValue('preferredGender', 'nopreference')}
 							/>
 						</View>
+
+						<PostJobBottomButtons
+							navigation={props.navigation}
+							storeReduxData={values}
+							storeReduxFunction={props.onCaregiverPref1Update}
+							handleSubmit={handleSubmit}
+							errors={errors}
+							touched={touched}
+							lastPosition={1}
+						/>
 					</View>
 				)
 			}}

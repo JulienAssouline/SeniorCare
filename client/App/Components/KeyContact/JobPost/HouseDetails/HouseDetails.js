@@ -94,7 +94,7 @@ const HouseDetails = props => {
 								handleSubmit={handleSubmit}
 								errors={errors}
 								touched={touched}
-								lastPosition={1}
+								lastPosition={0}
 							/>
 						</View>
 					)
