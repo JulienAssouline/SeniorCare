@@ -6,11 +6,11 @@ import {GET_CAREGIVER_CONVO} from "../../graphql-queries/queries"
 import { Avatar, Button } from 'react-native-elements'
 import Icon from "react-native-vector-icons/Ionicons";
 import { List, ListItem } from 'react-native-elements'
-
-
+import { NavigationEvents } from 'react-navigation';
 
 const ConversationScreen = (props) => {
-  const {data, error, loading} = useQuery(GET_CAREGIVER_CONVO)
+
+  const {data, error, loading, refetch} = useQuery(GET_CAREGIVER_CONVO)
 
   if (data.getCaregiverConvos === undefined) { return (<Text> ...loading </Text>)}
 
@@ -23,6 +23,9 @@ const ConversationScreen = (props) => {
   return (
     <ScrollView>
       <View style = {styles.MainContainer}>
+      <NavigationEvents
+         onDidFocus={() => refetch()}
+         />
       {
         data.getCaregiverConvos.map((d,i) =>
           <View key = {i} style = {styles.conversationContainer}>
