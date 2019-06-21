@@ -4,10 +4,12 @@ import React from 'react'
 import { View, Text, TextInput } from 'react-native'
 import { Formik } from 'formik';
 import { Button } from 'react-native-elements'
+import PostJobBottomButtons from './PostJobBottomButtons'
 
 const mapStateToProps = state => {
+	const { title } = state.postJob.basicInformation
   return {
-    title: state.title
+    title: title
   }
 }
 
@@ -67,6 +69,15 @@ const BasicInformationTitle = (props) => {
               title="Submit"
               onPress={handleSubmit}
             />
+						<PostJobBottomButtons
+							navigation={props.navigation}
+							storeReduxData={values.title}
+							storeReduxFunction={props.onTitleUpdate}
+							handleSubmit={handleSubmit}
+							errors={errors}
+							touched={touched}
+							lastPosition={3}
+						/>
           </View>
         )}
       </Formik>

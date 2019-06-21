@@ -6,17 +6,17 @@ import BasicInformationAddress from './BasicInformationAddress'
 import BasicInformationRate from './BasicInformationRate'
 
 const BasicInformationBody = props => {
-
+		console.log('form position inside of body', props.formPosition)
 		let body;
 
-    if (props.currentPosition === 0) {
-        body = <BasicInformationTitle />
-    } else if (props.currentPosition === 1) {
-        body = <BasicInformationCalendar />
-    } else if (props.currentPosition === 2) {
-        body = <BasicInformationAddress />
-    } else if (props.currentPosition === 3) {
-        body = <BasicInformationRate />
+    if (props.formPosition === 0) {
+        body = <BasicInformationTitle navigation={props.navigation} />
+    } else if (props.formPosition === 1) {
+        body = <BasicInformationCalendar navigation={props.navigation} />
+    } else if (props.formPosition === 2) {
+        body = <BasicInformationAddress navigation={props.navigation} />
+    } else if (props.formPosition === 3) {
+        body = <BasicInformationRate navigation={props.navigation} />
     }
 
     return (

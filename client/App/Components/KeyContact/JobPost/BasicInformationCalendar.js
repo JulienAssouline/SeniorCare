@@ -4,16 +4,23 @@ import React, {useState} from 'react'
 import { View, Text, TextInput } from 'react-native'
 import { ButtonGroup } from 'react-native-elements'
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
+import PostJobBottomButtons from './PostJobBottomButtons'
 
 const mapStateToProps = state => {
+	const { startDate, endDate } = state.postJob.basicInformation
   return {
-    startDate: state.startDate,
+    startDate: startDate,
+    endDate: endDate,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onStartDateUpdate: (day) => dispatch({type: 'STARTDATE', payload: day.dateString}),
+		onStartDateUpdate: (day) => dispatch({type: 'STARTDATE', payload: day.dateString}),
+		onEndDateUpdate: (day) => dispatch({
+			type: 'ENDDATE',
+			payload: day.dateString
+		})
   }
 }
 
@@ -70,7 +77,6 @@ const BasicInformationCalendar = (props) => {
         // Handler which gets executed when press arrow icon left. It receive a callback can go next month
         onPressArrowRight={addMonth => addMonth()}
         />
-        <Text>Redux state: {props.startDate}</Text>
       </View>
   )
 }
