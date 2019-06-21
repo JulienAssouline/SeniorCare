@@ -17,9 +17,10 @@ const MessageInput = (props) => {
     setValue(text)
   }
 
-  function handleClick(addMessages) {
+  function handleClick(addMessages, key_contact_id) {
+    console.log(key_contact_id)
     setSubmit(value)
-    addMessages({variables: {content: value, conversation_id: props.pageNumber}})
+    addMessages({variables: {content: value, conversation_id: props.pageNumber, from_user: key_contact_id}})
   }
 
   let width = Dimensions.get("window").width
@@ -35,7 +36,7 @@ const MessageInput = (props) => {
           value={value}
           >
         </TextInput>
-        <TouchableOpacity onPress = {() => handleClick(props.addMessages)}>
+        <TouchableOpacity onPress = {() => handleClick(props.addMessages, props.key_contact_id)}>
           <Icon
           name="send-o"
           color="#3F7DFB"

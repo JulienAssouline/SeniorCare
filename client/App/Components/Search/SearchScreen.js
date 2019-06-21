@@ -8,6 +8,7 @@ import calcAge from "../utils/calcAge"
 import { Avatar, Button } from 'react-native-elements'
 import MessageButton from "./MessageButton"
 import {ADD_CONVERSATION_MUTATION} from "../../graphql-queries/mutation"
+import {GET_CAREGIVER_CONVO} from "../../graphql-queries/queries"
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
@@ -59,7 +60,6 @@ const SearchScreen = (props) => {
   async function checkCognitoSession(props) {
     await Auth.currentSession()
       .then(data => {
-        // setUserID(data.accessToken.payload.username)
         props.onKeyContactIdUpdate(data.accessToken.payload.username)
       })
       .catch(err => console.log(err))
@@ -104,9 +104,11 @@ const SearchScreen = (props) => {
     setStarCount(rating)
   }
 
-  function handlePress(caregiver_id) {
-    console.log(caregiver_id)
-    addConversation({variables: {caregiver_id: caregiver_id}})
+  function handlePress(caregiver_id, key_contact_id) {
+    addConversation({
+      variables:  {caregiver_id: caregiver_id, key_contact_id: key_contact_id},
+      refetchQueries: [{query: GET_CAREGIVER_CONVO, variables: {key_contact_id: key_contact_id}}]
+    })
     props.navigation.navigate("Messages")
   }
 
@@ -127,7 +129,6 @@ const SearchScreen = (props) => {
               containerStyle={{ height: "100%"}}
             />
             <View style = {styles.infoContainer}>
-              <Text style = {styles.fullName}> THIS IS IT {props.key_contact_id} </Text>
               <Text style = {styles.fullName}> {d.fullname} </Text>
               <View style = {styles.ratingLocationContainer}>
                 <Ratings data = {d.average_rating} />
@@ -139,7 +140,7 @@ const SearchScreen = (props) => {
                 <Text style = {styles.backgroundInfoText}> {`${d.years_experience} years experience`} </Text>
                 <Text style = {styles.backgroundInfoText}> {`From $${d.hourly_rate / 100}/hour`} </Text>
               </View>
-              <MessageButton caregiver_id = {d.id} handlePress = {handlePress} />
+              <MessageButton key_contact_id = {props.key_contact_id} caregiver_id = {d.id} handlePress = {handlePress} />
             </View>
           </View>
           ))

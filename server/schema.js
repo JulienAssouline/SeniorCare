@@ -14,7 +14,7 @@ module.exports = gql`
 		ArchivedJobs(id:ID): [QueryArchiveJobs]
     getMessages(conversation_id:ID):[Messages]
     getConversation(id:ID): ConversationRoom
-    getCaregiverConvos: [ConversationRoom]
+    getCaregiverConvos(key_contact_id: ID): [ConversationRoom]
     getKeyContactConvos: [ConversationRoom]
 		getJobPosts: [JobPost]
   }
@@ -160,11 +160,13 @@ module.exports = gql`
 		login(input: LoginObject!): LoginResponse!
 		deleteit(id:ID!):ID!
 		duplicateRepost(id:ID!):QueryArchiveJobs!
-    addMessages(content: String, conversation_id: ID): addMessagesResponse!
-    addConversation(caregiver_id: ID): addConversationResponse!
+    addMessages(content: String, conversation_id: ID, from_user: ID): addMessagesResponse!
+    addConversation(caregiver_id: ID, key_contact_id: ID): addConversationResponse!
 		addJobRequest(input: NewJobObject!): MessageResponse!
 	}
-  
+
+
+
   type addConversationResponse {
     id: ID
   }
@@ -176,11 +178,10 @@ module.exports = gql`
 	type MessageResponse {
 		message: String
 	}
-  
-	input SignupObject{
+  	input SignupObject{
 		id: ID!,
 	  fullname: String,
-		email: String, 
+		email: String,
 		phone_number:String,
 
 	}
