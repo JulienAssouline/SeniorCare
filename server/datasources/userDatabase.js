@@ -1,46 +1,56 @@
 const { DataSource } = require('apollo-datasource')
 
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const saltRounds = 12
-const crypto = require('crypto')
-const Promise = require('bluebird')
-const authenticate = require('../utils/DSHelperFunctions/authenticate')
 
 class UserDatabase extends DataSource {
-	constructor() {
-		super()
-	}
+  constructor() {
+    super()
+  }
 
-	initialize(config) {
-		this.context = config.context
-	}
+  initialize(config) {
+    this.context = config.context
+  }
 
-  async mutationSignUp(input) {
+  async keyContactSignup(input) {
     try {
-      let fullname = input.fullname.toLowerCase();
-      let email = input.email.toLowerCase();
-      let phonenumber = input.phonenumber;
-      let location = input.location;
+      let { id, fullname, email, phone_number } = input
+      fullname = fullname.toLowerCase()
+      email = email.toLowerCase()
 
-      let hashedpassword = await bcrypt.hash(input.password, saltRounds)
-        
-      const newUserInsert ={
-        text: "INSERT INTO seniorcare.key_contact( fullname,email,phone_number,location,password ) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-        values: [fullname, email, phonenumber, location, hashedpassword]
+      const newUserInsert = {
+        text: "INSERT INTO seniorcare.key_contact( id, fullname, email, phone_number) VALUES ($1, $2, $3, $4) RETURNING *",
+        values: [id, fullname, email, phone_number]
       }
-  
-      let answer = await this.context.postgres.query(newUserInsert)
-      let myjwttoken = await jwt.sign({
-        data: insertResult.rows[0],
-        exp: Math.floor(Date.now()/ 1000) + (60* 60),
-    }, 'secret');
-  
-      return { 
-        message: 'success'
+
+      await this.context.postgres.query(newUserInsert)
+
+      return {
+        token: id
       }
-      
-    } catch(err) {
+
+    } catch (err) {
+      throw err
+    }
+  }
+
+
+  async caregiverSignup(input) {
+    try {
+      let { id, fullname, email, phone_number } = input
+      fullname = fullname.toLowerCase()
+      email = email.toLowerCase()
+
+      const newUserInsert = {
+        text: "INSERT INTO seniorcare.caregiver( id, fullname, email, phone_number) VALUES ($1, $2, $3, $4) RETURNING *",
+        values: [id, fullname, email, phone_number]
+      }
+
+      await this.context.postgres.query(newUserInsert)
+
+      return {
+        token: id
+      }
+
+    } catch (err) {
       throw err
     }
   }

@@ -20,7 +20,6 @@ class Database extends DataSource {
 
 	async queryPlaceholder(input) {
 		try {
-			console.log(input)
 
 			const id = 1
 
@@ -29,8 +28,6 @@ class Database extends DataSource {
 			]
 			const testQuery = createSelectQuery(selectColumns, 'seniorcare.key_contact', 'id', id)
 			const testQueryResult = await this.context.postgres.query(testQuery)
-
-			console.log(testQueryResult.rows)
 
 			return { id: input }
 		} catch(err) {

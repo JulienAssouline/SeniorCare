@@ -3,6 +3,7 @@ import { ScrollView, Text, View } from 'react-native'
 
 import { Button } from 'react-native-elements'
 
+import { backgroundStyles } from '../../../Styles/GeneralStyles'
 import { chooseProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
 
 export default SeniorDetails = props => {
@@ -11,7 +12,7 @@ export default SeniorDetails = props => {
 	}
 
 	return (
-		<ScrollView>
+		<ScrollView style={backgroundStyles.background}>
 			<View style={chooseProfile.mainContainer}>
 				<View style={chooseProfile.titleContainer}>
 					<Text style={chooseProfile.title}>Senior's Profile</Text>

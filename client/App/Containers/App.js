@@ -9,6 +9,7 @@
 import React from 'react';
 // Package imports
 import apolloClient from '../../apolloClient'
+import { ApolloProvider } from 'react-apollo'
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks'
 import AppContainer from './AppContainer'
 
@@ -25,11 +26,13 @@ const store = createStore(reducer, undefined, Reactotron.createEnhancer())
 
 const App = () => {
   return (
-    <ApolloHooksProvider client={apolloClient}>
-      <Provider store={store}>
-        <AppContainer />
-      </Provider>
-    </ApolloHooksProvider>
+    <ApolloProvider client={apolloClient}>
+      <ApolloHooksProvider client={apolloClient}>
+				<Provider store={store}>
+					<AppContainer />
+				</Provider>
+      </ApolloHooksProvider>
+    </ApolloProvider>
   )
 }
 
