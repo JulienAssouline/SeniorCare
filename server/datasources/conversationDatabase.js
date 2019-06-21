@@ -1,6 +1,7 @@
 const { DataSource } = require('apollo-datasource')
 const pubsub = require('../utils/subscriptions/pubsub')
 
+
 class ConversationDatabase extends DataSource {
   constructor() {
     super()

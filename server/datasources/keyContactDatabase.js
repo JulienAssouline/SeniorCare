@@ -3,7 +3,7 @@ const { DataSource } = require('apollo-datasource')
 const authenticate = require('../utils/DSHelperFunctions/authenticate')
 
 class KeyContactDatabase extends DataSource {
-  constructor() {
+  constructor(props) {
     super()
   }
 
