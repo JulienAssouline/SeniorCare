@@ -36,7 +36,11 @@ const PostJobBottomButtons = props => {
 		if (directionForward) {
 			handleSubmit()
 
-			if (Object.keys(errors).length === 0 && Object.keys(touched).length !== 0 || storeReduxData) {
+			console.log('errors', errors)
+			console.log('touched', touched)
+			console.log('store redux data', storeReduxData === '')
+
+			if (Object.keys(errors).length === 0 && Object.keys(touched).length !== 0 || storeReduxData !== '') {
 				storeReduxFunction(storeReduxData)
 				
 				if (props.formPosition === lastPosition ) {

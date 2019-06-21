@@ -16,3 +16,11 @@ mutation addMessageMutation($content: String, $conversation_id: ID){
   }
 }
 `
+
+export const SUBMIT_JOB_POST = gql`
+	mutation addJobPostVars($input: NewJobObject!) {
+		addJobPost(input: $input) {
+			message
+		}
+	}
+`

@@ -30,7 +30,6 @@ const JobBoardScreen = (props) => {
       <TouchableOpacity>   
       <Button
         title='Archive'
-        type='primary'
         style={styles.ExempleButton}
         onPress={() =>
           props.navigation.navigate("Archive")}

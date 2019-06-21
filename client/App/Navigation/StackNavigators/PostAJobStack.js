@@ -26,6 +26,9 @@ export const PostAJobStack = createSwitchNavigator(
 		},
 		CaregiverPreferences: {
 			screen: CaregiverPreferences,
+		},
+		JobPostSubmit: {
+			screen: JobPostSubmit
 		}
 	},
 	{
