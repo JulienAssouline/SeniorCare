@@ -59,7 +59,7 @@ const configurations = {
       tabBarIcon: ({ tintColor }) => (
         <Icon style={{ fontSize: 24, color: tintColor }} name="bubbles" />
       )
-    }
+    },
   },
   Profile: {
     screen: ProfileStack,

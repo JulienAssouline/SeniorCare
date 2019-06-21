@@ -105,6 +105,7 @@ const SearchScreen = (props) => {
   }
 
   function handlePress(caregiver_id) {
+    console.log(caregiver_id)
     addConversation({variables: {caregiver_id: caregiver_id}})
     props.navigation.navigate("Messages")
   }

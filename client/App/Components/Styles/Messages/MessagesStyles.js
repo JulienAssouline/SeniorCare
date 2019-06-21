@@ -40,15 +40,30 @@ const styles = StyleSheet.create({
   fromText: {
     fontSize: 16,
   },
-  fromMessageBubble: {
+  toMessageBubble: {
     position: "relative",
     borderRadius: 20,
     backgroundColor: "lightgrey",
     padding: 10,
     marginBottom: 10,
+    marginLeft: 10,
     color: "black",
   },
-  messages: {
+  fromMessageBubble: {
+    position: "relative",
+    borderRadius: 20,
+    backgroundColor: "#B1D5F6",
+    padding: 10,
+    marginBottom: 10,
+    color: "black",
+  },
+  fromMessages: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
+  toMessages: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: "flex-start",
