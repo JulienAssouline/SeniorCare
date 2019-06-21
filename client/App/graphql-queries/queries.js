@@ -36,3 +36,7 @@ export const GET_MESSAGES = gql`
     }
   }
 `
+
+// export const GET_JOBS_FOR_CAREGIVERS = gql`
+// 	query 
+// `

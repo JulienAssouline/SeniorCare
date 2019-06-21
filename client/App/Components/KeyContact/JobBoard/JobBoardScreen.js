@@ -25,6 +25,11 @@ const JobBoardScreen = (props) => {
         style={styles.ExempleButton}
         onPress={handleGoToSeniorDetails}
       />
+
+			<Button
+				title='go to caregiver stack'
+				onPress={() => props.navigation.navigate('CaregiverApp')}
+			/>
       
 
       <TouchableOpacity>   

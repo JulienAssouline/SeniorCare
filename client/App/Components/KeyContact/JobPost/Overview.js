@@ -75,7 +75,7 @@ const Overview = props => {
 	}
 
 	const handleGoToSubmit = () => {
-		props.navigation.navigate()
+		props.navigation.navigate('JobPostSubmit')
 	}
 
 	return (
@@ -111,16 +111,19 @@ const Overview = props => {
 				onPress={() => console.log(props.state)}
 			/>
 
-			{ props.completedSections.legnth < 5 ?
+			
+
+			{/* { props.completedSections.legnth < 5 ? */}
 				<Button
 					title={props.overviewPosition === 0 ? 'Get Started' : 'Continue'}
 					onPress={handleNavigation}	
-				/> :
+				/> 
+				{/* : */}
 				<Button
 					title='My Job Post'
 					onPress={handleGoToSubmit}
 				/>
-			}
+			{/* } */}
 		</ScrollView>
 	)
 }

@@ -16,6 +16,7 @@ module.exports = gql`
     getConversation(id:ID): ConversationRoom
     getCaregiverConvos: [ConversationRoom]
     getKeyContactConvos: [ConversationRoom]
+		getJobPosts: [JobPost]
   }
 
 
@@ -94,6 +95,48 @@ module.exports = gql`
 
 	}
 
+	type JobPost {
+		id: ID
+		key_contact_id: ID
+		date_created: Date
+		getBasicInformation: BasicInformation
+		getSeniorDetails: SeniorDetails
+		getHouseDetails: HouseDetails
+		getCaregiverPreferences: CaregiverPreferences
+	}
+
+	type BasicInformation {
+		title: String
+		start_date: Date
+		end_date: Date
+		address: String
+		city: String
+		province: String
+		postal_code: String
+		hourly_rate: Int
+	}
+
+	type SeniorDetails {
+		fullname: String!
+		gender: Gender
+		birthdate: Date
+		relation: String
+		bio: String
+		medical_condition: String
+		language: String
+	}
+
+	type HouseDetails {
+		cig_smoking: Boolean
+		pets: Boolean
+		cannabis: Boolean
+	}
+
+	type CaregiverPreferences {
+		availability: LiveInAvailability
+		gender_pref: Gender
+		req_drivers_license: Boolean
+	}
 
   type Messages {
     id: ID!
@@ -156,13 +199,13 @@ module.exports = gql`
 	}
 
 	input BasicInformationObject {
+		title: String
+		start_date: Date
+		end_date: Date
 		address: String
 		city: String
 		province: String
 		postal_code: String
-		title: String
-		start_date: Date
-		end_date: Date
 		hourly_rate: Int
 	}
 

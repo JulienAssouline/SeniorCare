@@ -6,6 +6,7 @@ import BasicInformation from '../../Components/KeyContact/JobPost/BasicInformati
 import CreateNewSeniorProfile from '../../Components/KeyContact/JobPost/SeniorDetails/CreateNewSeniorProfile'
 import HouseDetails from '../../Components/KeyContact/JobPost/HouseDetails/HouseDetails'
 import CaregiverPreferences from '../../Components/KeyContact/JobPost/CaregiverPreferences/CaregiverPreferences'
+import JobPostSubmit from '../../Components/KeyContact/JobPost/JobPostSubmit/JobPostSubmit'
 
 export const PostAJobStack = createSwitchNavigator(
 	{
