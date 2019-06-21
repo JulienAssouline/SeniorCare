@@ -8,6 +8,13 @@ import calcAge from "../utils/calcAge"
 import { Avatar, Button } from 'react-native-elements'
 import MessageButton from "./MessageButton"
 import {ADD_CONVERSATION_MUTATION} from "../../graphql-queries/mutation"
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => {
+  return {
+    key_contact_id: state.key_contact_id
+  }
+}
 
 const GET_CAREGIVERS = gql`
    query GetCaregiver($input: FilterInput!) {
@@ -26,9 +33,10 @@ const GET_CAREGIVERS = gql`
   }
 `;
 
-
-
 const SearchScreen = (props) => {
+
+  //Use this to access key_contact_id. It's a prop!
+  //props.key_contact_id
 
   let filterObj = {};
 
@@ -100,6 +108,6 @@ const SearchScreen = (props) => {
   )
 }
 
-export default SearchScreen
+export default connect(mapStateToProps)(SearchScreen)
 
 
