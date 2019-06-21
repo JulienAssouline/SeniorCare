@@ -1,22 +1,9 @@
-const { connect } = require('react-redux')
-
 const { DataSource } = require('apollo-datasource')
 const pubsub = require('../utils/subscriptions/pubsub')
 
-const mapStateToProps = state => {
-  return {
-    key_contact_id: state.key_contact_id
-  }
-}
-
-const mapDispatchToProps = state => {
-  //your dispatchers to update state via actions would go here
-  return {}
-}
-
 
 class ConversationDatabase extends DataSource {
-  constructor(props) {
+  constructor() {
     super()
   }
 
@@ -25,9 +12,6 @@ class ConversationDatabase extends DataSource {
   }
 
   async mutationAddConversation(input){
-
-    //const key_contact_id = this.props.key_contact_id
-    //console.log('keyconactid: ', this.props.key_contact_id)
 
     const key_contact_id = "ThisIsSimonSternKeyContactSeed"
     const caregiver_id = +input.caregiver_id
@@ -112,4 +96,4 @@ class ConversationDatabase extends DataSource {
   }
 }
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(ConversationDatabase)
+module.exports = ConversationDatabase

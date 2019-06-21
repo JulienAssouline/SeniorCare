@@ -6,6 +6,19 @@ import styles from "../Styles/searchStyles/searchStyles"
 import Ratings from "./Ratings"
 import calcAge from "../utils/calcAge"
 import { Avatar } from 'react-native-elements'
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => {
+  return {
+    key_contact_id: state.key_contact_id
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onKeyContactIdUpdate: (value) => dispatch({type: 'KEYCONTACTID', payload: value})
+  }
+}
 
 // AWS Amplify modular import
 import Auth from '@aws-amplify/auth'
@@ -47,6 +60,7 @@ const SearchScreen = props => {
     await Auth.currentSession()
       .then(data => {
         setUserID(data.accessToken.payload.username)
+        onKeyContactIdUpdate(data.accessToken.payload.username)
       })
       .catch(err => console.log(err))
     // await checkSignedInUserId(
@@ -118,6 +132,6 @@ const SearchScreen = props => {
   )
 }
 
-export default SearchScreen
+export default connect(mapStateToProps, mapDispatchToProps)(SearchScreen)
 
 
