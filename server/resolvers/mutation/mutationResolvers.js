@@ -27,6 +27,13 @@ module.exports = {
 		// async Delete(parent, { input }, { dataSources }) {
 		// 	return dataSources.mutationDelete(input)
 		// },
+		async addJobRequest(parent, { input }, { dataSources }) {
+			await dataSources.jobsDatabase.addJobRequest(input)
+			await dataSources.seniorDatabase.addSenior(input)
+			return {
+				message: 'success'
+			}
+		},
 	}
 }
 

@@ -26,6 +26,9 @@ import { ProfileStack } from './ProfileStack'
 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
+// Import Caregiver Tab Navigator
+import CaregiverAppTabNavigator from '../TabNavigators/CaregiverAppTabNavigator/CaregiverAppTabNavigator'
+
 
 // Amplify imports and config
 import Amplify from '@aws-amplify/core'
@@ -175,7 +178,8 @@ const AuthStackNavigator = createStackNavigator({
 const MainAppStack = createSwitchNavigator({
   Authloading: AuthLoadingScreen,
   Auth: AuthStackNavigator, // the Auth stack
-  App: AppTabNavigator, // the App stack
+	App: AppTabNavigator, // the App stack
+	CaregiverApp: CaregiverAppTabNavigator, // Caregiver App Stack
 })
 
 export default MainAppStack

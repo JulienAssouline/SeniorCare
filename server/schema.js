@@ -16,6 +16,7 @@ module.exports = gql`
     getConversation(id:ID): ConversationRoom
     getCaregiverConvos: [ConversationRoom]
     getKeyContactConvos: [ConversationRoom]
+		getJobPosts: [JobPost]
   }
 
 
@@ -94,6 +95,48 @@ module.exports = gql`
 
 	}
 
+	type JobPost {
+		id: ID
+		key_contact_id: ID
+		date_created: Date
+		getBasicInformation: BasicInformation
+		getSeniorDetails: SeniorDetails
+		getHouseDetails: HouseDetails
+		getCaregiverPreferences: CaregiverPreferences
+	}
+
+	type BasicInformation {
+		title: String
+		start_date: Date
+		end_date: Date
+		address: String
+		city: String
+		province: String
+		postal_code: String
+		hourly_rate: Int
+	}
+
+	type SeniorDetails {
+		fullname: String!
+		gender: Gender
+		birthdate: Date
+		relation: String
+		bio: String
+		medical_condition: String
+		language: String
+	}
+
+	type HouseDetails {
+		cig_smoking: Boolean
+		pets: Boolean
+		cannabis: Boolean
+	}
+
+	type CaregiverPreferences {
+		availability: LiveInAvailability
+		gender_pref: Gender
+		req_drivers_license: Boolean
+	}
 
   type Messages {
     id: ID!
@@ -119,6 +162,7 @@ module.exports = gql`
 		duplicateRepost(id:ID!):QueryArchiveJobs!
     addMessages(content: String, conversation_id: ID): addMessagesResponse!
     addConversation(caregiver_id: ID): addConversationResponse!
+		addJobRequest(input: NewJobObject!): MessageResponse!
 	}
   
   type addConversationResponse {
@@ -128,6 +172,10 @@ module.exports = gql`
   type addMessagesResponse {
     message: String
   }
+
+	type MessageResponse {
+		message: String
+	}
   
 	input SignupObject{
 		id: ID!,
@@ -141,6 +189,59 @@ module.exports = gql`
     email: String!,
     password: String!,
   }
+
+	input NewJobObject {
+		key_contact_id: ID
+		basicInformation: BasicInformationObject
+		seniorDetails: SeniorDetailsObject
+		houseDetails: HouseDetailsObject
+		caregiverPreferences: CaregiverPreferencesObject
+	}
+
+	input BasicInformationObject {
+		title: String
+		start_date: Date
+		end_date: Date
+		address: String
+		city: String
+		province: String
+		postal_code: String
+		hourly_rate: Int
+	}
+
+	input SeniorDetailsObject {
+		fullname: String!
+		gender: Gender
+		birthdate: Date
+		relation: String
+		bio: String
+		medical_condition: String
+		language: String
+	}
+
+	input HouseDetailsObject {
+		cig_smoking: Boolean
+		pets: Boolean
+		cannabis: Boolean
+	}
+
+	input CaregiverPreferencesObject {
+		availability: LiveInAvailability
+		gender_pref: Gender
+		req_drivers_license: Boolean
+	}
+
+	enum LiveInAvailability {
+		LIVEIN
+		LIVEOUT
+	}
+
+	enum Gender {
+		FEMALE
+		MALE
+		OTHER
+		NOPREFERENCE
+	}
 
   type LoginResponse {
     message: String

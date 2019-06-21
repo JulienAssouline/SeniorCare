@@ -13,6 +13,7 @@ const mapStateToProps = state => {
 		formPosition: formPosition,
 		overviewPosition: overviewPosition,
 		completedSections: completedSections,
+		state: state,
 	}
 }
 
@@ -73,6 +74,10 @@ const Overview = props => {
 		props.navigation.navigate(mapOverviewPosition[destinationIndex].destination)
 	}
 
+	const handleGoToSubmit = () => {
+		props.navigation.navigate('JobPostSubmit')
+	}
+
 	return (
 		<ScrollView>
 			<View style={overview.explanationContainer}>
@@ -102,9 +107,23 @@ const Overview = props => {
 			</View>
 
 			<Button
-				title={props.overviewPosition === 0 ? 'Get Started' : 'Continue'}
-				onPress={handleNavigation}	
+				title='check redux store'
+				onPress={() => console.log(props.state)}
 			/>
+
+			
+
+			{/* { props.completedSections.legnth < 5 ? */}
+				<Button
+					title={props.overviewPosition === 0 ? 'Get Started' : 'Continue'}
+					onPress={handleNavigation}	
+				/> 
+				{/* : */}
+				<Button
+					title='My Job Post'
+					onPress={handleGoToSubmit}
+				/>
+			{/* } */}
 		</ScrollView>
 	)
 }
