@@ -37,5 +37,23 @@ module.exports = {
 			return await dataSources.jobsDatabase.queryArchiveJobs(input)
 		},
 
-  },
+		async getJobPosts(parent, { input }, { dataSources }) {
+			return await dataSources.jobsDatabase.getJobPosts()
+		},
+	},
+
+	JobPost: {
+		async getBasicInformation(parent, { input }, { dataSources }) {
+			return await dataSources.jobsDatabase.getBasicInformation(parent)
+		},
+
+		async getHouseDetails(parent, { input }, { dataSources }) {
+			return await dataSources.jobsDatabase.getHouseDetails(parent)
+		},
+
+		async getCaregiverPreferences(parent, { input }, { dataSources }) {
+			return await dataSources.jobsDatabase.getCaregiverPreferences(parent)
+		}
+	}
+
 }
