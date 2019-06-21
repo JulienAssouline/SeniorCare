@@ -3,7 +3,13 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
   MainContainer: {
     flex: 1,
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#E9F6FF'
+  },
+  MainView:{
+    flex: 1,
+    flexDirection: 'row',
+    margin: 20,
+    backgroundColor: "#FFFFFF",
   },
   ExempleText: {
     fontFamily: 'SFProText-Bold',

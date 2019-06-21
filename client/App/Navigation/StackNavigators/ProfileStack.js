@@ -24,16 +24,8 @@ export const ProfileStack = createStackNavigator(
       navigationOptions: {
         title: 'Seniors'
       },
-<<<<<<< HEAD
       
       
-=======
-
-      Help: {
-        screen: Help
-      },
-
->>>>>>> 7f6d1ede3c550141588cdcb2845d52906cd3a55e
     },
     SeniorDetails:{
       screen: SeniorIndex,
