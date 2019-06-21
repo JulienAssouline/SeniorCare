@@ -6,6 +6,7 @@ module.exports = gql`
 
   type Query {
     getCaregiver(input: FilterInput!): [QueryGetCaregiver]
+    getCaregiverDetails(id: ID) : QueryGetCaregiver
 		placeholderApi: QueryPlaceholder
 		testDatabase: QueryPlaceholder
     getKeyContactProfile(id: ID!): KeyContact

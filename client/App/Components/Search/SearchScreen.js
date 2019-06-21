@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dimensions, ScrollView, Text, View } from 'react-native'
+import { Dimensions, ScrollView, Text, View, TouchableOpacity } from 'react-native'
 import { useQuery, useMutation } from 'react-apollo-hooks'
 import gql from "graphql-tag";
 import styles from "../Styles/searchStyles/searchStyles"
@@ -67,11 +67,18 @@ const SearchScreen = (props) => {
     height: Dimensions.get('window').height
   }
 
+  const handleGoToCaregiverDetails = () =>{
+    props.navigation.navigate('Caregiver')
+  }
   return (
     <ScrollView>
     <View style = {styles.MainContainer}>
       {
         data.getCaregiver.map((d,i) => (
+          <TouchableOpacity
+              style={styles.ProfileButton}
+              onPress={handleGoToCaregiverDetails}
+            >
           <View style = {styles.searchContainer} key = {i}>
             <Avatar
               icon={{name: 'user', type: 'font-awesome'}}
@@ -93,6 +100,7 @@ const SearchScreen = (props) => {
               <MessageButton caregiver_id = {d.id} handlePress = {handlePress} />
             </View>
           </View>
+        </TouchableOpacity>
           ))
       }
     </View>
