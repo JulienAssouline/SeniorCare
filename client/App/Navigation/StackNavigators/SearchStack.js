@@ -1,13 +1,14 @@
 // import react
 import React from 'react'
-import { Text, View } from 'react-native'
-import Icons from 'react-native-vector-icons/Octicons'
+import { Text, View, TouchableOpacity } from 'react-native'
+import Icon from 'react-native-vector-icons/AntDesign'
 
 // packages imports
 import { createStackNavigator } from 'react-navigation'
 
 import SearchScreen from '../../Components/Search/SearchScreen'
 import SearchFilter from '../../Components/Search/SearchFilter'
+import styles from '../../Components/Styles/searchStyles/searchStyles';
 
 
 export const SearchStack = createStackNavigator(
@@ -18,12 +19,15 @@ export const SearchStack = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         headerRight:
           <View style={{ padding: 10 }}>
-            <Icons
-              name={"settings"}
-              size={20}
-              color={"#3F7DFB"}
+            <TouchableOpacity
               onPress={() => navigation.navigate("SearchFilter")}
-            />
+              style={{ flex: 1, flexDirection: 'row' }}
+            >
+              <View style={{ marginRight: 2, paddingTop: 1 }}>
+                <Icon name="filter" size={17} color={'#3f7dfb'} />
+              </View>
+              <Text style={{ FontFamily: 'SFProText-Medium', color: '#3F7DFB', fontSize: 17, iconStyle: { marginRight: 3 } }}>Filter</Text>
+            </TouchableOpacity>
           </View>
       })
     },
@@ -33,12 +37,12 @@ export const SearchStack = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      title: 'Search',
+      title: 'Find',
       headerTintColor: '#000',
       headerTitleStyle: { color: '#000', fontFamily: 'SFProText-Light' },
     },
     navigationOptions: {
-      tabBarLabel: 'Search',
+      tabBarLabel: 'Find',
     },
   }
 )

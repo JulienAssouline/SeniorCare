@@ -37,7 +37,7 @@ const configurations = {
   Search: {
     screen: SearchStack,
     navigationOptions: {
-      tabBarLabel: 'Search',
+      tabBarLabel: 'Find',
       tabBarIcon: ({ tintColor }) => (
         <Icon style={{ fontSize: 26, color: tintColor }} name="magnifier" />
       )
