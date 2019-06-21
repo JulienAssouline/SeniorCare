@@ -72,6 +72,7 @@ module.exports = gql`
     availability: String
     average_rating: Float
     avatar: String
+    description: String
 	}
 
 	type QueryArchiveJobs {

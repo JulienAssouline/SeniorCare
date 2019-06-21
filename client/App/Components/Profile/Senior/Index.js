@@ -22,7 +22,7 @@ export default class Index extends React.Component {
         navigationState={this.state}
         renderScene={SceneMap({
           first: FirstRoute,
-          second: SecondRoute,
+          second: FirstRoute,
         })}
         renderTabBar={props => (
           <TabBar
