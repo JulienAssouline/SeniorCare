@@ -36,7 +36,6 @@ class JobsDatabase extends DataSource {
       }
       const result = await this.context.postgres.query(removeJob)
 
-
       return input.id
 
     }catch(err){
@@ -45,7 +44,6 @@ class JobsDatabase extends DataSource {
   }
 
   async duplicateRepost(input){
-
     try{
 
       const getJob = {
