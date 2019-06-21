@@ -22,10 +22,10 @@ query profileVar($id: ID!){
 }
 `;
 
-const SeniorDetails = () => {
+const SeniorDetails = (props) => {
 
   const { data, error, loading } = useQuery(GET_SENIOR, {
-    variables: { id:3 }
+    variables: { id: props.id }
   })
   if (data.getSenior === undefined) { return (<Text> ...loading </Text>) }
   const seniorData = data.getSenior

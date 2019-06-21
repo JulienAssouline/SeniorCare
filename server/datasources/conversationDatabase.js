@@ -1,6 +1,7 @@
 const { DataSource } = require('apollo-datasource')
 const pubsub = require('../utils/subscriptions/pubsub')
 
+
 class ConversationDatabase extends DataSource {
   constructor() {
     super()
@@ -12,7 +13,7 @@ class ConversationDatabase extends DataSource {
 
   async mutationAddConversation(input){
 
-    const key_contact_id = 1
+    const key_contact_id = "ThisIsSimonSternKeyContactSeed"
     const caregiver_id = +input.caregiver_id
 
     const checkConversation = {

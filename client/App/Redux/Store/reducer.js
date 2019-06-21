@@ -1,5 +1,6 @@
 const initialState = {
-  address: '',
+	key_contact_id: '',
+	address: '',
   city: '',
   province: '',
   postalCode: '',
@@ -36,6 +37,12 @@ const initialState = {
 
 const reducer = (state = initialState, action )  => {
 	switch (action.type) {
+		case 'KEYCONTACTID':
+			return {
+				...state,
+				key_contact_id: action.payload
+			}
+		
 		case 'ADDRESS':
 			return {
 				...state,
