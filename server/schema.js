@@ -183,7 +183,7 @@ module.exports = gql`
 	  fullname: String,
 		email: String,
 		phone_number:String,
-
+		avatar: String,
 	}
 
   input LoginObject {
