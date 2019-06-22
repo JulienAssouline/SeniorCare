@@ -24,7 +24,7 @@ export default class AuthLoadingScreen extends React.Component {
         this.setState({ userToken: user.signInUserSession.accessToken.jwtToken })
       })
       .catch(err => console.log(err))
-      (this.state.role == 'family' ? this.props.navigation.navigate(this.state.userToken ? 'App' : 'Auth') : this.props.navigation.navigate(this.state.userToken ? 'CaregiverApp' : 'Auth'))
+    this.state.role == 'family' ? this.props.navigation.navigate(this.state.userToken ? 'App' : 'Auth') : this.props.navigation.navigate(this.state.userToken ? 'CaregiverApp' : 'Auth')
   }
   render() {
     return (
