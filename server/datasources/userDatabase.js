@@ -12,13 +12,13 @@ class UserDatabase extends DataSource {
 
   async keyContactSignup(input) {
     try {
-      let { id, fullname, email, phone_number } = input
+      let { id, fullname, email, phone_number, avatar } = input
       fullname = fullname.toLowerCase()
       email = email.toLowerCase()
 
       const newUserInsert = {
-        text: "INSERT INTO seniorcare.key_contact( id, fullname, email, phone_number) VALUES ($1, $2, $3, $4) RETURNING *",
-        values: [id, fullname, email, phone_number]
+        text: "INSERT INTO seniorcare.key_contact( id, fullname, email, phone_number, avatar) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+        values: [id, fullname, email, phone_number, avatar]
       }
 
       await this.context.postgres.query(newUserInsert)
@@ -35,13 +35,13 @@ class UserDatabase extends DataSource {
 
   async caregiverSignup(input) {
     try {
-      let { id, fullname, email, phone_number } = input
+      let { id, fullname, email, phone_number, avatar } = input
       fullname = fullname.toLowerCase()
       email = email.toLowerCase()
 
       const newUserInsert = {
-        text: "INSERT INTO seniorcare.caregiver( id, fullname, email, phone_number) VALUES ($1, $2, $3, $4) RETURNING *",
-        values: [id, fullname, email, phone_number]
+        text: "INSERT INTO seniorcare.caregiver( id, fullname, email, phone_number, avatar) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+        values: [id, fullname, email, phone_number, avatar]
       }
 
       await this.context.postgres.query(newUserInsert)
