@@ -1,5 +1,5 @@
-import React from 'react'
-import { ScrollView, Text, View } from 'react-native'
+import React, {useState} from 'react'
+import { ScrollView, Text, View, KeyboardAvoidingView } from 'react-native'
 import styles from '../Styles/Messages/MessagesStyles'
 import { useQuery, useMutation, useSubscription } from 'react-apollo-hooks'
 import {ADD_MESSAGES} from "../../graphql-queries/mutation"
@@ -12,6 +12,8 @@ import FromUserMessage from "./fromUserMessage"
 import ToUserMessage from "./ToUserMessage"
 
 const MessagesScreen = (props) => {
+
+  const [scrollView, setScrollView] = useState("")
 
   const conversation_id = +props.navigation.getParam('conversation_id');
   const key_contact_id = props.navigation.getParam('key_contact_id');
@@ -44,7 +46,12 @@ const MessagesScreen = (props) => {
 
   return (
     <View style = {styles.MainContainer}>
-    <ScrollView>
+    <ScrollView
+      ref={ref => setScrollView(ref)}
+      onContentSizeChange={(contentWidth, contentHeight)=>{
+      scrollView.scrollToEnd({animated: false});
+      }}
+    >
       <View style = {styles.MessagesContainer}>
         <View>
             {queryData.getMessages.map((d,i) =>
