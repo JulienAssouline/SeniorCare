@@ -30,6 +30,7 @@
 		2699D50522B8072A00A12493 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2699D50122B8072A00A12493 /* FontAwesome5_Solid.ttf */; };
 		2699D50622B8072A00A12493 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2699D50222B8072A00A12493 /* FontAwesome5_Brands.ttf */; };
 		2699D50722B8072A00A12493 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2699D50322B8072A00A12493 /* FontAwesome.ttf */; };
+		26F6BDF922BD4CAE00F091A1 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26F6BDF822BD4CAE00F091A1 /* SimpleLineIcons.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -467,6 +468,7 @@
 		2699D50122B8072A00A12493 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		2699D50222B8072A00A12493 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		2699D50322B8072A00A12493 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		26F6BDF822BD4CAE00F091A1 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		2C3D37DE7AD840959A3E019D /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* SeniorCare-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeniorCare-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* SeniorCare-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SeniorCare-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -760,6 +762,7 @@
 				61A99C9322BBD57700728905 /* FontAwesome5_Brands.ttf */,
 				61A99C9122BBD57700728905 /* FontAwesome5_Regular.ttf */,
 				61A99C9222BBD57700728905 /* FontAwesome5_Solid.ttf */,
+				26F6BDF822BD4CAE00F091A1 /* SimpleLineIcons.ttf */,
 				ADEAA08222BC0F9200C149A2 /* GothamRounded-Bold.otf */,
 				ADEAA08622BC0F9200C149A2 /* GothamRounded-BoldItalic.otf */,
 				F4288A3822BD363B00D81AA9 /* SimpleLineIcons.ttf */,
@@ -1497,6 +1500,7 @@
 				66F69B0B22B033A700082EA8 /* SFProText-Bold.otf in Resources */,
 				2699D50522B8072A00A12493 /* FontAwesome5_Solid.ttf in Resources */,
 				F4288A3922BD363C00D81AA9 /* SimpleLineIcons.ttf in Resources */,
+				26F6BDF922BD4CAE00F091A1 /* SimpleLineIcons.ttf in Resources */,
 				ADEAA09722BC0F9300C149A2 /* GothamRounded-LightItalic.otf in Resources */,
 				ADEAA09522BC0F9300C149A2 /* GothamRoundedLight_21020.ttf in Resources */,
 				9717485F3F1D45DB959FFEBC /* MaterialCommunityIcons.ttf in Resources */,

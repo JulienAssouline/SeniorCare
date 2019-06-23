@@ -1,26 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ScrollView, Text } from 'react-native'
+
+import { connect } from 'react-redux'
+
 import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 import PostJobTop from './PostJobTop'
 import BasicInformationBody from './BasicInformationBody'
-import PostJobBottomButtons from './PostJobBottomButtons'
+
+const mapStateToProps = state => {
+	const { formPosition } = state.postJob.position
+	return {
+		formPosition: formPosition,
+	}
+}
 
 const BasicInformation = props => {
-
-    let currentPosition = 2;
-
-    return (
-        <ScrollView>
-            <PostJobTop
-                title={'Basic information'}
-                currentPosition={currentPosition}
-            />
-            <BasicInformationBody
-                currentPosition={currentPosition}
-            />
-            <PostJobBottomButtons />
-        </ScrollView>
-    )
+	console.log('props', props)
+	return (
+		<ScrollView>
+			<PostJobTop
+				title={'Basic information'}
+				currentPosition={props.formPosition}
+			/>
+			<BasicInformationBody
+				formPosition={props.formPosition}
+				navigation={props.navigation}
+			/>
+		</ScrollView>
+	)
 };
 
-export default BasicInformation
+export default connect(mapStateToProps)(BasicInformation)

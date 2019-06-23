@@ -28,8 +28,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const SeniorName = props => {
-	const { setFormPosition } = props
-
 	const initialFormValues = {
 		seniorName: props.seniorName,
 	}

@@ -1,17 +1,22 @@
+
+
 const initialState = {
 	key_contact_id: '',
-	address: '',
-  city: '',
-  province: '',
-  postalCode: '',
-  title: '',
-  startDate: '',
-	rate: 0,
 	postJob: {
 		position: {
 			formPosition: 0,
 			overviewPosition: 0,
 			completedSections: []
+		},
+		basicInformation: {
+			title: '',
+			startDate: '',
+			endDate: '',
+			address: '',
+			city: '',
+			province: '',
+			postalCode: '',
+			rate: 0,
 		},
 		seniorDetails: {
 			seniorName: '',
@@ -43,31 +48,67 @@ const reducer = (state = initialState, action )  => {
 				key_contact_id: action.payload
 			}
 		
-		case 'ADDRESS':
-			return {
-				...state,
-				address: action.payload.address,
-				city: action.payload.city,
-				province: action.payload.province,
-				postalCode: action.payload.postalCode,
-			}
-
 		case 'TITLE':
 			return {
 				...state,
-				title: action.payload.title
+				postJob: {
+					...state.postJob,
+					basicInformation: {
+						...state.postJob.basicInformation,
+						title: action.payload.title,
+					}
+				}
+			}
+
+		case 'ADDRESS':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					basicInformation: {
+						...state.postJob.basicInformation,
+						address: action.payload.address,
+						city: action.payload.city,
+						province: action.payload.province,
+						postalCode: action.payload.postalCode,
+					}
+				}
 			}
 
 		case 'STARTDATE':
 			return {
 				...state,
-				startDate: action.payload
+				postJob: {
+					...state.postJob,
+					basicInformation: {
+						...state.postJob.basicInformation,
+						startDate: action.payload
+					}
+				}
 			}
+
+		case 'ENDDATE':
+				return {
+					...state,
+					postJob: {
+						...state.postJob,
+						basicInformation: {
+							...state.postJob.basicInformation,
+							endDate: action.payload
+						}
+					}
+				}
 
 		case 'RATE':
 			return {
 				...state,
-				rate: action.payload
+				postJob: {
+					...state.postJob,
+					basicInformation: {
+						...state.postJob.basicInformation,
+						rate: action.payload
+					}
+				}
 			}
 
 		case 'SENIORNAME':
