@@ -18,26 +18,19 @@ const MessagesScreen = (props) => {
 
   const {data: queryData, error, loading} = useQuery(GET_MESSAGES, {variables: { conversation_id } });
 
-  console.log("hello")
-
   useSubscription(MESSAGE_SUBSCRIPTION, {
     variables: {
-      conversation_id: key_contact_id
+      conversation_id: conversation_id
     },
-    onSubscriptionData: ({client, onSubscriptionData}) => {
-      console.log("subscriptions, test1")
+    onSubscriptionData: ({client, subscriptionData}) => {
 
-      const newFeedItem = onSubscriptionData.data.messageAdded
+      const newFeedItem = subscriptionData.data.messageAdded
 
-      console.log(client)
-
-      const data = client.readQuery({query: GET_MESSAGES, variables: {key_contact_id}})
-
-      console.log(data)
+      const data = client.readQuery({query: GET_MESSAGES, variables: {conversation_id}})
 
       client.writeQuery({
         query: GET_MESSAGES,
-        variables: {key_contact_id},
+        variables: {conversation_id},
         data: {
           getMessages: [...data.getMessages, newFeedItem]
         }
