@@ -18,7 +18,6 @@ const MessageInput = (props) => {
   }
 
   function handleClick(addMessages, key_contact_id) {
-    console.log(key_contact_id)
     setSubmit(value)
     addMessages({variables: {content: value, conversation_id: props.pageNumber, from_user: key_contact_id}})
   }

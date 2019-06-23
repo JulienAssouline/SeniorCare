@@ -17,33 +17,33 @@ const wsLink = new WebSocketLink({
 const appCache = new InMemoryCache()
 
 const errorLink = onError(({ graphQLErrors }) => {
-	if (graphQLErrors) graphQLErrors.map(({ message }) => console.log(message))
+  if (graphQLErrors) graphQLErrors.map(({ message }) => console.log(message))
 })
 
 const stateLink = withClientState({
-	cache: appCache,
+  cache: appCache
 })
 
 const httpLink = createHttpLink({
-	uri: 'http://localhost:8080/graphql',
+  uri: 'http://localhost:8080/graphql',
   credentials: 'include'
 })
 
 const link = split(
     ({query}) => {
-      const definition = getMainDefinition(query)
+      const definition = getMainDefinition(query);
       return (
-          definition.kind === 'OperationDefinition' &&
-          definition.operation === 'subscription'
+          definition.kind === "OperationDefinition" &&
+          definition.operation === "subscription"
         )
     },
     wsLink,
-    httpLink,
+    httpLink
   )
 
 const apolloClient = new ApolloClient({
-	link: ApolloLink.from([errorLink, stateLink, link]),
-	cache: appCache,
+  link: ApolloLink.from([errorLink, stateLink, link]),
+  cache: appCache
 })
 
 export default apolloClient
