@@ -6,7 +6,7 @@ import BasicInformationAddress from './BasicInformationAddress'
 import BasicInformationRate from './BasicInformationRate'
 
 const BasicInformationBody = props => {
-		console.log('form position inside of body', props.formPosition)
+		console.log('props inside body', props)
 		let body;
 
     if (props.formPosition === 0) {

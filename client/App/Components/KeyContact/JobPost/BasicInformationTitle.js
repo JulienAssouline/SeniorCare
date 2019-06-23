@@ -63,7 +63,6 @@ const BasicInformationTitle = (props) => {
               onBlur={handleBlur}
               value={values.title}
             />
-            <Text>Redux state: {props.title}</Text>
             <Button 
               // disabled={isSubmitting}
               title="Submit"

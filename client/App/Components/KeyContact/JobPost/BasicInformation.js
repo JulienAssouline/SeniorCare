@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ScrollView, Text } from 'react-native'
 
 import { connect } from 'react-redux'
@@ -15,7 +15,7 @@ const mapStateToProps = state => {
 }
 
 const BasicInformation = props => {
-	console.log('form position', props.formPosition)
+	console.log('props', props)
 	return (
 		<ScrollView>
 			<PostJobTop
@@ -24,6 +24,7 @@ const BasicInformation = props => {
 			/>
 			<BasicInformationBody
 				formPosition={props.formPosition}
+				navigation={props.navigation}
 			/>
 		</ScrollView>
 	)

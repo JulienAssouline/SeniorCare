@@ -25,6 +25,8 @@ const mapDispatchToProps = dispatch => {
 
 const BasicInformationRate = (props) => {
 
+	console.log('props inside rate', props)
+
   const minimumRate = 14
   const maximumRate = 150
 
@@ -48,9 +50,9 @@ const BasicInformationRate = (props) => {
 				navigation={props.navigation}
 				storeReduxData={props.rate}
 				storeReduxFunction={props.onRateUpdate}
-				handleSubmit={handleSubmit}
-				errors={errors}
-				touched={touched}
+				handleSubmit={() => (null)}
+				errors={{}}
+				touched={{fake: 'fake'}}
 				lastPosition={3}
 			/>
 		</View>
