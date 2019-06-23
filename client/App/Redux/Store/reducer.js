@@ -1,5 +1,3 @@
-
-
 const initialState = {
 	key_contact_id: '',
 	postJob: {

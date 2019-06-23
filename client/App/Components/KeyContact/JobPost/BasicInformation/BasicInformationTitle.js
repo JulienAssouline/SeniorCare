@@ -1,10 +1,12 @@
-
 import { connect } from 'react-redux'
 import React from 'react'
-import { View, Text, TextInput } from 'react-native'
+import { View, Text } from 'react-native'
 import { Formik } from 'formik';
-import { Button } from 'react-native-elements'
-import PostJobBottomButtons from './PostJobBottomButtons'
+import { Button, Input } from 'react-native-elements'
+import PostJobBottomButtons from '../PostJobBottomButtons'
+
+import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { basicInformationStyles } from '../../../Styles/PostJob/BasicInformationStyles'
 
 const mapStateToProps = state => {
 	const { title } = state.postJob.basicInformation
@@ -21,8 +23,8 @@ const mapDispatchToProps = dispatch => {
 
 const BasicInformationTitle = (props) => {
   return (
-    <View>
-      <Text>What is the title of this job?</Text>
+    <View style={{flex: 1}}>
+      <Text style={general.question}>What is the title of this job?</Text>
       <Formik
         initialValues={{ title: '' }}
         //onSubmit={values => console.log(values)}
@@ -56,8 +58,8 @@ const BasicInformationTitle = (props) => {
           isSubmitting,
         }) => (
           <View>
-            <TextInput
-              type="text"
+            <Input
+              placeholder='Granny Needs Help'
               name="title"
               onChangeText={handleChange('title')}
               onBlur={handleBlur}
@@ -70,7 +72,7 @@ const BasicInformationTitle = (props) => {
             />
 						<PostJobBottomButtons
 							navigation={props.navigation}
-							storeReduxData={values.title}
+							storeReduxData={values}
 							storeReduxFunction={props.onTitleUpdate}
 							handleSubmit={handleSubmit}
 							errors={errors}

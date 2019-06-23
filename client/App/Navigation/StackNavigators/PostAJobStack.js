@@ -2,7 +2,7 @@ import { createStackNavigator, createSwitchNavigator } from 'react-navigation'
 
 import Overview from '../../Components/KeyContact/JobPost/Overview'
 import SeniorDetails from '../../Components/KeyContact/JobPost/SeniorDetails/SeniorDetails'
-import BasicInformation from '../../Components/KeyContact/JobPost/BasicInformation'
+import BasicInformation from '../../Components/KeyContact/JobPost/BasicInformation/BasicInformation'
 import CreateNewSeniorProfile from '../../Components/KeyContact/JobPost/SeniorDetails/CreateNewSeniorProfile'
 import HouseDetails from '../../Components/KeyContact/JobPost/HouseDetails/HouseDetails'
 import CaregiverPreferences from '../../Components/KeyContact/JobPost/CaregiverPreferences/CaregiverPreferences'

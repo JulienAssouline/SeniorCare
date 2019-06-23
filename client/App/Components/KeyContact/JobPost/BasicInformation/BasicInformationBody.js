@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 import BasicInformationTitle from './BasicInformationTitle'
 import BasicInformationCalendar from './BasicInformationCalendar'
 import BasicInformationAddress from './BasicInformationAddress'

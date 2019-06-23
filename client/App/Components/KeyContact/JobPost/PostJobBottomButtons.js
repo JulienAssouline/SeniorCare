@@ -3,6 +3,14 @@ import { View } from 'react-native'
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 
+
+//#314592 blue
+//gray #f0f0f0
+//#4d4d4 dark text
+//#ffffff
+
+import { style } from '../../Styles/PostJob/PostJobButtonsStyles'
+
 const mapStateToProps = state => {
 	const { formPosition, overviewPosition, completedSections } = state.postJob.position
 	return {
@@ -63,14 +71,16 @@ const PostJobBottomButtons = props => {
 	}
 
 	return (
-		<View>
+		<View style={style.buttonContainer}>
 			<Button
 				title="Back"
 				onPress={() => handleFormPosition(false)}
+				buttonStyle={style.back}
 			/>
 			<Button
 				title="Next"
 				onPress={() => handleFormPosition(true)}
+				buttonStyle={style.next}
 			/>
 		</View>
 	)
