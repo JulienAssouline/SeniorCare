@@ -10,6 +10,8 @@ import Icon from "react-native-vector-icons/Ionicons";
 import MessageInput from "./MessageInput"
 import FromUserMessage from "./fromUserMessage"
 import ToUserMessage from "./ToUserMessage"
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 
 const MessagesScreen = (props) => {
 
@@ -46,7 +48,9 @@ const MessagesScreen = (props) => {
 
   return (
     <View style = {styles.MainContainer}>
-    <ScrollView
+    <KeyboardAwareScrollView
+    // TODO: fix extra scroll height issue
+      extraScrollHeight = {-70}
       ref={ref => setScrollView(ref)}
       onContentSizeChange={(contentWidth, contentHeight)=>{
       scrollView.scrollToEnd({animated: false});
@@ -60,8 +64,8 @@ const MessagesScreen = (props) => {
             }
          </View>
       </View>
-      </ScrollView>
       <MessageInput user_id = {user_id}  addMessages = {addMessages} pageNumber = {conversation_id} />
+      </KeyboardAwareScrollView>
       </View>
   )
 }
