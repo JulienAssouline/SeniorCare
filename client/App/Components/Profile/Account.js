@@ -12,7 +12,7 @@ import Auth from '@aws-amplify/auth'
 
 
 const GET_KEYCONTACT = gql`
-  query getProfile($id: ID!){ 
+  query getProfile($id: ID!){
     getKeyContactProfile(id: $id){
       phone_number
       email
@@ -21,7 +21,7 @@ const GET_KEYCONTACT = gql`
 `;
 
 const Account = props => {
-  let id = 'ThisIsSimonSternKeyContactSeed'
+  const user_id = props.navigation.getParam('user_id');
 
   // Sign out from the app
   const signOutAlertLogout = async () => {
@@ -59,7 +59,7 @@ const Account = props => {
 
 
   const { data, error, loading } = useQuery(GET_KEYCONTACT, {
-    variables: { id }
+    variables: { id: user_id }
   })
   if (data.getKeyContactProfile === undefined) {
     return (<Text> Loading...</Text>)
@@ -68,8 +68,8 @@ const Account = props => {
   return (
     <ScrollView style={styles.MainContainer}>
       <Text style={styles.Title}> Phone & Email</Text>
-      <Text style={styles.phoneNumber}> {data.getKeyContactProfile.phone_number} </Text>
-      <Text style={styles.email}> {data.getKeyContactProfile.email} </Text>
+      <Text style={styles.phoneNumber}> {`Number: ${data.getKeyContactProfile.phone_number}`} </Text>
+      <Text style={styles.email}> {`Email: ${data.getKeyContactProfile.email}`} </Text>
 
       <Text style={styles.Title}> Notifications</Text>
       <TouchableOpacity
