@@ -1,48 +1,21 @@
 import React from 'react'
 import { ScrollView, Text, View , Image} from 'react-native'
-import { useQuery } from 'react-apollo-hooks';
-import gql from "graphql-tag";
 import styles from '../../Components/Styles/Caregiver/Caregiver'
 import Ratings from '../Search/Ratings'
 import { Button } from 'react-native-elements'
 import calcAge from '../../Components/utils/calcAge'
 import Icon from 'react-native-vector-icons/SimpleLineIcons'
-import { connect } from 'react-redux'
 
-const mapStateToProps = state =>{
-  const { user_id } = state.user_id
-  return{
-    user_id: user_id
-  }
-}
-
-const GET_CAREGIVERDETAILS = gql`
-  query getCaregiverDetails($id: ID!){ 
-    getCaregiverDetails(id: $id){
-      id
-      fullname
-      location
-      years_experience
-      num_hired
-      birthdate
-      hourly_rate
-      gender
-      availability
-      average_rating
-      description
-    }
-  }
-`;
 
 const CaregiverDetails = props => {
-  let id = props.user_id
-  const {data, error, loading} = useQuery(GET_CAREGIVERDETAILS, {
-    variables: {id}
-  })
-  if (data.getCaregiverDetails === undefined) { 
+  const data = props.data
+
+  if (data.getCaregiverDetails === undefined) {
     return (<Text> Loading...</Text>)
   }
+
   let d = data.getCaregiverDetails
+
  const handleInviteToJobPost = () =>{
    alert("Welcome to job page!")
  }
@@ -90,7 +63,7 @@ const CaregiverDetails = props => {
   )
 }
 
-export default connect( mapStateToProps )(CaregiverDetails)
+export default CaregiverDetails
 
 
 
