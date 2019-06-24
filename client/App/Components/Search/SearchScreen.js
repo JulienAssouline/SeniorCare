@@ -99,8 +99,10 @@ const SearchScreen = (props) => {
     height: Dimensions.get('window').height
   }
 
-  const handleGoToCaregiverDetails = () =>{
-    props.navigation.navigate('Caregiver')
+  const handleGoToCaregiverDetails = (id) =>{
+    props.navigation.navigate('Caregiver', {
+      id: id
+    })
   }
   return (
     <ScrollView>
@@ -109,9 +111,10 @@ const SearchScreen = (props) => {
         data.getCaregiver.map((d,i) => (
           <TouchableOpacity
               style={styles.ProfileButton}
-              onPress={handleGoToCaregiverDetails}
+              onPress={() => handleGoToCaregiverDetails(d.id)}
+              key = {i}
             >
-          <View style = {styles.searchContainer} key = {i}>
+          <View style = {styles.searchContainer}>
             <Avatar
               icon={{name: 'user', type: 'font-awesome'}}
               size="large"

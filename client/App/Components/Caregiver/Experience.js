@@ -10,33 +10,9 @@ import { Button } from 'react-native-elements'
 import calcAge from '../../Components/utils/calcAge'
 
 
-const GET_CAREGIVERDETAILS = gql`
-  query getCaregiverDetails($id: ID!){ 
-    getCaregiverDetails(id: $id){
-      id
-      fullname
-      location
-      years_experience
-      num_hired
-      birthdate
-      hourly_rate
-      gender
-      availability
-      average_rating
-      description
-    }
-  }
-`;
-
 const CaregiverDetails = props => {
-  let id = 1
-  const {data, error, loading} = useQuery(GET_CAREGIVERDETAILS, {
-    variables: {id}
-  })
-  if (data.getCaregiverDetails === undefined) { 
-    return (<Text> Loading...</Text>)
-  }
-  let d = data.getCaregiverDetails
+
+  let d = props.data.getCaregiverDetails
  const handleInviteToJobPost = () =>{
    alert("Welcome to job page!")
  }
@@ -72,19 +48,19 @@ const CaregiverDetails = props => {
           </TouchableOpacity>
         </View>
         <Text style = {styles.title}> Work Experience </Text>
-        
+
           <Text style = {styles.workExTitle}> In-House Caregive </Text>
           <Text style = {styles.locationText}> December 2018 - Present</Text>
           <Text style = {styles.text}> Building great relationship with many seniors. I provide the best tiem for them especially in their golden age. </Text>
-       
+
         <View style = {styles.hr}></View>
-        
+
           <Text style = {styles.workExTitle}> Nursing Home Caregiver </Text>
           <Text style = {styles.locationText}> Jan 2018 - Nov 2018| Wellington Nursing Home</Text>
           <Text style = {styles.text}> I was in the Wellington Nursing home for almost a year. I take care alzheimer and dementia seniors.  </Text>
-        
+
         <View style = {styles.hr}></View>
-       
+
           <Text style = {styles.workExTitle}> Caregiver Intern </Text>
           <Text style = {styles.locationText}> Sep 2017 - Dec 2017| Waterloo Nursing Home</Text>
           <Text style = {styles.text}> After getting my PSW certification, I work as an intern in the well known Waterloo Nursing Home </Text>
