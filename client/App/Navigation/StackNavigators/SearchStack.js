@@ -10,6 +10,7 @@ import SearchScreen from '../../Components/Search/SearchScreen'
 import SearchFilter from '../../Components/Search/SearchFilter'
 import styles from '../../Components/Styles/searchStyles/searchStyles';
 
+import Caregiver from '../../Components/Caregiver/Caregiver'
 
 export const SearchStack = createStackNavigator(
   {
@@ -29,12 +30,18 @@ export const SearchStack = createStackNavigator(
               <Text style={{ fontFamily: 'SFProText-Medium', color: '#3F7DFB', fontSize: 17 }}>Filter</Text>
             </TouchableOpacity>
           </View>
-      })
+        })
+       },
+       SearchFilter: {
+        screen: SearchFilter
+       },
+       Caregiver: {
+        screen: Caregiver,
+        tnavigationOptions: {
+          title: 'Caregiver'
+        },
+       },
     },
-    SearchFilter: {
-      screen: SearchFilter
-    }
-  },
   {
     defaultNavigationOptions: {
       title: 'Find',

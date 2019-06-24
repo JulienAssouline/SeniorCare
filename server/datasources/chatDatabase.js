@@ -11,8 +11,8 @@ class Database extends DataSource {
 	}
 
   async mutationAddMessage(input){
-         // const from_user = authenticate(app, req)
-         const from_user = 1
+
+         const from_user = input.from_user
 
           const content = input.content
           const conversation_id = input.conversation_id

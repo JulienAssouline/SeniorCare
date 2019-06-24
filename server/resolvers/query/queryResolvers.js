@@ -2,7 +2,10 @@ module.exports = {
   Query: {
 		async getCaregiver(parent, { input }, { dataSources }){
 			return await dataSources.caregiverDatabase.queryCaregiver(input)
-		},
+    }, 
+    async getCaregiverDetails(parent, input, { dataSources }) {
+			return await dataSources.caregiverDatabase.getCaregiverDetails(input.id)
+    },
 		async getConversation(parent, input, { dataSources }){
 			return await dataSources.conversationDatabase.queryGetConversation(input)
 		},
@@ -31,8 +34,8 @@ module.exports = {
 
     async getSenior(parent, input, { dataSources }) {
 			return await dataSources.seniorDatabase.getSenior(input.id)
-		},
-
+    },
+    
 		async ArchivedJobs(parent,  input, { dataSources }) {
 			return await dataSources.jobsDatabase.queryArchiveJobs(input)
 		},

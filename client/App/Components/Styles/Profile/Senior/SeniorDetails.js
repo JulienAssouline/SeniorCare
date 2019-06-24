@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
   serviceText: {
     fontSize: 16,
-    color: '#3F7DFB',
+    color: '#244392',
     textAlign: 'center',
     margin: 5,
   },

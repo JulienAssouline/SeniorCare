@@ -55,7 +55,7 @@ const caregiverSignup = gql`
   }
 `
 
-export default class SignUpScreen extends React.Component {
+export default class VerificationCodeScreen extends React.Component {
 
   constructor(props) {
     super(props);
@@ -71,6 +71,7 @@ export default class SignUpScreen extends React.Component {
       phone_number: '',
       role: '',
       authCode: '',
+      avatar: 'https://external-preview.redd.it/GwbmojLD6jZlacsbWWNpTeL8MbkIHGnJR51vGkhngps.jpg?auto=webp&s=55bc78f44a3e81313a9abe1b3a1b4adcda300797'
     }
   }
 
@@ -197,7 +198,8 @@ export default class SignUpScreen extends React.Component {
   }
   render() {
     let { fadeIn, fadeOut, isHidden, flag } = this.state
-    const { id, fullname, email, phone_number, role } = this.state
+    const { id, fullname, email, phone_number, role, avatar } = this.state
+    console.log('this is state of VerificationCode:', this.state)
     return (
       <Mutation mutation={role === 'family' ? keyContactSignup : caregiverSignup} >
         {postMutation => (
@@ -239,7 +241,7 @@ export default class SignUpScreen extends React.Component {
                           this.confirmSignUp().then(postMutation({
                             variables: {
                               input:
-                                { id, fullname, email, phone_number }
+                                { id, fullname, email, phone_number, avatar }
                             }
                           }))
                         }}
