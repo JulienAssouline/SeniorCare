@@ -53,6 +53,10 @@ module.exports = {
 
 		async getCaregiverPreferences(parent, { input }, { dataSources }) {
 			return await dataSources.jobsDatabase.getCaregiverPreferences(parent)
+		},
+
+		async getSeniorDetails(parent, { input }, { dataSources }) {
+			return await dataSources.seniorDatabase.getSeniorDetails(parent)
 		}
 	}
 
