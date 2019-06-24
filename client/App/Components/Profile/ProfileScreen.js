@@ -70,7 +70,7 @@ const ProfileScreen = props => {
         <Icons name={`cog`} style={styles.ProfileButtonIcon} />
       </TouchableOpacity>
       <TouchableOpacity style={styles.ProfileButton}>
-        <Text style={styles.ProfileButtonText}> Help</Text>
+        <Text style={styles.ProfileButtonText}> Help Center</Text>
         <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
       </TouchableOpacity>
 

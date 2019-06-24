@@ -1,7 +1,7 @@
 
 
 const initialState = {
-	key_contact_id: '',
+  key_contact_id: '',
 	// postJob: {
 	// 	position: {
 	// 		formPosition: 0,

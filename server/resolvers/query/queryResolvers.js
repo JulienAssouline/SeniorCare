@@ -6,6 +6,9 @@ module.exports = {
     async getCaregiverDetails(parent, input, { dataSources }) {
 			return await dataSources.caregiverDatabase.getCaregiverDetails(input.id)
     },
+    async getCaregiverProfile(parent, input, { dataSources }) {
+			return await dataSources.caregiverDatabase.getCaregiverProfile(input)
+		},
 		async getConversation(parent, input, { dataSources }){
 			return await dataSources.conversationDatabase.queryGetConversation(input)
 		},

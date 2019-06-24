@@ -7,7 +7,14 @@ import Ratings from '../Search/Ratings'
 import { Button } from 'react-native-elements'
 import calcAge from '../../Components/utils/calcAge'
 import Icon from 'react-native-vector-icons/SimpleLineIcons'
+import { connect } from 'react-redux'
 
+const mapStateToProps = state =>{
+  const { user_id } = state.user_id
+  return{
+    user_id: user_id
+  }
+}
 
 const GET_CAREGIVERDETAILS = gql`
   query getCaregiverDetails($id: ID!){ 
@@ -28,7 +35,7 @@ const GET_CAREGIVERDETAILS = gql`
 `;
 
 const CaregiverDetails = props => {
-  let id = 1
+  let id = props.user_id
   const {data, error, loading} = useQuery(GET_CAREGIVERDETAILS, {
     variables: {id}
   })
@@ -83,7 +90,7 @@ const CaregiverDetails = props => {
   )
 }
 
-export default CaregiverDetails
+export default connect( mapStateToProps )(CaregiverDetails)
 
 
 
