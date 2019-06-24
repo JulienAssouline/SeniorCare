@@ -1,19 +1,21 @@
 import { createStackNavigator } from 'react-navigation'
 
-import Messages from '../../Components/Caregiver/Messages/Messages'
+import CaregiverConversationScreen from '../../Components/Caregiver/Messages/CaregiverConversationScreen'
+import MessagesScreen from "../../Components/Messages/MessagesScreen"
 
 export const CaregiverMessagesStack = createStackNavigator(
   {
     CaregiverMessages: {
-      screen: Messages,
+      screen: CaregiverConversationScreen,
       navigationOptions: {
         title: 'Messages',
       }
     },
+    MessagesScreen: { screen: MessagesScreen },
 	},
   {
     defaultNavigationOptions: {
-      title: 'Messages',
+      title: 'CaregiverMessages',
       headerTintColor: '#000',
       headerTitleStyle: { color: '#000', fontFamily: 'SFProText-Light' },
     },
