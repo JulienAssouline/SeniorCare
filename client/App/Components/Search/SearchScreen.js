@@ -6,6 +6,7 @@ import gql from "graphql-tag";
 import styles from "../Styles/searchStyles/searchStyles"
 import Ratings from "./Ratings"
 import calcAge from "../utils/calcAge"
+import checkCognitoSession from "../utils/checkCognitoSession"
 import { Avatar, Button } from 'react-native-elements'
 import MessageButton from "./MessageButton"
 import { ADD_CONVERSATION_MUTATION } from "../../graphql-queries/mutation"
@@ -14,7 +15,7 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
   return {
-    key_contact_id: state.key_contact_id
+    key_contact_id: state.user_id
   }
 }
 
@@ -46,9 +47,6 @@ const GET_CAREGIVERS = gql`
 
 const SearchScreen = (props) => {
 
-  //Use this to access key_contact_id. It's a prop!
-  //props.key_contact_id
-
   let [userId, setUserID] = useState('')
 
   useEffect(
@@ -58,27 +56,6 @@ const SearchScreen = (props) => {
     },
     [])
 
-  async function checkCognitoSession(props) {
-    await Auth.currentSession()
-      .then(data => {
-        props.onKeyContactIdUpdate(data.accessToken.payload.username)
-      })
-      .catch(err => console.log(err))
-    // await checkSignedInUserId(
-    //   (userId, props) => {
-    //     if (userId == null) {
-    //       signOut = async props => {
-    //         await Auth.signOut()
-    //           .then(() => {
-    //             console.log('Sign out complete')
-    //             props.navigation.navigate('Authloading')
-    //           })
-    //           .catch(err => console.log('Error while signing out!', err))
-    //       }
-    //     }
-    //   }
-    // )
-  }
 
   let filterObj = {};
 
