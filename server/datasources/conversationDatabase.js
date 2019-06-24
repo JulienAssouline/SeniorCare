@@ -76,8 +76,8 @@ class ConversationDatabase extends DataSource {
 
     return result.rows
   }
-    async queryGetKeyContactConvos(){
-    const user_id = 1
+    async queryGetKeyContactConvos(input){
+    const user_id = input.caregiver_id
 
     const keyContactConversations = {
       text: `SELECT email, fullname, seniorcare.conversations.caregiver_id, seniorcare.conversations.key_contact_id, seniorcare.conversations.id AS conversation_id

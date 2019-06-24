@@ -182,6 +182,49 @@ const JobPostings = [
 	},
 ]
 
+const services = [ 
+	{ title: 'Appointments' },
+	{ title: 'Bathing' },
+	{ title: 'Companionship' },
+	{ title: 'Dressing' },
+	{ title: 'Driving' },
+	{ title: 'Errands' },
+	{ title: 'Feeding' },
+	{ title: 'Grooming' },
+	{ title: 'Housekeeping' },
+	{ title: 'Laundry' },
+	{ title: 'Meal Prep' },
+	{ title: 'Mobility' },
+	{ title: 'Shopping' },
+]
+
+const services_job = [
+	{
+		job_id: 1,
+		service_id: 1,
+	},
+	{
+		job_id: 1,
+		service_id: 2,
+	},
+	{
+		job_id: 1,
+		service_id: 3,
+	},
+	{
+		job_id: 1,
+		service_id: 4,
+	},
+	{
+		job_id: 1,
+		service_id: 5,
+	},
+	{
+		job_id: 1,
+		service_id: 6,
+	},
+]
+
 const seed = async () => {
 	const pg = await new Pool(config.db).connect()
 

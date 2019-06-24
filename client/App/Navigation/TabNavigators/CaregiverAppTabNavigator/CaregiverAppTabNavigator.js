@@ -7,7 +7,10 @@ import {
 import Icon from 'react-native-vector-icons/SimpleLineIcons'
 
 // App stack screen imports
-import { CaregiverFindStack } from '../../StackNavigators/CaregiverFindStack'
+import { CaregiverFindStack } from '../../CaregiverStackNavigators/CaregiverFindStack'
+import { CaregiverJobsStack } from '../../CaregiverStackNavigators/CaregiverJobsStack'
+import { CaregiverMessagesStack } from '../../CaregiverStackNavigators/CaregiverMessagesStack'
+import { CaregiverProfileStack } from '../../CaregiverStackNavigators/CaregiverProfileStack'
 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
@@ -20,7 +23,35 @@ const configurations = {
         <Icon style={{ fontSize: 26, color: tintColor }} name="magnifier" />
       )
     }
-  },
+	},
+  CaregiverJobs: {
+    screen: CaregiverJobsStack,
+    navigationOptions: {
+      tabBarLabel: 'Jobs',
+      tabBarIcon: ({ tintColor }) => (
+        <Icon style={{ fontSize: 26, color: tintColor }} name="briefcase" />
+      )
+    }
+	},
+  CaregiverMessages: {
+    screen: CaregiverMessagesStack,
+    navigationOptions: {
+      tabBarLabel: 'Messages',
+      tabBarIcon: ({ tintColor }) => (
+        <Icon style={{ fontSize: 26, color: tintColor }} name="bubbles" />
+      )
+    }
+	},
+  CaregiverProfile: {
+    screen: CaregiverProfileStack,
+    navigationOptions: {
+      tabBarLabel: 'Profile',
+      tabBarIcon: ({ tintColor }) => (
+        <Icon style={{ fontSize: 26, color: tintColor }} name="user" />
+      )
+    }
+	},
+	
 }
 
 const options = {

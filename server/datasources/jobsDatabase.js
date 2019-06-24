@@ -145,7 +145,6 @@ class JobsDatabase extends DataSource {
 			]
 			const selectCaregiverPrefQuery = createSelectQuery(selectCaregiverPrefColumns, 'seniorcare.job_posting', 'id', id)
 			const selectCaregiverPrefResult = await this.context.postgres.query(selectCaregiverPrefQuery)
-			console.log(selectCaregiverPrefResult.rows[0])
 			return selectCaregiverPrefResult.rows[0]
 		} catch(err) {
 			throw err

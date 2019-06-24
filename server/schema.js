@@ -7,6 +7,7 @@ module.exports = gql`
   type Query {
     getCaregiver(input: FilterInput!): [QueryGetCaregiver]
     getCaregiverDetails(id: ID) : QueryGetCaregiver
+    getCaregiverProfile(id: ID): QueryGetCaregiver
 		placeholderApi: QueryPlaceholder
 		testDatabase: QueryPlaceholder
     getKeyContactProfile(id: ID!): KeyContact
@@ -16,7 +17,7 @@ module.exports = gql`
     getMessages(conversation_id:ID):[Messages]
     getConversation(id:ID): ConversationRoom
     getCaregiverConvos(key_contact_id: ID): [ConversationRoom]
-    getKeyContactConvos: [ConversationRoom]
+    getKeyContactConvos(caregiver_id: ID): [ConversationRoom]
 		getJobPosts: [JobPost]
   }
 

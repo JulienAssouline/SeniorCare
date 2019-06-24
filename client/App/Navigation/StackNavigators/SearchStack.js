@@ -27,7 +27,7 @@ export const SearchStack = createStackNavigator(
               <View style={{ marginRight: 2, paddingTop: 1 }}>
                 <Icon name="filter" size={17} color={'#3f7dfb'} />
               </View>
-              <Text style={{ FontFamily: 'SFProText-Medium', color: '#3F7DFB', fontSize: 17, iconStyle: { marginRight: 3 } }}>Filter</Text>
+              <Text style={{ fontFamily: 'SFProText-Medium', color: '#3F7DFB', fontSize: 17 }}>Filter</Text>
             </TouchableOpacity>
           </View>
         })

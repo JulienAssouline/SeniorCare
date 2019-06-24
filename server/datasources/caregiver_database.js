@@ -28,12 +28,25 @@ class CaregiverDatabase extends DataSource {
   async getCaregiverDetails(input) {
     try {
       let user_id = input
-      // !input.user_id ? user_id = authenticate(app, req) : user_id = input.user_id
       const selectCaregiverDetails = {
         text: `SELECT * FROM seniorcare.caregiver WHERE id = $1`,
         values: [user_id]
       }
       const result = await this.context.postgres.query(selectCaregiverDetails)
+      return result.rows[0]
+    } catch (e) {
+      throw e
+    }
+  }
+  async getCaregiverProfile(input) {
+    try {
+      let user_id = input.id
+      const selectCaregiverProfile = {
+        text: `SELECT * FROM seniorcare.caregiver WHERE id = $1`,
+        values: [user_id]
+      }
+      const result = await this.context.postgres.query(selectCaregiverProfile)
+      
       return result.rows[0]
     } catch (e) {
       throw e

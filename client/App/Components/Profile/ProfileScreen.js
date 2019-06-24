@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
   return {
-    key_contact_id: state.key_contact_id
+    user_id: state.user_id
   }
 }
 
@@ -23,7 +23,7 @@ const GET_KEYCONTACT = gql`
 `;
 
 const ProfileScreen = props => {
-  let id = props.key_contact_id
+  let id = props.user_id
   const { data, error, loading } = useQuery(GET_KEYCONTACT, {
     variables: { id }
   })
@@ -41,8 +41,10 @@ const ProfileScreen = props => {
   }
 
 
-  const handleGoToAccount = () => {
-    props.navigation.navigate('Account')
+  const handleGoToAccount = (id) => {
+    props.navigation.navigate('Account', {
+      user_id: id
+    })
   }
   return (
     <ScrollView style={styles.MainContainer}>
@@ -60,20 +62,18 @@ const ProfileScreen = props => {
         <Text style={styles.ProfileButtonText}> Seniors</Text>
         <Icons name={`user`} style={styles.ProfileButtonIcon} />
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.ProfileButton}
+        onPress={() => handleGoToAccount(id)}
+      >
+        <Text style={styles.ProfileButtonText}> Account</Text>
+        <Icons name={`cog`} style={styles.ProfileButtonIcon} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.ProfileButton}>
+        <Text style={styles.ProfileButtonText}> Help Center</Text>
+        <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
+      </TouchableOpacity>
 
-
-        <TouchableOpacity 
-          style={styles.ProfileButton}
-          onPress = {handleGoToAccount}
-          >
-          <Text style={styles.ProfileButtonText}> Account</Text>
-          <Icons name = {`cog`} style={styles.ProfileButtonIcon} /> 
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.ProfileButton}  onPress={handleGoToHelp}>
-          <Text style={styles.ProfileButtonText}> Help</Text>
-          <Icons name = {`question-circle`} style={styles.ProfileButtonIcon} /> 
-        </TouchableOpacity>
 
     </ScrollView>
   )

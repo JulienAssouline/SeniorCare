@@ -19,7 +19,7 @@ mutation addMessageMutation($content: String, $conversation_id: ID, $from_user: 
 
 export const SUBMIT_JOB_POST = gql`
 	mutation addJobPostVars($input: NewJobObject!) {
-		addJobPost(input: $input) {
+		addJobRequest(input: $input) {
 			message
 		}
 	}

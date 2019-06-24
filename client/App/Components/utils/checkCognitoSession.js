@@ -5,7 +5,8 @@ export default async function checkCognitoSession(props) {
 
   await Auth.currentSession()
     .then(data => {
-      setUserID(data.accessToken.payload.username)
+      props.onKeyContactIdUpdate(data.accessToken.payload.username)
+      // setUserID(data.accessToken.payload.username)
     })
     .catch(err => console.log(err))
   await checkSignedInUserId(
