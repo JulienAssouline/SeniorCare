@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   MessagesContainer: {
-   padding: 20,
+  padding: 20,
    // overflow-y: scroll;
    // height: height - 20,
    marginBottom: 10,
