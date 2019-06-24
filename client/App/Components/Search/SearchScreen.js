@@ -1,5 +1,6 @@
+
+import { Dimensions, ScrollView, Text, View, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { Dimensions, ScrollView, Text, View } from 'react-native'
 import { useQuery, useMutation } from 'react-apollo-hooks'
 import gql from "graphql-tag";
 import styles from "../Styles/searchStyles/searchStyles"
@@ -121,32 +122,40 @@ const SearchScreen = (props) => {
     height: Dimensions.get('window').height
   }
 
+  const handleGoToCaregiverDetails = () =>{
+    props.navigation.navigate('Caregiver')
+  }
   return (
     <ScrollView>
-      <View style={styles.MainContainer}>
-        {
-          data.getCaregiver.map((d, i) => (
-            <View style={styles.searchContainer} key={i}>
-              <Avatar
-                icon={{ name: 'user', type: 'font-awesome' }}
-                size="large"
-                containerStyle={{ height: "100%" }}
-              />
-              <View style={styles.infoContainer}>
-                <Text style={styles.fullName}> {d.fullname} </Text>
-                <View style={styles.ratingLocationContainer}>
-                  <Ratings data={d.average_rating} />
-                  <Text style={styles.ratingText}> {d.average_rating} </Text>
-                  <Text style={styles.locationText}> | </Text>
-                  <Text style={styles.locationText}> {d.location} </Text>
-                </View>
-                <View style={styles.experienceRateContainer}>
-                  <Text style={styles.backgroundInfoText}> {`${d.years_experience} years experience`} </Text>
-                  <Text style={styles.backgroundInfoText}> {`From $${d.hourly_rate / 100}/hour`} </Text>
+    <View style = {styles.MainContainer}>
+      {
+        data.getCaregiver.map((d,i) => (
+          <TouchableOpacity
+              style={styles.ProfileButton}
+              onPress={handleGoToCaregiverDetails}
+            >
+          <View style = {styles.searchContainer} key = {i}>
+            <Avatar
+              icon={{name: 'user', type: 'font-awesome'}}
+              size="large"
+              containerStyle={{ height: "100%"}}
+            />
+            <View style = {styles.infoContainer}>
+              <Text style = {styles.fullName}> {d.fullname} </Text>
+              <View style = {styles.ratingLocationContainer}>
+                <Ratings data = {d.average_rating} />
+                <Text style = {styles.ratingText}> {d.average_rating} </Text>
+                <Text style = {styles.locationText}> | </Text>
+                <Text style = {styles.locationText}> {d.location} </Text>
+              </View>
+              <View style = {styles.experienceRateContainer}>
+                <Text style = {styles.backgroundInfoText}> {`${d.years_experience} years experience`} </Text>
+                <Text style = {styles.backgroundInfoText}> {`From $${d.hourly_rate / 100}/hour`} </Text>
                 </View>
                 <MessageButton key_contact_id={props.key_contact_id} caregiver_id={d.id} handlePress={handlePress} />
               </View>
             </View>
+        </TouchableOpacity>
           ))
         }
       </View>
