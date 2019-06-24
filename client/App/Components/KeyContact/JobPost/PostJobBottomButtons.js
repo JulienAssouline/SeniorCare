@@ -3,12 +3,6 @@ import { View } from 'react-native'
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 
-
-//#314592 blue
-//gray #f0f0f0
-//#4d4d4 dark text
-//#ffffff
-
 import { style } from '../../Styles/PostJob/PostJobButtonsStyles'
 
 const mapStateToProps = state => {

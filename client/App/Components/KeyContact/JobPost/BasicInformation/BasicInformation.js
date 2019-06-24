@@ -14,12 +14,12 @@ const mapStateToProps = state => {
 }
 
 const BasicInformation = props => {
-	console.log('props', props)
 	return (
 		<ScrollView style={basicInformationStyles.mainContainer}>
 			<PostJobTop
 				title={'Basic information'}
 				currentPosition={props.formPosition}
+				stepCount={4}
 			/>
 			<BasicInformationBody
 				formPosition={props.formPosition}
