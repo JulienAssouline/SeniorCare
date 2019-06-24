@@ -1,7 +1,7 @@
 const { DataSource } = require('apollo-datasource')
 const authenticate = require('../utils/DSHelperFunctions/authenticate')
 
-const { createInsertQuery } = require('../utils/DSHelperFunctions/makeQueries')
+const { createSelectQuery, createInsertQuery } = require('../utils/DSHelperFunctions/makeQueries')
 
 class SeniorDatabase extends DataSource {
   constructor() {
@@ -52,6 +52,26 @@ class SeniorDatabase extends DataSource {
 			}
 			const insertSeniorQuery = createInsertQuery(insertSeniorObject, 'seniorcare.senior')
 			await this.context.postgres.query(insertSeniorQuery)
+		} catch(err) {
+			throw err
+		}
+	}
+
+	async getSeniorDetails(parent) {
+		try {
+			const { id } = parent
+			const selectSeniorDetailsColumns = [
+				'fullname',
+				'gender',
+				'birthdate',
+				'relation',
+				'bio',
+				'medical_condition',
+				'language',
+			]
+			const selectSeniorDetailsQuery = createSelectQuery(selectSeniorDetailsColumns, 'seniorcare.senior', 'id', id)
+			const selectSeniorDetailsResult = await this.context.postgres.query(selectSeniorDetailsQuery)
+			return selectSeniorDetailsResult.rows[0]
 		} catch(err) {
 			throw err
 		}

@@ -1,17 +1,58 @@
+
+
 const initialState = {
 	key_contact_id: '',
-	address: '',
-  city: '',
-  province: '',
-  postalCode: '',
-  title: '',
-  startDate: '',
-	rate: 0,
+	// postJob: {
+	// 	position: {
+	// 		formPosition: 0,
+	// 		overviewPosition: 0,
+	// 		completedSections: []
+	// 	},
+	// 	basicInformation: {
+	// 		title: 'Finding Nemo',
+	// 		startDate: '2003-05-30 11:11:30-07',
+	// 		endDate: '2003-06-18 20:15:40-07',
+	// 		address: '42 Wallaby Way',
+	// 		city: 'Sydney',
+	// 		province: 'Austrailia?',
+	// 		postalCode: 'A1A1A1',
+	// 		rate: 20,
+	// 	},
+	// 	seniorDetails: {
+	// 		seniorName: 'Marlin',
+	// 		gender: 'MALE',
+	// 		birthdate: '2000-06-18 03:22:01-07',
+	// 		relationship: 'son',
+	// 		bio: 'a clownfish',
+	// 		medicalCondition: 'sharkphobia',
+	// 		language: 'fish',
+	// 	},
+	// 	houseDetails: {
+	// 		cigSmoking: false,
+	// 		pets: true,
+	// 		cannabis: false
+	// 	},
+	// 	caregiverPreferences: {
+	// 		availability: 'LIVEIN',
+	// 		preferredGender: 'MALE',
+	// 		validDriverLicense: true,
+	// 	},
+	// },
 	postJob: {
 		position: {
 			formPosition: 0,
 			overviewPosition: 0,
 			completedSections: []
+		},
+		basicInformation: {
+			title: '',
+			startDate: '',
+			endDate: '',
+			address: '',
+			city: '',
+			province: '',
+			postalCode: '',
+			rate: 0,
 		},
 		seniorDetails: {
 			seniorName: '',
@@ -43,31 +84,67 @@ const reducer = (state = initialState, action )  => {
 				key_contact_id: action.payload
 			}
 		
-		case 'ADDRESS':
-			return {
-				...state,
-				address: action.payload.address,
-				city: action.payload.city,
-				province: action.payload.province,
-				postalCode: action.payload.postalCode,
-			}
-
 		case 'TITLE':
 			return {
 				...state,
-				title: action.payload.title
+				postJob: {
+					...state.postJob,
+					basicInformation: {
+						...state.postJob.basicInformation,
+						title: action.payload.title,
+					}
+				}
+			}
+
+		case 'ADDRESS':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					basicInformation: {
+						...state.postJob.basicInformation,
+						address: action.payload.address,
+						city: action.payload.city,
+						province: action.payload.province,
+						postalCode: action.payload.postalCode,
+					}
+				}
 			}
 
 		case 'STARTDATE':
 			return {
 				...state,
-				startDate: action.payload
+				postJob: {
+					...state.postJob,
+					basicInformation: {
+						...state.postJob.basicInformation,
+						startDate: action.payload
+					}
+				}
 			}
+
+		case 'ENDDATE':
+				return {
+					...state,
+					postJob: {
+						...state.postJob,
+						basicInformation: {
+							...state.postJob.basicInformation,
+							endDate: action.payload
+						}
+					}
+				}
 
 		case 'RATE':
 			return {
 				...state,
-				rate: action.payload
+				postJob: {
+					...state.postJob,
+					basicInformation: {
+						...state.postJob.basicInformation,
+						rate: action.payload
+					}
+				}
 			}
 
 		case 'SENIORNAME':
