@@ -10,13 +10,15 @@ import Icon from "react-native-vector-icons/Ionicons";
 import MessageInput from "./MessageInput"
 import FromUserMessage from "./fromUserMessage"
 import ToUserMessage from "./ToUserMessage"
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 
 const MessagesScreen = (props) => {
 
   const [scrollView, setScrollView] = useState("")
 
   const conversation_id = +props.navigation.getParam('conversation_id');
-  const key_contact_id = props.navigation.getParam('key_contact_id');
+  const user_id = props.navigation.getParam('user_id');
 
   const {data: queryData, error, loading} = useQuery(GET_MESSAGES, {variables: { conversation_id } });
 
@@ -46,7 +48,9 @@ const MessagesScreen = (props) => {
 
   return (
     <View style = {styles.MainContainer}>
-    <ScrollView
+    <KeyboardAwareScrollView
+    // TODO: fix extra scroll height issue
+      extraScrollHeight = {-70}
       ref={ref => setScrollView(ref)}
       onContentSizeChange={(contentWidth, contentHeight)=>{
       scrollView.scrollToEnd({animated: false});
@@ -55,13 +59,13 @@ const MessagesScreen = (props) => {
       <View style = {styles.MessagesContainer}>
         <View>
             {queryData.getMessages.map((d,i) =>
-              d.from_user === key_contact_id ? <FromUserMessage key = {i} d = {d} i = {i} /> : <ToUserMessage key = {i} d = {d} i = {i} />
+              d.from_user === user_id ? <FromUserMessage key = {i} d = {d} i = {i} /> : <ToUserMessage key = {i} d = {d} i = {i} />
               )
             }
          </View>
       </View>
-      </ScrollView>
-      <MessageInput key_contact_id = {key_contact_id}  addMessages = {addMessages} pageNumber = {conversation_id} />
+      <MessageInput user_id = {user_id}  addMessages = {addMessages} pageNumber = {conversation_id} />
+      </KeyboardAwareScrollView>
       </View>
   )
 }

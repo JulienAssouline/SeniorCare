@@ -2,8 +2,8 @@ import gql from 'graphql-tag'
 
 
 export const GET_KEY_CONTACT_CONVO = gql`
-  query {
-    getKeyContactConvos {
+  query getKeyContactConvosQuery ($caregiver_id: ID) {
+    getKeyContactConvos(caregiver_id: $caregiver_id) {
       email
       fullname
       caregiver_id
@@ -12,6 +12,7 @@ export const GET_KEY_CONTACT_CONVO = gql`
     }
   }
 `
+
 
 export const GET_CAREGIVER_CONVO = gql`
   query getCaregiverConvoQuery ($key_contact_id: ID) {

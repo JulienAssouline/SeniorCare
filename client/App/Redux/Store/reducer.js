@@ -1,7 +1,9 @@
 
 
 const initialState = {
+
   key_contact_id: '',
+
 	// postJob: {
 	// 	position: {
 	// 		formPosition: 0,
@@ -81,9 +83,9 @@ const reducer = (state = initialState, action )  => {
 		case 'KEYCONTACTID':
 			return {
 				...state,
-				key_contact_id: action.payload
+				user_id: action.payload
 			}
-		
+
 		case 'TITLE':
 			return {
 				...state,
@@ -170,7 +172,7 @@ const reducer = (state = initialState, action )  => {
 					},
 				}
 			}
-		
+
 		case 'SENIORBIRTHDATE':
 			return {
 				...state,
@@ -248,11 +250,11 @@ const reducer = (state = initialState, action )  => {
 					caregiverPreferences: {
 						...state.postJob.caregiverPreferences,
 						availability: action.payload.availability,
-						preferredGender: action.payload.preferredGender, 
+						preferredGender: action.payload.preferredGender,
 					}
 				}
 			}
-		
+
 		case 'CAREGIVERPREF2':
 			return {
 				...state,
