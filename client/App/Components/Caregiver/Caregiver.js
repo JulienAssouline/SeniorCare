@@ -6,8 +6,14 @@ import gql from "graphql-tag";
 import { useQuery } from 'react-apollo-hooks';
 import styles from '../Styles/Caregiver/Caregiver'
 import SecondRoute from './Experience'
+import { connect } from 'react-redux'
 
-
+const mapStateToProps = state =>{
+  const { user_id } = state.user_id
+  return{
+    user_id: user_id
+  }
+}
 const GET_CAREGIVERDETAILS = gql`
   query getCaregiverDetails($id: ID!){ 
     getCaregiverDetails(id: $id){
@@ -15,14 +21,13 @@ const GET_CAREGIVERDETAILS = gql`
     }
   }
 `;
-export default Caregiver = props => {
+const Caregiver = props => {
   const [ index, setIndex ] = useState(0)
   const [ routes, setRoutes ] = useState([
     {key: 'first', title: 'About'},
     {key: 'second', title: 'Experience'}
   ])
-
-  let id = 1
+  let id = props.user_id
   const {data, error, loading} = useQuery(GET_CAREGIVERDETAILS, {
     variables: {id}
   })
@@ -63,7 +68,7 @@ export default Caregiver = props => {
   )
 }
 
-
+export default connect(mapStateToProps)(Caregiver)
 
 
 

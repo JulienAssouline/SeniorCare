@@ -4,10 +4,9 @@ import { createStackNavigator, navigation } from 'react-navigation'
 //import ProfileScreen from '../../Components/KeyContact/JobDashboard/JobDashboardScreen'
 //import { SignUpScreen } from './SignUpStack';
 import ProfileScreen from '../../Components/Profile/ProfileScreen'
+
 import Senior from '../../Components/Profile/Senior/Senior'
-
 import Help from '../../Components/Profile/Help/Help'
-
 import AccountDetails from '../../Components/Profile/Account'
 import SeniorIndex from '../../Components/Profile/Senior/Index'
 
@@ -25,7 +24,6 @@ export const ProfileStack = createStackNavigator(
       Help: {
         screen: Help
       },
-
     },
     SeniorDetails:{
       screen: SeniorIndex,
