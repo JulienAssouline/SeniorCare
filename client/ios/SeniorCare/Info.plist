@@ -82,7 +82,6 @@
 		<string>MaterialCommunityIcons.ttf</string>
 		<string>MaterialIcons.ttf</string>
 		<string>Octicons.ttf</string>
-		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>Roboto_medium.ttf</string>
 		<string>Roboto.ttf</string>
@@ -91,6 +90,7 @@
 		<string>FontAwesome5_Brands.ttf</string>
 		<string>FontAwesome5_Regular.ttf</string>
 		<string>FontAwesome5_Solid.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
 	</array>
 </dict>
 </plist>

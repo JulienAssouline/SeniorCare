@@ -1,9 +1,10 @@
-import React from 'react'
-import { ScrollView, Text, View } from 'react-native'
+import React, {useState} from 'react'
+import { ScrollView, Text, View, KeyboardAvoidingView } from 'react-native'
 import styles from '../Styles/Messages/MessagesStyles'
-import { useQuery, useMutation } from 'react-apollo-hooks'
+import { useQuery, useMutation, useSubscription } from 'react-apollo-hooks'
 import {ADD_MESSAGES} from "../../graphql-queries/mutation"
 import {GET_MESSAGES} from "../../graphql-queries/queries"
+import {MESSAGE_SUBSCRIPTION} from "../../graphql-queries/subscriptions"
 import { Avatar } from 'react-native-elements'
 import Icon from "react-native-vector-icons/Ionicons";
 import MessageInput from "./MessageInput"
@@ -12,30 +13,55 @@ import ToUserMessage from "./ToUserMessage"
 
 const MessagesScreen = (props) => {
 
+  const [scrollView, setScrollView] = useState("")
+
   const conversation_id = +props.navigation.getParam('conversation_id');
+  const key_contact_id = props.navigation.getParam('key_contact_id');
 
   const {data: queryData, error, loading} = useQuery(GET_MESSAGES, {variables: { conversation_id } });
 
+  useSubscription(MESSAGE_SUBSCRIPTION, {
+    variables: {
+      conversation_id: conversation_id
+    },
+    onSubscriptionData: ({client, subscriptionData}) => {
+
+      const newFeedItem = subscriptionData.data.messageAdded
+
+      const data = client.readQuery({query: GET_MESSAGES, variables: {conversation_id}})
+
+      client.writeQuery({
+        query: GET_MESSAGES,
+        variables: {conversation_id},
+        data: {
+          getMessages: [...data.getMessages, newFeedItem]
+        }
+      })
+    }
+  })
 
   const addMessages = useMutation(ADD_MESSAGES);
 
   if (queryData.getMessages === undefined) { return (<Text> ...loading </Text>)}
 
-  const userAuthenticate = "1";
-
   return (
     <View style = {styles.MainContainer}>
-    <ScrollView>
+    <ScrollView
+      ref={ref => setScrollView(ref)}
+      onContentSizeChange={(contentWidth, contentHeight)=>{
+      scrollView.scrollToEnd({animated: false});
+      }}
+    >
       <View style = {styles.MessagesContainer}>
         <View>
             {queryData.getMessages.map((d,i) =>
-              d.from_user === userAuthenticate ? <FromUserMessage key = {i} d = {d} i = {i} /> : <ToUserMessage key = {i} d = {d} i = {i} />
+              d.from_user === key_contact_id ? <FromUserMessage key = {i} d = {d} i = {i} /> : <ToUserMessage key = {i} d = {d} i = {i} />
               )
             }
          </View>
       </View>
       </ScrollView>
-      <MessageInput addMessages = {addMessages} pageNumber = {conversation_id} />
+      <MessageInput key_contact_id = {key_contact_id}  addMessages = {addMessages} pageNumber = {conversation_id} />
       </View>
   )
 }

@@ -151,13 +151,13 @@ export default class SignUpScreen extends React.Component {
   }
   // Sign up user with AWS Amplify Auth
   async signUp() {
-    const { username, password, email, phone_number } = this.state
+    const { username, password, email, phone_number, role } = this.state
     // rename variable to conform with Amplify Auth field phone attribute
 
     await Auth.signUp({
       username,
       password,
-      attributes: { email, phone_number }
+      attributes: { email, phone_number, 'custom:role': role }
     })
       .then((data) => {
         // console.log('this is signUp userId:', data.userSub)

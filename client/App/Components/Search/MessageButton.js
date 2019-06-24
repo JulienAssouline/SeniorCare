@@ -18,7 +18,7 @@ const MessageButton = (props) => {
                   margin: 2,
                   padding: 0,
                 }}
-                onPress = {() => props.handlePress(props.caregiver_id)}
+                onPress = {() => props.handlePress(props.caregiver_id, props.key_contact_id)}
                 containerStyle = {{ width: "100%",margin: 0}}
                 titleStyle = {{color: "white", fontSize: 14}}
                 title = "Message"

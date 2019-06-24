@@ -17,30 +17,31 @@ const mapStateToProps = state => {
 
 const ConversationScreen = (props) => {
 
-  const {data, error, loading, refetch} = useQuery(GET_CAREGIVER_CONVO)
+  const {data, error, loading, refetch} = useQuery(GET_CAREGIVER_CONVO, {
+    variables: { key_contact_id: props.key_contact_id }
+  })
 
    //Use this to access key_contact_id. It's a prop!
   //props.key_contact_id
 
   if (data.getCaregiverConvos === undefined) { return (<Text> ...loading </Text>)}
 
-  function handlePress(id) {
+  function handlePress(conversation_id, key_contact_id) {
      props.navigation.navigate("MessagesScreen", {
-      conversation_id: id
+      conversation_id: conversation_id,
+      key_contact_id: key_contact_id
      })
   }
 
   return (
     <ScrollView>
       <View style = {styles.MainContainer}>
-      <NavigationEvents
-         onDidFocus={() => refetch()}
-         />
+
       {
         data.getCaregiverConvos.map((d,i) =>
           <View key = {i} style = {styles.conversationContainer}>
             <ListItem
-              onPress = {() => handlePress(d.conversation_id)}
+              onPress = {() => handlePress(d.conversation_id, props.key_contact_id)}
               leftAvatar
               title={<Text> {d.fullname}</Text>}
               rightIcon={{ name: 'chevron-right' }}
