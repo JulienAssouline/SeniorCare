@@ -10,7 +10,6 @@ import { NavigationEvents } from 'react-navigation';
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
-  console.log("state", state)
   return {
     user_id: state.user_id
   }

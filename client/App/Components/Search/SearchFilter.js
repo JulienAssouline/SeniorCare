@@ -44,8 +44,8 @@ const SearchFilter = (props) => {
   }
 
   return (
+    <View style={styles.MainContainer}>
     <ScrollView>
-      <View style={styles.MainContainer}>
         <View style={styles.genderContainer}>
           <Text style={{ fontSize: 16, color: "#244397", marginTop: 10 }}> Gender </Text>
           <GenderFilter
@@ -75,21 +75,21 @@ const SearchFilter = (props) => {
         <View style={styles.sliderContainer}>
           <YearsExpFilter yearsExpChange={yearsExpChange} filterObj={filterObj} />
         </View>
-        <Button
-          onPress={handleResultsPress}
-          buttonStyle={{
-            backgroundColor: "#244397",
-            borderWidth: 1,
-            borderColor: '#244397',
-            width: screen.width,
-            borderRadius: 0,
-            height: 60,
-          }}
-          containerStyle={{ width: "40%", marginRight: 5 }}
-          titleStyle={{ color: "white" }}
-          title="See Results" />
-      </View>
     </ScrollView>
+    <Button
+      onPress={handleResultsPress}
+      buttonStyle={{
+        backgroundColor: "#244397",
+        borderWidth: 1,
+        borderColor: '#244397',
+        width: screen.width,
+        borderRadius: 0,
+        height: 60,
+      }}
+      containerStyle={{ width: "40%", marginRight: 5 }}
+      titleStyle={{ color: "white" }}
+      title="See Results" />
+    </View>
   )
 }
 
