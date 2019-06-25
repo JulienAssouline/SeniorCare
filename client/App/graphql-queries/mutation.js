@@ -24,3 +24,11 @@ export const SUBMIT_JOB_POST = gql`
 		}
 	}
 `
+
+export const EDIT_KEY_CONTACT_DETAILS = gql`
+  mutation editKeyContactVars($input: KeyContactDetails!) {
+    addKeyContactDetails(input: $input) {
+      message
+    }
+  }
+`
