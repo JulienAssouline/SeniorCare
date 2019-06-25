@@ -8,4 +8,15 @@ export const general = StyleSheet.create({
 		fontSize: 22,
 		fontWeight: '500',
 	},
+	title: {
+		marginBottom: 10
+	},
+	formInputTitle: {
+		marginLeft: 10,
+		marginTop: 20
+	},
+	rate: {
+		textAlign: 'center',
+		fontSize: 18
+	},
 })

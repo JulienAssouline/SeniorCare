@@ -3,7 +3,8 @@ import React, {useState} from 'react'
 import { View, Text, TextInput } from 'react-native'
 import { Button, ButtonGroup } from 'react-native-elements'
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
-import PostJobBottomButtons from './PostJobBottomButtons'
+import PostJobBottomButtons from '../PostJobBottomButtons'
+import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
 
 const mapStateToProps = state => {
 	const { startDate, endDate } = state.postJob.basicInformation
@@ -95,7 +96,7 @@ const BasicInformationCalendar = (props) => {
   }
 
   return (
-    <View>
+    <View style={{flex: 1}}>
       {/* {Reactotron.log('hello rendering world')} */}
       <ButtonGroup
         onPress={updateIndex}
@@ -115,7 +116,7 @@ const BasicInformationCalendar = (props) => {
         // onDayPress={(day) => props.onStartDateUpdate(day) }
         onDayPress={(day) => { calendarButtonIndex === 0 ? handleStartDayPress(day) : handleEndDayPress(day) } }
         // Handler which gets executed on day long press. Default = undefined
-        onDayLongPress={(day) => props.onStartDateUpdate(day) }
+        //onDayLongPress={(day) => props.onStartDateUpdate(day) }
         // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
         monthFormat={'MMMM yyyy'}
         // Handler which gets executed when visible month changes in calendar. Default = undefined
@@ -143,11 +144,20 @@ const BasicInformationCalendar = (props) => {
         markingType={'period'}
         markedDates={dateSelected}
         />
-
-				<Button
-					title='next'
-					onPress={() => props.onPositionUpdate(++props.formPosition)}
-				/>
+        <View style={style.buttonContainer}>
+          <Button
+            title='Back'
+            buttonStyle={style.back}
+            containerStyle={style.containerBack}
+            onPress={() => props.onPositionUpdate(--props.formPosition)}
+          />
+          <Button
+            title='Next'
+            buttonStyle={style.next}
+            containerStyle={style.containerNext}
+            onPress={() => props.onPositionUpdate(++props.formPosition)}
+          />
+        </View>
       </View>
   )
 }
