@@ -3,9 +3,12 @@ import { StyleSheet } from 'react-native'
 const basicBlueColor = '#244397'
 const multilineTextHeight = 300
 
-export const chooseProfile = StyleSheet.create({
+export const basicInformationStyles = StyleSheet.create({
 	mainContainer: {
-		marginVertical: 10,
+    marginVertical: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10
 	},
 
 	titleContainer: {
@@ -51,11 +54,6 @@ export const chooseProfile = StyleSheet.create({
 export const createSeniorProfile = StyleSheet.create({
 	mainContainer: {
 		marginVertical: 32,
-		// borderBottomWidth: 10,
-		// borderBottomColor: 'red',
-
-		// flex: 1,
-		// height: 300,
 	},
 
 	question: {

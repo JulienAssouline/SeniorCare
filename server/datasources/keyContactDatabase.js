@@ -25,6 +25,7 @@ class KeyContactDatabase extends DataSource {
 
         return result.rows[0]
       } catch (e) {
+        console.log('data for congnito',e)
         throw e
       }
     }

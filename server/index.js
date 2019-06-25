@@ -17,6 +17,7 @@ const LoginDatabase = require('./datasources/loginDatabase')
 const SeniorDatabase = require('./datasources/seniorDatabase')
 const ChatDatabase = require('./datasources/chatDatabase')
 const ConversationDatabase = require('./datasources/conversationDatabase')
+const ServicesDatabase = require('./datasources/servicesDatabase')
 
 
 
@@ -65,7 +66,8 @@ const dataSources = () => ({
   caregiverDatabase: new CaregiverDatabase(),
   loginDatabase: new LoginDatabase(),
   chatDatabase: new ChatDatabase(),
-  conversationDatabase: new ConversationDatabase(),
+	conversationDatabase: new ConversationDatabase(),
+	servicesDatabase: new ServicesDatabase(),
 })
 
 resolvers = resolvers()

@@ -6,6 +6,8 @@ import styles from '../Styles/Profile/ProfileScreen'
 import Icons from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux'
+import Loading from '../Loading/Loading'
+
 
 const mapStateToProps = state => {
   return {
@@ -36,10 +38,14 @@ const ProfileScreen = props => {
   const { data, error, loading } = useQuery(GET_KEYCONTACT, {
     variables: { id }
   })
-  if (data.getKeyContactProfile === undefined) {
-    return (<Text> Loading...</Text>)
+console.log('here is my', data)
+  if (loading || (data && data.getKeyContactProfile === null)) {
+    return (<Loading/>)
   }
-
+  if (error) {
+    console.log('my error',error)
+    return (<Loading/>)
+  }
   const handleGoToSeniors = () => {
     props.navigation.navigate('Seniors', {
       data: data.getKeyContactProfile
@@ -59,13 +65,14 @@ const ProfileScreen = props => {
     })
   }
   return (
+    
     <ScrollView style={styles.MainContainer}>
       <View style={styles.Profile}>
         <Image style={styles.ProfileImage}
           style={{ width: 200, height: 200, borderRadius: 100 }}
-          source={{ uri: data.getKeyContactProfile.avatar }}
+          source={{ uri: data.getKeyContactProfile && data.getKeyContactProfile.avatar  }}
         />
-        <Text style={styles.ProfileName}> {data.getKeyContactProfile.fullname} </Text>
+        <Text style={styles.ProfileName}> {data.getKeyContactProfile &&data.getKeyContactProfile.fullname} </Text>
       </View>
       <TouchableOpacity
         style={styles.ProfileButton}
@@ -81,7 +88,7 @@ const ProfileScreen = props => {
         <Text style={styles.ProfileButtonText}> Account</Text>
         <Icons name={`cog`} style={styles.ProfileButtonIcon} />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.ProfileButton}>
+      <TouchableOpacity style={styles.ProfileButton}  onPress={handleGoToHelp}>
         <Text style={styles.ProfileButtonText}> Help Center</Text>
         <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
       </TouchableOpacity>

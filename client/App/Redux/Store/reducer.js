@@ -1,5 +1,3 @@
-
-
 const initialState = {
 
   key_contact_id: '',
@@ -8,7 +6,7 @@ const initialState = {
 	// 	position: {
 	// 		formPosition: 0,
 	// 		overviewPosition: 0,
-	// 		completedSections: []
+	// 		completedSections: [0, 1, 2, 3, 4]
 	// 	},
 	// 	basicInformation: {
 	// 		title: 'Finding Nemo',
@@ -43,8 +41,23 @@ const initialState = {
 	postJob: {
 		position: {
 			formPosition: 0,
-			overviewPosition: 0,
-			completedSections: []
+			overviewPosition: 1,
+			completedSections: [0, 1, 2, 3, 4]
+		},
+		serviceDetails: {
+			bathing: true,
+			grooming: false,
+			dressing: false,
+			feeding: false,
+			companionship: false,
+			driving: false,
+			appointments: false,
+			mobility: true,
+			errands: false,
+			mealPrep: false,
+			housekeeping: false,
+			laundry: false,
+			shopping: false
 		},
 		basicInformation: {
 			title: '',
@@ -80,6 +93,163 @@ const initialState = {
 
 const reducer = (state = initialState, action )  => {
 	switch (action.type) {
+		case 'BATHING':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					serviceDetails: {
+						...state.postJob.serviceDetails,
+						bathing: action.payload
+					}
+				}
+			}
+
+		case 'GROOMING':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					serviceDetails: {
+						...state.postJob.serviceDetails,
+						grooming: action.payload
+					}
+				}
+			}
+
+		case 'DRESSING':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					serviceDetails: {
+						...state.postJob.serviceDetails,
+						dressing: action.payload
+					}
+				}
+			}
+
+		case 'FEEDING':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					serviceDetails: {
+						...state.postJob.serviceDetails,
+						feeding: action.payload
+					}
+				}
+			}
+
+		case 'COMPANIONSHIP':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					serviceDetails: {
+						...state.postJob.serviceDetails,
+						companionship: action.payload
+					}
+				}
+			}
+
+		case 'DRIVING':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					serviceDetails: {
+						...state.postJob.serviceDetails,
+						driving: action.payload
+					}
+				}
+			}
+
+		case 'APPOINTMENTS':
+			return {
+				...state,
+				postJob: {
+					...state.postJob,
+					serviceDetails: {
+						...state.postJob.serviceDetails,
+						appointments: action.payload
+					}
+				}
+			}
+
+			case 'MOBILITY':
+				return {
+					...state,
+					postJob: {
+						...state.postJob,
+						serviceDetails: {
+							...state.postJob.serviceDetails,
+							mobility: action.payload
+						}
+					}
+				}
+
+			case 'ERRANDS':
+				return {
+					...state,
+					postJob: {
+						...state.postJob,
+						serviceDetails: {
+							...state.postJob.serviceDetails,
+							errands: action.payload
+						}
+					}
+				}
+
+
+			case 'MEALPREP':
+				return {
+					...state,
+					postJob: {
+						...state.postJob,
+						serviceDetails: {
+							...state.postJob.serviceDetails,
+							mealPrep: action.payload
+						}
+					}
+				}
+
+			case 'HOUSEKEEPING':
+				return {
+					...state,
+					postJob: {
+						...state.postJob,
+						serviceDetails: {
+							...state.postJob.serviceDetails,
+							housekeeping: action.payload
+						}
+					}
+				}
+
+			
+			case 'LAUNDRY':
+				return {
+					...state,
+					postJob: {
+						...state.postJob,
+						serviceDetails: {
+							...state.postJob.serviceDetails,
+							laundry: action.payload
+						}
+					}
+				}
+				case 'SHOPPING':
+				return {
+					...state,
+					postJob: {
+						...state.postJob,
+						serviceDetails: {
+							...state.postJob.serviceDetails,
+							shopping: action.payload
+						}
+					}
+				}
+
 		case 'KEYCONTACTID':
 			return {
 				...state,

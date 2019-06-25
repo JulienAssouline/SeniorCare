@@ -49,8 +49,21 @@ module.exports = {
 	},
 
 	JobPost: {
+		async getKeyContact(parent, { input }, { dataSources }) {
+			console.log(parent)
+			return await dataSources.keyContactDatabase.getKeyContactProfile({id: parent.key_contact_id})
+		},
+
 		async getBasicInformation(parent, { input }, { dataSources }) {
 			return await dataSources.jobsDatabase.getBasicInformation(parent)
+		},
+
+		async getServiceDetails(parent, { input }, { dataSources }) {
+			return await dataSources.servicesDatabase.getServiceDetails(parent)
+		},
+
+		async getSeniorDetails(parent, { input }, { dataSources }) {
+			return await dataSources.seniorDatabase.getSeniorDetails(parent)
 		},
 
 		async getHouseDetails(parent, { input }, { dataSources }) {
@@ -60,10 +73,12 @@ module.exports = {
 		async getCaregiverPreferences(parent, { input }, { dataSources }) {
 			return await dataSources.jobsDatabase.getCaregiverPreferences(parent)
 		},
+	},
 
-		async getSeniorDetails(parent, { input }, { dataSources }) {
-			return await dataSources.seniorDatabase.getSeniorDetails(parent)
-		}
-	}
+	ServiceDetails: {
+		async getService(parent, { inpout }, { dataSources }) {
+			return await dataSources.servicesDatabase.getService(parent)
+		},
+	},
 
 }
