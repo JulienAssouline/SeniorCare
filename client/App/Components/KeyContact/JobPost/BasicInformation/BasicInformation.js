@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { ScrollView, Text } from 'react-native'
-
 import { connect } from 'react-redux'
-
-import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
-import PostJobTop from './PostJobTop'
+import PostJobTop from '../PostJobTop'
 import BasicInformationBody from './BasicInformationBody'
+import { basicInformationStyles } from '../../../Styles/PostJob/BasicInformationStyles'
+
 
 const mapStateToProps = state => {
 	const { formPosition } = state.postJob.position
@@ -15,12 +14,12 @@ const mapStateToProps = state => {
 }
 
 const BasicInformation = props => {
-	console.log('props', props)
 	return (
-		<ScrollView>
+		<ScrollView style={basicInformationStyles.mainContainer}>
 			<PostJobTop
 				title={'Basic information'}
 				currentPosition={props.formPosition}
+				stepCount={4}
 			/>
 			<BasicInformationBody
 				formPosition={props.formPosition}

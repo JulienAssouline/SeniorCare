@@ -1,11 +1,11 @@
-
 import { connect } from 'react-redux'
 import React, {useState} from 'react'
 import { Formik } from 'formik';
-import { View, Text, TextInput } from 'react-native'
-import { Button } from 'react-native-elements'
+import { View, Text } from 'react-native'
+import { Button, Input } from 'react-native-elements'
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
-import PostJobBottomButtons from './PostJobBottomButtons'
+import PostJobBottomButtons from '../PostJobBottomButtons'
+import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
 
 const mapStateToProps = state => {
 	const { address, city, postalCode, province } = state.postJob.basicInformation
@@ -26,8 +26,9 @@ const mapDispatchToProps = dispatch => {
 const BasicInformationAddress = (props) => {
 
   return (
-    <View>
-			<Text>Where will the service take place?</Text>
+    <View style={{flex: 1}}>
+			<Text style={general.question}>Where will the service take place?</Text>
+			<Text>You address will not be displayed on your profile</Text>
 			<Formik
 				initialValues={{
 					address: "",
@@ -66,9 +67,9 @@ const BasicInformationAddress = (props) => {
 					isSubmitting
 				}) => (
 					<View>
-						<Text>Address</Text>
-						<TextInput
-							type="text"
+						<Text style={general.formInputTitle}>Address</Text>
+						<Input
+							placeholder="31 Iceboat Terrace"
 							name="address"
 							onChangeText={handleChange("address")}
 							onBlur={handleBlur}
@@ -80,25 +81,25 @@ const BasicInformationAddress = (props) => {
 															value={props.values.email}
 													/> */}
 						{/* {errors.email && touched.email && errors.email} */}
-						<Text>City</Text>
-						<TextInput
-							type="text"
+						<Text style={general.formInputTitle}>City</Text>
+						<Input
+							placeholder="Toronto"
 							name="city"
 							onChangeText={handleChange("city")}
 							onBlur={handleBlur}
 							value={values.city}
 						/>
-						<Text>Province</Text>
-						<TextInput
-							type="text"
+						<Text style={general.formInputTitle}>Province</Text>
+						<Input
+							placeholder="Ontario"
 							name="province"
 							onChangeText={handleChange("province")}
 							onBlur={handleBlur}
 							value={values.province}
 						/>
-						<Text>Postal Code</Text>
-						<TextInput
-							type="text"
+						<Text style={general.formInputTitle}>Postal Code</Text>
+						<Input
+							placeholder="M5V 3E9"
 							name="postalCode"
 							onChangeText={handleChange("postalCode")}
 							onBlur={handleBlur}
@@ -106,12 +107,6 @@ const BasicInformationAddress = (props) => {
 						/>
 						<Text />
 						{/* {errors.password && touched.password && errors.password} */}
-						<Text>Redux State: {props.address} {props.city} {props.postalCode} {props.province}</Text>
-						<Button
-							// disabled={isSubmitting}
-							title="Submit"
-							onPress={handleSubmit}
-						/>
 						<PostJobBottomButtons
 							navigation={props.navigation}
 							storeReduxData={values}

@@ -6,6 +6,8 @@ import IonIcon from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 import { overview } from '../../Styles/PostJob/OverviewStyles'
+import { style } from '../../Styles/PostJob/PostJobButtonsStyles'
+
 
 const mapStateToProps = state => {
 	const { formPosition, overviewPosition, completedSections } = state.postJob.position
@@ -78,6 +80,10 @@ const Overview = props => {
 		props.navigation.navigate('JobPostSubmit')
 	}
 
+	const handleServiceDetails = () => {
+		props.navigation.navigate('ServiceDetails')
+	}
+
 	return (
 		<ScrollView>
 			<View style={overview.explanationContainer}>
@@ -105,25 +111,21 @@ const Overview = props => {
 					/>
 				))}
 			</View>
-
-			<Button
-				title='check redux store'
-				onPress={() => console.log(props.state)}
-			/>
-
-			
-
+		
 			{/* { props.completedSections.legnth < 5 ? */}
-				<Button
-					title={props.overviewPosition === 0 ? 'Get Started' : 'Continue'}
-					onPress={handleNavigation}	
-				/> 
+				<View>
+					<Button
+						buttonStyle={style.startContinue}
+						title={props.overviewPosition === 0 ? 'Get Started' : 'Continue'}
+						onPress={handleNavigation}	
+					/>
+				</View>
 				{/* : */}
 				<Button
 					title='My Job Post'
 					onPress={handleGoToSubmit}
 				/>
-			{/* } */}
+		
 		</ScrollView>
 	)
 }
