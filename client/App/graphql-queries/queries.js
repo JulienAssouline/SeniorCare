@@ -1,6 +1,5 @@
 import gql from 'graphql-tag'
 
-
 export const GET_KEY_CONTACT_CONVO = gql`
   query {
     getKeyContactConvos {
@@ -35,4 +34,56 @@ export const GET_MESSAGES = gql`
       content
     }
   }
+`
+
+export const GET_JOB_POSTING = gql`
+	query {
+		getJobPosts {
+			id
+			key_contact_id
+			date_created
+			getKeyContact {
+				id
+				fullname
+				avatar
+			}
+			getBasicInformation {
+				title
+				start_date
+				end_date
+				address
+				city
+				province
+				postal_code
+				hourly_rate
+			}
+			getServiceDetails {
+				job_id
+				service_id
+				getService {
+					id
+					title
+				}
+			}
+			getSeniorDetails {
+				fullname
+				gender
+				birthdate
+				relation
+				bio
+				medical_condition
+				language
+			}
+			getHouseDetails {
+				cig_smoking
+				pets
+				cannabis
+			}
+			getCaregiverPreferences {
+				availability
+				gender_pref
+				req_drivers_license
+			}
+		}
+	}
 `

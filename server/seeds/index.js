@@ -119,7 +119,7 @@ const seniorSeeds = [
 		fullname: 'Navi',
 		key_contact_id: 'ThisIsSimonSternKeyContactSeed',
 		birthdate: '1950-06-22 19:10:25-07',
-		gender: 'female',
+		gender: 'FEMALE',
 		avatar: 'https://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg',
 		relation: 'Gran Dad',
 		language: 'English',
@@ -130,7 +130,7 @@ const seniorSeeds = [
 		fullname: 'Jorrin',
 		key_contact_id: 'ThisIsSimonSternKeyContactSeed',
 		birthdate: '1950-06-22 19:10:25-07',
-		gender: 'male',
+		gender: 'MALE',
 		avatar: 'https://timedotcom.files.wordpress.com/2018/08/new-zealand-cat-ban.jpg',
 		relation: 'Dad',
 		language: 'French',
@@ -141,7 +141,7 @@ const seniorSeeds = [
 		fullname: 'Eirian',
 		key_contact_id: 'ThisIsAkshayManchandaKeyContactSeed',
 		birthdate: '1950-06-22 19:10:25-07',
-		gender: 'female',
+		gender: 'FEMALE',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
 		relation: 'Mom',
 		language: 'English, German',
@@ -152,7 +152,7 @@ const seniorSeeds = [
 		fullname: 'Vaughn',
 		key_contact_id: 'ThisIsAkshayManchandaKeyContactSeed',
 		birthdate: '1950-06-22 19:10:25-07',
-		gender: 'male',
+		gender: 'MALE',
 		avatar: 'https://www.petfinder.com/?attachment_id=15491',
 		relation: 'Uncle',
 		language: 'English, Persian',
@@ -168,13 +168,13 @@ const JobPostings = [
 		title: "Take Care of Mom",
 		start_date: "2001-07-22 19:10:25-07",
 		end_date: "2001-06-22 19:10:25-07",
-		address: '',
-		city: '',
-		province: '',
-		postal_code: '',
-		availability: '',
+		address: 'Somewhere',
+		city: 'Toronto',
+		province: 'Ontario',
+		postal_code: 'B2B2B2',
+		availability: 'LIVEIN',
 		hourly_rate: 12,
-		gender_pref: 'female',
+		gender_pref: 'FEMALE',
 		req_drivers_license: true,
 		cig_smoking: false,
 		pets: true,
@@ -183,22 +183,22 @@ const JobPostings = [
 ]
 
 const services = [ 
-	{ title: 'Appointments' },
-	{ title: 'Bathing' },
-	{ title: 'Companionship' },
-	{ title: 'Dressing' },
-	{ title: 'Driving' },
-	{ title: 'Errands' },
-	{ title: 'Feeding' },
-	{ title: 'Grooming' },
-	{ title: 'Housekeeping' },
-	{ title: 'Laundry' },
-	{ title: 'Meal Prep' },
-	{ title: 'Mobility' },
-	{ title: 'Shopping' },
+	{ title: 'appointments' },
+	{ title: 'bathing' },
+	{ title: 'companionship' },
+	{ title: 'dressing' },
+	{ title: 'driving' },
+	{ title: 'errands' },
+	{ title: 'feeding' },
+	{ title: 'grooming' },
+	{ title: 'housekeeping' },
+	{ title: 'laundry' },
+	{ title: 'meal_prep' },
+	{ title: 'mobility' },
+	{ title: 'shopping' },
 ]
 
-const services_job = [
+const servicesJobJoin = [
 	{
 		job_id: 1,
 		service_id: 1,
@@ -269,8 +269,26 @@ const seed = async () => {
 						.setFields(seed)
 						.toParam()
 				)
+			),
+			services.map(seed =>
+				pg.query(
+					squel
+						.insert()
+						.into('seniorcare.services')
+						.setFields(seed)
+						.toParam()
+				)
+			),
+			servicesJobJoin.map(seed =>
+				pg.query(
+					squel
+						.insert()
+						.into('seniorcare.services_job')
+						.setFields(seed)
+						.toParam()
+				)
+			),
 			)
-		)
 		await pg.query('COMMIT')
 	} catch (e) {
 		await pg.query('ROLLBACK')

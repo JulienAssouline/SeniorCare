@@ -101,7 +101,9 @@ module.exports = gql`
 		id: ID
 		key_contact_id: ID
 		date_created: Date
+		getKeyContact: KeyContact
 		getBasicInformation: BasicInformation
+		getServiceDetails: [ServiceDetails]
 		getSeniorDetails: SeniorDetails
 		getHouseDetails: HouseDetails
 		getCaregiverPreferences: CaregiverPreferences
@@ -116,6 +118,17 @@ module.exports = gql`
 		province: String
 		postal_code: String
 		hourly_rate: Int
+	}
+
+	type ServiceDetails {
+		job_id: ID!
+		service_id: ID!
+		getService: Service
+	}
+
+	type Service {
+		id: ID!
+		title: String!
 	}
 
 	type SeniorDetails {
@@ -196,6 +209,7 @@ module.exports = gql`
 	input NewJobObject {
 		key_contact_id: ID
 		basicInformation: BasicInformationObject
+		serviceDetails: ServiceDetailsObject
 		seniorDetails: SeniorDetailsObject
 		houseDetails: HouseDetailsObject
 		caregiverPreferences: CaregiverPreferencesObject
@@ -210,6 +224,22 @@ module.exports = gql`
 		province: String
 		postal_code: String
 		hourly_rate: Int
+	}
+
+	input ServiceDetailsObject {
+		appointments: Boolean
+		bathing: Boolean
+		companionship: Boolean
+		dressing: Boolean
+		driving: Boolean
+		errands: Boolean
+		feeding: Boolean
+		grooming: Boolean
+		housekeeping: Boolean
+		laundry: Boolean
+		meal_prep: Boolean
+		mobility: Boolean
+		shopping: Boolean
 	}
 
 	input SeniorDetailsObject {

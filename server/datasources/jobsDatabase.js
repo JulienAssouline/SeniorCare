@@ -78,7 +78,8 @@ class JobsDatabase extends DataSource {
 				key_contact_id: input.key_contact_id,
 			}
 			const insertJobQuery = createInsertQuery(insertJobObject, 'seniorcare.job_posting')
-			await this.context.postgres.query(insertJobQuery)
+			const insertJobReturn = await this.context.postgres.query(insertJobQuery)
+			return insertJobReturn.rows[0].id
 		} catch(err) {
 			throw err
 		}
