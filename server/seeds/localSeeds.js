@@ -1,6 +1,6 @@
 const { Pool } = require('pg')
 const squel = require('squel').useFlavour('postgres')
-const config = require('../config/default.json')
+const config = require('../config/development.json')
 
 const keyContactSeeds = [
 	{
@@ -182,7 +182,7 @@ const JobPostings = [
 	},
 ]
 
-const services = [ 
+const services = [
 	{ title: 'Appointments' },
 	{ title: 'Bathing' },
 	{ title: 'Companionship' },
