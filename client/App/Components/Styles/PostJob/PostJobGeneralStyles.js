@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native'
 
-const basicBlueColor = '#244397'
+const mainAppBlue = '#244397'
+const darkGreyText = '#525252'
+const backButtonGrey = '#F0F0F0'
 
 export const general = StyleSheet.create({
 	question: {
-		color: basicBlueColor,
+		color: mainAppBlue,
 		fontSize: 22,
 		fontWeight: '500',
 	},

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { View } from 'react-native'
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
@@ -42,8 +43,9 @@ const PostJobBottomButtons = props => {
 				storeReduxFunction(storeReduxData)
 				
 				if (props.formPosition === lastPosition ) {
-					if (props.completedSections.includes(props.overviewPosition)) {
+					if (!props.completedSections.includes(props.overviewPosition)) {
 						props.completedSections.push(props.overviewPosition)
+						props.onOverviewUpdate(++props.overviewPosition)
 					} 
 					props.navigation.navigate('Overview')
 				} else {
@@ -68,12 +70,14 @@ const PostJobBottomButtons = props => {
 		<View style={style.buttonContainer}>
 			<Button
 				title="Back"
-				onPress={() => handleFormPosition(false)}
 				buttonStyle={style.back}
 				containerStyle={style.containerBack}
+				onPress={() => handleFormPosition(false)}
 			/>
 			<Button
 				title="Next"
+				containerStyle={bottomButtons.nextContainer}
+				buttonStyle={bottomButtons.nextButton}
 				onPress={() => handleFormPosition(true)}
 				buttonStyle={style.next}
 				containerStyle={style.containerNext}

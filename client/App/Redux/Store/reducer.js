@@ -6,7 +6,7 @@ const initialState = {
 	// 	position: {
 	// 		formPosition: 0,
 	// 		overviewPosition: 0,
-	// 		completedSections: []
+	// 		completedSections: [0, 1, 2, 3, 4]
 	// 	},
 	// 	basicInformation: {
 	// 		title: 'Finding Nemo',
@@ -41,8 +41,8 @@ const initialState = {
 	postJob: {
 		position: {
 			formPosition: 0,
-			overviewPosition: 0,
-			completedSections: []
+			overviewPosition: 1,
+			completedSections: [0, 1, 2, 3, 4]
 		},
 		serviceDetails: {
 			bathing: true,

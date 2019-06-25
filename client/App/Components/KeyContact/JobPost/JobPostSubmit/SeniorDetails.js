@@ -6,6 +6,9 @@ import { Avatar, ListItem } from 'react-native-elements'
 import { sectionContent } from '../../../Styles/PostJob/SubmitJobStyles'
 
 export default SeniorDetails = props => {
+
+	console.log(props)
+
 	return (
 		<View style={sectionContent.container}>
 
@@ -29,14 +32,14 @@ export default SeniorDetails = props => {
 				</Text>
 			</View>
 
-			<View style={sectionContent.dualColumn}>
+			{/* <View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>
 					Age
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
 					{props.sectionData.birthdate}
 				</Text>
-			</View>
+			</View> */}
 
 			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>
