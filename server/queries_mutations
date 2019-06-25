@@ -45,3 +45,67 @@ query {
     date_created
   }
 }
+
+# mutation{
+#   addMessages(content: "hello ", conversation_id: 2) {
+#     message
+#   }
+# }
+
+# mutation {
+#   addConversation(caregiver_id: "ThisIsAlamTalashCaregiverSeed") {
+#     id
+#   }
+# }
+
+query {
+  getKeyContactConvos(caregiver_id: "b4a92e58-899b-4762-b08a-952810670fa8") {
+    email
+    caregiver_id
+    fullname
+    conversation_id
+    key_contact_id
+  }
+}
+query {
+  getKeyContactConvos {
+    email
+    fullname
+    caregiver_id
+    conversation_id
+    key_contact_id
+  }
+}
+query {
+  getCaregiver(input: {
+
+  }){
+    id
+      fullname
+      location
+      years_experience
+      num_hired
+      birthdate
+      hourly_rate
+      gender
+      availability
+      average_rating
+  }
+}
+
+mutation {
+  addCaregiverDetails(input: {
+    id: "b4a92e58-899b-4762-b08a-952810670fa8",
+    location: "montreal",
+    birthdate: "june 2 1993",
+    years_experience: 5,
+    description: "cool guy",
+    availability: "live in",
+    average_rating: 3.2,
+    hourly_rate: 9,
+    gender: "male",
+  }) {
+    message
+  }
+}
+
