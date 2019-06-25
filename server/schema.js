@@ -179,7 +179,36 @@ module.exports = gql`
     addMessages(content: String, conversation_id: ID, from_user: ID): addMessagesResponse!
     addConversation(caregiver_id: ID, key_contact_id: ID): addConversationResponse!
 		addJobRequest(input: NewJobObject!): MessageResponse!
+    addCaregiverDetails(input: CaregiverDetails): addCaregiverDetailsResponse!
+    addKeyContactDetails(input: KeyContactDetails): addKeyContactDetailsResponse!
 	}
+
+  input KeyContactDetails {
+    id: ID,
+    fullname: String,
+    phone_number: String,
+    location: String
+  }
+
+  type addKeyContactDetailsResponse {
+    message: String
+  }
+
+  input CaregiverDetails{
+    id: ID,
+    location: String,
+    birthdate: Date,
+    gender: String,
+    years_experience: Int,
+    description: String,
+    availability: String,
+    average_rating: Float,
+    hourly_rate: Int
+  }
+
+  type addCaregiverDetailsResponse {
+    message: String
+  }
 
   type addConversationResponse {
     id: ID
