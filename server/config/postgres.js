@@ -16,15 +16,15 @@ switch (process.env.NODE_ENV) {
     database = 'postgres'
     break;
   case 'production':
-		host = 'localhost'
-		user = 'postgres'
-		password = 'root'
-		database = 'postgres'
+    host = 'seniorcare.c4d2ofp8j3ou.us-east-1.rds.amazonaws.com'
+    user = 'postgres'
+    password = 'KeyContact&Caregivers'
+    database = 'postgres'
   default:
-		host = 'localhost'
-		user = 'postgres'
-		password = 'root'
-		database = 'postgres'
+    host = 'localhost'
+    user = 'postgres'
+    password = 'root'
+    database = 'postgres'
     break;
 }
 

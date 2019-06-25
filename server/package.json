@@ -1,12 +1,18 @@
 {
   "scripts": {
-    "db:up": "yarn node-pg-migrate up --create-schema",
-    "db:drop": "psql -U postgres -d postgres -c \"DROP SCHEMA IF EXISTS \\\"seniorcare\\\"CASCADE\"",
-    "db:reset": "yarn db:drop && yarn db:up",
-    "db:seed": "node seeds/index.js",
-    "db:resetandseed": "yarn db:reset && yarn db:seed",
+    "dblocal:up": "NODE_ENV=development yarn node-pg-migrate up --create-schema",
+    "dblocal:drop": "psql -U postgres -d postgres -c \"DROP SCHEMA IF EXISTS \\\"seniorcare\\\"CASCADE\"",
+    "dblocal:reset": "yarn dblocal:drop && yarn dblocal:up",
+    "dblocal:seed": "node seeds/localSeeds.js ",
+    "dblocal:resetandseed": "yarn dblocal:reset && yarn dblocal:seed",
+    "dbaws:up": "NODE_ENV=production yarn node-pg-migrate up --create-schema",
+    "dbaws:drop": "PGPASSWORD=KeyContact\\&Caregivers psql -U postgres -d postgres -h seniorcare.c4d2ofp8j3ou.us-east-1.rds.amazonaws.com -c \"DROP SCHEMA IF EXISTS \\\"seniorcare\\\"CASCADE\"",
+    "dbaws:reset": "yarn dbaws:drop && yarn dbaws:up",
+    "dbaws:seed": "node seeds/awsSeeds.js",
+    "dbaws:resetandseed": "yarn dbaws:reset && yarn dbaws:seed",
     "test": "jest",
     "start": "node index.js",
+    "start:production": "node index.js",
     "start:dev": "nodemon index.js"
   },
   "dependencies": {
