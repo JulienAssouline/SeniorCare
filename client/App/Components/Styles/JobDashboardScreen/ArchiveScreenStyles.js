@@ -37,6 +37,18 @@ const styles = StyleSheet.create({
   Archived:{
     fontSize: 45, 
   },
+  ActionSheet:{
+    position: 'absolute',
+    left:     330,
+    top:      -20,
+    fontSize:30
+  }, 
+  HourlyRate:{
+    fontSize: 16,
+    position: 'absolute',
+    left:     285,
+    top:     5,
+  }, 
   }
 )
 
