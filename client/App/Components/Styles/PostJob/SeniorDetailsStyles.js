@@ -51,6 +51,11 @@ export const chooseProfile = StyleSheet.create({
 export const createSeniorProfile = StyleSheet.create({
 	mainContainer: {
 		marginVertical: 32,
+		// borderBottomWidth: 10,
+		// borderBottomColor: 'red',
+
+		// flex: 1,
+		// height: 300,
 	},
 
 	question: {

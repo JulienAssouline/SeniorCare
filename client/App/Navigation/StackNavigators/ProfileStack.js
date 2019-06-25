@@ -1,14 +1,12 @@
 import React from 'react'
 import { createStackNavigator, navigation } from 'react-navigation'
-
-//import ProfileScreen from '../../Components/KeyContact/JobDashboard/JobDashboardScreen'
-//import { SignUpScreen } from './SignUpStack';
+import { Text, View, TouchableOpacity } from 'react-native'
 import ProfileScreen from '../../Components/Profile/ProfileScreen'
-
 import Senior from '../../Components/Profile/Senior/Senior'
 import Help from '../../Components/Profile/Help/Help'
 import AccountDetails from '../../Components/Profile/Account'
 import SeniorIndex from '../../Components/Profile/Senior/Index'
+import Edit from '../../Components/Profile/Edit'
 
 export const ProfileStack = createStackNavigator(
   {
@@ -32,15 +30,29 @@ export const ProfileStack = createStackNavigator(
       screen: SeniorIndex,
         navigationOptions: {
           title: 'Caregiver for'
-          // title: `${navigation.title}`,
         },
+    },
+    Edit: {
+      screen: Edit,
+      navigationOptions: {
+        title: 'Edit Profile'
+      },
     },
     Account: {
       screen: AccountDetails,
-      navigationOptions: {
-        title: 'Account'
-      }
-    }
+      navigationOptions: ({ navigation }) => ({
+        headerRight:
+          <View style={{ padding: 10 }}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Edit')}
+              style={{ flex: 1, flexDirection: 'row' }}
+            >
+              <Text style={{ fontFamily: 'SFProText-Medium', color: '#3F7DFB', fontSize: 17 }}>Edit</Text>
+            </TouchableOpacity>
+          </View>
+        })
+    },
+    
 
   },
 

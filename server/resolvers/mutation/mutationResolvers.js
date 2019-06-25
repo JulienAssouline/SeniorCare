@@ -18,6 +18,12 @@ module.exports = {
 		async caregiverSignup(parent, { input }, { dataSources }) {
 			return await dataSources.userDatabase.caregiverSignup(input)
 		},
+		async addCaregiverDetails(parent, { input }, { dataSources }){
+			return await dataSources.caregiverDatabase.addCaregiverDetails(input)
+		},
+		async addKeyContactDetails(parent, { input }, { dataSources }){
+			return await dataSources.keyContactDatabase.addKeyContactDetails(input)
+		},
 		async addMessages(parent, input, { dataSources }) {
 			return await dataSources.chatDatabase.mutationAddMessage(input)
 		},
@@ -28,8 +34,9 @@ module.exports = {
 		// 	return dataSources.mutationDelete(input)
 		// },
 		async addJobRequest(parent, { input }, { dataSources }) {
-			await dataSources.jobsDatabase.addJobRequest(input)
+			const jobId = await dataSources.jobsDatabase.addJobRequest(input)
 			await dataSources.seniorDatabase.addSenior(input)
+			await dataSources.servicesDatabase.addJobServices({jobId, ...input})
 			return {
 				message: 'success'
 			}

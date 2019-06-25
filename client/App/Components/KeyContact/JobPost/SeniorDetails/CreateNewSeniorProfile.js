@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ScrollView } from 'react-native'
+import { View } from 'react-native'
 
 import { connect } from 'react-redux'
 
@@ -18,7 +18,7 @@ const mapStateToProps = state => {
 
 const CreateNewSeniorProfile = props => {
 	return (
-		<ScrollView style={backgroundStyles.background}>
+		<View style={{...backgroundStyles.background, flex: 1,}}>
 			<PostJobTop
 				title="Senior's Profile"
 				currentPosition={props.formPosition}
@@ -29,7 +29,7 @@ const CreateNewSeniorProfile = props => {
 				navigation={props.navigation}
 				formPosition={props.formPosition}
 			/>
-		</ScrollView>
+		</View>
 	)
 }
 
