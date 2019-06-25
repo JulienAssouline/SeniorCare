@@ -18,6 +18,15 @@ const GET_KEYCONTACT = gql`
     getKeyContactProfile(id: $id){
       fullname
       avatar
+      phone_number
+      email
+      getSeniors {
+        id
+        fullname
+        relation
+        birthdate
+        avatar
+      }
     }
   }
 `;
@@ -32,7 +41,9 @@ const ProfileScreen = props => {
   }
 
   const handleGoToSeniors = () => {
-    props.navigation.navigate('Seniors')
+    props.navigation.navigate('Seniors', {
+      data: data.getKeyContactProfile
+    })
   }
 
 
@@ -43,7 +54,8 @@ const ProfileScreen = props => {
 
   const handleGoToAccount = (id) => {
     props.navigation.navigate('Account', {
-      user_id: id
+      user_id: id,
+      data: data.getKeyContactProfile
     })
   }
   return (
