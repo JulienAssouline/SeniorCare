@@ -6,7 +6,7 @@ const initialState = {
 	// 	position: {
 	// 		formPosition: 0,
 	// 		overviewPosition: 0,
-	// 		completedSections: []
+	// 		completedSections: [0, 1, 2, 3, 4]
 	// 	},
 	// 	basicInformation: {
 	// 		title: 'Finding Nemo',
@@ -42,7 +42,7 @@ const initialState = {
 		position: {
 			formPosition: 0,
 			overviewPosition: 1,
-			completedSections: [0]
+			completedSections: [0, 1, 2, 3, 4]
 		},
 		basicInformation: {
 			title: '',

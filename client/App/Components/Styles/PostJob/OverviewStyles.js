@@ -50,9 +50,6 @@ export const overview = StyleSheet.create({
 })
 
 export const overviewBottomButton = StyleSheet.create({
-	buttonContainer: {
-	},
-	
 	button: {
 		backgroundColor: mainAppBlue,
 		borderRadius: 0,

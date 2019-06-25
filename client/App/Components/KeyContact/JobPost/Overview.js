@@ -115,13 +115,11 @@ const Overview = props => {
 					<Button
 						title={props.overviewPosition === 0 ? 'Get Started' : 'Continue'}
 						buttonStyle={overviewBottomButton.button}
-						containerStyle={overviewBottomButton.buttonContainer}
 						onPress={handleNavigation}	
 						/> :
 					<Button
 						title='My Job Post'
 						buttonStyle={overviewBottomButton.button}
-						containerStyle={overviewBottomButton.buttonContainer}
 						onPress={handleGoToSubmit}
 					/>
 				}
