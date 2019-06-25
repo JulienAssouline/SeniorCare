@@ -12,7 +12,6 @@ export const GET_KEY_CONTACT_CONVO = gql`
   }
 `
 
-
 export const GET_CAREGIVER_CONVO = gql`
   query getCaregiverConvoQuery ($key_contact_id: ID) {
     getCaregiverConvos(key_contact_id: $key_contact_id) {
@@ -35,6 +34,16 @@ export const GET_MESSAGES = gql`
       content
     }
   }
+`
+
+export const GET_KEY_CONTACT = gql`
+	query getKeyContactProfileVars($id: ID!) {
+		getKeyContactProfile(id: $id) {
+			id
+			fullname
+			avatar
+		}
+	}
 `
 
 export const GET_JOB_POSTING = gql`

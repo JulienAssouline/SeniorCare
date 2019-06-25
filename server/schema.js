@@ -102,6 +102,7 @@ module.exports = gql`
 		id: ID
 		key_contact_id: ID
 		date_created: Date
+		
 		getKeyContact: KeyContact
 		getBasicInformation: BasicInformation
 		getServiceDetails: [ServiceDetails]
