@@ -7,7 +7,14 @@ import Icons from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux'
 import Loading from '../Loading/Loading'
-
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {
+  Container,
+  Input,
+  Card,
+  CardItem
+} from 'native-base'
+const yellowCurve = require('../../Images/WelcomeScreen/yellow-curve.png')
 
 const mapStateToProps = state => {
   return {
@@ -74,6 +81,8 @@ console.log('here is my', data)
         />
         <Text style={styles.ProfileName}> {data.getKeyContactProfile &&data.getKeyContactProfile.fullname} </Text>
       </View>
+      <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5) }}>
+
       <TouchableOpacity
         style={styles.ProfileButton}
         onPress={handleGoToSeniors}
@@ -92,7 +101,11 @@ console.log('here is my', data)
         <Text style={styles.ProfileButtonText}> Help Center</Text>
         <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
       </TouchableOpacity>
-
+      </Card>
+      <Image
+        source={yellowCurve}
+        style={{ height: hp(44), width: wp(100), zIndex: 0, position: 'relative', padding: 0, margin: 0 }}
+      />
 
     </ScrollView>
   )
