@@ -1,75 +1,139 @@
 import { connect } from 'react-redux'
 import React, { useState } from 'react'
 import { basicInformationStyles } from '../../../Styles/PostJob/BasicInformationStyles'
-import { ScrollView, Text } from 'react-native'
+import { ScrollView, Text, View, ShadowPropTypesIOS } from 'react-native'
+import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { Button } from 'react-native-elements'
+import PostJobBottomButtons from '../PostJobBottomButtons'
+import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
 
+const mapStateToProps = state => {
+  const { formPosition } = state.postJob.position
+  const { bathing, grooming, dressing, feeding, companionship, driving, appointments, mobility } = state.postJob.serviceDetails
+  return {
+    formPosition: formPosition,
+    bathing: bathing,
+    grooming: grooming,
+    dressing: dressing,
+    feeding: feeding,
+    companionship: companionship,
+    driving: driving,
+    appointments: appointments,
+    mobility: mobility,
+  }
+}
 
-// UPDATE THESE !!!!!!!!
+const mapDispatchToProps = dispatch => {
+  return {
+    onBathingUpdate: (value) => dispatch({
+      type: 'BATHING', payload: value
+    }),
+    onGroomingUpdate: (value) =>  dispatch({
+      type: 'GROOMING', payload: value
+    }),
+    onDressingUpdate: (value) =>  dispatch({
+      type: 'DRESSING', payload: value
+    }),
+    onFeedingUpdate: (value) =>  dispatch({
+      type: 'FEEDING', payload: value
+    }),
+    onCompanionshipUpdate: (value) =>  dispatch({
+      type: 'COMPANIONSHIP', payload: value
+    }),
+    onDrivingUpdate: (value) =>  dispatch({
+      type: 'DRIVING', payload: value
+    }),
+    onAppointmentsUpdate: (value) =>  dispatch({
+      type: 'APPOINTMENTS', payload: value
+    }),
+    onMobilityUpdate: (value) =>  dispatch({
+      type: 'MOBILITY', payload: value
+    }),
+  }
+}
+
 const ServicesNeeded = (props) => {
-
-  const { setFieldValue, values } = props
-
   return (
     <View>
-    <View>
-      <Text style={general.question}>
-      Cannabis?
-      </Text>
+      <View>
+        <Text style={general.question}>
+        Select the services you will need
+        </Text>
+        <View style={style.splitButtonContainer}>
+          <Button
+            buttonStyle={style.serviceButton}
+            containerStyle={style.serviceButtonContainer}
+            title='Bathing'
+            type={props.bathing === true ? 'solid' : 'outline'}
+            onPress={() => props.onBathingUpdate(!props.bathing)}
+          />
+          <Button
+            buttonStyle={style.serviceButton}
+            containerStyle={style.serviceButtonContainer}
+            title='Grooming'
+            type={props.grooming === true ? 'solid' : 'outline'}
+            onPress={() => props.onGroomingUpdate(!props.grooming)}
+          />
+        </View>
+      </View>
+      <View style={style.splitButtonContainer}>
+        <Button
+          buttonStyle={style.serviceButton}
+          containerStyle={style.serviceButtonContainer}
+          title='Dressing'
+          type={props.dressing === true ? 'solid' : 'outline'}
+          onPress={() => props.onDressingUpdate(!props.dressing)}
+        />
+        <Button
+          buttonStyle={style.serviceButton}
+          containerStyle={style.serviceButtonContainer}
+          title='Feeding'
+          type={props.feeding === true ? 'solid' : 'outline'}
+          onPress={() => props.onFeedingUpdate(!props.feeding)}
+        />
+      </View>
+      <View style={style.splitButtonContainer}>
+        <Button
+          buttonStyle={style.serviceButton}
+          containerStyle={style.serviceButtonContainer}
+          title='Companionship'
+          type={props.companionship === true ? 'solid' : 'outline'}
+          onPress={() => props.onCompanionshipUpdate(!props.companionship)}
+        />
+        <Button
+          buttonStyle={style.serviceButton}
+          containerStyle={style.serviceButtonContainer}
+          title='Driving'
+          type={props.driving === true ? 'solid' : 'outline'}
+          onPress={() => props.onDrivingUpdate(!props.driving)}
+        />
+      </View>
+    <View style={style.splitButtonContainer}>
       <Button
-        title='Bathing'
-        type={values.bathing === true ? 'solid' : 'outline'}
-        onPress={() => setFieldValue('bathing', true)}
-      />
-      <Button
-        title='Grooming'
-        type={values.grooming === true ? 'solid' : 'outline'}
-        onPress={() => setFieldValue('grooming', false)}
-      />
-    </View>
-    <View>
-      <Text style={general.question}>
-      Cannabis?
-      </Text>
-      <Button
-        title='Dressing'
-        type={values.dressing === true ? 'solid' : 'outline'}
-        onPress={() => setFieldValue('dressing', false)}
-      />
-      <Button
-        title='Feeding'
-        type={values.feeding === true ? 'solid' : 'outline'}
-        onPress={() => setFieldValue('feeding', false)}
-      />
-    </View>
-    <View>
-      <Text style={general.question}>
-      Cannabis?
-      </Text>
-      <Button
-        title='Companionship'
-        type={values.companionship === true ? 'solid' : 'outline'}
-        onPress={() => setFieldValue('companionship', false)}
-      />
-      <Button
-        title='Driving'
-        type={values.driving === true ? 'solid' : 'outline'}
-        onPress={() => setFieldValue('driving', false)}
-      />
-    </View>
-    <View>
-      <Text style={general.question}>
-      Cannabis?
-      </Text>
-      <Button
+        buttonStyle={style.serviceButton}
+        containerStyle={style.serviceButtonContainer}
         title='Appointments'
-        type={values.appointments === true ? 'solid' : 'outline'}
-        onPress={() => setFieldValue('appointments', false)}
+        type={props.appointments === true ? 'solid' : 'outline'}
+        onPress={() => props.onAppointmentsUpdate(!props.appointments)}
       />
       <Button
+        buttonStyle={style.serviceButton}
+        containerStyle={style.serviceButtonContainer}
         title='Mobility'
-        type={values.mobility === true ? 'solid' : 'outline'}
-        onPress={() => setFieldValue('mobility', false)}
+        type={props.mobility === true ? 'solid' : 'outline'}
+        onPress={() => props.onMobilityUpdate(!props.mobility)}
       />
+    </View>
+    <View> 
+      <PostJobBottomButtons
+        navigation={props.navigation}
+        storeReduxData={()=>null}
+        storeReduxFunction={()=>null}
+        handleSubmit={()=>null}
+        errors={{}}
+        touched={{}}
+        lastPosition={2}
+			/>
     </View>
   </View>
   )

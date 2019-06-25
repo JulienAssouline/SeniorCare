@@ -3,11 +3,13 @@ import React, { useState } from 'react'
 import { basicInformationStyles } from '../../../Styles/PostJob/BasicInformationStyles'
 import { ScrollView, Text } from 'react-native'
 import ServicesNeededBody from './ServicesNeededBody'
+import { Formik } from 'formik'
+import PostJobTop from '../PostJobTop'
 
 const mapStateToProps = state => {
-	const { formPosition } = state.postJob.position
+	// const { formPosition } = state.postJob.position
 	return {
-		formPosition: formPosition,
+		// formPosition: formPosition,
 	}
 }
 
@@ -23,8 +25,17 @@ const ServiceDetails = (props) => {
         formPosition={props.formPosition}
         navigation={props.navigation}
       />
+      {/* <PostJobBottomButtons
+        navigation={props.navigation}
+        storeReduxData={values}
+        storeReduxFunction={props.onAddressUpdate}
+        handleSubmit={handleSubmit}
+        errors={errors}
+        touched={touched}
+        lastPosition={3}
+      /> */}
     </ScrollView>
   )
 }
 
-export default connect(mapStateToProps, MapDispatchToProps)(ServiceDetails)
+export default connect(mapStateToProps)(ServiceDetails)

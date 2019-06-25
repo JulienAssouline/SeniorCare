@@ -7,6 +7,10 @@ import { Formik } from 'formik'
 import { connect } from 'react-redux'
 
 import PostJobBottomButtons from '../PostJobBottomButtons'
+import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
+import { general } from '../../../Styles/PostJob/PostJobGeneralStyles';
+
+
 
 const mapStateToProps = state => {
 	const { validDriverLicense } = state.postJob.caregiverPreferences
@@ -58,17 +62,23 @@ const CaregiverPref1 = props => {
 				return (
 					<View>
 						<View>
-							<Text>Should the caregiver have a valid driver's license?</Text>
-							<Button
-								title='Yes'
-								type={values.validDriverLicense === true ? 'solid' : 'outline'}
-								onPress={() => setFieldValue('validDriverLicense', true)}
-							/>
-							<Button
-								title='No'
-								type={values.validDriverLicense === false ? 'solid' : 'outline'}
-								onPress={() => setFieldValue('validDriverLicense', false)}
-							/>
+							<Text style={general.question}>Should the caregiver have a valid driver's license?</Text>
+							<View style={style.splitButtonContainer}>
+								<Button
+									buttonStyle={style.serviceButton}
+									containerStyle={style.serviceButtonContainer}
+									title='Yes'
+									type={values.validDriverLicense === true ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('validDriverLicense', true)}
+								/>
+								<Button
+									buttonStyle={style.serviceButton}
+									containerStyle={style.serviceButtonContainer}
+									title='No'
+									type={values.validDriverLicense === false ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('validDriverLicense', false)}
+								/>
+							</View>
 						</View>
 
 						<PostJobBottomButtons

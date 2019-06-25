@@ -107,11 +107,6 @@ const BasicInformationAddress = (props) => {
 						/>
 						<Text />
 						{/* {errors.password && touched.password && errors.password} */}
-						<Button
-							// disabled={isSubmitting}
-							title="Submit"
-							onPress={handleSubmit}
-						/>
 						<PostJobBottomButtons
 							navigation={props.navigation}
 							storeReduxData={values}

@@ -7,6 +7,8 @@ import { Formik } from 'formik'
 import { connect } from 'react-redux'
 
 import PostJobBottomButtons from '../PostJobBottomButtons'
+import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
+import { general } from '../../../Styles/PostJob/PostJobGeneralStyles';
 
 const mapStateToProps = state => {
 	const { preferredGender, availability } = state.postJob.caregiverPreferences
@@ -60,41 +62,59 @@ const CaregiverPref1 = props => {
 				return (
 					<View>
 						<View>
-							<Text>Availability</Text>
-							<Button
-								title='Live in'
-								type={values.availability === 'livein' ? 'solid' : 'outline'}
-								onPress={() => setFieldValue('availability', 'livein')}
-							/>
-							<Button
-								title='Live out'
-								type={values.availability === 'liveout' ? 'solid' : 'outline'}
-								onPress={() => setFieldValue('availability', 'liveout')}
-							/>
+							<Text style={general.question}>Availability</Text>
+							<View style={style.splitButtonContainer}>
+								<Button
+									buttonStyle={style.serviceButton}
+									containerStyle={style.serviceButtonContainer}
+									title='Live in'
+									type={values.availability === 'livein' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('availability', 'livein')}
+								/>
+								<Button
+									buttonStyle={style.serviceButton}
+									containerStyle={style.serviceButtonContainer}
+									title='Live out'
+									type={values.availability === 'liveout' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('availability', 'liveout')}
+								/>
+							</View>
 						</View>
 
 						<View>
-							<Text>Preferred Gender of the caregiver?</Text>
-							<Button
-								title='Female'
-								type={values.preferredGender === 'female' ? 'solid' : 'outline'}
-								onPress={() => setFieldValue('preferredGender', 'female')}
-							/>
-							<Button
-								title='Male'
-								type={values.preferredGender === 'male' ? 'solid' : 'outline'}
-								onPress={() => setFieldValue('preferredGender', 'male')}
-							/>
-							<Button
-								title='Other'
-								type={values.preferredGender === 'other' ? 'solid' : 'outline'}
-								onPress={() => setFieldValue('preferredGender', 'other')}
-							/>
-							<Button
-								title='No preference'
-								type={values.preferredGender === 'nopreference' ? 'solid' : 'outline'}
-								onPress={() => setFieldValue('preferredGender', 'nopreference')}
-							/>
+							<Text style={general.question}>Preferred Gender of the caregiver?</Text>
+							<View style={style.splitButtonContainer}>
+								<Button
+									buttonStyle={style.serviceButton}
+									containerStyle={style.serviceButtonContainer}
+									title='Female'
+									type={values.preferredGender === 'female' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('preferredGender', 'female')}
+								/>
+								<Button
+									buttonStyle={style.serviceButton}
+									containerStyle={style.serviceButtonContainer}
+									title='Male'
+									type={values.preferredGender === 'male' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('preferredGender', 'male')}
+								/>
+							</View>
+							<View style={style.splitButtonContainer}>
+								<Button
+									buttonStyle={style.serviceButton}
+									containerStyle={style.serviceButtonContainer}
+									title='Other'
+									type={values.preferredGender === 'other' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('preferredGender', 'other')}
+								/>
+								<Button
+									buttonStyle={style.serviceButton}
+									containerStyle={style.serviceButtonContainer}
+									title='No preference'
+									type={values.preferredGender === 'nopreference' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('preferredGender', 'nopreference')}
+								/>
+							</View>
 						</View>
 
 						<PostJobBottomButtons

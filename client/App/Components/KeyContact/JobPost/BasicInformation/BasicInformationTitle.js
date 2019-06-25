@@ -65,11 +65,6 @@ const BasicInformationTitle = (props) => {
               onBlur={handleBlur}
               value={values.title}
             />
-            <Button 
-              // disabled={isSubmitting}
-              title="Submit"
-              onPress={handleSubmit}
-            />
 						<PostJobBottomButtons
 							navigation={props.navigation}
 							storeReduxData={values}

@@ -4,6 +4,7 @@ import { View, Text, TextInput } from 'react-native'
 import { Button, ButtonGroup } from 'react-native-elements'
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 import PostJobBottomButtons from '../PostJobBottomButtons'
+import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
 
 const mapStateToProps = state => {
 	const { startDate, endDate } = state.postJob.basicInformation
@@ -143,15 +144,20 @@ const BasicInformationCalendar = (props) => {
         markingType={'period'}
         markedDates={dateSelected}
         />
-
-        <Button
-					title='Back'
-					onPress={() => props.onPositionUpdate(--props.formPosition)}
-				/>
-				<Button
-					title='Next'
-					onPress={() => props.onPositionUpdate(++props.formPosition)}
-				/>
+        <View style={style.buttonContainer}>
+          <Button
+            title='Back'
+            buttonStyle={style.back}
+            containerStyle={style.containerBack}
+            onPress={() => props.onPositionUpdate(--props.formPosition)}
+          />
+          <Button
+            title='Next'
+            buttonStyle={style.next}
+            containerStyle={style.containerNext}
+            onPress={() => props.onPositionUpdate(++props.formPosition)}
+          />
+        </View>
       </View>
   )
 }

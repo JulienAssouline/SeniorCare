@@ -70,11 +70,13 @@ const PostJobBottomButtons = props => {
 				title="Back"
 				onPress={() => handleFormPosition(false)}
 				buttonStyle={style.back}
+				containerStyle={style.containerBack}
 			/>
 			<Button
 				title="Next"
 				onPress={() => handleFormPosition(true)}
 				buttonStyle={style.next}
+				containerStyle={style.containerNext}
 			/>
 		</View>
 	)

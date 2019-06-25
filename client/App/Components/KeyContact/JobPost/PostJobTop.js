@@ -17,12 +17,14 @@ const PostJobTop = props => {
     return (
 			<View>
 				<Text style={general.title}>{props.title}</Text>
-				<StepIndicator
-					customStyles={styles}
-					currentPosition={props.formPosition}
-					// labels={labels}
-					stepCount={props.stepCount}
-				/>
+				{props.stepCount > 1 ? 
+					<StepIndicator
+						customStyles={styles}
+						currentPosition={props.formPosition}
+						stepCount={props.stepCount}
+					/>
+					: null
+				}
 			</View>
     )
 }

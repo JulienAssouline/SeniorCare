@@ -12,8 +12,9 @@ import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
 const mapStateToProps = state => {
-	const { seniorName } = state.postJob.seniorDetails
+	const { seniorName, formPosition } = state.postJob.seniorDetails
 	return {
+		formPosition: formPosition,
 		seniorName: seniorName
 	}
 }
