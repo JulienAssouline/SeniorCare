@@ -7,40 +7,12 @@ import styles from '../../Styles/Profile/Senior/Senior'
 import Icons from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import calcAge from '../../utils/calcAge';
-import Loading from '../../Loading/Loading'
-import { connect } from 'react-redux'
-
-const mapStateToProps = state => {
-  return {
-    key_contact_id: state.key_contact_id
-  }
-}
-
-const GET_SENIOR = gql`
-  query profileVar($id: ID!){
-    getKeyContactProfile(id: $id) {
-      id
-      getSeniors {
-        id
-        fullname
-        relation
-        birthdate
-        avatar
-      }
-    }
-  }
-`;
 
 const Senior = props => {
 
-  const { data, error, loading } = useQuery(GET_SENIOR, {
-    variables: { id: props.key_contact_id }
-  })
-  
-  if (data.getKeyContactProfile === undefined) { return <Loading/>}
-  // calcAge(data.getKeyContactProfile)
+const data = props.navigation.getParam('data');
 
-  const seniorData = data.getKeyContactProfile.getSeniors
+  const seniorData = data.getSeniors
   const relation = seniorData.relation
   seniorData.forEach((d, i) => {
     calcAge(d)
@@ -77,6 +49,6 @@ const Senior = props => {
   )
 }
 
-export default connect(mapStateToProps)(Senior)
+export default Senior
 
 

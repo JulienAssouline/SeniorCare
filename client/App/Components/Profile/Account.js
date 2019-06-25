@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { ScrollView, Text, Alert } from 'react-native'
 import { useQuery } from 'react-apollo-hooks';
 import gql from "graphql-tag";
@@ -10,18 +10,12 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 // AWS Amplify modular import
 import Auth from '@aws-amplify/auth'
 
-
-const GET_KEYCONTACT = gql`
-  query getProfile($id: ID!){
-    getKeyContactProfile(id: $id){
-      phone_number
-      email
-    }
-  }
-`;
-
 const Account = props => {
   const user_id = props.navigation.getParam('user_id');
+  const data = props.navigation.getParam('data');
+
+
+  // const [dataUser, setDataUser] =
 
   // Sign out from the app
   const signOutAlertLogout = async () => {
@@ -57,19 +51,11 @@ const Account = props => {
       .catch(err => console.log('Error while signing out!', err))
   }
 
-
-  const { data, error, loading } = useQuery(GET_KEYCONTACT, {
-    variables: { id: user_id }
-  })
-  if (data.getKeyContactProfile === undefined) {
-    return (<Text> Loading...</Text>)
-  }
-
   return (
     <ScrollView style={styles.MainContainer}>
       <Text style={styles.Title}> Phone & Email</Text>
-      <Text style={styles.phoneNumber}> {`Number: ${data.getKeyContactProfile.phone_number}`} </Text>
-      <Text style={styles.email}> {`Email: ${data.getKeyContactProfile.email}`} </Text>
+      <Text style={styles.phoneNumber}> {`Number: ${data.phone_number}`} </Text>
+      <Text style={styles.email}> {`Email: ${data.email}`} </Text>
 
       <Text style={styles.Title}> Notifications</Text>
       <TouchableOpacity

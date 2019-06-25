@@ -13,15 +13,21 @@ class KeyContactDatabase extends DataSource {
 
     async getKeyContactProfile(input) {
       try {
+
         let user_id = input.id
-        console.log('data for congnito',input)
+
+
+        console.log(user_id)
+
         // !input.user_id ? user_id = authenticate(app, req) : user_id = input.user_id
         const selectKeyContactProfile = {
           text: `SELECT * FROM seniorcare.key_contact WHERE id = $1`,
           values: [user_id]
         }
         const result = await this.context.postgres.query(selectKeyContactProfile)
-        
+
+        console.log(result.rows[0])
+
         return result.rows[0]
       } catch (e) {
         console.log('data for congnito',e)
