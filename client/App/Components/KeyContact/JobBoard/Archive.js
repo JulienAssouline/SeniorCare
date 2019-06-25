@@ -5,7 +5,8 @@ import { Button, Card } from 'react-native-elements';
 import gql from 'graphql-tag'
 import { useQuery,useMutation } from 'react-apollo-hooks'
 import styles from '../../Styles/JobDashboardScreen/ArchiveScreenStyles'
-
+import Icon from "react-native-vector-icons/Ionicons";
+import Loading from '../../Loading/Loading'
 
 const ARCHIVED_JOBS = gql `
   query{
@@ -34,7 +35,6 @@ const DELETE  = gql`
     deleteit(id: $id)
   }
 `;
-
 
 const ArchiveScreen = (props) =>{
 
@@ -115,8 +115,9 @@ onclick = (id) => {
     },
   ); 
 }
-  if(loading){
-    return <Text>...Loading</Text>;
+  if(loading)
+  {
+    return <Loading/>;
   };
   if (error){
     return <Text>Error!</Text>
@@ -139,24 +140,32 @@ onclick = (id) => {
   return(
     <ScrollView>
    
-    <Text style={styles.AppText}>Receiving Applicants (num)</Text>
-        <View style={styles.MainView}>
+    <Text style={styles.AppText}>Completed</Text>
+        <Card style={styles.MainView}>
       <View >
         <View>
           <Text style={styles.DateText}> Posted {dateCreated}</Text>
-          <Text onPress={ () => onclick(elem.id)}>...</Text>
+          <Text style={styles.ActionSheet} onPress={ () => onclick(elem.id)}>...</Text>
           <Text key = {elem.id} style={styles.JobText}> {elem.title}</Text> 
         
         </View>
         
         <View style={styles.JobInfo}>
-          <Text style={{fontSize: 16}}> Starts {startDate}</Text>
-          <Text style={{fontSize: 16}}> ${elem.hourly_rate}/hr</Text>  
+          <Text style={{fontSize: 16}}><Icon
+        name="ios-calendar"
+        color="#00a9c1"
+        size={20}
+        />  Starts {startDate}</Text>
+          <Text style={styles.HourlyRate}><Icon
+        name="ios-cash"
+        color="#00a9c1"
+        size={20}
+        />   ${elem.hourly_rate}/hr</Text>  
         </View>
        
       </View>
 
-</View>
+</Card>
     </ScrollView>
     
   )

@@ -11,6 +11,7 @@ import MessageInput from "./MessageInput"
 import FromUserMessage from "./fromUserMessage"
 import ToUserMessage from "./ToUserMessage"
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import Loading from '../Loading/Loading'
 
 
 const MessagesScreen = (props) => {
@@ -44,7 +45,7 @@ const MessagesScreen = (props) => {
 
   const addMessages = useMutation(ADD_MESSAGES);
 
-  if (queryData.getMessages === undefined) { return (<Text> ...loading </Text>)}
+  if (queryData.getMessages === undefined) { return <Loading/>}
 
   return (
     <View style = {styles.MainContainer}>
