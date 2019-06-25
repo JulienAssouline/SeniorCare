@@ -37,7 +37,6 @@ class JobsDatabase extends DataSource {
       }
       const result = await this.context.postgres.query(removeJob)
 
-
       return input.id
 
     }catch(err){

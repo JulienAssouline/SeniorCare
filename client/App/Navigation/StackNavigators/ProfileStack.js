@@ -15,15 +15,18 @@ export const ProfileStack = createStackNavigator(
     Profile: { 
       screen: ProfileScreen 
     },
+    Help: {
+      screen: Help
+    },
     Seniors: {
       screen: Senior,
       navigationOptions: {
         title: 'Seniors'
       },
-
       Help: {
         screen: Help
       },
+
     },
     SeniorDetails:{
       screen: SeniorIndex,

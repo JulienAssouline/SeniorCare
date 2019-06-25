@@ -74,8 +74,6 @@ const ProfileScreen = props => {
         <Text style={styles.ProfileButtonText}> Seniors</Text>
         <Icons name={`user`} style={styles.ProfileButtonIcon} />
       </TouchableOpacity>
-
-
       <TouchableOpacity
         style={styles.ProfileButton}
         onPress={() => handleGoToAccount(id)}
@@ -87,6 +85,7 @@ const ProfileScreen = props => {
         <Text style={styles.ProfileButtonText}> Help Center</Text>
         <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
       </TouchableOpacity>
+
 
     </ScrollView>
   )

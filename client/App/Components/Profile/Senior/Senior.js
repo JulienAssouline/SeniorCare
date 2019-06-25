@@ -8,12 +8,9 @@ import Icons from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import calcAge from '../../utils/calcAge';
 
-
 const Senior = props => {
 
-  const data = props.navigation.getParam('data');
-
-  console.log("senior", data)
+const data = props.navigation.getParam('data');
 
   const seniorData = data.getSeniors
   const relation = seniorData.relation
