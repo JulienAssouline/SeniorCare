@@ -63,9 +63,9 @@ const ProfileScreen = props => {
       <View style={styles.Profile}>
         <Image style={styles.ProfileImage}
           style={{ width: 200, height: 200, borderRadius: 100 }}
-          source={{ uri: data.getKeyContactProfile.avatar }}
+          source={{ uri: data.getKeyContactProfile && data.getKeyContactProfile.avatar  }}
         />
-        <Text style={styles.ProfileName}> {data.getKeyContactProfile.fullname} </Text>
+        <Text style={styles.ProfileName}> {data.getKeyContactProfile &&data.getKeyContactProfile.fullname} </Text>
       </View>
       <TouchableOpacity
         style={styles.ProfileButton}

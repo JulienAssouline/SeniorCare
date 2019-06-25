@@ -14,10 +14,12 @@ import CigSmoke from './CigSmoke'
 
 const mapStateToProps = state => {
 	const { cigSmoking, pets, cannabis } = state.postJob.houseDetails
+	const { formPosition } = state.postJob.position
 	return {
 		cigSmoking: cigSmoking,
 		pets: pets,
 		cannabis: cannabis,
+		formPosition: formPosition,
 	}
 }
 
@@ -42,9 +44,14 @@ const HouseDetails = props => {
 		<ScrollView style={backgroundStyles.background}>
 			<PostJobTop
 				title='House Details'
-				currentPosition={1}
-				stepCount={1}
+				currentPosition={props.formPosition}
+				stepCount={2}
 			/>
+			{/* <PostJobTop
+				title="Senior's Profile"
+				currentPosition={props.formPosition}
+				stepCount={8}
+			/> */}
 
 			<Formik
 				initialValues={initialFormValues}

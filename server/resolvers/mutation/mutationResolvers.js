@@ -28,8 +28,9 @@ module.exports = {
 		// 	return dataSources.mutationDelete(input)
 		// },
 		async addJobRequest(parent, { input }, { dataSources }) {
-			await dataSources.jobsDatabase.addJobRequest(input)
+			const jobId = await dataSources.jobsDatabase.addJobRequest(input)
 			await dataSources.seniorDatabase.addSenior(input)
+			await dataSources.servicesDatabase.addJobServices({jobId, ...input})
 			return {
 				message: 'success'
 			}
