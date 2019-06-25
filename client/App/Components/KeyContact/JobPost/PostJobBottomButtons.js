@@ -40,8 +40,9 @@ const PostJobBottomButtons = props => {
 				storeReduxFunction(storeReduxData)
 				
 				if (props.formPosition === lastPosition ) {
-					if (props.completedSections.includes(props.overviewPosition)) {
+					if (!props.completedSections.includes(props.overviewPosition)) {
 						props.completedSections.push(props.overviewPosition)
+						props.onOverviewUpdate(++props.overviewPosition)
 					} 
 					props.navigation.navigate('Overview')
 				} else {

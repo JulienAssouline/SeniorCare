@@ -131,9 +131,10 @@ const SearchScreen = (props) => {
       {
         data.getCaregiver.map((d,i) => (
           <TouchableOpacity
-              style={styles.ProfileButton}
-              onPress={handleGoToCaregiverDetails}
-            >
+						key={i}
+						style={styles.ProfileButton}
+						onPress={handleGoToCaregiverDetails}
+					>
           <View style = {styles.searchContainer} key = {i}>
             <Avatar
               icon={{name: 'user', type: 'font-awesome'}}

@@ -41,8 +41,8 @@ const initialState = {
 	postJob: {
 		position: {
 			formPosition: 0,
-			overviewPosition: 0,
-			completedSections: []
+			overviewPosition: 1,
+			completedSections: [0]
 		},
 		basicInformation: {
 			title: '',

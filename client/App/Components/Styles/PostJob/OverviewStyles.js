@@ -1,11 +1,17 @@
 import { StyleSheet } from 'react-native'
 
-const appYellow = '#FFAD05'
-const appGreyText = '#525252'
-
-
+const mainAppBlue = '#244392'
+const backgroundBlue = '#EEF5FB'
+const yellowBackground = '#FFAD05'
+const greyText = '#525252'
+const greyBorder = '#E6E6E6'
 
 export const overview = StyleSheet.create({
+	mainContainer: {
+		flex: 1,
+		flexDirection: 'column',
+	},
+
 	explanationContainer: {
 		padding: 16,
 	},	
@@ -16,7 +22,7 @@ export const overview = StyleSheet.create({
 	},
 
 	description: {
-		color: appGreyText,
+		color: greyText,
 		fontSize: 18,
 		marginVertical: 16,
 	},
@@ -26,7 +32,7 @@ export const overview = StyleSheet.create({
 	},
 
 	buttonIcon: {
-		backgroundColor: appYellow
+		backgroundColor: yellowBackground
 	},
 
 	checkedIcon: {
@@ -34,9 +40,22 @@ export const overview = StyleSheet.create({
 	},
 
 	overviewItem: {
+		backgroundColor: backgroundBlue,
 		borderBottomWidth: 1,
+		borderBottomColor: greyBorder,
 		marginVertical: 0,
 		paddingVertical: 10,
 		paddingHorizontal: '10%',
 	},
+})
+
+export const overviewBottomButton = StyleSheet.create({
+	buttonContainer: {
+	},
+	
+	button: {
+		backgroundColor: mainAppBlue,
+		borderRadius: 0,
+		paddingVertical: 20,
+	}
 })
