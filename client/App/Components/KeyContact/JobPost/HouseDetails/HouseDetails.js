@@ -12,6 +12,13 @@ import Cannabis from './Cannabis'
 import Pets from './Pets'
 import CigSmoke from './CigSmoke'
 
+
+//{/* <PostJobTop
+// title='House Details'
+// currentPosition={1}
+// stepCount={1}
+///> */}
+
 const mapStateToProps = state => {
 	const { cigSmoking, pets, cannabis } = state.postJob.houseDetails
 	const { formPosition } = state.postJob.position
@@ -33,7 +40,7 @@ const mapDispatchToProps = dispatch => {
 }
 
 const HouseDetails = props => {
-
+	console.log('housedetails props ', props)
 	const initialFormValues = {
 		cigSmoking: props.cigSmoking,
 		pets: props.pets,
@@ -43,9 +50,9 @@ const HouseDetails = props => {
 	return (
 		<ScrollView style={backgroundStyles.background}>
 			<PostJobTop
-				title='House Details'
-				currentPosition={props.formPosition}
-				stepCount={2}
+        title='House Details'
+        currentPosition={props.formPosition}
+        stepCount={1}
 			/>
 			{/* <PostJobTop
 				title="Senior's Profile"

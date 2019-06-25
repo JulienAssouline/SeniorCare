@@ -80,6 +80,10 @@ const Overview = props => {
 		props.navigation.navigate('JobPostSubmit')
 	}
 
+	const handleServiceDetails = () => {
+		props.navigation.navigate('ServiceDetails')
+	}
+
 	return (
 		<View style={overview.mainContainer}>
 			<ScrollView style={backgroundStyles.background}>

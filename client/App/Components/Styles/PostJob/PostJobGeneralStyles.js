@@ -10,33 +10,15 @@ export const general = StyleSheet.create({
 		fontSize: 22,
 		fontWeight: '500',
 	},
-})
-
-export const bottomButtons = StyleSheet.create({
-	buttonContainer: {
-		flex: 1,
-		flexDirection: 'row',
+	title: {
+		marginBottom: 10
 	},
-
-	backContainer: {
-		width: '50%',
+	formInputTitle: {
+		marginLeft: 10,
+		marginTop: 20
 	},
-
-	nextContainer: {
-		width: '50%',
-	},
-
-	backButton: {
-		backgroundColor: backButtonGrey,
-		borderRadius: 0,
-	},
-	
-	nextButton: {
-		backgroundColor: mainAppBlue,
-		borderRadius: 0,
-	},
-
-	backButtonText: {
-		color: darkGreyText,
+	rate: {
+		textAlign: 'center',
+		fontSize: 18
 	},
 })
