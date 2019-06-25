@@ -82,7 +82,7 @@ module.exports = gql`
 		key_contact_id: ID
 		date_created: Date
 		title: String
-		start_date: String
+		start_date: Date
 		end_date: String
 		address: String
 		city:String

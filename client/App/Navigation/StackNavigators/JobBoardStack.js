@@ -37,20 +37,6 @@ export const JobBoardStack = createStackNavigator(
 
 )
 
-// {
-//   defaultNavigationOptions: {
-//     title: 'Job Dashboard',
-//     navigationOptions: {
-//       tabBarLabel: 'Job Dashboard',
-//       headerRight:'HELLO',
-//     },
-//     headerTintColor: '#000',
-//     headerTitleStyle: { color: '#000', fontFamily: 'SFProText-Light' },
-//     headerStyle: {
-//       color: '#000',
-//       backgroundColor: '#f8f8f8'
-//     },
-//   },
 
 // }
 // This hides bottom tab navigator for post a job
@@ -68,11 +54,4 @@ JobBoardStack.navigationOptions = ({ navigation }) => {
 }
 
 
-    // (
-      //   <Button
-      //     title =""
-      //     onPress={() => alert('This is a button!')}
-      //     title="Info"
-      //     color="#fff"
-      //   />
-      // ),
+  

@@ -9,7 +9,8 @@ import calcAge from "../utils/calcAge"
 import checkCognitoSession from "../utils/checkCognitoSession"
 import { Avatar, Button } from 'react-native-elements'
 import MessageButton from "./MessageButton"
-import { ADD_CONVERSATION_MUTATION } from "../../graphql-queries/mutation"
+import {ADD_CONVERSATION_MUTATION} from "../../graphql-queries/mutation"
+import Loading from '../Loading/Loading'
 import { GET_CAREGIVER_CONVO } from "../../graphql-queries/queries"
 import { connect } from 'react-redux'
 
@@ -27,6 +28,7 @@ const mapDispatchToProps = dispatch => {
 
 // AWS Amplify modular import
 import Auth from '@aws-amplify/auth'
+
 
 const GET_CAREGIVERS = gql`
    query GetCaregiver($input: FilterInput!) {
@@ -69,7 +71,7 @@ const SearchScreen = (props) => {
 
   const addConversation = useMutation(ADD_CONVERSATION_MUTATION);
 
-  if (data.getCaregiver === undefined) { return (<Text> ...loading </Text>) }
+  if (data.getCaregiver === undefined) { return (<Loading/>)}
 
   if (data.getCaregiver.length === 0) { return (<Text> No Results Found </Text>) }
 

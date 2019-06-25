@@ -7,6 +7,7 @@ import styles from '../../Styles/Profile/Senior/Senior'
 import Icons from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import calcAge from '../../utils/calcAge';
+import Loading from '../../Loading/Loading'
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
@@ -35,8 +36,8 @@ const Senior = props => {
   const { data, error, loading } = useQuery(GET_SENIOR, {
     variables: { id: props.key_contact_id }
   })
-
-  if (data.getKeyContactProfile === undefined) { return (<Text> ...loading </Text>) }
+  
+  if (data.getKeyContactProfile === undefined) { return <Loading/>}
   // calcAge(data.getKeyContactProfile)
 
   const seniorData = data.getKeyContactProfile.getSeniors
