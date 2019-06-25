@@ -43,7 +43,10 @@ export default BasicInformation = props => {
 						{props.sectionData.address}
 					</Text>
 					<Text style={sectionContent.dualColumnValue}>
-						{props.sectionData.city}, {props.sectionData.province}
+						{props.sectionData.city && props.sectionData.province ?
+							`${props.sectionData.city}, ${props.sectionData.province}` :
+							`${props.sectionData.city}${props.sectionData.province}`
+						}
 					</Text>
 					<Text style={sectionContent.dualColumnValue}>
 						{props.sectionData.postalCode}

@@ -76,8 +76,6 @@ const PostJobBottomButtons = props => {
 			/>
 			<Button
 				title="Next"
-				containerStyle={bottomButtons.nextContainer}
-				buttonStyle={bottomButtons.nextButton}
 				onPress={() => handleFormPosition(true)}
 				buttonStyle={style.next}
 				containerStyle={style.containerNext}

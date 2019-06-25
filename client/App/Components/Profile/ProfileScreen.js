@@ -45,7 +45,7 @@ const ProfileScreen = props => {
   const { data, error, loading } = useQuery(GET_KEYCONTACT, {
     variables: { id }
   })
-console.log('here is my', data)
+
   if (loading || (data && data.getKeyContactProfile === null)) {
     return (<Loading/>)
   }

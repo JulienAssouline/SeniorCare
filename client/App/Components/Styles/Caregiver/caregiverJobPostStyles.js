@@ -66,6 +66,7 @@ export const jobPostStyles = StyleSheet.create({
 	},
 
 	serviceText: {
-		color: mainTextPurple
+		color: mainTextPurple,
+		textTransform: 'capitalize',
 	},
 })
