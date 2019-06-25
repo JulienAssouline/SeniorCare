@@ -6,13 +6,13 @@ import Icons from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Edit = () => {
- 
- 
+
+
   return (
     <ScrollView style={styles.MainContainer}>
 
 <Text>Name</Text>
-<TextInput style={{height: 40}}
+<TextInput style={{height: 40, borderColor: '#d6d7da', borderWidth: 1}}
           placeholder="Type here to translate!"/>
       {/* <View style={styles.Profile}>
         <Image style={styles.ProfileImage}

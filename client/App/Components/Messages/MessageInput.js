@@ -11,7 +11,7 @@ import { List, ListItem } from 'react-native-elements'
 
 const MessageInput = (props) => {
   const [value, setValue] = useState("");
-      const [submit, setSubmit] = useState("")
+  const [submit, setSubmit] = useState("")
 
   function handleChange(text) {
     setValue(text)

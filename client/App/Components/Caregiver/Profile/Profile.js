@@ -14,7 +14,7 @@ const mapStateToProps = state =>{
   }
 }
 const GET_CAREGIVERPROFILE = gql`
-  query getCaregiverProfile($id: ID!){ 
+  query getCaregiverProfile($id: ID!){
     getCaregiverProfile(id: $id){
       id
       fullname
@@ -24,6 +24,8 @@ const GET_CAREGIVERPROFILE = gql`
       num_hired
       birthdate
       hourly_rate
+      phone_number
+      email
       gender
       availability
       average_rating
@@ -44,11 +46,9 @@ const Profile = props => {
     props.navigation.navigate('JobDashboard')
   }
 
-
   const handleGoToHelp = () => {
     props.navigation.navigate('Help')
   }
-
 
   const handleGoToAccount = (id) => {
     props.navigation.navigate('Account', {
@@ -56,7 +56,7 @@ const Profile = props => {
       data: data.getCaregiverProfile
     })
   }
- 
+
   return (
     <ScrollView style={styles.MainContainer}>
       <View style={styles.Profile}>
