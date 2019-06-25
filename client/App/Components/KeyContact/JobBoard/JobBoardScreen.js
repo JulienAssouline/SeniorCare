@@ -39,6 +39,7 @@ const JobBoardScreen = (props) => {
       />
       </TouchableOpacity>
  
+ <JobBoardJobs/>
     </ScrollView>
   )
 }

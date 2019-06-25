@@ -16,6 +16,7 @@ class KeyContactDatabase extends DataSource {
 
         let user_id = input.id
 
+
         console.log(user_id)
 
         // !input.user_id ? user_id = authenticate(app, req) : user_id = input.user_id
@@ -29,6 +30,7 @@ class KeyContactDatabase extends DataSource {
 
         return result.rows[0]
       } catch (e) {
+        console.log('data for congnito',e)
         throw e
       }
     }

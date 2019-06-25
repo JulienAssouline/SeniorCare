@@ -168,8 +168,6 @@ module.exports = gql`
 		addJobRequest(input: NewJobObject!): MessageResponse!
 	}
 
-
-
   type addConversationResponse {
     id: ID
   }

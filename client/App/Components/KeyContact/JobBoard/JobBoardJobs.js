@@ -1,72 +1,92 @@
-// import React, {useEffect, useState} from 'react'
-// import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
-// import { Button } from 'react-native-elements'
-// import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
-// import gql from 'graphql-tag'
-// import { useQuery } from 'react-apollo-hooks'
-// import Loading from '../../Loading/Loading'
+import React, {useEffect, useState} from 'react'
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { Button, Card } from 'react-native-elements'
+import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
+import gql from 'graphql-tag'
+import { useQuery } from 'react-apollo-hooks'
+import Loading from '../../Loading/Loading'
 
-// const ARCHIVED_JOBS = gql `
-//   query{
-//     ArchivedJobs{
-//       id
-//       title
-//       date_created
-//       start_date
-//       hourly_rate
-//     }
-//   }
-// `
+const ARCHIVED_JOBS = gql `
+  query{
+    ArchivedJobs{
+      id
+      title
+      date_created
+      start_date
+      hourly_rate
+      key_contact_id
+    }
+  }
+`
 
-// const JobBoardJobs = (props) => {
+const JobBoardJobs = (props) => {
 
-//   const [jobs, setJobs] = useState({});
+  const [jobs, setJobs] = useState({});
 
-//   const { data, error, loading } = useQuery(ARCHIVED_JOBS);
-//   console.log('heree my data',data)
+  const { data, error, loading } = useQuery(ARCHIVED_JOBS);
 
-//   if(loading){
-//     return <Loading/>
-//   };
-//   if (error){
-//     return <Text>Error!</Text>
-//   }
 
-//     return(
-//       <ScrollView>
-//         {data.ArchivedJobs.map(elem => (
+  if(loading){
+    return <Loading/>
+  };
+  if (error){
+    return <Text>Error!</Text>
+  }
 
-            
-//          <ScrollView> 
-//           <View style={styles.MainView}>
+  return(
+    <ScrollView style={styles.MainContainer}>
+    {data.ArchivedJobs.map(elem =>{
+        {console.log('all my datess',elem)}
 
-//           <View>
-//           {console.log('all my datess',elem.date)}
-// //             <Text style={styles.DateText}> Posted {dateCreated}</Text>
-// //             <Text onPress={ () => onclick(elem.id)}>...</Text>
-// //             <Text key = {elem.id} style={styles.JobText}> {elem.title}</Text> 
-// //           </View>
+      let date = new Date(parseInt(elem.date_created));
+      let options = {
+        month: 'long', year: 'numeric', day: 'numeric',
+        };
+      let dateCreated = date.toLocaleDateString('en', options);
 
-// //           <View style={styles.JobInfo}>
-// //             <Text style={{fontSize: 16}}> Starts {startDate}</Text>
-// //             <Text style={{fontSize: 16}}> ${elem.hourly_rate}/hr</Text>  
-// //           </View>
+      let newDate = new Date(parseInt(elem.start_date));
+      let startDate = newDate.toLocaleDateString('en',options)
+
+return(
  
-//           </View>
-//           </ScrollView> 
-//         ))}
+    <ScrollView>
+      <View style={styles.CutCard}>
+      <View>
+        <Card containerStyle={styles.CutCard}>
+        <View>
+          <View>
+            <Text style ={ styles.DateText}> Posted {dateCreated}</Text>
+            <Text key = {elem.id} style={styles.JobText}> {elem.title}</Text> 
+          </View>
 
+          <View style={styles.JobInfo}>
+            <Text style={{fontSize: 16}}> Starts {startDate}</Text>
+            <Text style={{fontSize: 16}}> ${elem.hourly_rate}/hr</Text>  
+          </View>
+        </View>
 
-//       </ScrollView>
-//     )
-// }
-  
+        </Card>    
+      </View> 
 
+      <View>
+        <Card containerStyle={styles.Applicants}>
+        <Text>3</Text>
+        <Text>{elem.id}</Text>
+        <Text featuredTitle={styles.JobText}>Applicants</Text>
+        </Card>        
+      </View> 
+      </View>
 
-
-  
+    </ScrollView>
     
+)
 
-// export default JobBoardJobs
+})}
+</ScrollView>
+  )
+}
+    
+export default JobBoardJobs
 
 
+  
