@@ -31,7 +31,7 @@ const mapDispatchToProps = dispatch => {
 
 const SeniorLanguage = props => {
 	const initialFormValues = {
-		language: '',
+		language: props.language,
 	}
 
 	return (		

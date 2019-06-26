@@ -56,7 +56,7 @@ const configurations = {
 
 const options = {
   tabBarPosition: 'bottom',
-  swipeEnabled: true,
+  swipeEnabled: false,
   animationEnabled: true,
   navigationOptions: {
     tabBarVisible: true

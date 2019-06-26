@@ -31,7 +31,7 @@ const mapDispatchToProps = dispatch => {
 
 const SeniorBio = props => {
 	const initialFormValues = {
-		bio: '',
+		bio: props.bio,
 	}
 
 	return (

@@ -51,8 +51,8 @@ const Account = props => {
   return (
     <ScrollView style={styles.MainContainer}>
       <Text style={styles.Title}> Phone & Email</Text>
-      <Text style={styles.phoneNumber}> {`Number: ${data.phone_number}`} </Text>
-      <Text style={styles.email}> {`Email: ${data.email}`} </Text>
+      <Text style={styles.phoneNumber}> {`Number: ${data && data.phone_number}`} </Text>
+      <Text style={styles.email}> {`Email: ${data && data.email}`} </Text>
 
       <Text style={styles.Title}> Notifications</Text>
       <TouchableOpacity

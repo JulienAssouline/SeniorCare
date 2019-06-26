@@ -32,7 +32,7 @@ const mapDispatchToProps = dispatch => {
 
 const SeniorRelation = props => {
 	const initialFormValues = {
-		relationship: '',
+		relationship: props.relationship,
 	}
 
 	return (

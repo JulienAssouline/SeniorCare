@@ -1,14 +1,15 @@
 import React from 'react'
 
-import { View, Text } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 
 import { Formik } from 'formik'
 import { connect } from 'react-redux'
 
+import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+
 import PostJobBottomButtons from '../PostJobBottomButtons'
-import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
-import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles';
 
 const mapStateToProps = state => {
 	const { preferredGender, availability } = state.postJob.caregiverPreferences
@@ -60,68 +61,70 @@ const CaregiverPref1 = props => {
 				} = formikProps
 
 				return (
-					<View>
-						<View>
-							<Text style={general.question}>Availability</Text>
-							<View style={style.splitButtonContainer}>
-								<Button
-									title='Live in'
-									titleStye={values.availability === 'livein' ? postJobButtons.selectedText : postJobButtons.deselectedText}
-									containerStyle={postJobButtons.buttonContainer}
-									buttonStyle={values.availability === 'livein' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
-									type={values.availability === 'livein' ? 'solid' : 'outline'}
-									onPress={() => setFieldValue('availability', 'livein')}
-								/>
-								<Button
-									title='Live out'
-									titleStye={values.availability === 'liveout' ? postJobButtons.selectedText : postJobButtons.deselectedText}
-									containerStyle={postJobButtons.buttonContainer}
-									buttonStyle={values.availability === 'liveout' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
-									type={values.availability === 'liveout' ? 'solid' : 'outline'}
-									onPress={() => setFieldValue('availability', 'liveout')}
-								/>
+					<>
+						<ScrollView style={createSeniorProfile.mainContainer}>
+							<View style={general.sectionContainer}>
+								<Text style={general.question}>Availability</Text>
+								<View style={postJobButtons.mainButtonContainer}>
+									<Button
+										title='Live in'
+										titleStye={values.availability === 'LIVEIN' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+										containerStyle={postJobButtons.buttonContainer}
+										buttonStyle={values.availability === 'LIVEIN' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+										type={values.availability === 'LIVEIN' ? 'solid' : 'outline'}
+										onPress={() => setFieldValue('availability', 'LIVEIN')}
+									/>
+									<Button
+										title='Live out'
+										titleStye={values.availability === 'LIVEOUT' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+										containerStyle={postJobButtons.buttonContainer}
+										buttonStyle={values.availability === 'LIVEOUT' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+										type={values.availability === 'LIVEOUT' ? 'solid' : 'outline'}
+										onPress={() => setFieldValue('availability', 'LIVEOUT')}
+									/>
+								</View>
 							</View>
-						</View>
 
-						<View>
-							<Text style={general.question}>Preferred Gender of the caregiver?</Text>
-							<View style={style.splitButtonContainer}>
-								<Button
-									title='Female'
-									titleStye={values.preferredGender === 'female' ? postJobButtons.selectedText : postJobButtons.deselectedText}
-									containerStyle={postJobButtons.buttonContainer}
-									buttonStyle={values.preferredGender === 'female' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
-									type={values.preferredGender === 'female' ? 'solid' : 'outline'}
-									onPress={() => setFieldValue('preferredGender', 'female')}
-								/>
-								<Button
-									title='Male'
-									titleStye={values.preferredGender === 'male' ? postJobButtons.selectedText : postJobButtons.deselectedText}
-									containerStyle={postJobButtons.buttonContainer}
-									buttonStyle={values.preferredGender === 'male' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
-									type={values.preferredGender === 'male' ? 'solid' : 'outline'}
-									onPress={() => setFieldValue('preferredGender', 'male')}
-								/>
+							<View style={general.sectionContainer}>
+								<Text style={general.question}>Preferred Gender of the caregiver?</Text>
+								<View style={postJobButtons.mainButtonContainer}>
+									<Button
+										title='Female'
+										titleStye={values.preferredGender === 'FEMALE' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+										containerStyle={postJobButtons.buttonContainer}
+										buttonStyle={values.preferredGender === 'FEMALE' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+										type={values.preferredGender === 'FEMALE' ? 'solid' : 'outline'}
+										onPress={() => setFieldValue('preferredGender', 'FEMALE')}
+									/>
+									<Button
+										title='Male'
+										titleStye={values.preferredGender === 'MALE' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+										containerStyle={postJobButtons.buttonContainer}
+										buttonStyle={values.preferredGender === 'MALE' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+										type={values.preferredGender === 'MALE' ? 'solid' : 'outline'}
+										onPress={() => setFieldValue('preferredGender', 'MALE')}
+									/>
+								</View>
+								<View style={postJobButtons.mainButtonContainer}>
+									<Button
+										title='Other'
+										titleStye={values.preferredGender === 'OTHER' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+										containerStyle={postJobButtons.buttonContainer}
+										buttonStyle={values.preferredGender === 'OTHER' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+										type={values.preferredGender === 'OTHER' ? 'solid' : 'outline'}
+										onPress={() => setFieldValue('preferredGender', 'OTHER')}
+									/>
+									<Button
+										title='No preference'
+										titleStye={values.preferredGender === 'NOPREFERENCE' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+										containerStyle={postJobButtons.buttonContainer}
+										buttonStyle={values.preferredGender === 'NOPREFERENCE' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+										type={values.preferredGender === 'NOPREFERENCE' ? 'solid' : 'outline'}
+										onPress={() => setFieldValue('preferredGender', 'NOPREFERENCE')}
+									/>
+								</View>
 							</View>
-							<View style={style.splitButtonContainer}>
-								<Button
-									title='Other'
-									titleStye={values.preferredGender === 'other' ? postJobButtons.selectedText : postJobButtons.deselectedText}
-									containerStyle={postJobButtons.buttonContainer}
-									buttonStyle={values.preferredGender === 'other' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
-									type={values.preferredGender === 'other' ? 'solid' : 'outline'}
-									onPress={() => setFieldValue('preferredGender', 'other')}
-								/>
-								<Button
-									title='No preference'
-									titleStye={values.preferredGender === 'nopreference' ? postJobButtons.selectedText : postJobButtons.deselectedText}
-									containerStyle={postJobButtons.buttonContainer}
-									buttonStyle={values.preferredGender === 'nopreference' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
-									type={values.preferredGender === 'nopreference' ? 'solid' : 'outline'}
-									onPress={() => setFieldValue('preferredGender', 'nopreference')}
-								/>
-							</View>
-						</View>
+						</ScrollView>
 
 						<PostJobBottomButtons
 							navigation={props.navigation}
@@ -132,7 +135,7 @@ const CaregiverPref1 = props => {
 							touched={touched}
 							lastPosition={1}
 						/>
-					</View>
+					</>
 				)
 			}}
 		</Formik>

@@ -7704,14 +7704,6 @@ rmc-feedback@^2.0.0:
     babel-runtime "6.x"
     classnames "^2.2.5"
 
-rn-fetch-blob@^0.10.15:
-  version "0.10.15"
-  resolved "https://registry.yarnpkg.com/rn-fetch-blob/-/rn-fetch-blob-0.10.15.tgz#3526860c1c57e0bf4c09bdbe409c919264afffba"
-  integrity sha512-/m/gurTaPAvR3J843uehHhznj5k89x7XClyO5ejmbspNLNQ4ByF+kZs80wiiKGWntj+Wqo0jJu1goArXEfc0kA==
-  dependencies:
-    base-64 "0.1.0"
-    glob "7.0.6"
-
 rn-game-over@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/rn-game-over/-/rn-game-over-1.0.7.tgz#7dcf53fbd9f328a33b617aafe8aa5a30ee0d9621"

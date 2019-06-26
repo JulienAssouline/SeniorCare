@@ -30,7 +30,7 @@ const mapDispatchToProps = dispatch => {
 
 const SeniorMedicalCondition = props => {
 	const initialFormValues = {
-		medicalCondition: '',
+		medicalCondition: props.medicalCondition,
 	}
 
 	return (		

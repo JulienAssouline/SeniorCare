@@ -69,7 +69,6 @@ const ProfileScreen = props => {
     return (<Loading />)
   }
   if (error) {
-    console.log('my error', error)
     throw (error)
   }
 

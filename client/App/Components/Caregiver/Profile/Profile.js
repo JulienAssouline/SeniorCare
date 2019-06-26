@@ -149,7 +149,6 @@ const pickAnImage = id => {
 }
   return (
     <ScrollView style={styles.MainContainer}>
-
         <View style={styles.Profile}>
         <TouchableOpacity onPress={() => pickAnImage(id)}>
           <Image style={styles.ProfileImage}
