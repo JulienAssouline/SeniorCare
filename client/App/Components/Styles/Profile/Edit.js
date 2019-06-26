@@ -60,6 +60,20 @@ const styles = StyleSheet.create({
       borderColor: '#fff',
       borderStyle: 'solid',
     },
+    inputDesxription: {
+        flex: 1,
+        fontSize: 16,
+        width: '100%',
+        padding: 5,
+        marginTop: 5,
+        marginBottom: 5,
+        borderWidth: 1,
+        color: '#A3A3A3',
+        borderBottomColor: '#A3A3A3',
+        borderColor: '#fff',
+        borderStyle: 'solid',
+        height: 80,
+      },
     inputNumber: {
       flex: 1,
       fontSize: 16,
@@ -84,6 +98,24 @@ const styles = StyleSheet.create({
       padding: 5,
       margin: 10,
       justifyContent: 'center',
+    },
+    headingsText: {
+      fontSize: 18,
+      padding: 0,
+      color: '#244392',
+    },
+    availabilityTextPadding: {
+      marginBottom: 5,
+      fontSize: 18,
+      color: '#244392',
+    },
+    availabilityOptionText: {
+      fontSize: 14,
+      color: "#000000",
+      margin: 5,
+    },
+    fieldContainer: {
+      margin: 10,
     },
     buttonText: {
         flex: 1,

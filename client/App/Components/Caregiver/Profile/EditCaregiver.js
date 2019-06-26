@@ -8,6 +8,7 @@ import { Button, Card } from 'react-native-elements';
 import {ADD_CARGIVER_DETAILS} from "../../../graphql-queries/mutation"
 import { connect } from 'react-redux'
 
+
 const mapStateToProps = state =>{
   const { user_id } = state.user_id
   return{
@@ -72,55 +73,64 @@ function handleGenderChange(text) {
 
   return (
     <ScrollView style={styles.MainContainer}>
-      <Card style={{ zIndex: 100, position: 'relative', width: width, marginLeft: 10 }}>
-
-        <Text>Location</Text>
-        <TextInput style={styles.input}
-                  placeholder="Location"
-                  onChangeText = {(text) => handleNameChange(text)}/>
-        <Text> Birthdate </Text>
-        <DatePickerIOS
-                      date={detailsObj.birthdate}
-                      mode={'date'}
-                      onDateChange={newDate => handleDateChange(newDate)}
-                    />
-        <TextInput style={styles.input}
-                  placeholder="gender"
-                  onChangeText = {(text) => handleGenderChange(text)}/>
-          <View style = {styles.numberInputsContainer}>
+      <Card style={{ zIndex: 100, position: 'absolute', width: width, marginLeft: 10 }}>
+        <View style = {styles.fieldContainer}>
+          <Text style = {styles.headingsText}>Location</Text>
+          <TextInput style={styles.input}
+                    placeholder="Toronto"
+                    onChangeText = {(text) => handleNameChange(text)}/>
+        </View>
+        <View style = {styles.fieldContainer}>
+          <Text style = {styles.headingsText}> Birthdate </Text>
+          <DatePickerIOS
+                        date={detailsObj.birthdate}
+                        mode={'date'}
+                        onDateChange={newDate => handleDateChange(newDate)}
+                      />
+        </View>
+        <View style = {styles.fieldContainer}>
+          <Text style = {styles.headingsText}> Gender </Text>
+          <TextInput style={styles.input}
+                    placeholder="Male\Female\Other"
+                    onChangeText = {(text) => handleGenderChange(text)}/>
+        </View>
+        <View style = {styles.numberInputsContainer}>
             <View>
-              <Text> Years Experience </Text>
+              <Text style = {styles.headingsText}> Years Experience </Text>
               <TextInput
                 keyboardType = "numeric"
                 style={styles.inputNumber}
                 placeholder = {"2"}
                 onChangeText = {(value) => handleNumberChange(value)}
               />
-              </View>
-              <View>
-                <Text> hourly rate </Text>
+            </View>
+            <View >
+                <Text style = {styles.headingsText}> hourly rate </Text>
                 <TextInput
                   keyboardType = "numeric"
                   style={styles.inputNumber}
                   placeholder = {"14"}
                   onChangeText = {(value) => handleHourlyRateChange(value)}
                   />
-              </View>
+            </View>
           </View>
-          <View>
-            <Text> Availability </Text>
+          <View style = {styles.fieldContainer}>
+            <Text style = {styles.availabilityTextPadding}> Availability </Text>
             <View style = {styles.switchContainer}>
               <Switch
                 onValueChange = {(value) => handleAvailabilityChange(value)}
                 value = {availability}
                 />
-                <Text> {detailsObj.availability} </Text>
+                <Text style = {styles.availabilityOptionText}> {detailsObj.availability} </Text>
             </View>
           </View>
-          <TextInput style={styles.input}
-                    placeholder="Description..."
-                    multiline = {true}
-                    onChangeText = {(text) => handleDescChange(text)}/>
+          <View style = {styles.fieldContainer}>
+            <Text style = {styles.headingsText}> Description </Text>
+            <TextInput style={styles.inputDesxription}
+                      placeholder="Description..."
+                      multiline = {true}
+                      onChangeText = {(text) => handleDescChange(text)}/>
+          </View>
           <TouchableOpacity
             style={styles.submitButton}
             onPress={handleResultsPress}
