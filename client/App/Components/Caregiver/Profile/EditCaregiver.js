@@ -21,7 +21,7 @@ let id = props.user_id
 
 const date = new Date()
 
-const [detailsObj, setDetailsObj] = useState({id: id, location: "", birthdate: date, gender: "", availability: "live out", hourly_rate: 14, years_experience: 0, description: "" })
+const [detailsObj, setDetailsObj] = useState({id: id, location: "", birthdate: date, gender: "female", availability: "live out", hourly_rate: 14, years_experience: 0, description: "" })
 
 const [availability, setAvailability] = useState(false)
 
@@ -89,10 +89,46 @@ function handleGenderChange(text) {
                       />
         </View>
         <View style = {styles.fieldContainer}>
-          <Text style = {styles.headingsText}> Gender </Text>
-          <TextInput style={styles.input}
-                    placeholder="Male\Female\Other"
-                    onChangeText = {(text) => handleGenderChange(text)}/>
+          <Text style = {styles.headingsTextGender}> Gender </Text>
+          <View style = {styles.fieldGenderContainer}>
+            <Button
+              onPress={() => handleGenderChange("female")}
+              containerStyle={{ width: "33%" }}
+              buttonStyle={{
+                backgroundColor: detailsObj.gender === "female" ? "#244397" : "white",
+                borderWidth: 1,
+                borderColor: '#244397',
+                borderRadius: 0,
+                borderBottomLeftRadius: 10,
+                borderTopLeftRadius: 10,
+              }}
+              titleStyle={{ color: detailsObj.gender === "female" ? "white" : "#244397" }}
+              title="female" />
+            <Button
+              onPress={() => handleGenderChange("male")}
+              containerStyle={{ width: "33%" }}
+              buttonStyle={{
+                backgroundColor: detailsObj.gender === "male" ? "#244397" : "white",
+                borderWidth: 1,
+                borderColor: '#244397',
+                borderRadius: 0,
+              }}
+              titleStyle={{ color: detailsObj.gender === "male" ? "white" : "#244397" }}
+              title="male" />
+            <Button
+              onPress={() => handleGenderChange("other")}
+              containerStyle={{ width: "33%" }}
+              buttonStyle={{
+                backgroundColor: detailsObj.gender === "other" ? "#244397" : "white",
+                borderWidth: 1,
+                borderColor: '#244397',
+                borderRadius: 0,
+                borderBottomRightRadius: 10,
+                borderTopRightRadius: 10,
+              }}
+              titleStyle={{ color: detailsObj.gender === "other" ? "white" : "#244397" }}
+              title="other" />
+          </View>
         </View>
         <View style = {styles.numberInputsContainer}>
             <View>
@@ -104,7 +140,7 @@ function handleGenderChange(text) {
                 onChangeText = {(value) => handleNumberChange(value)}
               />
             </View>
-            <View >
+            <View>
                 <Text style = {styles.headingsText}> hourly rate </Text>
                 <TextInput
                   keyboardType = "numeric"
@@ -118,6 +154,7 @@ function handleGenderChange(text) {
             <Text style = {styles.availabilityTextPadding}> Availability </Text>
             <View style = {styles.switchContainer}>
               <Switch
+                trackColor = {{true: "#244397"}}
                 onValueChange = {(value) => handleAvailabilityChange(value)}
                 value = {availability}
                 />

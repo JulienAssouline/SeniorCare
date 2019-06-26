@@ -12,7 +12,6 @@ class CaregiverDatabase extends DataSource {
   }
 
   async queryCaregiver(input) {
-
     try {
 
       const selectCaregiver = buildSelect(input)
