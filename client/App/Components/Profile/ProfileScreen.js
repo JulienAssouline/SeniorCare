@@ -79,7 +79,7 @@ const ProfileScreen = props => {
   const handleGoToSeniors = () => {
     props.navigation.navigate('Seniors', {
       data: data.getKeyContactProfile
-    })
+      })
   }
 
 

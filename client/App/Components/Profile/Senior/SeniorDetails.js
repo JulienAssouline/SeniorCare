@@ -8,10 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import calcAge from '../../utils/calcAge';
 
 const SeniorDetails = (props) => {
-  const data = props.navigation.getParam('seniorData');
-
-  console.log(data)
-  const seniorData = data[0]
+  const seniorData = props.navigation.getParam('data');
 
   calcAge(seniorData)
   return (
