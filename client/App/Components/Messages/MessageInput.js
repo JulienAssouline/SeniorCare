@@ -10,7 +10,7 @@ import { List, ListItem } from 'react-native-elements'
 
 
 const MessageInput = (props) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("")
   const [submit, setSubmit] = useState("")
 
   function handleChange(text) {
@@ -34,6 +34,7 @@ const MessageInput = (props) => {
           className={"input-base"}
           onChangeText={(text) => handleChange(text)}
           value={value}
+          multiline={true}
         >
         </TextInput>
         <TouchableOpacity onPress={() => handleClick(props.addMessages, props.user_id)}>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ScrollView, Text, View, KeyboardAvoidingView, ImageBackground } from 'react-native'
+import { Dimension, ScrollView, Text, View, KeyboardAvoidingView, ImageBackground } from 'react-native'
 import styles from '../Styles/Messages/MessagesStyles'
 import { useQuery, useMutation, useSubscription } from 'react-apollo-hooks'
 import { ADD_MESSAGES } from "../../graphql-queries/mutation"
@@ -45,6 +45,8 @@ const MessagesScreen = (props) => {
 
   const addMessages = useMutation(ADD_MESSAGES);
 
+
+  let height = Dimensions.get("window").height
   if (queryData.getMessages === undefined) { return <Loading /> }
 
   return (

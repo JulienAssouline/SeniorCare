@@ -22,8 +22,6 @@ const ConversationScreen = (props) => {
     variables: { key_contact_id: props.user_id }
   })
 
-  //Use this to access key_contact_id. It's a prop!
-  //props.key_contact_id
 
   if (data.getCaregiverConvos === undefined) { return (<Loading />) }
 
