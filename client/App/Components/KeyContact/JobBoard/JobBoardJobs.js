@@ -35,8 +35,8 @@ const JobBoardJobs = (props) => {
 
   return (
     <ScrollView style={styles.MainContainer}>
-      {data.ArchivedJobs.map(elem => {
 
+      {data.ArchivedJobs.map(elem => {
         let date = new Date(parseInt(elem.date_created));
         let options = {
           month: 'long', year: 'numeric', day: 'numeric',

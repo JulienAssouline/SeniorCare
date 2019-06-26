@@ -17,6 +17,15 @@ import files from '../utils/files'
 
 Amplify.configure(config)
 
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {
+  Container,
+  Input,
+  Card,
+  CardItem
+} from 'native-base'
+
+const yellowCurve = require('../../Images/WelcomeScreen/yellow-curve.png')
 
 const mapStateToProps = state => {
   return {
@@ -164,6 +173,8 @@ const ProfileScreen = props => {
           <Text style={styles.ProfileName}> {data.getKeyContactProfile && data.getKeyContactProfile.fullname} </Text>
         </TouchableOpacity>
       </View>
+      <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5) }}>
+
       <TouchableOpacity
         style={styles.ProfileButton}
         onPress={handleGoToSeniors}
@@ -182,7 +193,11 @@ const ProfileScreen = props => {
         <Text style={styles.ProfileButtonText}> Help Center</Text>
         <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
       </TouchableOpacity>
-
+      </Card>
+      <Image
+        source={yellowCurve}
+        style={{ height: hp(44), width: wp(100), zIndex: 0, position: 'relative', padding: 0, margin: 0 }}
+      />
 
     </ScrollView >
   )

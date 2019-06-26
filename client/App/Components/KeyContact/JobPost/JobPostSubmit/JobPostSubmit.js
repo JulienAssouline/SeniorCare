@@ -3,29 +3,35 @@ import React, { useState } from 'react'
 import { ScrollView, Text, View} from 'react-native'
 import { Avatar, Button, ListItem } from 'react-native-elements'
 
-import { useMutation } from 'react-apollo-hooks'
+import { useQuery, useMutation } from 'react-apollo-hooks'
 import { SUBMIT_JOB_POST } from '../../../../graphql-queries/mutation'
+import { GET_KEY_CONTACT } from '../../../../graphql-queries/queries'
 import { connect } from 'react-redux'
 
-import { submitJobOverview } from '../../../Styles/PostJob/SubmitJobStyles'
+import { listItemStyles, submitJobOverview } from '../../../Styles/PostJob/SubmitJobStyles'
 
 import SubmitJobAccordion from './SubmitJobAccordion'
 
 const mapStateToProps = state => {
-	const { postJob } = state
+	const { postJob, user_id } = state
 	return {
+		user_id: user_id,
 		postJob: postJob
 	}
 }
 
 const initialActiveSections = {
 	basicInformation: true,
+	serviceDetails: true,
 	seniorDetails: true,
 	houseDetails: true,
 	caregiverPreferences: true,
 }
 
 const JobPostSubmit = props => {
+	const { data, loading, error } = useQuery(GET_KEY_CONTACT, {
+		variables: { id: props.user_id}
+	})
 	const submitJobPost = useMutation(SUBMIT_JOB_POST)
 	const [activeSections, setActiveSections] = useState(initialActiveSections)
 
@@ -40,7 +46,7 @@ const JobPostSubmit = props => {
 			console.log(props.postJob)
 			const result = await submitJobPost({
 				variables: {input: {
-					key_contact_id: 'ThisIsSimonSternKeyContactSeed',
+					key_contact_id: props.user_id,
 					basicInformation: {
 						title: props.postJob.basicInformation.title,
 						start_date: props.postJob.basicInformation.startDate,
@@ -50,6 +56,21 @@ const JobPostSubmit = props => {
 						province: props.postJob.basicInformation.province,
 						postal_code: props.postJob.basicInformation.postalCode,
 						hourly_rate: props.postJob.basicInformation.rate,
+					},
+					serviceDetails: {
+						appointments: props.postJob.serviceDetails.appointments,
+						bathing: props.postJob.serviceDetails.bathing,
+						companionship: props.postJob.serviceDetails.companionship,
+						dressing: props.postJob.serviceDetails.dressing,
+						driving: props.postJob.serviceDetails.driving,
+						errands: props.postJob.serviceDetails.errands,
+						feeding: props.postJob.serviceDetails.feeding,
+						grooming: props.postJob.serviceDetails.grooming,
+						housekeeping: props.postJob.serviceDetails.housekeeping,
+						laundry: props.postJob.serviceDetails.laundry,
+						meal_prep: props.postJob.serviceDetails.mealPrep,
+						mobility: props.postJob.serviceDetails.mobility,
+						shopping: props.postJob.serviceDetails.shopping,
 					},
 					seniorDetails: {
 						fullname: props.postJob.seniorDetails.seniorName,
@@ -77,17 +98,23 @@ const JobPostSubmit = props => {
 		}
 	}
 
+	if (loading) return <View><Text>Loading</Text></View>
+
+	if (error) return <View><Text>Error</Text></View>
+
 	return (
 		<View style={submitJobOverview.mainContainer}>
 			<ScrollView>
 				<View>
 					<ListItem
-						title={'from key contact prop'}
+						title={data.getKeyContactProfile.fullname}
+						titleStyle={listItemStyles.title}
+						containerStyle={listItemStyles.container}
 						leftAvatar={
 							<Avatar
 								rounded
 								size='small'
-								title='key contact prop'
+								title={data.getKeyContactProfile.fullname.substring(0, 2)}
 							/>
 						}
 					/>
@@ -101,6 +128,12 @@ const JobPostSubmit = props => {
 					sectionData={props.postJob.basicInformation}
 					collapsableState={activeSections['basicInformation']}
 					handleCollapsable={() => handleCollapsable('basicInformation')}
+				/>
+				<SubmitJobAccordion
+					sectionName='Service Details'
+					sectionData={props.postJob.serviceDetails}
+					collapsableState={activeSections['serviceDetails']}
+					handleCollapsable={() => handleCollapsable['serviceDetails']}
 				/>
 				<SubmitJobAccordion
 					sectionName='Senior Details'

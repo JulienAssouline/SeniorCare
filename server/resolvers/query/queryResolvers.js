@@ -50,7 +50,6 @@ module.exports = {
 
 	JobPost: {
 		async getKeyContact(parent, { input }, { dataSources }) {
-			console.log(parent)
 			return await dataSources.keyContactDatabase.getKeyContactProfile({id: parent.key_contact_id})
 		},
 

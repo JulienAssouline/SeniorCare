@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 const mapStateToProps = state =>{
   const { user_id } = state.user_id
   return{
-    user_id: user_id
+    user_id: state.user_id
   }
 }
 const GET_CAREGIVERPROFILE = gql`
@@ -50,8 +50,11 @@ const Profile = props => {
   }
 
 
-  const handleGoToAccount = () => {
-    props.navigation.navigate('Account')
+  const handleGoToAccount = (id) => {
+    props.navigation.navigate('Account', {
+      user_id: id,
+      data: data.getCaregiverProfile
+    })
   }
  
   return (
@@ -74,7 +77,7 @@ const Profile = props => {
 
       <TouchableOpacity
         style={styles.ProfileButton}
-        onPress={handleGoToAccount}
+        onPress={() => handleGoToAccount(id)}
       >
         <Text style={styles.ProfileButtonText}> Account</Text>
         <Icons name={`cog`} style={styles.ProfileButtonIcon} />

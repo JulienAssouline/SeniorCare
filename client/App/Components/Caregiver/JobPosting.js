@@ -16,7 +16,7 @@ export default JobPosting = props => {
 		<Card containerStyle={jobPostStyles.mainContainer}>
 						
 			<ListItem
-				title={keyContact.fullname}
+				title={keyContact && keyContact.fullname}
 				titleStyle={jobPostListItemStyles.title}
 				subtitle={`Posted ${moment(dateCreated).format('LL')}`}
 				subtitleStyle={jobPostListItemStyles.subtitle}
@@ -25,10 +25,10 @@ export default JobPosting = props => {
 					<Avatar
 						rounded
 						size='small'
-						title={keyContact.fullname.substring(0,2)}
+						title={keyContact && keyContact.fullname.substring(0,2)}
 						source={{
 							uri:
-								keyContact.avatar && keyContact.avatar,
+								keyContact && keyContact.avatar,
 						}}
 					/>
 				}
