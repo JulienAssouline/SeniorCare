@@ -1,6 +1,7 @@
 module.exports = {
   Query: {
 		async getCaregiver(parent, { input }, { dataSources }){
+			console.log(input)
 			return await dataSources.caregiverDatabase.queryCaregiver(input)
     }, 
     async getCaregiverDetails(parent, input, { dataSources }) {
@@ -46,6 +47,11 @@ module.exports = {
 		async getJobPosts(parent, { input }, { dataSources }) {
 			return await dataSources.jobsDatabase.getJobPosts()
 		},
+    
+		async getKeyContactJobPosts(parent, input, { dataSources }) {
+			console.log('checkpoint A')
+			return await dataSources.jobsDatabase.getKeyContactJobPosts(input)
+		},
 
 		async getJobPost(parent, input, { dataSources }) {
 			return await dataSources.jobsDatabase.getJobPost(input)
@@ -55,6 +61,10 @@ module.exports = {
 	JobPost: {
 		async getKeyContact(parent, { input }, { dataSources }) {
 			return await dataSources.keyContactDatabase.getKeyContactProfile({id: parent.key_contact_id})
+		},
+
+		async applicants(parent, { input }, { dataSources }) {
+			return await dataSources.jobsDatabase.getApplicants(parent)
 		},
 
 		async getBasicInformation(parent, { input }, { dataSources }) {
@@ -76,6 +86,8 @@ module.exports = {
 		async getCaregiverPreferences(parent, { input }, { dataSources }) {
 			return await dataSources.jobsDatabase.getCaregiverPreferences(parent)
 		},
+
+
 	},
 
 	ServiceDetails: {
@@ -83,5 +95,6 @@ module.exports = {
 			return await dataSources.servicesDatabase.getService(parent)
 		},
 	},
+
 
 }

@@ -117,5 +117,16 @@ exports.up = pgm => {
 		);
 	`)
 
+		pgm.sql(`
+		CREATE TABLE "seniorcare"."applicants" (
+			"id" INT NOT NULL,
+			"jobpost_id" INT NOT NULL,
+			"caregiver_id" VARCHAR(255) NOT NULL,
+			"keycontact_id" VARCHAR(255) NOT NULL,
+			"date_created" DATE NOT NULL DEFAULT CURRENT_DATE,
+			FOREIGN KEY (caregiver_id) REFERENCES seniorcare.caregiver (id),
+			FOREIGN KEY (keycontact_id) REFERENCES seniorcare.key_contact (id)
+		);
+	`)
 };
 
