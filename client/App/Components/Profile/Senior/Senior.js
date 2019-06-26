@@ -25,11 +25,9 @@ const data = props.navigation.getParam('data');
   seniorData.forEach((d, i) => {
     calcAge(d)
   })
-  const handleGoToCreateSeniorProfile = () => {
-    props.navigation.navigate('SeniorDetails', { title: 'Test' })
-  }
+
   const handleSeniorDetails = () => {
-    props.navigation.navigate('SeniorDetails', { title: 'Test' })
+    props.navigation.navigate('SeniorDetails', { seniorData:  seniorData})
   }
   return (
     <ScrollView style={styles.MainContainer}>
@@ -52,12 +50,6 @@ const data = props.navigation.getParam('data');
             </TouchableOpacity>
           ))
         }
-          <TouchableOpacity style={styles.SeniorContainer}
-            onPress={handleGoToCreateSeniorProfile}
-          >
-            <Icons name={`plus-circle`} style={styles.SeniorPlusIcon} />
-            <Text style={styles.SeniorName}>Create a new senior profile</Text>
-          </TouchableOpacity>
         </Card>
         <Image
           source={yellowCurve}

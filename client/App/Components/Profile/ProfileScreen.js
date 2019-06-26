@@ -94,7 +94,7 @@ const ProfileScreen = props => {
     })
   }
 
-  // adding the iOS image picker logic 
+  // adding the iOS image picker logic
   const options = {
     title: 'Select Your Profile Picture',
     storageOptions: {

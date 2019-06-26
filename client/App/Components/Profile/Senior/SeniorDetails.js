@@ -7,30 +7,13 @@ import Icons from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import calcAge from '../../utils/calcAge';
 
-const GET_SENIOR = gql`
-query profileVar($id: ID!){
-  getSenior(id: $id){
-    fullname
-    avatar
-    gender
-    birthdate
-    relation
-    language
-    bio
-    medical_condition
-  }
-}
-`;
-
 const SeniorDetails = (props) => {
+  const data = props.navigation.getParam('seniorData');
 
-  const { data, error, loading } = useQuery(GET_SENIOR, {
-    variables: { id: props.id }
-  })
-  if (data.getSenior === undefined) { return (<Text> ...loading </Text>) }
-  const seniorData = data.getSenior
+  console.log(data)
+  const seniorData = data[0]
 
-  calcAge(data.getSenior)
+  calcAge(seniorData)
   return (
     <ScrollView style={styles.MainContainer}>
       <TouchableOpacity style={styles.Senior}
