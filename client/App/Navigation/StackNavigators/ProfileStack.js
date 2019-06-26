@@ -7,7 +7,7 @@ import Help from '../../Components/Profile/Help/Help'
 import AccountDetails from '../../Components/Profile/Account'
 import SeniorDetails from '../../Components/Profile/Senior/SeniorDetails'
 import Edit from '../../Components/Profile/Edit'
-import JobBoard from '../../Components/KeyContact/JobBoard/JobBoardScreen'
+import Overview from '../../Components/KeyContact/JobPost/Overview'
 
 export const ProfileStack = createStackNavigator(
   {
@@ -17,8 +17,11 @@ export const ProfileStack = createStackNavigator(
     Help: {
       screen: Help
     },
-    JobBoard: {
-      screen: JobBoard
+    Overview: {
+      screen: Overview,
+      navigationOptions: {
+        title: 'Overview',
+      }
     },
     Seniors: {
       screen: Senior,

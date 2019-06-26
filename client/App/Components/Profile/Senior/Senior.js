@@ -32,7 +32,7 @@ const data = props.navigation.getParam('data');
     props.navigation.navigate('SeniorDetails', { data:  data})
   }
   const handleGoToCreateSeniorProfile = () => {
-    props.navigation.navigate('JobBoard', { title: 'Job' })
+    props.navigation.navigate('Overview', { title: 'Job' })
   }
   return (
     <ScrollView style={styles.MainContainer}>
