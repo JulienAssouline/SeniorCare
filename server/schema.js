@@ -182,6 +182,8 @@ module.exports = gql`
 		addJobRequest(input: NewJobObject!): MessageResponse!
     addCaregiverDetails(input: CaregiverDetails): addCaregiverDetailsResponse!
     addKeyContactDetails(input: KeyContactDetails): addKeyContactDetailsResponse!
+		changeKeyContactAvatar(input:ProfileDetails): changeAvatarResponse!
+		changeCaregiverAvatar(input:ProfileDetails): changeAvatarResponse!
 	}
 
   input KeyContactDetails {
@@ -323,6 +325,15 @@ module.exports = gql`
 
 	type duplicateRepostMessage{
 		message: String
+	}
+
+	input ProfileDetails {
+		id: ID!
+		avatar: String!
+	}
+
+	type changeAvatarResponse {
+		avatar: String
 	}
 
 `
