@@ -93,6 +93,7 @@ const JobPostSubmit = props => {
 					},
 				}}
 			})
+			console.log(result)
 		} catch(err) {
 			throw err
 		}

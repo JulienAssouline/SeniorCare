@@ -4,20 +4,16 @@ import { ScrollView, Text, View } from 'react-native'
 import { Formik } from 'formik'
 import { connect } from 'react-redux'
 
-import { backgroundStyles } from '../../../Styles/GeneralStyles'
 import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { backgroundStyles } from '../../../Styles/GeneralStyles'
+import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+import { overview } from '../../../Styles/PostJob/OverviewStyles'
 
 import PostJobTop from '../PostJobTop'
 import PostJobBottomButtons from '../PostJobBottomButtons'
 import Cannabis from './Cannabis'
 import Pets from './Pets'
 import CigSmoke from './CigSmoke'
-
-//{/* <PostJobTop
-// title='House Details'
-// currentPosition={1}
-// stepCount={1}
-///> */}
 
 const mapStateToProps = state => {
 	const { cigSmoking, pets, cannabis } = state.postJob.houseDetails
@@ -47,7 +43,7 @@ const HouseDetails = props => {
 	}
 
 	return (
-		<ScrollView style={{...backgroundStyles.background, ...general.mainContainer}}>
+		<View style={{...backgroundStyles.background, ...overview.mainContainer}}>
 			<PostJobTop
         title='House Details'
         currentPosition={props.formPosition}
@@ -80,36 +76,38 @@ const HouseDetails = props => {
 					} = formikProps
 
 					return (
-						<View>
-							<CigSmoke
-								values={values}
-								setFieldValue={setFieldValue}
-							/>
+						<>
+							<ScrollView style={createSeniorProfile.mainContainer}>
+								<CigSmoke
+									values={values}
+									setFieldValue={setFieldValue}
+								/>
 
-							<Pets
-								values={values}
-								setFieldValue={setFieldValue}
-							/>
+								<Pets
+									values={values}
+									setFieldValue={setFieldValue}
+								/>
 
-							<Cannabis
-								values={values}
-								setFieldValue={setFieldValue}
-							/>
-							<PostJobBottomButtons
-								navigation={props.navigation}
-								storeReduxData={values}
-								storeReduxFunction={props.onHouseDetailsUpdate}
-								handleSubmit={handleSubmit}
-								errors={errors}
-								touched={touched}
-								lastPosition={0}
-							/>
-						</View>
+								<Cannabis
+									values={values}
+									setFieldValue={setFieldValue}
+									/>
+							</ScrollView>
+								<PostJobBottomButtons
+									navigation={props.navigation}
+									storeReduxData={values}
+									storeReduxFunction={props.onHouseDetailsUpdate}
+									handleSubmit={handleSubmit}
+									errors={errors}
+									touched={touched}
+									lastPosition={0}
+								/>
+						</>
 					)
 				}}
 			</Formik>
 
-		</ScrollView>
+		</View>
 	)
 }
 

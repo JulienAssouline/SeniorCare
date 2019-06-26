@@ -1,10 +1,13 @@
+import React from 'react'
 import { connect } from 'react-redux'
-import React, { useState } from 'react'
+
 import { ScrollView, Text, View } from 'react-native'
-import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
 import { Button } from 'react-native-elements'
+
+import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+
 import PostJobBottomButtons from '../PostJobBottomButtons'
-import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
 
 const mapStateToProps = state => {
   const { formPosition } = state.postJob.position
@@ -41,68 +44,73 @@ const mapStateToProps = state => {
 
 const HouseHoldNeeds = (props) => {
 
-  const { setFieldValue, values } = props
-
   return (
-    <View>
-      <View>
+    <>
+      <ScrollView style={createSeniorProfile.mainContainer}>
         <Text style={general.question}>
-        Select all the household needs
+        	Select all the household needs
         </Text>
-        <View style={style.splitButtonContainer}>
+
+        <View style={postJobButtons.mainButtonContainer}>
           <Button
-            buttonStyle={style.serviceButton}
-            containerStyle={style.serviceButtonContainer}
-            title='Errands'
+						title='Errands'
+						titleStye={props.errands === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.errands === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
             type={props.errands === true ? 'solid' : 'outline'}
             onPress={() => props.onErrandsUpdate(!props.errands)}
           />
           <Button
-            buttonStyle={style.serviceButton}
-            containerStyle={style.serviceButtonContainer}
-            title='Meal Prep'
+						title='Meal Prep'
+						titleStye={props.mealPrep === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.mealPrep === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
             type={props.mealPrep === true ? 'solid' : 'outline'}
             onPress={() => props.onMealPrepUpdate(!props.mealPrep)}
           />
         </View>
-      </View>
-      <View style={style.splitButtonContainer}>
-        <Button
-           buttonStyle={style.serviceButton}
-           containerStyle={style.serviceButtonContainer}
-          title='Housekeeping'
-          type={props.housekeeping === true ? 'solid' : 'outline'}
-          onPress={() => props.onHouseKeepingUpdate(!props.housekeeping)}
-        />
-        <Button
-           buttonStyle={style.serviceButton}
-           containerStyle={style.serviceButtonContainer}
-          title='Laundry'
-          type={props.laundry === true ? 'solid' : 'outline'}
-          onPress={() => props.onLaundryUpdate(!props.laundry)}
-        />
-      </View>
-      <View style={style.splitButtonContainer}>
-        <Button
-           buttonStyle={style.serviceButton}
-           containerStyle={style.serviceButtonContainer}
-          title='Shopping'
-          type={props.shopping === true ? 'solid' : 'outline'}
-          onPress={() => props.onShoppingUpdate(!props.shopping)}
-        />
-      </View>
-      <View> 
-        <PostJobBottomButtons
-          navigation={props.navigation}
-          storeReduxData={()=>null}
-          storeReduxFunction={()=>null}
-          handleSubmit={()=>null}
-          errors={{}}
-          touched={{}}
-          lastPosition={1}
-        />
-      </View>
-    </View>
+				
+				<View style={postJobButtons.mainButtonContainer}>
+					<Button
+						title='Housekeeping'
+						titleStye={props.housekeeping === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.housekeeping === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+						type={props.housekeeping === true ? 'solid' : 'outline'}
+						onPress={() => props.onHouseKeepingUpdate(!props.housekeeping)}
+					/>
+					<Button
+						title='Laundry'
+						titleStye={props.laundry === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.laundry === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+						type={props.laundry === true ? 'solid' : 'outline'}
+						onPress={() => props.onLaundryUpdate(!props.laundry)}
+					/>
+				</View>
+
+				<View style={postJobButtons.mainButtonContainer}>
+					<Button
+						title='Shopping'
+						titleStye={props.shopping === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.shopping === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+						type={props.shopping === true ? 'solid' : 'outline'}
+						onPress={() => props.onShoppingUpdate(!props.shopping)}
+					/>
+				</View>
+			</ScrollView>
+			
+			<PostJobBottomButtons
+				navigation={props.navigation}
+				storeReduxData={()=>null}
+				storeReduxFunction={()=>null}
+				handleSubmit={()=>null}
+				errors={{}}
+				touched={{}}
+				lastPosition={1}
+			/>
+    </>
   )
 }
 

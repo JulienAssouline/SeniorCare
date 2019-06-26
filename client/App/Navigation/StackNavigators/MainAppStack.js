@@ -77,7 +77,7 @@ const configurations = {
 
 const options = {
   tabBarPosition: 'bottom',
-  swipeEnabled: true,
+  swipeEnabled: false,
   animationEnabled: false,
   navigationOptions: {
     tabBarVisible: true

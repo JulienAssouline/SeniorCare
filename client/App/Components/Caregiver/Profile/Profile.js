@@ -62,9 +62,9 @@ const Profile = props => {
       <View style={styles.Profile}>
         <Image style={styles.ProfileImage}
           style={{ width: 200, height: 200, borderRadius: 100, alignContent: 'center' }}
-          source={{ uri: data.getCaregiverProfile.avatar }}
+          source={{ uri: data.getCaregiverProfile && data.getCaregiverProfile.avatar }}
         />
-        <Text style={styles.ProfileName}> {data.getCaregiverProfile.fullname} </Text>
+        <Text style={styles.ProfileName}> {data.getCaregiverProfile && data.getCaregiverProfile.fullname} </Text>
       </View>
       <TouchableOpacity
         style={styles.ProfileButton}

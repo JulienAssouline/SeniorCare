@@ -1,15 +1,15 @@
+import React from 'react'
 import { connect } from 'react-redux'
-import React, {useState} from 'react'
 import { Formik } from 'formik';
+
 import { ScrollView, View, Text } from 'react-native'
 import { Button, Input } from 'react-native-elements'
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
-import PostJobBottomButtons from '../PostJobBottomButtons'
 
 import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
 import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
-import { backgroundStyles } from '../../../Styles/GeneralStyles'
-import { overview } from '../../../Styles/PostJob/OverviewStyles'
+import { basicInformationStyles } from '../../../Styles/PostJob/BasicInformationStyles'
+
+import PostJobBottomButtons from '../PostJobBottomButtons'
 
 const mapStateToProps = state => {
 	const { address, city, postalCode, province } = state.postJob.basicInformation
@@ -30,15 +30,13 @@ const mapDispatchToProps = dispatch => {
 const BasicInformationAddress = (props) => {
 
   return (
-    <View style={{flex: 1}}>
-			<Text style={general.question}>Where will the service take place?</Text>
-			<Text>You address will not be displayed on your profile</Text>
+    <>
 			<Formik
 				initialValues={{
-					address: "",
-					city: "",
-					province: "",
-					postalCode: ""
+					address: props.address,
+					city: props.city,
+					province: props.province,
+					postalCode: props.postalCode,
 				}}
 				//onSubmit={values => console.log(values)}
 				//onSubmit={values => submitAddressValues(values)}
@@ -70,48 +68,69 @@ const BasicInformationAddress = (props) => {
 					handleSubmit,
 					isSubmitting
 				}) => (
-					<View style={{...backgroundStyles.background, ...overview.mainContainer}}>
+					<>
 						<ScrollView style={createSeniorProfile.mainContainer}>
-							<Text style={general.question}>Address</Text>
-							<Input
-								placeholder="31 Iceboat Terrace"
-								name="address"
-								onChangeText={handleChange("address")}
-								onBlur={handleBlur}
-								value={values.address}
-							/>
+							<View style={basicInformationStyles.descriptorContainer}>
+								<Text style={general.question}>Where will the service take place?</Text>
+								<Text>You address will not be displayed on your profile</Text>
+							</View>
+
+							<View style={basicInformationStyles.addressSectionContainer}>
+								<Text>Address</Text>
+								<Input
+									placeholder="31 Iceboat Terrace"
+									name="address"
+									containerStyle={general.inputContainer}
+									onChangeText={handleChange("address")}
+									onBlur={handleBlur}
+									value={values.address}
+								/>
+							</View>
 							{/* <TextInput
-																onChangeText={props.handleChange('email')}
-																onBlur={props.handleBlur('email')}
-																value={props.values.email}
-														/> */}
+										onChangeText={props.handleChange('email')}
+										onBlur={props.handleBlur('email')}
+										value={props.values.email}
+								/> */}
 							{/* {errors.email && touched.email && errors.email} */}
-							<Text style={general.question}>City</Text>
-							<Input
-								placeholder="Toronto"
-								name="city"
-								onChangeText={handleChange("city")}
-								onBlur={handleBlur}
-								value={values.city}
-							/>
-							<Text style={general.question}>Province</Text>
-							<Input
-								placeholder="Ontario"
-								name="province"
-								onChangeText={handleChange("province")}
-								onBlur={handleBlur}
-								value={values.province}
-							/>
-							<Text style={general.question}>Postal Code</Text>
-							<Input
-								placeholder="M5V 3E9"
-								name="postalCode"
-								onChangeText={handleChange("postalCode")}
-								onBlur={handleBlur}
-								value={values.postalCode}
-							/>
+
+							<View style={basicInformationStyles.addressSectionContainer}>
+								<Text>City</Text>
+								<Input
+									placeholder="Toronto"
+									name="city"
+									containerStyle={general.inputContainer}
+									onChangeText={handleChange("city")}
+									onBlur={handleBlur}
+									value={values.city}
+								/>
+							</View>
+
+							<View style={basicInformationStyles.addressSectionContainer}>
+								<Text>Province</Text>
+								<Input
+									placeholder="Ontario"
+									name="province"
+									containerStyle={general.inputContainer}
+									onChangeText={handleChange("province")}
+									onBlur={handleBlur}
+									value={values.province}
+								/>
+							</View>
+
+							<View style={basicInformationStyles.addressSectionContainer}>
+								<Text>Postal Code</Text>
+								<Input
+									placeholder="M5V 3E9"
+									name="postalCode"
+									containerStyle={general.inputContainer}
+									onChangeText={handleChange("postalCode")}
+									onBlur={handleBlur}
+									value={values.postalCode}
+								/>
+							</View>
 							{/* {errors.password && touched.password && errors.password} */}
 						</ScrollView>
+
 						<PostJobBottomButtons
 							navigation={props.navigation}
 							storeReduxData={values}
@@ -121,10 +140,10 @@ const BasicInformationAddress = (props) => {
 							touched={touched}
 							lastPosition={3}
 						/>
-					</View>
+					</>
 				)}
 			</Formik>
-		</View>
+		</>
   )
 }
 

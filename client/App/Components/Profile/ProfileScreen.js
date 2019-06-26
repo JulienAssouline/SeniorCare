@@ -70,7 +70,7 @@ const ProfileScreen = props => {
   }
   if (error) {
     console.log('my error', error)
-    return
+    return <View><Text>Error</Text></View>
   }
   if (!avatarSource) setAvatarSource(data.getKeyContactProfile.avatar)
 

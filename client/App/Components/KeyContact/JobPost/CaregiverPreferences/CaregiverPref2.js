@@ -1,16 +1,15 @@
 import React from 'react'
 
-import { View, Text } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 
 import { Formik } from 'formik'
 import { connect } from 'react-redux'
 
+import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+
 import PostJobBottomButtons from '../PostJobBottomButtons'
-import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
-import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles';
-
-
 
 const mapStateToProps = state => {
 	const { validDriverLicense } = state.postJob.caregiverPreferences
@@ -60,10 +59,10 @@ const CaregiverPref1 = props => {
 				} = formikProps
 
 				return (
-					<View>
-						<View>
+					<>
+						<ScrollView style={createSeniorProfile.mainContainer}>
 							<Text style={general.question}>Should the caregiver have a valid driver's license?</Text>
-							<View style={style.splitButtonContainer}>
+							<View style={postJobButtons.mainButtonContainer}>
 								<Button
 									title='Yes'
 									titleStye={values.validDriverLicense === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
@@ -81,7 +80,7 @@ const CaregiverPref1 = props => {
 									onPress={() => setFieldValue('validDriverLicense', false)}
 								/>
 							</View>
-						</View>
+						</ScrollView>
 
 						<PostJobBottomButtons
 							navigation={props.navigation}
@@ -92,7 +91,7 @@ const CaregiverPref1 = props => {
 							touched={touched}
 							lastPosition={1}
 						/>
-					</View>
+					</>
 				)
 			}}
 		</Formik>

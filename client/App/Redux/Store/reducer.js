@@ -62,7 +62,7 @@ const initialState = {
 		},
 		serviceDetails: {
 			appointments: false,
-			bathing: true,
+			bathing: false,
 			companionship: false,
 			dressing: false,
 			driving: false,
@@ -72,7 +72,7 @@ const initialState = {
 			housekeeping: false,
 			laundry: false,
 			mealPrep: false,
-			mobility: true,
+			mobility: false,
 			shopping: false,
 		},
 		basicInformation: {

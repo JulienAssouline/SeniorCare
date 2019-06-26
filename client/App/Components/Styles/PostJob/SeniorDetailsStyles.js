@@ -39,7 +39,6 @@ export const chooseProfile = StyleSheet.create({
 		borderColor: basicBlueColor,
 		borderRadius: 30,
 		borderWidth: 1,
-		fontFamily: 'SFProText-Bold',
 		marginVertical: 5,
 		width: '100%',
 	},

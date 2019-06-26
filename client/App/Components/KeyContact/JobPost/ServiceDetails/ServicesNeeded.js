@@ -1,11 +1,13 @@
-import { connect } from 'react-redux'
 import React, { useState } from 'react'
-import { basicInformationStyles } from '../../../Styles/PostJob/BasicInformationStyles'
+import { connect } from 'react-redux'
+
 import { ScrollView, Text, View, ShadowPropTypesIOS } from 'react-native'
-import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
 import { Button } from 'react-native-elements'
+
+import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+
 import PostJobBottomButtons from '../PostJobBottomButtons'
-import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
 
 const mapStateToProps = state => {
   const { formPosition } = state.postJob.position
@@ -54,77 +56,89 @@ const mapDispatchToProps = dispatch => {
 
 const ServicesNeeded = (props) => {
   return (
-    <View>
-      <View>
-        <Text style={general.question}>
-        Select the services you will need
-        </Text>
-        <View style={style.splitButtonContainer}>
-          <Button
-            buttonStyle={style.serviceButton}
-            containerStyle={style.serviceButtonContainer}
-            title='Bathing'
-            type={props.bathing === true ? 'solid' : 'outline'}
-            onPress={() => props.onBathingUpdate(!props.bathing)}
-          />
-          <Button
-            buttonStyle={style.serviceButton}
-            containerStyle={style.serviceButtonContainer}
-            title='Grooming'
-            type={props.grooming === true ? 'solid' : 'outline'}
-            onPress={() => props.onGroomingUpdate(!props.grooming)}
-          />
-        </View>
-      </View>
-      <View style={style.splitButtonContainer}>
-        <Button
-          buttonStyle={style.serviceButton}
-          containerStyle={style.serviceButtonContainer}
-          title='Dressing'
-          type={props.dressing === true ? 'solid' : 'outline'}
-          onPress={() => props.onDressingUpdate(!props.dressing)}
-        />
-        <Button
-          buttonStyle={style.serviceButton}
-          containerStyle={style.serviceButtonContainer}
-          title='Feeding'
-          type={props.feeding === true ? 'solid' : 'outline'}
-          onPress={() => props.onFeedingUpdate(!props.feeding)}
-        />
-      </View>
-      <View style={style.splitButtonContainer}>
-        <Button
-          buttonStyle={style.serviceButton}
-          containerStyle={style.serviceButtonContainer}
-          title='Companionship'
-          type={props.companionship === true ? 'solid' : 'outline'}
-          onPress={() => props.onCompanionshipUpdate(!props.companionship)}
-        />
-        <Button
-          buttonStyle={style.serviceButton}
-          containerStyle={style.serviceButtonContainer}
-          title='Driving'
-          type={props.driving === true ? 'solid' : 'outline'}
-          onPress={() => props.onDrivingUpdate(!props.driving)}
-        />
-      </View>
-    <View style={style.splitButtonContainer}>
-      <Button
-        buttonStyle={style.serviceButton}
-        containerStyle={style.serviceButtonContainer}
-        title='Appointments'
-        type={props.appointments === true ? 'solid' : 'outline'}
-        onPress={() => props.onAppointmentsUpdate(!props.appointments)}
-      />
-      <Button
-        buttonStyle={style.serviceButton}
-        containerStyle={style.serviceButtonContainer}
-        title='Mobility'
-        type={props.mobility === true ? 'solid' : 'outline'}
-        onPress={() => props.onMobilityUpdate(!props.mobility)}
-      />
-    </View>
-    <View> 
+    <>
+      <ScrollView style={createSeniorProfile.mainContainer}>
+				<Text style={general.question}>
+					Select the services you will need
+				</Text>
+				
+				<View style={postJobButtons.mainButtonContainer}>
+					<Button
+						title='Bathing'
+						titleStye={props.bathing === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.bathing === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+						type={props.bathing === true ? 'solid' : 'outline'}
+						onPress={() => props.onBathingUpdate(!props.bathing)}
+					/>
+					<Button
+						title='Grooming'
+						titleStye={props.grooming === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.grooming === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+						type={props.grooming === true ? 'solid' : 'outline'}
+						onPress={() => props.onGroomingUpdate(!props.grooming)}
+					/>
+				</View>
+
+				<View style={postJobButtons.mainButtonContainer}>
+					<Button
+						title='Dressing'
+						titleStye={props.dressing === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.dressing === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+						type={props.dressing === true ? 'solid' : 'outline'}
+						onPress={() => props.onDressingUpdate(!props.dressing)}
+					/>
+					<Button
+						title='Feeding'
+						titleStye={props.feeding === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.feeding === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+						type={props.feeding === true ? 'solid' : 'outline'}
+						onPress={() => props.onFeedingUpdate(!props.feeding)}
+					/>
+				</View>
+
+				<View style={postJobButtons.mainButtonContainer}>
+					<Button
+						title='Companionship'
+						titleStye={props.companionship === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.companionship === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+						type={props.companionship === true ? 'solid' : 'outline'}
+						onPress={() => props.onCompanionshipUpdate(!props.companionship)}
+					/>
+					<Button
+						title='Driving'
+						titleStye={props.driving === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.driving === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+						type={props.driving === true ? 'solid' : 'outline'}
+						onPress={() => props.onDrivingUpdate(!props.driving)}
+					/>
+				</View>
+
+				<View style={postJobButtons.mainButtonContainer}>
+					<Button
+						title='Appointments'
+						titleStye={props.appointments === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.appointments === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+						type={props.appointments === true ? 'solid' : 'outline'}
+						onPress={() => props.onAppointmentsUpdate(!props.appointments)}
+					/>
+					<Button
+						title='Mobility'
+						titleStye={props.mobility === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+						containerStyle={postJobButtons.buttonContainer}
+						buttonStyle={props.mobility === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+						type={props.mobility === true ? 'solid' : 'outline'}
+						onPress={() => props.onMobilityUpdate(!props.mobility)}
+					/>
+				</View>
+			</ScrollView>
+
       <PostJobBottomButtons
         navigation={props.navigation}
         storeReduxData={()=>null}
@@ -134,8 +148,7 @@ const ServicesNeeded = (props) => {
         touched={{}}
         lastPosition={1}
 			/>
-    </View>
-  </View>
+		</>
   )
 }
 
