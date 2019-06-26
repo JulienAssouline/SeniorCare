@@ -56,6 +56,7 @@ class CaregiverDatabase extends DataSource {
   async addCaregiverDetails(input) {
     const {id, location, birthdate, years_experience, gender, description, availability, average_rating, hourly_rate} = input
 
+
     const caregiverDetails = {
       text: `UPDATE seniorcare.caregiver SET location = $2, birthdate = $3, gender = $4, years_experience = $5, description = $6, availability = $7, average_rating = $8, hourly_rate = $9 WHERE id = $1`,
       values: [id, location, birthdate, gender, years_experience, description, availability, average_rating, hourly_rate]

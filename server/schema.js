@@ -67,6 +67,8 @@ module.exports = gql`
 		fullname: String
 		location: String
 		years_experience: Int
+    email: String
+    phone_number: String
 		num_hired: Int
 		birthdate: String
 		hourly_rate: Int
