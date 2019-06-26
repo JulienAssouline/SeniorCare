@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Text, View} from 'react-native'
-import { sectionContent } from '../../../Styles/PostJob/SubmitJobStyles'
+import { sectionContent } from '../../Styles/PostJob/SubmitJobStyles'
 
 export default BasicInformation = props => {
 	return (

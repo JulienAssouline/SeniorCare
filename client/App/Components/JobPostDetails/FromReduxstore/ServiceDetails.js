@@ -2,8 +2,8 @@ import React from 'react'
 
 import { Text, View} from 'react-native'
 
-import { sectionContent } from '../../../Styles/PostJob/SubmitJobStyles'
-import { jobPostStyles } from '../../../Styles/Caregiver/caregiverJobPostStyles' 
+import { sectionContent } from '../../Styles/PostJob/SubmitJobStyles'
+import { jobPostStyles } from '../../Styles/Caregiver/caregiverJobPostStyles' 
 
 export default ServiceDetails = props => {
 

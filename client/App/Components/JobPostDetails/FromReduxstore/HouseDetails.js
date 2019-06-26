@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Text, View} from 'react-native'
 
-import { sectionContent } from '../../../Styles/PostJob/SubmitJobStyles'
+import { sectionContent } from '../../Styles/PostJob/SubmitJobStyles'
 
 export default BasicInformation = props => {
 	return (
@@ -10,31 +10,28 @@ export default BasicInformation = props => {
 
 			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>
-					Availability
+					Smoking
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData ?
-						props.sectionData.availability ? 'Live in' : 'Live out' :
-						''
-					}
+					{props.sectionData.cigSmoking ? 'Yes' : 'No'}
 				</Text>
 			</View>
 
 			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>
-					Gender
+					Pets
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData && props.sectionData.preferredGender}
+					{props.sectionData.pets ? 'Yes' : 'No'}
 				</Text>
 			</View>
 
 			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>
-					Driving license
+					Cannabis
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData && props.sectionData.validDriverLicense ? 'Yes' : 'No'}
+					{props.sectionData.cannabis ? 'Yes' : 'No'}
 				</Text>
 			</View>
 

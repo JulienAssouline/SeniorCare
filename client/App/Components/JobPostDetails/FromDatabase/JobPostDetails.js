@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 
-import { ScrollView, Text, View} from 'react-native'
-import { Avatar, Button, ListItem } from 'react-native-elements'
+import { Text, View} from 'react-native'
+import { Avatar, ListItem } from 'react-native-elements'
 
-// import { useQuery, useMutation } from 'react-apollo-hooks'
-// import { SUBMIT_JOB_POST } from '../../../../graphql-queries/mutation'
-// import { GET_KEY_CONTACT } from '../../../../graphql-queries/queries'
-// import { connect } from 'react-redux'
+import { listItemStyles, submitJobOverview } from '../../Styles/PostJob/SubmitJobStyles'
+import { jobPostListItemStyles } from '../../Styles/Caregiver/caregiverJobPostStyles'
 
-import { listItemStyles, submitJobOverview } from '../Styles/PostJob/SubmitJobStyles'
+import moment from 'moment'
 
-import SubmitJobAccordion from '../KeyContact/JobPost/JobPostSubmit/SubmitJobAccordion'
+import JobDetailsAccordion from './JobDetailsAccordion'
 
 const initialActiveSections = {
 	basicInformation: true,
@@ -29,18 +27,20 @@ export default JobPostDetails = props => {
 			return { ...prevState, [key]: !prevState[key]}
 		})
 	}
-
+	
 	return (
 		<View>
 			<ListItem
 				title={props.keyContact && props.keyContact.fullname}
 				titleStyle={listItemStyles.title}
+				subtitle={`Posted ${moment(props.keyContactdateCreated).format('LL')}`}
+				subtitleStyle={jobPostListItemStyles.subtitle}
 				containerStyle={listItemStyles.container}
 				leftAvatar={
 					<Avatar
 						rounded
 						size='small'
-						title={props.keyContact && props.keyContact.fullname}
+						title={props.keyContact && props.keyContact.fullname.substring(0, 2)}
 					/>
 				}
 			/>
@@ -49,31 +49,31 @@ export default JobPostDetails = props => {
 				{props.basicInformation.title || 'job title'}
 			</Text>
 
-			<SubmitJobAccordion
-				sectionName='Basic Information'
-				sectionData={props.basicInformation}
-				collapsableState={activeSections['basicInformation']}
-				handleCollapsable={() => handleCollapsable('basicInformation')}
-			/>
-			<SubmitJobAccordion
-					sectionName='Service Details'
-					sectionData={props.serviceDetails}
-					collapsableState={activeSections['serviceDetails']}
-					handleCollapsable={() => handleCollapsable['serviceDetails']}
-				/>
-			<SubmitJobAccordion
+			<JobDetailsAccordion
 				sectionName='Senior Details'
 				sectionData={props.seniorDetails}
 				collapsableState={activeSections['seniorDetails']}
 				handleCollapsable={() => handleCollapsable('seniorDetails')}
 			/>
-			<SubmitJobAccordion
+			<JobDetailsAccordion
+				sectionName='Basic Information'
+				sectionData={props.basicInformation}
+				collapsableState={activeSections['basicInformation']}
+				handleCollapsable={() => handleCollapsable('basicInformation')}
+			/>
+			<JobDetailsAccordion
+					sectionName='Service Details'
+					sectionData={props.serviceDetails}
+					collapsableState={activeSections['serviceDetails']}
+					handleCollapsable={() => handleCollapsable['serviceDetails']}
+				/>
+			<JobDetailsAccordion
 				sectionName='House Details'
 				sectionData={props.houseDetails}
 				collapsableState={activeSections['houseDetails']}
 				handleCollapsable={() => handleCollapsable('houseDetails')}
 			/>
-			<SubmitJobAccordion
+			<JobDetailsAccordion
 				sectionName='Caregiver Preference'
 				sectionData={props.caregiverPreferences}
 				collapsableState={activeSections['caregiverPreferences']}

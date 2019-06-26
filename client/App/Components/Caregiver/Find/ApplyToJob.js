@@ -9,7 +9,7 @@ import { GET_FULL_JOB_POSTING } from '../../../graphql-queries/queries'
 
 import { mainOverviewStyles } from '../../Styles/Caregiver/caregiverJobPostStyles'
 
-import JobPostDetails from '../../JobPostDetails/JobPostDetails'
+import JobPostDetails from '../../JobPostDetails/FromDatabase/JobPostDetails'
 
 const mapStateToProps = state => {
 	const { user_id } = state
@@ -40,12 +40,13 @@ const ApplyToJobs = props => {
 					serviceDetails={data.getJobPost.getServiceDetails}
 					seniorDetails={data.getJobPost.getSeniorDetails}
 					houseDetails={data.getJobPost.getHouseDetails}
-					caregiverPreference={data.getJobPost.getCaregiverPreference}
+					caregiverPreferences={data.getJobPost.getCaregiverPreferences}
 				/>
 			</ScrollView>
 			<View>
 				<Button
 					title='Apply'
+					buttonStyle={mainOverviewStyles.applyButton}
 					onPress={handleApplyJob}
 				/>
 			</View>
