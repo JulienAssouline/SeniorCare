@@ -5,38 +5,94 @@ import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 import gql from 'graphql-tag'
 import { useQuery } from 'react-apollo-hooks'
 import Loading from '../../Loading/Loading'
+import {connect} from 'react-redux'
+import checkCognitoSession from '../../utils/checkCognitoSession'
 
-const ARCHIVED_JOBS = gql`
-  query{
-    ArchivedJobs{
+// const ARCHIVED_JOBS = gql`
+//   query{
+//     ArchivedJobs{
+//       id
+//       title
+//     
+//       key_contact_id
+//     }
+//   }
+// `
+
+const mapStateToProps =  state => {
+  console.log('heres my state in mapStatetoProps',state)
+  const { user_id } = state.user_id
+  return{
+    user_id: user_id
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onKeyContactIdUpdate: (value) => dispatch({ type: 'KEYCONTACTID', payload: value })
+  }
+}
+
+const KEY_CONTACT_JOBS = gql`
+query getKeyContactJobPosts($key_contact_id:ID!) {
+	getKeyContactJobPosts(key_contact_id: $key_contact_id) {
+		id
+    date_created
+    applicants {
       id
-      title
-      date_created
-      start_date
-      hourly_rate
-      key_contact_id
+      fullname
+      email
+      avatar
     }
   }
+}
 `
 
 const JobBoardJobs = (props) => {
 
-  const [jobs, setJobs] = useState({});
+  useEffect(
+    () => {
+      console.log("props", props)
+      checkCognitoSession(props)
+    }, [props.user_id])
 
-  const { data, error, loading } = useQuery(ARCHIVED_JOBS);
+  const [id, setId] = useState('')
+
+console.log('heres my keycontactid bitch',props.user_id)
+
+  // if (loading) {
+  //   return <Loading />
+  // };
+  // if (error) {
+  //   return <Text>Error!</Text>
+  // }
+
+  // if (props.user_id == undefined) { 
+  //   return (<Loading/>)
+  // }
+
+  setId(props.user_id)
+
+  console.log(id)
+
+  if (id !== undefined) {
+
+  console.log('heres my keycontactid after the props check', props.user_id)
+
+  const { data, error, loading } = useQuery(KEY_CONTACT_JOBS, {
+    variables : {key_contact_id: id }
+  })
+
+  console.log(data)
+
+  setId(props.user_id)
 
 
-  if (loading) {
-    return <Loading />
-  };
-  if (error) {
-    return <Text>Error!</Text>
-  }
 
   return (
     <ScrollView style={styles.MainContainer}>
 
-      {data.ArchivedJobs.map(elem => {
+      {data.getKeyContactJobPosts.map(elem => {
         let date = new Date(parseInt(elem.date_created));
         let options = {
           month: 'long', year: 'numeric', day: 'numeric',
@@ -55,7 +111,7 @@ const JobBoardJobs = (props) => {
                   <View>
                     <View>
                       <Text style={styles.DateText}> Posted {dateCreated}</Text>
-                      <Text key={elem.id} style={styles.JobText}> {elem.title}</Text>
+                      <Text key={elem.id} style={styles.JobText}> {elem.description}</Text>
                     </View>
 
                     <View style={styles.JobInfo}>
@@ -83,8 +139,12 @@ const JobBoardJobs = (props) => {
       })}
     </ScrollView>
   )
+    }else {
+
+      return null
+    }
 }
 
-export default JobBoardJobs
+export default connect(mapStateToProps, mapDispatchToProps)(JobBoardJobs) 
 
 

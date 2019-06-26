@@ -171,16 +171,17 @@ class JobsDatabase extends DataSource {
 
 	async getKeyContactJobPosts(input) {
 		try {
-	 		// console.log('input is getKeyContactJobPosts: ', input)
+	 		
 			const { key_contact_id } = input
-			// console.log('key_contact_id', key_contact_id)
-
+		
       const applicantsQuery ={
         text: "SELECT * FROM seniorcare.applicants WHERE KEYCONTACT_ID = $1",
         values : [key_contact_id]
       }
       const result = await this.context.postgres.query(applicantsQuery)
-			// console.log('results in getApplicants', result)
+
+			console.log('rows', result.rows)
+			console.log('hellos key id',key_contact_id)
       return result.rows
 
 		} 
