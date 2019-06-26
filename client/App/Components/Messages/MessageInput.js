@@ -26,17 +26,16 @@ const MessageInput = (props) => {
   let width = Dimensions.get("window").width
 
   return (
-    <View style={styles.InputContainer}>
-      <View style={{ flex: 1, flexDirection: 'row', justifyContent: "space-between", width: width, backgroundColor: "white", borderTopColor: "#CCCCCC" }}>
+		<View style={styles.InputContainer}>
+      <View style={{ flex: 1, flexDirection: 'row', justifyContent: "space-between", width: width, paddingHorizontal: 16, paddingVertical: 8, backgroundColor: "white", borderTopColor: "#CCCCCC" }}>
         <TextInput
-          style={{ height: 50, borderColor: "white", borderWidth: 1, backgroundColor: "white", width: width - 50, paddingLeft: 15, fontSize: 16 }}
+          style={{ borderColor: "white", borderWidth: 1, backgroundColor: "white", width: width - 70, paddingTop: 12, fontSize: 16 }}
           placeholder="Send Message"
           className={"input-base"}
           onChangeText={(text) => handleChange(text)}
           value={value}
           multiline={true}
-        >
-        </TextInput>
+        ></TextInput> 
         <TouchableOpacity onPress={() => handleClick(props.addMessages, props.user_id)}>
           <Icon
             name="send-o"
@@ -51,3 +50,5 @@ const MessageInput = (props) => {
 }
 
 export default MessageInput
+
+

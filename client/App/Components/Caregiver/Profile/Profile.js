@@ -94,7 +94,7 @@ const options = {
 }
 
 const pickAnImage = id => {
-  // let myMutationùfunction = useMutation();
+	// let myMutationùfunction = useMutation();
   ImagePicker.showImagePicker(options, response => {
     if (response.didCancel) {
     } else if (response.error) {

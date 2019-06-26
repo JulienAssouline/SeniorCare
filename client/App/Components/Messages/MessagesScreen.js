@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dimension, ScrollView, Text, View, KeyboardAvoidingView, ImageBackground } from 'react-native'
+import { Dimensions, ScrollView, Text, View, KeyboardAvoidingView, ImageBackground } from 'react-native'
 import styles from '../Styles/Messages/MessagesStyles'
 import { useQuery, useMutation, useSubscription } from 'react-apollo-hooks'
 import { ADD_MESSAGES } from "../../graphql-queries/mutation"
