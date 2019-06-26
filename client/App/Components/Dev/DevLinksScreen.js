@@ -6,7 +6,6 @@ import { Button } from 'react-native-elements'
 import styles from '../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 
 const DevLinksScreen = (props) => {
-  console.log('show props ', props)
   return (
     <ScrollView style={styles.MainContainer}>
       <Text style={styles.ExempleText}>Welcome to DevLinks! We got you bro!</Text>

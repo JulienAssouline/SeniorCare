@@ -37,7 +37,6 @@ const Caregiver = props => {
   const {data, error, loading} = useQuery(GET_CAREGIVERDETAILS, {
     variables: {id}
   })
-  console.log("data", data)
   if (data.getCaregiverDetails === undefined) {
     return (<Text> Loading...</Text>)
   }

@@ -37,7 +37,6 @@ const SeniorName = props => {
 		<Formik
 			initialValues={initialFormValues}
 			onSubmit={async (values, { setSubmitting }) => {
-				console.log('about to submit')
 				try {
 					console.log('submitting in onSubmit SeniorName', values)
 				} catch(err) {
@@ -63,29 +62,25 @@ const SeniorName = props => {
 				} = formikProps
 
 				return (
-					<View style={{flex: 1}}>
-						<ScrollView style={createSeniorProfile.mainContainer}>
-							<Text style={createSeniorProfile.question}>
-								What is the Senior's Name?
-							</Text>
-							<Input
-								placeholder='Angel'
-								value={values.seniorName}
-								onChangeText={handleChange('seniorName')}
-								onBlur={handleBlur}
-							/>
-						</ScrollView>
-						<View>
-							<PostJobBottomButtons
-								navigation={props.navigation}
-								storeReduxData={values.seniorName}
-								storeReduxFunction={props.onSeniorNameUpdate}
-								handleSubmit={handleSubmit}
-								errors={errors}
-								touched={touched}
-								lastPosition={7}
-							/>
-						</View>
+					<View style={createSeniorProfile.mainContainer}>
+						<Text style={createSeniorProfile.question}>
+							What is the Senior's Name?
+						</Text>
+						<Input
+							placeholder='Angel'
+							value={values.seniorName}
+							onChangeText={handleChange('seniorName')}
+							onBlur={handleBlur}
+						/>
+						<PostJobBottomButtons
+							navigation={props.navigation}
+							storeReduxData={values.seniorName}
+							storeReduxFunction={props.onSeniorNameUpdate}
+							handleSubmit={handleSubmit}
+							errors={errors}
+							touched={touched}
+							lastPosition={7}
+						/>
 					</View>
 				)
 			}}

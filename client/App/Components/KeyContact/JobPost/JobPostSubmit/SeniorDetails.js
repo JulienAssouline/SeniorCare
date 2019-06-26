@@ -6,9 +6,6 @@ import { Avatar, ListItem } from 'react-native-elements'
 import { sectionContent } from '../../../Styles/PostJob/SubmitJobStyles'
 
 export default SeniorDetails = props => {
-
-	console.log(props)
-
 	return (
 		<View style={sectionContent.container}>
 

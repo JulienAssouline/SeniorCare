@@ -126,7 +126,6 @@ onclick = (id) => {
 
     <ScrollView style={styles.MainContainer}>
       {data.ArchivedJobs.map(elem =>{
-          {console.log('all my datess',elem)}
 
         let date = new Date(parseInt(elem.date_created));
         let options = {

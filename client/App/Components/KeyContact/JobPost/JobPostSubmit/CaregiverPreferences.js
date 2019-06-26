@@ -13,7 +13,10 @@ export default BasicInformation = props => {
 					Availability
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData.availability ? 'Live in' : 'Live out'}
+					{props.sectionData ?
+						props.sectionData.availability ? 'Live in' : 'Live out' :
+						''
+					}
 				</Text>
 			</View>
 
@@ -22,7 +25,7 @@ export default BasicInformation = props => {
 					Gender
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData.preferredGender}
+					{props.sectionData && props.sectionData.preferredGender}
 				</Text>
 			</View>
 
@@ -31,7 +34,7 @@ export default BasicInformation = props => {
 					Driving license
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData.validDriverLicense ? 'Yes' : 'No'}
+					{props.sectionData && props.sectionData.validDriverLicense ? 'Yes' : 'No'}
 				</Text>
 			</View>
 

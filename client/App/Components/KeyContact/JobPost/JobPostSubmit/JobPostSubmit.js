@@ -107,14 +107,14 @@ const JobPostSubmit = props => {
 			<ScrollView>
 				<View>
 					<ListItem
-						title={data.getKeyContactProfile.fullname}
+						title={data.getKeyContactProfile && data.getKeyContactProfile.fullname}
 						titleStyle={listItemStyles.title}
 						containerStyle={listItemStyles.container}
 						leftAvatar={
 							<Avatar
 								rounded
 								size='small'
-								title={data.getKeyContactProfile.fullname.substring(0, 2)}
+								title={data.getKeyContactProfile && 	data.getKeyContactProfile.fullname.substring(0, 2)}
 							/>
 						}
 					/>

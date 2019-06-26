@@ -4,7 +4,7 @@ import { ScrollView, Text, View, TouchableOpacity } from 'react-native'
 import { Avatar, Button, Card, ListItem } from 'react-native-elements'
 
 import { useQuery } from 'react-apollo-hooks'
-import { GET_JOB_POSTING } from '../../../graphql-queries/queries'
+import { GET_BASIC_JOB_POSTING } from '../../../graphql-queries/queries'
 import { connect } from 'react-redux'
 
 import { backgroundStyles } from '../../Styles/GeneralStyles'
@@ -25,10 +25,10 @@ const mapDispatchToProps = dispatch => {
 }
 
 const Find = props => {
-	const { data, error, loading } = useQuery(GET_JOB_POSTING)
+	const { data, error, loading } = useQuery(GET_BASIC_JOB_POSTING)
 
-	const handleGoJobInformation = () => {
-		props.navigation.navigate('')
+	const handleGoJobInformation = (id) => {
+		props.navigation.navigate('CaregiverApplyToJob', {id: id})
 	}	
 	
 	useEffect(
@@ -47,7 +47,7 @@ const Find = props => {
 				{data.getJobPosts.map(jobPost => (
 					<TouchableOpacity 
 						key={jobPost.id} 
-						onPress={handleGoJobInformation}
+						onPress={() => handleGoJobInformation(jobPost.id)}
 					>
 						<JobPosting
 							keyContact={jobPost.getKeyContact}

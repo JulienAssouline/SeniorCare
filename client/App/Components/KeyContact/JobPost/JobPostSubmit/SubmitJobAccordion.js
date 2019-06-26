@@ -13,8 +13,6 @@ export default SubmitJobAccordion = props => {
 
 	const collapsableIcon = collapsableState ? 'chevron-up' : 'chevron-down'
 
-	console.log('inside accordion props', props)
-
 	return (
 		<TouchableOpacity onPress={handleCollapsable}>
 			<View style={{...backgroundStyles.background, ...submitJobOverview.sectionTitle} }>

@@ -40,7 +40,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const HouseDetails = props => {
-	console.log('housedetails props ', props)
 	const initialFormValues = {
 		cigSmoking: props.cigSmoking,
 		pets: props.pets,

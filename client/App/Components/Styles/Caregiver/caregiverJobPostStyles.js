@@ -5,6 +5,13 @@ const mainTextPurple = '#244392'
 const mainGreyText = '#525252'
 const lightGreyText = '#A3A3A3'
 
+export const mainOverviewStyles = StyleSheet.create({
+	mainContainer: {
+		flex: 1,
+		flexDirection: 'column',
+	},
+})
+
 export const jobPostListItemStyles = StyleSheet.create({
 	container: {
 		marginLeft: -12,

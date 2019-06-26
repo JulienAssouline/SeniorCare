@@ -1,6 +1,7 @@
 import { createStackNavigator } from 'react-navigation'
 
 import Find from '../../Components/Caregiver/Find/Find'
+import ApplyToJob from '../../Components/Caregiver/Find/ApplyToJob'
 
 export const CaregiverFindStack = createStackNavigator(
   {
@@ -9,7 +10,13 @@ export const CaregiverFindStack = createStackNavigator(
       navigationOptions: {
         title: 'Find',
       }
-    },
+		},
+		CaregiverApplyToJob: {
+			screen: ApplyToJob,
+			navigationOptions: {
+				title: 'Job Post'
+			}
+		}
 	},
   {
     defaultNavigationOptions: {

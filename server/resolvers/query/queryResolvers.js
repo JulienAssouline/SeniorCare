@@ -46,6 +46,10 @@ module.exports = {
 		async getJobPosts(parent, { input }, { dataSources }) {
 			return await dataSources.jobsDatabase.getJobPosts()
 		},
+
+		async getJobPost(parent, input, { dataSources }) {
+			return await dataSources.jobsDatabase.getJobPost(input)
+		}
 	},
 
 	JobPost: {
