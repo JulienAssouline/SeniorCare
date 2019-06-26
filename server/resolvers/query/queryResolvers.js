@@ -47,16 +47,19 @@ module.exports = {
 		async getJobPosts(parent, { input }, { dataSources }) {
 			return await dataSources.jobsDatabase.getJobPosts()
 		},
+    
 		async getKeyContactJobPosts(parent, input, { dataSources }) {
 			console.log('checkpoint A')
 			return await dataSources.jobsDatabase.getKeyContactJobPosts(input)
 		},
-	
+
+		async getJobPost(parent, input, { dataSources }) {
+			return await dataSources.jobsDatabase.getJobPost(input)
+		}
 	},
 
 	JobPost: {
 		async getKeyContact(parent, { input }, { dataSources }) {
-			console.log(parent)
 			return await dataSources.keyContactDatabase.getKeyContactProfile({id: parent.key_contact_id})
 		},
 

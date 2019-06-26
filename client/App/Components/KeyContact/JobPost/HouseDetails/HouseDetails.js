@@ -5,13 +5,13 @@ import { Formik } from 'formik'
 import { connect } from 'react-redux'
 
 import { backgroundStyles } from '../../../Styles/GeneralStyles'
+import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
 
 import PostJobTop from '../PostJobTop'
 import PostJobBottomButtons from '../PostJobBottomButtons'
 import Cannabis from './Cannabis'
 import Pets from './Pets'
 import CigSmoke from './CigSmoke'
-
 
 //{/* <PostJobTop
 // title='House Details'
@@ -40,7 +40,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const HouseDetails = props => {
-	console.log('housedetails props ', props)
 	const initialFormValues = {
 		cigSmoking: props.cigSmoking,
 		pets: props.pets,
@@ -48,17 +47,12 @@ const HouseDetails = props => {
 	}
 
 	return (
-		<ScrollView style={backgroundStyles.background}>
+		<ScrollView style={{...backgroundStyles.background, ...general.mainContainer}}>
 			<PostJobTop
         title='House Details'
         currentPosition={props.formPosition}
         stepCount={1}
 			/>
-			{/* <PostJobTop
-				title="Senior's Profile"
-				currentPosition={props.formPosition}
-				stepCount={8}
-			/> */}
 
 			<Formik
 				initialValues={initialFormValues}

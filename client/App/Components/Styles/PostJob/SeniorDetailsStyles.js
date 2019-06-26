@@ -30,6 +30,7 @@ export const chooseProfile = StyleSheet.create({
 	},
 
 	buttonOuter: {
+		marginBottom: 8,
 		width: '90%',
 	},
 
@@ -50,12 +51,8 @@ export const chooseProfile = StyleSheet.create({
 
 export const createSeniorProfile = StyleSheet.create({
 	mainContainer: {
-		marginVertical: 32,
-		// borderBottomWidth: 10,
-		// borderBottomColor: 'red',
-
-		// flex: 1,
-		// height: 300,
+		marginTop: 32,
+		padding: 14,
 	},
 
 	question: {
@@ -67,9 +64,13 @@ export const createSeniorProfile = StyleSheet.create({
 	multilineTextBox: {
 		backgroundColor: '#FFF',
 		height: multilineTextHeight,
+		margin: 4,
+		padding: 8,
 	},
-
+	
 	multilineTextArea: {
 		height: multilineTextHeight,
+		margin: 4,
+		padding: 8,
 	}
 })

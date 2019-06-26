@@ -21,6 +21,7 @@ module.exports = gql`
 		getJobPosts: [JobPost]
 		getKeyContactJobPosts(key_contact_id: ID): [JobPost]
 		getApplicants(key_contact_id: ID): [Applicant]
+		getJobPost(id: ID!): JobPost
   }
 
 	type Applicant {
@@ -91,6 +92,8 @@ module.exports = gql`
 		fullname: String
 		location: String
 		years_experience: Int
+    email: String
+    phone_number: String
 		num_hired: Int
 		birthdate: String
 		hourly_rate: Int
@@ -122,7 +125,19 @@ module.exports = gql`
 
 	}
 
-	
+	type JobPost {
+		id: ID
+		key_contact_id: ID
+		date_created: Date
+
+		getKeyContact: KeyContact
+		getBasicInformation: BasicInformation
+		getServiceDetails: [ServiceDetails]
+		getSeniorDetails: SeniorDetails
+		getHouseDetails: HouseDetails
+		getCaregiverPreferences: CaregiverPreferences
+	}
+
 
 	type BasicInformation {
 		title: String
@@ -195,6 +210,8 @@ module.exports = gql`
 		addJobRequest(input: NewJobObject!): MessageResponse!
     addCaregiverDetails(input: CaregiverDetails): addCaregiverDetailsResponse!
     addKeyContactDetails(input: KeyContactDetails): addKeyContactDetailsResponse!
+		changeKeyContactAvatar(input:ProfileDetails): changeAvatarResponse!
+		changeCaregiverAvatar(input:ProfileDetails): changeAvatarResponse!
 	}
 
   input KeyContactDetails {
@@ -336,6 +353,15 @@ module.exports = gql`
 
 	type duplicateRepostMessage{
 		message: String
+	}
+
+	input ProfileDetails {
+		id: ID!
+		avatar: String!
+	}
+
+	type changeAvatarResponse {
+		avatar: String
 	}
 
 `

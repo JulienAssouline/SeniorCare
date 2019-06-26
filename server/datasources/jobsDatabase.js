@@ -84,6 +84,23 @@ class JobsDatabase extends DataSource {
 		}
 	}
 
+	async getJobPost(input) {
+		try {
+			const { id } = input
+
+			const selectJobsColumns = [
+				'id',
+				'key_contact_id',
+				'date_created',
+			]
+			const selectJobsQuery = createSelectQuery(selectJobsColumns, 'seniorcare.job_posting', 'id', id)
+			const selectJobsResult = await this.context.postgres.query(selectJobsQuery)
+			return selectJobsResult.rows[0]
+		} catch(err) {
+			throw err
+		}
+	}
+
 	async getJobPosts() {
 		try {
 			const selectJobsColumns = [

@@ -7,7 +7,10 @@ import { Formik } from 'formik'
 import { connect } from 'react-redux'
 import { seniorDetailsValidation } from '../../../../ValidationSchemas/postAJobValidation'
 
+import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { backgroundStyles } from '../../../Styles/GeneralStyles'
 import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+import { overview } from '../../../Styles/PostJob/OverviewStyles'
 
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
@@ -37,7 +40,6 @@ const SeniorName = props => {
 		<Formik
 			initialValues={initialFormValues}
 			onSubmit={async (values, { setSubmitting }) => {
-				console.log('about to submit')
 				try {
 					console.log('submitting in onSubmit SeniorName', values)
 				} catch(err) {
@@ -63,29 +65,29 @@ const SeniorName = props => {
 				} = formikProps
 
 				return (
-					<View style={{flex: 1}}>
+					<View style={{...backgroundStyles.background, ...overview.mainContainer}}>
 						<ScrollView style={createSeniorProfile.mainContainer}>
-							<Text style={createSeniorProfile.question}>
+							<Text style={general.question}>
 								What is the Senior's Name?
 							</Text>
 							<Input
 								placeholder='Angel'
 								value={values.seniorName}
+								containerStyle={general.inputContainer}
 								onChangeText={handleChange('seniorName')}
 								onBlur={handleBlur}
 							/>
+							
 						</ScrollView>
-						<View>
-							<PostJobBottomButtons
-								navigation={props.navigation}
-								storeReduxData={values.seniorName}
-								storeReduxFunction={props.onSeniorNameUpdate}
-								handleSubmit={handleSubmit}
-								errors={errors}
-								touched={touched}
-								lastPosition={7}
-							/>
-						</View>
+						<PostJobBottomButtons
+							navigation={props.navigation}
+							storeReduxData={values.seniorName}
+							storeReduxFunction={props.onSeniorNameUpdate}
+							handleSubmit={handleSubmit}
+							errors={errors}
+							touched={touched}
+							lastPosition={7}
+						/>					
 					</View>
 				)
 			}}

@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 
 import PostJobBottomButtons from '../PostJobBottomButtons'
 import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
-import { general } from '../../../Styles/PostJob/PostJobGeneralStyles';
+import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles';
 
 
 
@@ -65,16 +65,18 @@ const CaregiverPref1 = props => {
 							<Text style={general.question}>Should the caregiver have a valid driver's license?</Text>
 							<View style={style.splitButtonContainer}>
 								<Button
-									buttonStyle={style.serviceButton}
-									containerStyle={style.serviceButtonContainer}
 									title='Yes'
+									titleStye={values.validDriverLicense === true ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									containerStyle={postJobButtons.buttonContainer}
+									buttonStyle={values.validDriverLicense === true ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
 									type={values.validDriverLicense === true ? 'solid' : 'outline'}
 									onPress={() => setFieldValue('validDriverLicense', true)}
 								/>
 								<Button
-									buttonStyle={style.serviceButton}
-									containerStyle={style.serviceButtonContainer}
 									title='No'
+									titleStye={values.validDriverLicense === false ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									containerStyle={postJobButtons.buttonContainer}
+									buttonStyle={values.validDriverLicense === false ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
 									type={values.validDriverLicense === false ? 'solid' : 'outline'}
 									onPress={() => setFieldValue('validDriverLicense', false)}
 								/>

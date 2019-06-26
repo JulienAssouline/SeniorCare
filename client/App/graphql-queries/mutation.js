@@ -24,3 +24,18 @@ export const SUBMIT_JOB_POST = gql`
 		}
 	}
 `
+
+export const ADD_CARGIVER_DETAILS = gql`
+  mutation addCaregiverDetailsMutation($input: CaregiverDetails) {
+    addCaregiverDetails(input: $input) {
+      message
+    }
+  }
+`
+export const EDIT_KEY_CONTACT_DETAILS = gql`
+  mutation editKeyContactVars($input: KeyContactDetails!) {
+    addKeyContactDetails(input: $input) {
+      message
+    }
+  }
+`

@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 
 import PostJobBottomButtons from '../PostJobBottomButtons'
 import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
-import { general } from '../../../Styles/PostJob/PostJobGeneralStyles';
+import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles';
 
 const mapStateToProps = state => {
 	const { preferredGender, availability } = state.postJob.caregiverPreferences
@@ -65,16 +65,18 @@ const CaregiverPref1 = props => {
 							<Text style={general.question}>Availability</Text>
 							<View style={style.splitButtonContainer}>
 								<Button
-									buttonStyle={style.serviceButton}
-									containerStyle={style.serviceButtonContainer}
 									title='Live in'
+									titleStye={values.availability === 'livein' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									containerStyle={postJobButtons.buttonContainer}
+									buttonStyle={values.availability === 'livein' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
 									type={values.availability === 'livein' ? 'solid' : 'outline'}
 									onPress={() => setFieldValue('availability', 'livein')}
 								/>
 								<Button
-									buttonStyle={style.serviceButton}
-									containerStyle={style.serviceButtonContainer}
 									title='Live out'
+									titleStye={values.availability === 'liveout' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									containerStyle={postJobButtons.buttonContainer}
+									buttonStyle={values.availability === 'liveout' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
 									type={values.availability === 'liveout' ? 'solid' : 'outline'}
 									onPress={() => setFieldValue('availability', 'liveout')}
 								/>
@@ -85,32 +87,36 @@ const CaregiverPref1 = props => {
 							<Text style={general.question}>Preferred Gender of the caregiver?</Text>
 							<View style={style.splitButtonContainer}>
 								<Button
-									buttonStyle={style.serviceButton}
-									containerStyle={style.serviceButtonContainer}
 									title='Female'
+									titleStye={values.preferredGender === 'female' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									containerStyle={postJobButtons.buttonContainer}
+									buttonStyle={values.preferredGender === 'female' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
 									type={values.preferredGender === 'female' ? 'solid' : 'outline'}
 									onPress={() => setFieldValue('preferredGender', 'female')}
 								/>
 								<Button
-									buttonStyle={style.serviceButton}
-									containerStyle={style.serviceButtonContainer}
 									title='Male'
+									titleStye={values.preferredGender === 'male' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									containerStyle={postJobButtons.buttonContainer}
+									buttonStyle={values.preferredGender === 'male' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
 									type={values.preferredGender === 'male' ? 'solid' : 'outline'}
 									onPress={() => setFieldValue('preferredGender', 'male')}
 								/>
 							</View>
 							<View style={style.splitButtonContainer}>
 								<Button
-									buttonStyle={style.serviceButton}
-									containerStyle={style.serviceButtonContainer}
 									title='Other'
+									titleStye={values.preferredGender === 'other' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									containerStyle={postJobButtons.buttonContainer}
+									buttonStyle={values.preferredGender === 'other' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
 									type={values.preferredGender === 'other' ? 'solid' : 'outline'}
 									onPress={() => setFieldValue('preferredGender', 'other')}
 								/>
 								<Button
-									buttonStyle={style.serviceButton}
-									containerStyle={style.serviceButtonContainer}
 									title='No preference'
+									titleStye={values.preferredGender === 'nopreference' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									containerStyle={postJobButtons.buttonContainer}
+									buttonStyle={values.preferredGender === 'nopreference' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
 									type={values.preferredGender === 'nopreference' ? 'solid' : 'outline'}
 									onPress={() => setFieldValue('preferredGender', 'nopreference')}
 								/>

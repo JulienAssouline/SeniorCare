@@ -1,7 +1,10 @@
 import React from 'react'
 
 import { Text, View} from 'react-native'
-import { sectionContent } from '../../../Styles/PostJob/SubmitJobStyles'
+
+import moment from 'moment'
+
+import { sectionContent } from '../../Styles/PostJob/SubmitJobStyles'
 
 export default BasicInformation = props => {
 	return (
@@ -12,7 +15,7 @@ export default BasicInformation = props => {
 					Start Date
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData.startDate}
+					{moment(props.sectionData.startDate).format('LL')}
 				</Text>
 			</View>
 
@@ -21,7 +24,7 @@ export default BasicInformation = props => {
 					End Date
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData.endDate}
+					{moment(props.sectionData.endDate).format('LL')}
 				</Text>
 			</View>
 
@@ -43,7 +46,10 @@ export default BasicInformation = props => {
 						{props.sectionData.address}
 					</Text>
 					<Text style={sectionContent.dualColumnValue}>
-						{props.sectionData.city}, {props.sectionData.province}
+						{props.sectionData.city && props.sectionData.province ?
+							`${props.sectionData.city}, ${props.sectionData.province}` :
+							`${props.sectionData.city}${props.sectionData.province}`
+						}
 					</Text>
 					<Text style={sectionContent.dualColumnValue}>
 						{props.sectionData.postalCode}

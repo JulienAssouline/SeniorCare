@@ -1,12 +1,28 @@
 const initialState = {
 
-  key_contact_id: '',
+	key_contact_id: '',
+	user_id: '',
 
 	// postJob: {
 	// 	position: {
 	// 		formPosition: 0,
 	// 		overviewPosition: 0,
 	// 		completedSections: [0, 1, 2, 3, 4]
+	// 	},
+	// 	serviceDetails: {
+	// 		appointments: true,
+	// 		bathing: false,
+	// 		companionship: true,
+	// 		dressing: false,
+	// 		driving: false,
+	// 		errands: true,
+	// 		feeding: true,
+	// 		grooming: true,
+	// 		housekeeping: false,
+	// 		laundry: false,
+	// 		mealPrep: true,
+	// 		mobility: true,
+	// 		shopping: false,
 	// 	},
 	// 	basicInformation: {
 	// 		title: 'Finding Nemo',
@@ -42,22 +58,22 @@ const initialState = {
 		position: {
 			formPosition: 0,
 			overviewPosition: 1,
-			completedSections: [0, 1, 2, 3, 4]
+			completedSections: []
 		},
 		serviceDetails: {
-			bathing: true,
-			grooming: false,
-			dressing: false,
-			feeding: false,
-			companionship: false,
-			driving: false,
 			appointments: false,
-			mobility: true,
+			bathing: true,
+			companionship: false,
+			dressing: false,
+			driving: false,
 			errands: false,
-			mealPrep: false,
+			feeding: false,
+			grooming: false,
 			housekeeping: false,
 			laundry: false,
-			shopping: false
+			mealPrep: false,
+			mobility: true,
+			shopping: false,
 		},
 		basicInformation: {
 			title: '',
