@@ -164,10 +164,6 @@ const ProfileScreen = props => {
           <Text style={styles.ProfileName}> {data.getKeyContactProfile && data.getKeyContactProfile.fullname} </Text>
         </TouchableOpacity>
       </View>
-      <Button
-        title='test state'
-        onPress={() => console.log('testing state', avatarSource)}
-      />
       <TouchableOpacity
         style={styles.ProfileButton}
         onPress={handleGoToSeniors}
