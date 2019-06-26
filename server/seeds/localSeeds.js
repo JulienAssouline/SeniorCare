@@ -370,7 +370,7 @@ const seed = async () => {
 		await pg.query('BEGIN')
 
 		console.log('Seeding...')
-		
+
 		await Promise.all(
 
 			keyContactSeeds.map(seed =>
@@ -427,7 +427,7 @@ const seed = async () => {
 						.toParam()
 				)
 			),
-			applicantsSeeds.map(seed => 
+			applicantsSeeds.map(seed =>
 				pg.query(
 					squel
 						.insert()
@@ -436,7 +436,6 @@ const seed = async () => {
 						.toParam()
 				)
 			),
-			
 		)
 		await pg.query('COMMIT')
 	} catch (e) {
