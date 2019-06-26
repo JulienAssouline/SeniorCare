@@ -14,6 +14,7 @@ import {
   Card,
   CardItem
 } from 'native-base'
+import SeniorListItems from "./SeniorListItems"
 const yellowCurve = require('../../../Images/WelcomeScreen/yellow-curve.png')
 
 const Senior = props => {
@@ -21,38 +22,27 @@ const Senior = props => {
 const data = props.navigation.getParam('data');
 
   const seniorData = data.getSeniors
+
   const relation = seniorData.relation
   seniorData.forEach((d, i) => {
     calcAge(d)
   })
-  const handleGoToCreateSeniorProfile = () => {
-    props.navigation.navigate('SeniorDetails', { title: 'Test' })
+
+  const handleSeniorDetails = (data) => {
+    props.navigation.navigate('SeniorDetails', { data:  data})
   }
-  const handleSeniorDetails = () => {
-    props.navigation.navigate('SeniorDetails', { title: 'Test' })
+  const handleGoToCreateSeniorProfile = () => {
+    props.navigation.navigate('Overview', { title: 'Job' })
   }
   return (
     <ScrollView style={styles.MainContainer}>
       <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5) }}>
         {
           seniorData.map((d, i) => (
-            <TouchableOpacity key={i} style={styles.Senior}
-              onPress={handleSeniorDetails}
-              id={d.id}
-            >
-              <ListItem
-                key={i}
-                leftAvatar={{ source: { uri: d.avatar } }}
-                title={<Text style={styles.SeniorName}> {d.fullname}, {d.Age} </Text>}
-                subtitle={
-                  <Text style={styles.Relation}>{d.relation} </Text>
-                }
-                rightIcon={{ name: 'chevron-right' }}
-              />
-            </TouchableOpacity>
+            <SeniorListItems handleSeniorDetails = {handleSeniorDetails} d = {d} key = {i} />
           ))
         }
-          <TouchableOpacity style={styles.SeniorContainer}
+        <TouchableOpacity style={styles.SeniorContainer}
             onPress={handleGoToCreateSeniorProfile}
           >
             <Icons name={`plus-circle`} style={styles.SeniorPlusIcon} />
@@ -68,5 +58,8 @@ const data = props.navigation.getParam('data');
 }
 
 export default Senior
+
+
+
 
 

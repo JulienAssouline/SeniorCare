@@ -158,7 +158,7 @@ const caregiverSeeds = [
     average_rating: '4.20',
     hourly_rate: 18,
     availability: 'live out',
-    avatar: 'https://www.petfinder.com/?attachment_id=15491',
+    avatar: 'https://timedotcom.files.wordpress.com/2018/08/new-zealand-cat-ban.jpg',
   },
   {
     id: 'b3f6986c-8555-41c0-b264-69c9cdfc9e93',
@@ -173,7 +173,7 @@ const caregiverSeeds = [
     average_rating: '4.20',
     hourly_rate: 18,
     availability: 'live out',
-    avatar: 'https://www.petfinder.com/?attachment_id=15491',
+    avatar: 'https://cdn.britannica.com/s:300x500/67/197567-131-1645A26E.jpg',
   },
   {
     id: 'b4a92e58-899b-4762-b08a-952810670fa8',
@@ -203,7 +203,7 @@ const caregiverSeeds = [
     average_rating: '4.20',
     hourly_rate: 18,
     availability: 'live out',
-    avatar: 'https://www.petfinder.com/?attachment_id=15491',
+    avatar: 'https://cdn.britannica.com/s:300x500/67/197567-131-1645A26E.jpg',
   },
   {
     id: '31f71974-f547-4701-a0b2-7dad4ae19832',
@@ -261,7 +261,7 @@ const seniorSeeds = [
     key_contact_id: 'ThisIsAkshayManchandaKeyContactSeed',
     birthdate: '1950-06-22 19:10:25-07',
     gender: 'male',
-    avatar: 'https://www.petfinder.com/?attachment_id=15491',
+    avatar: 'https://cdn.britannica.com/s:300x500/67/197567-131-1645A26E.jpg',
     relation: 'Uncle',
     language: 'English, Persian',
     medical_condition: 'Nothing serious',

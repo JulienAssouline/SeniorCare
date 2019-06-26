@@ -69,16 +69,16 @@ const ProfileScreen = props => {
     return (<Loading />)
   }
   if (error) {
-    console.log('my error', error)
-    return <View><Text>Error</Text></View>
+    throw (error)
   }
+
   if (!avatarSource) setAvatarSource(data.getKeyContactProfile.avatar)
 
 
   const handleGoToSeniors = () => {
     props.navigation.navigate('Seniors', {
       data: data.getKeyContactProfile
-    })
+      })
   }
 
 
@@ -94,7 +94,7 @@ const ProfileScreen = props => {
     })
   }
 
-  // adding the iOS image picker logic 
+  // adding the iOS image picker logic
   const options = {
     title: 'Select Your Profile Picture',
     storageOptions: {
@@ -163,7 +163,7 @@ const ProfileScreen = props => {
   }
 
   return (
-    <ScrollView style={styles.MainContainer}>
+    <View style={styles.MainContainer}>
       <View style={styles.Profile}>
         <TouchableOpacity onPress={() => pickAnImage(id)}>
           <Image style={styles.ProfileImage}
@@ -201,8 +201,7 @@ const ProfileScreen = props => {
         source={yellowCurve}
         style={{ height: hp(44), width: wp(100), zIndex: 0, position: 'relative', padding: 0, margin: 0 }}
       />
-
-    </ScrollView >
+    </View>
   )
 }
 

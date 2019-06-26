@@ -19,9 +19,33 @@ module.exports = gql`
     getCaregiverConvos(key_contact_id: ID): [ConversationRoom]
     getKeyContactConvos(caregiver_id: ID): [ConversationRoom]
 		getJobPosts: [JobPost]
+		getKeyContactJobPosts(key_contact_id: ID): [JobPost]
+		getApplicants(key_contact_id: ID): [Applicant]
 		getJobPost(id: ID!): JobPost
   }
 
+	type Applicant {
+		id: ID
+		email: String
+		phone_number: String
+		fullname: String
+		avatar: String
+		date_created: Date
+		caregiver_id: ID
+	}
+
+	type JobPost {
+		id: ID
+		key_contact_id: ID
+		date_created: Date
+		applicants: [Applicant]
+		getKeyContact: KeyContact
+		getBasicInformation: BasicInformation
+		getServiceDetails: [ServiceDetails]
+		getSeniorDetails: SeniorDetails
+		getHouseDetails: HouseDetails
+		getCaregiverPreferences: CaregiverPreferences
+	}
 
   type ConversationRoom {
     email:String
@@ -29,6 +53,7 @@ module.exports = gql`
     fullname: String
     conversation_id: ID
     key_contact_id: ID
+		avatar: String
   }
 
   type QueryPlaceholder{
@@ -100,20 +125,7 @@ module.exports = gql`
     cannabis: Boolean
 
 	}
-
-	type JobPost {
-		id: ID
-		key_contact_id: ID
-		date_created: Date
-
-		getKeyContact: KeyContact
-		getBasicInformation: BasicInformation
-		getServiceDetails: [ServiceDetails]
-		getSeniorDetails: SeniorDetails
-		getHouseDetails: HouseDetails
-		getCaregiverPreferences: CaregiverPreferences
-	}
-
+	
 	type BasicInformation {
 		title: String
 		start_date: Date

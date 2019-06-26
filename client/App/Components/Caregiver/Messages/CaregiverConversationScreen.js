@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Text, View } from 'react-native'
+import { Dimensions, ScrollView, Text, View } from 'react-native'
 import styles from '../../Styles/Messages/MessagesStyles'
 import { useQuery, useMutation } from 'react-apollo-hooks'
 import {GET_KEY_CONTACT_CONVO} from "../../../graphql-queries/queries"
@@ -30,9 +30,11 @@ const CaregiverConversationScreen = (props) => {
      })
   }
 
+  const height = Dimensions.get("window").height
+
   return (
     <ScrollView>
-      <View style = {styles.MainContainer}>
+      <View style = {{flex: 1, backgroundColor: '#EEF5FB', height: height}}>
 
       {
         data.getKeyContactConvos.map((d,i) =>

@@ -7,10 +7,10 @@ const styles = StyleSheet.create({
   },
   genderContainer: {
     margin: 10,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   availabilityContainer: {
-    marginBottom: 18,
+    marginBottom: 10,
   },
   buttonStyle: {
     backgroundColor: "white",
@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'stretch',
     justifyContent: 'center',
-    margin: 30,
+    marginHorizontal: 30,
+    marginVertical: 15,
   },
 })
 
