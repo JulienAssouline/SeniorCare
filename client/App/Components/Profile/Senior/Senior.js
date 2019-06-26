@@ -31,6 +31,9 @@ const data = props.navigation.getParam('data');
   const handleSeniorDetails = (data) => {
     props.navigation.navigate('SeniorDetails', { data:  data})
   }
+  const handleGoToCreateSeniorProfile = () => {
+    props.navigation.navigate('JobBoard', { title: 'Job' })
+  }
   return (
     <ScrollView style={styles.MainContainer}>
       <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5) }}>
@@ -39,6 +42,12 @@ const data = props.navigation.getParam('data');
             <SeniorListItems handleSeniorDetails = {handleSeniorDetails} d = {d} key = {i} />
           ))
         }
+        <TouchableOpacity style={styles.SeniorContainer}
+            onPress={handleGoToCreateSeniorProfile}
+          >
+            <Icons name={`plus-circle`} style={styles.SeniorPlusIcon} />
+            <Text style={styles.SeniorName}>Create a new senior profile</Text>
+          </TouchableOpacity>
         </Card>
         <Image
           source={yellowCurve}
@@ -49,5 +58,8 @@ const data = props.navigation.getParam('data');
 }
 
 export default Senior
+
+
+
 
 
