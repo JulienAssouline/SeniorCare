@@ -4,6 +4,7 @@ import { Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 
 import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
 
 export default Pets = props => {
 	const { setFieldValue, values } = props

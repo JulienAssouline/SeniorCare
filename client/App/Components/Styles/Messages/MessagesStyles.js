@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#EEF5FB',
   },
   InputContainer: {
-    // position: "absolute",
-    // bottom: 0,
+    position: "absolute",
+    bottom: 0,
   },
   MessagesContainer: {
   padding: 20,

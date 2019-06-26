@@ -48,26 +48,25 @@ const MessagesScreen = (props) => {
   if (queryData.getMessages === undefined) { return <Loading/>}
 
   return (
-    <View style = {styles.MainContainer}>
-    <KeyboardAwareScrollView
-    // TODO: fix extra scroll height issue
-      extraScrollHeight = {-70}
-      ref={ref => setScrollView(ref)}
-      onContentSizeChange={(contentWidth, contentHeight)=>{
-      scrollView.scrollToEnd({animated: false});
-      }}
-    >
-      <View style = {styles.MessagesContainer}>
-        <View>
-            {queryData.getMessages.map((d,i) =>
-              d.from_user === user_id ? <FromUserMessage key = {i} d = {d} i = {i} /> : <ToUserMessage key = {i} d = {d} i = {i} />
-              )
-            }
-         </View>
-      </View>
-      <MessageInput user_id = {user_id}  addMessages = {addMessages} pageNumber = {conversation_id} />
-      </KeyboardAwareScrollView>
-      </View>
+   <KeyboardAvoidingView style = {styles.MainContainer}>
+      <ScrollView
+      // TODO: fix extra scroll height issue
+        ref={ref => setScrollView(ref)}
+        onContentSizeChange={(contentWidth, contentHeight)=>{
+        scrollView.scrollToEnd({animated: false});
+        }}
+      >
+        <View style = {styles.MessagesContainer}>
+          <View>
+              {queryData.getMessages.map((d,i) =>
+                d.from_user === user_id ? <FromUserMessage key = {i} d = {d} i = {i} /> : <ToUserMessage key = {i} d = {d} i = {i} />
+                )
+              }
+           </View>
+        </View>
+        </ScrollView>
+        <MessageInput style = {styles.InputContainer} user_id = {user_id}  addMessages = {addMessages} pageNumber = {conversation_id} />
+    </KeyboardAvoidingView>
   )
 }
 

@@ -31,7 +31,6 @@ const SearchFilter = (props) => {
   }
 
   function handleResultsPress() {
-    console.log('button pressed')
     console.log(filterObj)
     props.navigation.navigate("Search", {
       filterObj: filterObj,

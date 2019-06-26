@@ -13,7 +13,6 @@ import Cannabis from './Cannabis'
 import Pets from './Pets'
 import CigSmoke from './CigSmoke'
 
-
 //{/* <PostJobTop
 // title='House Details'
 // currentPosition={1}

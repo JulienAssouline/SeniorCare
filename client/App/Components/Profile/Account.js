@@ -14,9 +14,6 @@ const Account = props => {
   const user_id = props.navigation.getParam('user_id');
   const data = props.navigation.getParam('data');
 
-
-  // const [dataUser, setDataUser] =
-
   // Sign out from the app
   const signOutAlertLogout = async () => {
     await Alert.alert(
