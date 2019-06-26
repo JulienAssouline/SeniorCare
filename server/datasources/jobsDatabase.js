@@ -151,6 +151,47 @@ class JobsDatabase extends DataSource {
 			throw err
 		}
 	}
+
+	async getKeyContactJobPosts(input) {
+		try {
+	 		// console.log('input is getKeyContactJobPosts: ', input)
+			const { key_contact_id } = input
+			// console.log('key_contact_id', key_contact_id)
+
+      const applicantsQuery ={
+        text: "SELECT * FROM seniorcare.applicants WHERE KEYCONTACT_ID = $1",
+        values : [key_contact_id]
+      }
+      const result = await this.context.postgres.query(applicantsQuery)
+			// console.log('results in getApplicants', result)
+      return result.rows
+
+		} 
+		catch(err) {
+      throw err
+    }
+	}
+
+	async getApplicants(parent) {
+    try {
+	 
+			const { id } = parent
+
+      const applicantsQuery ={
+        text: `SELECT * FROM seniorcare.caregiver 
+				INNER JOIN seniorcare.applicants ON seniorcare.applicants.caregiver_id = seniorcare.caregiver.id
+				WHERE  seniorcare.applicants.jobpost_id = $1`,
+        values : [id]
+      }
+      const result = await this.context.postgres.query(applicantsQuery)
+			// console.log('results in getApplicants', result)
+      return result.rows
+
+		} 
+		catch(err) {
+      throw err
+    }
+	}
 }
 
 module.exports = JobsDatabase

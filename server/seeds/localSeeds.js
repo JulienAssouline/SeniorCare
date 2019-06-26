@@ -2,6 +2,7 @@ const { Pool } = require('pg')
 const squel = require('squel').useFlavour('postgres')
 const config = require('../config/development.json')
 
+
 const keyContactSeeds = [
 	{
 		id: 'ThisIsSimonSternKeyContactSeed',
@@ -389,6 +390,23 @@ const services = [
 	{ title: 'shopping' },
 ]
 
+const applicantsSeeds = [
+	{
+		id: '1',
+		jobpost_id: '1',
+		date_created: '2001-06-22 19:10:25-07',
+		caregiver_id: '31f71974-f547-4701-a0b2-7dad4ae19832',
+		keycontact_id: 'ea488fc4-babc-436f-883b-c873f2a4629d'
+	},
+	{
+		id: '2',
+		jobpost_id: '2',
+		date_created: '2001-06-22 19:10:25-07',
+		caregiver_id: 'b3f6986c-8555-41c0-b264-69c9cdfc9e93',
+		keycontact_id: 'ea488fc4-babc-436f-883b-c873f2a4629d'
+	}
+]
+
 const servicesJobJoin = [
 	{
 		job_id: 1,
@@ -423,8 +441,9 @@ const seed = async () => {
 		await pg.query('BEGIN')
 
 		console.log('Seeding...')
-
+		
 		await Promise.all(
+
 			keyContactSeeds.map(seed =>
 				pg.query(
 					squel
@@ -475,6 +494,15 @@ const seed = async () => {
 					squel
 						.insert()
 						.into('seniorcare.services_job')
+						.setFields(seed)
+						.toParam()
+				)
+			),
+			applicantsSeeds.map(seed => 
+				pg.query(
+					squel
+						.insert()
+						.into('seniorcare.applicants')
 						.setFields(seed)
 						.toParam()
 				)
