@@ -1,7 +1,6 @@
 module.exports = {
   Query: {
 		async getCaregiver(parent, { input }, { dataSources }){
-			console.log(input)
 			return await dataSources.caregiverDatabase.queryCaregiver(input)
     }, 
     async getCaregiverDetails(parent, input, { dataSources }) {
@@ -86,7 +85,6 @@ module.exports = {
 		async getCaregiverPreferences(parent, { input }, { dataSources }) {
 			return await dataSources.jobsDatabase.getCaregiverPreferences(parent)
 		},
-
 
 	},
 

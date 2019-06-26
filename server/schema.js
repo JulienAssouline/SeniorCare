@@ -124,21 +124,7 @@ module.exports = gql`
     cannabis: Boolean
 
 	}
-
-	type JobPost {
-		id: ID
-		key_contact_id: ID
-		date_created: Date
-
-		getKeyContact: KeyContact
-		getBasicInformation: BasicInformation
-		getServiceDetails: [ServiceDetails]
-		getSeniorDetails: SeniorDetails
-		getHouseDetails: HouseDetails
-		getCaregiverPreferences: CaregiverPreferences
-	}
-
-
+	
 	type BasicInformation {
 		title: String
 		start_date: Date
