@@ -13,11 +13,9 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   MessagesContainer: {
-  padding: 20,
-   // overflow-y: scroll;
-   // height: height - 20,
-   marginBottom: 10,
-   backgroundColor: '#EEF5FB',
+    padding: 20,
+    marginBottom: 10,
+    backgroundColor: '#EEF5FB',
   },
   conversationContainer: {
     margin: 20,

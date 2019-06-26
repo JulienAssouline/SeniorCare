@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { ScrollView, Text, View, KeyboardAvoidingView } from 'react-native'
+import { Dimensions, ScrollView, Text, View, KeyboardAvoidingView } from 'react-native'
 import styles from '../Styles/Messages/MessagesStyles'
 import { useQuery, useMutation, useSubscription } from 'react-apollo-hooks'
 import {ADD_MESSAGES} from "../../graphql-queries/mutation"
@@ -45,12 +45,14 @@ const MessagesScreen = (props) => {
 
   const addMessages = useMutation(ADD_MESSAGES);
 
+  let height = Dimensions.get("window").height
+
   if (queryData.getMessages === undefined) { return <Loading/>}
 
   return (
-   <KeyboardAvoidingView style = {styles.MainContainer}>
+   <KeyboardAvoidingView keyboardVerticalOffset = {90}  style = {{flex: 1}} behavior="padding">
+    <View style = {styles.MainContainer}>
       <ScrollView
-      // TODO: fix extra scroll height issue
         ref={ref => setScrollView(ref)}
         onContentSizeChange={(contentWidth, contentHeight)=>{
         scrollView.scrollToEnd({animated: false});
@@ -66,6 +68,7 @@ const MessagesScreen = (props) => {
         </View>
         </ScrollView>
         <MessageInput style = {styles.InputContainer} user_id = {user_id}  addMessages = {addMessages} pageNumber = {conversation_id} />
+      </View>
     </KeyboardAvoidingView>
   )
 }
