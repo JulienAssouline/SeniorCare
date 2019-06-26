@@ -8,6 +8,7 @@ export const GET_KEY_CONTACT_CONVO = gql`
       caregiver_id
       conversation_id
       key_contact_id
+			avatar
     }
   }
 `
@@ -20,6 +21,7 @@ export const GET_CAREGIVER_CONVO = gql`
       caregiver_id
       conversation_id
       key_contact_id
+			avatar
     }
   }
 `

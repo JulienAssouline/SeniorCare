@@ -6,19 +6,24 @@ const height = Dimensions.get("window").height
 const styles = StyleSheet.create({
   MainContainer: {
     flex: 1,
-    backgroundColor: '#EEF5FB',
+    backgroundColor: '#EEF5FB'
   },
   InputContainer: {
     position: "absolute",
     bottom: 0,
+    borderTopWidth: 1,
+    borderColor: '#cccccc',
   },
   MessagesContainer: {
     padding: 20,
+    // overflow-y: scroll;
+    // height: height - 20,
     marginBottom: 10,
-    backgroundColor: '#EEF5FB',
+    backgroundColor: 'transparent',
   },
   conversationContainer: {
-    margin: 20,
+    marginHorizontal: 20,
+    marginVertical: 10,
     backgroundColor: "#FFFFFF",
     borderWidth: 1,
     borderBottomColor: "transparent",
@@ -26,6 +31,16 @@ const styles = StyleSheet.create({
     borderTopColor: "transparent",
     borderRightColor: "transparent",
     borderLeftColor: "transparent",
+    borderColor: '#CCCCCC',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.20,
+    shadowRadius: 1.41,
+
+    elevation: 2,
   },
   fullName: {
     fontSize: 20,

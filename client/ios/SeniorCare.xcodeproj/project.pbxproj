@@ -97,6 +97,8 @@
 		B6FD984ADDD147988ECAF5A3 /* libRNAWSCognito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA73CBA72314FCFBEC2D424 /* libRNAWSCognito.a */; };
 		BFC3C45B22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif in Resources */ = {isa = PBXBuildFile; fileRef = BFC3C42D22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif */; };
 		BFC3C45C22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif in Resources */ = {isa = PBXBuildFile; fileRef = BFC3C42D22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif */; };
+		BFC3C4B522C4170D00B97DE3 /* messages-background.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC3C48722C4170C00B97DE3 /* messages-background.png */; };
+		BFC3C4B622C4170D00B97DE3 /* messages-background.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC3C48722C4170C00B97DE3 /* messages-background.png */; };
 		CDF0EE8F991E4314BC81A21D /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9222AA3A47D74EB49EF20633 /* libRNImagePicker.a */; };
 		D18F89FBDEC64631B3484866 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 667EFDC44B9E45B39CF975A6 /* FontAwesome5_Brands.ttf */; };
 		E70A9F69034C4E59A1157431 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B205DA504A1F4645B8746E27 /* FontAwesome5_Regular.ttf */; };
@@ -528,6 +530,7 @@
 		B5ACAEB47D2B4C9DBDB53AE8 /* RNReanimated.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNReanimated.xcodeproj; path = "../node_modules/react-native-reanimated/ios/RNReanimated.xcodeproj"; sourceTree = "<group>"; };
 		B70F8230DA59416FB0277F4D /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCAsyncStorage.xcodeproj; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; };
 		BFC3C42D22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "Spinner-4.8s-200px.gif"; path = "../App/Images/Spinner-4.8s-200px.gif"; sourceTree = "<group>"; };
+		BFC3C48722C4170C00B97DE3 /* messages-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "messages-background.png"; path = "../App/Images/messages-background.png"; sourceTree = "<group>"; };
 		CB5EACB2C4A7487B993A23FC /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		CE22A93F0503467191694728 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/rn-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
 		D2EFDA7770484207BB4AE7C6 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
@@ -749,6 +752,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BFC3C48722C4170C00B97DE3 /* messages-background.png */,
 				BFC3C42D22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif */,
 				66F69AFC22B033A700082EA8 /* SFProText-Bold.otf */,
 				66F69AF922B033A600082EA8 /* SFProText-Heavy.otf */,
@@ -1495,6 +1499,7 @@
 				66F69B0822B033A700082EA8 /* SFProText-Regular.otf in Resources */,
 				66F69B0C22B033A700082EA8 /* SFProText-Bold.otf in Resources */,
 				66F69B0022B033A700082EA8 /* SFProText-Heavy.otf in Resources */,
+				BFC3C4B622C4170D00B97DE3 /* messages-background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1531,6 +1536,8 @@
 				66F69AFF22B033A700082EA8 /* SFProText-Heavy.otf in Resources */,
 				ADEAA09222BC0F9300C149A2 /* GothamRounded-BoldItalic.otf in Resources */,
 				2D1F970A74CF48CA84FA4F29 /* Roboto_medium.ttf in Resources */,
+				BFC3C4B522C4170D00B97DE3 /* messages-background.png in Resources */,
+				61A99C0D22BBD22B00728905 /* FontAwesome.ttf in Resources */,
 				F46BD9A422B8393F00A8E653 /* Entypo.ttf in Resources */,
 				61A99C9422BBD57800728905 /* FontAwesome.ttf in Resources */,
 				321954FB94CE439B912B5C1B /* Roboto.ttf in Resources */,
