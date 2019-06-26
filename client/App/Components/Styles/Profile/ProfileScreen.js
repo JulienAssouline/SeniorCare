@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
   Camera: {
     borderWidth: 1,
     borderColor: '#3F7DFB',
+    backgroundColor: '#fff',
     borderRadius: 26,
     width: 52,
     height: 52,

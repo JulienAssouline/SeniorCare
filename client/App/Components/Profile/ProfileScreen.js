@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { ScrollView, Text, View, Image } from 'react-native'
-import { Button } from 'react-native-elements'
 import { useQuery, useMutation } from 'react-apollo-hooks';
 import gql from "graphql-tag";
 import styles from '../Styles/Profile/ProfileScreen'
@@ -9,7 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux'
 import ImagePicker from 'react-native-image-picker'
 import Loading from '../Loading/Loading'
-import Amplify, { ConsoleLogger } from '@aws-amplify/core'
+import Amplify from '@aws-amplify/core'
 import Storage from '@aws-amplify/storage'
 import config from '../../../aws-exports'
 import RNFetchBlob from 'react-native-fetch-blob';
@@ -19,10 +18,7 @@ Amplify.configure(config)
 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import {
-  Container,
-  Input,
   Card,
-  CardItem
 } from 'native-base'
 
 const yellowCurve = require('../../Images/WelcomeScreen/yellow-curve.png')
@@ -61,7 +57,7 @@ const changeKeyContactAvatar = gql`
 
 const ProfileScreen = props => {
   let id = props.user_id
-  let [avatarSource, setAvatarSource] = useState(null)
+  const [avatarSource, setAvatarSource] = useState(false)
 
   const changeAvatar = useMutation(changeKeyContactAvatar)
 
@@ -74,8 +70,11 @@ const ProfileScreen = props => {
   }
   if (error) {
     console.log('my error', error)
-    return (<Loading />)
+    return
   }
+  if (!avatarSource) setAvatarSource(data.getKeyContactProfile.avatar)
+
+
   const handleGoToSeniors = () => {
     props.navigation.navigate('Seniors', {
       data: data.getKeyContactProfile
@@ -120,22 +119,25 @@ const ProfileScreen = props => {
           fileCache: true,
           appendExt: 'png',
         })
-          .fetch('GET', response.uri, {
-          })
+          .fetch('GET', response.uri)
           .then((res) => {
-            // upload to storage
+            // upload to storageà
+            setAvatarSource(response.uri)
+            // setAvatarSource()
             files.readFile(res.data)
-              .then(buffer =>
-                Storage.put('images/avatar/' + (id.substr(0, 8) + ".png"), buffer, { level: 'public', contentType: 'image/png' }))
+              .then(buffer => {
+                return Storage.put('images/avatar/' + (id.substr(0, 8) + ".png"), buffer, { contentType: 'image/png' })
+              })
               .then(async response => {
                 const awsImageUrl = await Storage.get(response.key)
-                setAvatarSource(awsImageUrl)
-                await changeAvatar({
+                // setAvatarSource(awsImageUrl)
+                changeAvatar({
                   variables: { input: { id, avatar: awsImageUrl } },
                   // Optimisitc UI with Apollo
                   optimisticResponse: {
                     __typename: "Mutation",
                     changeKeyContactAvatar: {
+                      id: id,
                       __typename: "avatar",
                       avatar: awsImageUrl,
                     }
@@ -150,6 +152,7 @@ const ProfileScreen = props => {
                         avatar: changeKeyContactAvatar.avatar
                       }
                     })
+                    setAvatarSource(changeKeyContactAvatar.avatar)
                   },
                 })
               }
@@ -164,8 +167,8 @@ const ProfileScreen = props => {
       <View style={styles.Profile}>
         <TouchableOpacity onPress={() => pickAnImage(id)}>
           <Image style={styles.ProfileImage}
-            style={{ width: 200, height: 200, borderRadius: 100 }}
-            source={{ uri: (avatarSource == null ? data.getKeyContactProfile.avatar : avatarSource) }}
+            style={{ width: 200, height: 200, borderRadius: 100, borderWidth: 5, borderColor: '#3F7DFB' }}
+            source={{ uri: avatarSource }}
           />
           <View style={styles.Camera}>
             <Icons name="camera" size={25} color={'#3F7DFB'} />
@@ -175,24 +178,24 @@ const ProfileScreen = props => {
       </View>
       <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5) }}>
 
-      <TouchableOpacity
-        style={styles.ProfileButton}
-        onPress={handleGoToSeniors}
-      >
-        <Text style={styles.ProfileButtonText}> Seniors</Text>
-        <Icons name={`user`} style={styles.ProfileButtonIcon} />
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.ProfileButton}
-        onPress={() => handleGoToAccount(id)}
-      >
-        <Text style={styles.ProfileButtonText}> Account</Text>
-        <Icons name={`cog`} style={styles.ProfileButtonIcon} />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.ProfileButton} onPress={handleGoToHelp}>
-        <Text style={styles.ProfileButtonText}> Help Center</Text>
-        <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.ProfileButton}
+          onPress={handleGoToSeniors}
+        >
+          <Text style={styles.ProfileButtonText}> Seniors</Text>
+          <Icons name={`user`} style={styles.ProfileButtonIcon} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.ProfileButton}
+          onPress={() => handleGoToAccount(id)}
+        >
+          <Text style={styles.ProfileButtonText}> Account</Text>
+          <Icons name={`cog`} style={styles.ProfileButtonIcon} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.ProfileButton} onPress={handleGoToHelp}>
+          <Text style={styles.ProfileButtonText}> Help Center</Text>
+          <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
+        </TouchableOpacity>
       </Card>
       <Image
         source={yellowCurve}

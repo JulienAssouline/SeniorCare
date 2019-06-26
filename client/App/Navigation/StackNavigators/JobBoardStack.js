@@ -1,12 +1,12 @@
 import React from 'react'
 import { createStackNavigator } from 'react-navigation'
-import { Button, TouchableOpacity, View} from 'react-native'
+import { Button, TouchableOpacity, View } from 'react-native'
 import Overview from '../../Components/KeyContact/JobPost/Overview'
 import { PostAJobStack } from './PostAJobStack'
 import JobBoardScreen from '../../Components/KeyContact/JobBoard/JobBoardScreen'
 import ArchiveScreen from '../../Components/KeyContact/JobBoard/Archive'
-import NavBarIcons from './NavBarIcons'
-import Icon from "react-native-vector-icons/Ionicons";
+import NavBarAdd from './NavBarAdd'
+import NavBarArchive from './NavBarArchive'
 
 
 export const JobBoardStack = createStackNavigator(
@@ -15,7 +15,8 @@ export const JobBoardStack = createStackNavigator(
       screen: JobBoardScreen,
       navigationOptions: (props) => ({
         headerTitle: 'Job Board',
-        headerRight: <NavBarIcons {...props} />
+        headerRight: <NavBarAdd {...props} />,
+        headerLeft: <NavBarArchive {...props} />
       })
     },
     Overview: {
@@ -28,7 +29,7 @@ export const JobBoardStack = createStackNavigator(
     Archive: {
       screen: ArchiveScreen,
       navigationOptions: {
-        headerTitle: 'Archive'
+        headerTitle: 'Past Jobs'
 
       },
     },
@@ -54,4 +55,3 @@ JobBoardStack.navigationOptions = ({ navigation }) => {
 }
 
 
-  
