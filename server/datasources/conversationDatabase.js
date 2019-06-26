@@ -11,41 +11,41 @@ class ConversationDatabase extends DataSource {
     this.context = config.context
   }
 
-  async mutationAddConversation(input){
+  async mutationAddConversation(input) {
 
     const key_contact_id = input.key_contact_id
     const caregiver_id = input.caregiver_id
 
     const checkConversation = {
-        text: "SELECT * FROM seniorcare.conversations WHERE seniorcare.conversations.key_contact_id = $1 AND seniorcare.conversations.caregiver_id = $2",
-        values: [key_contact_id, caregiver_id]
-      }
+      text: "SELECT * FROM seniorcare.conversations WHERE seniorcare.conversations.key_contact_id = $1 AND seniorcare.conversations.caregiver_id = $2",
+      values: [key_contact_id, caregiver_id]
+    }
 
     const results = await this.context.postgres.query(checkConversation)
 
     // check if conversation exists. If it does return conversation id, if not then create a conversation
-          if(results.rows.length > 0) {
-            console.log("old convo")
-            const conversation_id = results.rows[0].id
-            return {
-              id: conversation_id
-            }
-          }
-          else {
+    if (results.rows.length > 0) {
+      console.log("old convo")
+      const conversation_id = results.rows[0].id
+      return {
+        id: conversation_id
+      }
+    }
+    else {
 
-            const newConversation = {
-              text: 'INSERT INTO seniorcare.conversations (key_contact_id, caregiver_id) VALUES ($1, $2) RETURNING *',
-              values: [key_contact_id, caregiver_id],
-            }
+      const newConversation = {
+        text: 'INSERT INTO seniorcare.conversations (key_contact_id, caregiver_id) VALUES ($1, $2) RETURNING *',
+        values: [key_contact_id, caregiver_id],
+      }
 
-            const result = await this.context.postgres.query(newConversation)
+      const result = await this.context.postgres.query(newConversation)
 
-            const new_conversation_id = result.rows[0].id
+      const new_conversation_id = result.rows[0].id
 
-            return {
-              id: new_conversation_id
-            }
-          }
+      return {
+        id: new_conversation_id
+      }
+    }
   }
   async queryGetConversation(input) {
 
@@ -60,11 +60,11 @@ class ConversationDatabase extends DataSource {
 
     return result.rows[0]
   }
-  async queryGetCaregiverConvos(input){
+  async queryGetCaregiverConvos(input) {
     const key_contact_id = input.key_contact_id
 
     const caregiverConversations = {
-      text: `SELECT email, fullname, seniorcare.conversations.caregiver_id, seniorcare.conversations.key_contact_id, seniorcare.conversations.id AS conversation_id
+      text: `SELECT email, fullname, avatar, seniorcare.conversations.caregiver_id, seniorcare.conversations.key_contact_id, seniorcare.conversations.id AS conversation_id
              FROM seniorcare.caregiver
              INNER JOIN seniorcare.conversations
              ON seniorcare.caregiver.id = seniorcare.conversations.caregiver_id
@@ -76,11 +76,11 @@ class ConversationDatabase extends DataSource {
 
     return result.rows
   }
-    async queryGetKeyContactConvos(input){
+  async queryGetKeyContactConvos(input) {
     const user_id = input.caregiver_id
 
     const keyContactConversations = {
-      text: `SELECT email, fullname, seniorcare.conversations.caregiver_id, seniorcare.conversations.key_contact_id, seniorcare.conversations.id AS conversation_id
+      text: `SELECT email, fullname, avatar, seniorcare.conversations.caregiver_id, seniorcare.conversations.key_contact_id, seniorcare.conversations.id AS conversation_id
              FROM seniorcare.key_contact
              INNER JOIN seniorcare.conversations
              ON seniorcare.key_contact.id = seniorcare.conversations.key_contact_id
