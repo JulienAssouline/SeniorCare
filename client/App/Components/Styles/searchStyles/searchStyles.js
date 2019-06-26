@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
   },
   locationText: {
     color: "#6F6F6F",
-    fontSize: 14,
+    fontSize: 13,
+
   },
   backgroundInfoText: {
     color: "#6F6F6F",
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   starRating: {
-    paddingRight: 3,
+    paddingRight: 1,
     paddingLeft: 1,
   },
 })
