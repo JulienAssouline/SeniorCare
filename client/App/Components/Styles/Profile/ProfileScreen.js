@@ -46,7 +46,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     padding: 15,
     color: '#3F7DFB'
-  }
+  },
+  Camera: {
+    borderWidth: 1,
+    borderColor: '#3F7DFB',
+    borderRadius: 26,
+    width: 52,
+    height: 52,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 })
 
 export default styles

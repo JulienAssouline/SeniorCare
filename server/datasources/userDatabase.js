@@ -54,6 +54,46 @@ class UserDatabase extends DataSource {
       throw err
     }
   }
+
+  async changeKeyContactAvatar(input) {
+    try {
+      let { id, avatar } = input
+
+      const newAvatarInsert = {
+        text: "UPDATE seniorcare.key_contact SET avatar = ($1) WHERE id = ($2) RETURNING avatar",
+        values: [avatar, id]
+      }
+
+      await this.context.postgres.query(newAvatarInsert)
+
+      return {
+        avatar: avatar
+      }
+
+    } catch (err) {
+      throw err
+    }
+  }
+
+  async changeCaregiverAvatar(input) {
+    try {
+      let { id, avatar } = input
+
+      const newAvatarInsert = {
+        text: "UPDATE seniorcare.caregiver SET avatar = ($1) WHERE id = ($2) RETURNING avatar",
+        values: [avatar, id]
+      }
+
+      await this.context.postgres.query(newAvatarInsert)
+
+      return {
+        avatar: avatar
+      }
+
+    } catch (err) {
+      throw err
+    }
+  }
 }
 
 module.exports = UserDatabase

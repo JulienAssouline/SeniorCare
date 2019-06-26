@@ -6,6 +6,8 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { onError } from 'apollo-link-error'
 import { getMainDefinition } from 'apollo-utilities';
 import { WebSocketLink } from 'apollo-link-ws';
+// import { createUploadLink } from 'apollo-upload-client';
+// import { BatchHttpLink } from 'apollo-link-batch-http'
 
 const wsLink = new WebSocketLink({
   uri: `ws://localhost:8080/graphql`,
@@ -30,16 +32,16 @@ const httpLink = createHttpLink({
 })
 
 const link = split(
-    ({query}) => {
-      const definition = getMainDefinition(query);
-      return (
-          definition.kind === "OperationDefinition" &&
-          definition.operation === "subscription"
-        )
-    },
-    wsLink,
-    httpLink
-  )
+  ({ query }) => {
+    const definition = getMainDefinition(query);
+    return (
+      definition.kind === "OperationDefinition" &&
+      definition.operation === "subscription"
+    )
+  },
+  wsLink,
+  httpLink
+)
 
 const apolloClient = new ApolloClient({
   link: ApolloLink.from([errorLink, stateLink, link]),
