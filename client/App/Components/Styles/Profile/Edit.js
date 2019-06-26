@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
       marginTop: 5,
       marginBottom: 5,
       borderWidth: 1,
-      color: '#A3A3A3',
+      color: '#000000',
       borderBottomColor: '#A3A3A3',
       borderColor: '#fff',
       borderStyle: 'solid',
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 5,
         borderWidth: 1,
-        color: '#A3A3A3',
+        color: '#000000',
         borderBottomColor: '#A3A3A3',
         borderColor: '#fff',
         borderStyle: 'solid',
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
       marginRight: 20,
       marginBottom: 5,
       borderWidth: 1,
-      color: '#A3A3A3',
+      color: '#000000',
       borderBottomColor: '#A3A3A3',
       borderColor: '#fff',
       borderStyle: 'solid',
@@ -106,6 +106,12 @@ const styles = StyleSheet.create({
       padding: 0,
       color: '#244392',
     },
+    headingsTextGender: {
+      marginBottom: 10,
+      fontSize: 18,
+      padding: 0,
+      color: '#244392',
+    },
     availabilityTextPadding: {
       marginBottom: 5,
       fontSize: 18,
@@ -118,6 +124,12 @@ const styles = StyleSheet.create({
     },
     fieldContainer: {
       margin: 10,
+    },
+    fieldGenderContainer: {
+      flex: 1,
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
     },
     buttonText: {
         flex: 1,
