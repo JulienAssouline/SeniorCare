@@ -6,18 +6,20 @@ const height = Dimensions.get("window").height
 const styles = StyleSheet.create({
   MainContainer: {
     flex: 1,
-    backgroundColor: '#EEF5FB',
+    backgroundColor: '#EEF5FB'
   },
   InputContainer: {
     position: "absolute",
     bottom: 0,
+    borderTopWidth: 1,
+    borderColor: '#cccccc',
   },
   MessagesContainer: {
     padding: 20,
     // overflow-y: scroll;
     // height: height - 20,
     marginBottom: 10,
-    backgroundColor: '#EEF5FB',
+    backgroundColor: 'transparent',
   },
   conversationContainer: {
     marginHorizontal: 20,
