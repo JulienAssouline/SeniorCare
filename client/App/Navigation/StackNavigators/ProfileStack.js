@@ -5,13 +5,13 @@ import ProfileScreen from '../../Components/Profile/ProfileScreen'
 import Senior from '../../Components/Profile/Senior/Senior'
 import Help from '../../Components/Profile/Help/Help'
 import AccountDetails from '../../Components/Profile/Account'
-import SeniorIndex from '../../Components/Profile/Senior/Index'
+import SeniorDetails from '../../Components/Profile/Senior/SeniorDetails'
 import Edit from '../../Components/Profile/Edit'
 
 export const ProfileStack = createStackNavigator(
   {
-    Profile: { 
-      screen: ProfileScreen 
+    Profile: {
+      screen: ProfileScreen
     },
     Help: {
       screen: Help
@@ -21,13 +21,9 @@ export const ProfileStack = createStackNavigator(
       navigationOptions: {
         title: 'Seniors'
       },
-      Help: {
-        screen: Help
-      },
-
     },
     SeniorDetails:{
-      screen: SeniorIndex,
+      screen: SeniorDetails,
         navigationOptions: {
           title: 'Caregiver for'
         },
@@ -52,7 +48,7 @@ export const ProfileStack = createStackNavigator(
           </View>
         })
     },
-    
+
 
   },
 
