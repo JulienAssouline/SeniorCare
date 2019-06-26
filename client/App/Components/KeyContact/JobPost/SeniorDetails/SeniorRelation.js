@@ -1,12 +1,15 @@
 import React from 'react'
 
-import { Text, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import { Input } from 'react-native-elements'
 
 import { Formik } from 'formik'
 import { connect } from 'react-redux'
 
+import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { backgroundStyles } from '../../../Styles/GeneralStyles'
 import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+import { overview } from '../../../Styles/PostJob/OverviewStyles'
 
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
@@ -59,16 +62,19 @@ const SeniorRelation = props => {
 				} = formikProps
 
 				return (
-					<View style={createSeniorProfile.mainContainer}>
-						<Text style={createSeniorProfile.question}>
-							What is your relationship to {props.seniorName}?
-						</Text>
-						<Input
-							placeholder='Daughter/Friend/Neighbour'
-							value={values.relationship}
-							onChangeText={handleChange('relationship')}
-							onBlur={handleBlur}
-						/>
+					<View style={{...backgroundStyles.background, ...overview.mainContainer}}>
+						<ScrollView style={createSeniorProfile.mainContainer}>
+							<Text style={general.question}>
+								What is your relationship to {props.seniorName}?
+							</Text>
+							<Input
+								placeholder='Daughter/Friend/Neighbour'
+								value={values.relationship}
+								containerStyle={general.inputContainer}
+								onChangeText={handleChange('relationship')}
+								onBlur={handleBlur}
+							/>
+						</ScrollView>
 						<PostJobBottomButtons
 							navigation={props.navigation}
 							storeReduxData={values.relationship}

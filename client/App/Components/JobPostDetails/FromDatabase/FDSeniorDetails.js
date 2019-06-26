@@ -3,6 +3,8 @@ import React from 'react'
 import { Text, View} from 'react-native'
 import { Avatar, ListItem } from 'react-native-elements'
 
+import calcAge from '../../utils/calcAge'
+
 import { sectionContent } from '../../Styles/PostJob/SubmitJobStyles'
 import { jobPostListItemStyles } from '../../Styles/Caregiver/caregiverJobPostStyles'
 
@@ -32,14 +34,15 @@ export default SeniorDetails = props => {
 				</Text>
 			</View>
 
-			{/* <View style={sectionContent.dualColumn}>
+			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>
 					Age
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData.birthdate}
+					{/* {console.log(props.sectionData.birthdate)} */}
+					{/* {calcAge(props.sectionData.birthdate)} */}
 				</Text>
-			</View> */}
+			</View>
 
 			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>

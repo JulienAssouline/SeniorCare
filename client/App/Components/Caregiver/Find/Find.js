@@ -43,6 +43,10 @@ const Find = props => {
 
 	return (
 		<ScrollView style={backgroundStyles.background}>
+			<Button
+				title='go to keycontact stack'
+				onPress={() => props.navigation.navigate('Overview')}
+			/>
 			<View>
 				{data.getJobPosts.map(jobPost => (
 					<TouchableOpacity 
@@ -58,10 +62,6 @@ const Find = props => {
 					</TouchableOpacity>
 				))}
 			</View>
-			<Button
-				title='go to keycontact stack'
-				onPress={() => props.navigation.navigate('Overview')}
-			/>
 		</ScrollView>
 	)
 }

@@ -5,6 +5,7 @@ import { Formik } from 'formik'
 import { connect } from 'react-redux'
 
 import { backgroundStyles } from '../../../Styles/GeneralStyles'
+import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
 
 import PostJobTop from '../PostJobTop'
 import PostJobBottomButtons from '../PostJobBottomButtons'
@@ -47,17 +48,12 @@ const HouseDetails = props => {
 	}
 
 	return (
-		<ScrollView style={backgroundStyles.background}>
+		<ScrollView style={{...backgroundStyles.background, ...general.mainContainer}}>
 			<PostJobTop
         title='House Details'
         currentPosition={props.formPosition}
         stepCount={1}
 			/>
-			{/* <PostJobTop
-				title="Senior's Profile"
-				currentPosition={props.formPosition}
-				stepCount={8}
-			/> */}
 
 			<Formik
 				initialValues={initialFormValues}

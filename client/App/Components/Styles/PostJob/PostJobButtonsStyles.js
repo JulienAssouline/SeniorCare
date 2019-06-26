@@ -2,9 +2,11 @@ import { StyleSheet } from 'react-native'
 
 export const style = StyleSheet.create({
   buttonContainer: {
-    marginTop: 50,
     flex: 1,
-    flexDirection: 'row'
+		flexDirection: 'row',
+		position: 'absolute',
+		left: 0,
+		bottom: 0,
   },
   splitButtonContainer: {
     flex: 1,
@@ -17,26 +19,29 @@ export const style = StyleSheet.create({
   serviceButton: {
     marginHorizontal: 5,
     borderRadius: 20,
-    // backgroundColor: "#314592", this does not work
   },
   startContinue: {
     width: '100%',
     borderRadius: 0,
     backgroundColor: "#314592",
-  },
+	},
+	buttonTitle: {
+		color: '#4d4d4d',
+	},
   back: {
 		borderRadius: 0,
-		backgroundColor: '#F0F0F0'
+		backgroundColor: '#F0F0F0',
+		padding: 16,
   },
   next: {
 		borderRadius: 0,
     backgroundColor: "#314592",
-    color: '#4d4d4d',
+		padding: 16,
   },
   containerBack: {
-    width: '50%',
+		width: '50%',
   },
   containerNext: {
-    width: '50%',
+		width: '50%',
   }
 })

@@ -7,7 +7,10 @@ import { Formik } from 'formik'
 import { connect } from 'react-redux'
 import { seniorDetailsValidation } from '../../../../ValidationSchemas/postAJobValidation'
 
+import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { backgroundStyles } from '../../../Styles/GeneralStyles'
 import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+import { overview } from '../../../Styles/PostJob/OverviewStyles'
 
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
@@ -62,16 +65,20 @@ const SeniorName = props => {
 				} = formikProps
 
 				return (
-					<View style={createSeniorProfile.mainContainer}>
-						<Text style={createSeniorProfile.question}>
-							What is the Senior's Name?
-						</Text>
-						<Input
-							placeholder='Angel'
-							value={values.seniorName}
-							onChangeText={handleChange('seniorName')}
-							onBlur={handleBlur}
-						/>
+					<View style={{...backgroundStyles.background, ...overview.mainContainer}}>
+						<ScrollView style={createSeniorProfile.mainContainer}>
+							<Text style={general.question}>
+								What is the Senior's Name?
+							</Text>
+							<Input
+								placeholder='Angel'
+								value={values.seniorName}
+								containerStyle={general.inputContainer}
+								onChangeText={handleChange('seniorName')}
+								onBlur={handleBlur}
+							/>
+							
+						</ScrollView>
 						<PostJobBottomButtons
 							navigation={props.navigation}
 							storeReduxData={values.seniorName}
@@ -80,7 +87,7 @@ const SeniorName = props => {
 							errors={errors}
 							touched={touched}
 							lastPosition={7}
-						/>
+						/>					
 					</View>
 				)
 			}}

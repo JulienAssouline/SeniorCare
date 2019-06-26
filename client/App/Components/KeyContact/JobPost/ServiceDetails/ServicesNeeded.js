@@ -132,7 +132,7 @@ const ServicesNeeded = (props) => {
         handleSubmit={()=>null}
         errors={{}}
         touched={{}}
-        lastPosition={2}
+        lastPosition={1}
 			/>
     </View>
   </View>

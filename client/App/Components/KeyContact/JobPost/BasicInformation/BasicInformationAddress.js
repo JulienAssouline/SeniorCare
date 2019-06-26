@@ -1,11 +1,15 @@
 import { connect } from 'react-redux'
 import React, {useState} from 'react'
 import { Formik } from 'formik';
-import { View, Text } from 'react-native'
+import { ScrollView, View, Text } from 'react-native'
 import { Button, Input } from 'react-native-elements'
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 import PostJobBottomButtons from '../PostJobBottomButtons'
+
 import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+import { backgroundStyles } from '../../../Styles/GeneralStyles'
+import { overview } from '../../../Styles/PostJob/OverviewStyles'
 
 const mapStateToProps = state => {
 	const { address, city, postalCode, province } = state.postJob.basicInformation
@@ -66,47 +70,48 @@ const BasicInformationAddress = (props) => {
 					handleSubmit,
 					isSubmitting
 				}) => (
-					<View>
-						<Text style={general.formInputTitle}>Address</Text>
-						<Input
-							placeholder="31 Iceboat Terrace"
-							name="address"
-							onChangeText={handleChange("address")}
-							onBlur={handleBlur}
-							value={values.address}
-						/>
-						{/* <TextInput
-															onChangeText={props.handleChange('email')}
-															onBlur={props.handleBlur('email')}
-															value={props.values.email}
-													/> */}
-						{/* {errors.email && touched.email && errors.email} */}
-						<Text style={general.formInputTitle}>City</Text>
-						<Input
-							placeholder="Toronto"
-							name="city"
-							onChangeText={handleChange("city")}
-							onBlur={handleBlur}
-							value={values.city}
-						/>
-						<Text style={general.formInputTitle}>Province</Text>
-						<Input
-							placeholder="Ontario"
-							name="province"
-							onChangeText={handleChange("province")}
-							onBlur={handleBlur}
-							value={values.province}
-						/>
-						<Text style={general.formInputTitle}>Postal Code</Text>
-						<Input
-							placeholder="M5V 3E9"
-							name="postalCode"
-							onChangeText={handleChange("postalCode")}
-							onBlur={handleBlur}
-							value={values.postalCode}
-						/>
-						<Text />
-						{/* {errors.password && touched.password && errors.password} */}
+					<View style={{...backgroundStyles.background, ...overview.mainContainer}}>
+						<ScrollView style={createSeniorProfile.mainContainer}>
+							<Text style={general.question}>Address</Text>
+							<Input
+								placeholder="31 Iceboat Terrace"
+								name="address"
+								onChangeText={handleChange("address")}
+								onBlur={handleBlur}
+								value={values.address}
+							/>
+							{/* <TextInput
+																onChangeText={props.handleChange('email')}
+																onBlur={props.handleBlur('email')}
+																value={props.values.email}
+														/> */}
+							{/* {errors.email && touched.email && errors.email} */}
+							<Text style={general.question}>City</Text>
+							<Input
+								placeholder="Toronto"
+								name="city"
+								onChangeText={handleChange("city")}
+								onBlur={handleBlur}
+								value={values.city}
+							/>
+							<Text style={general.question}>Province</Text>
+							<Input
+								placeholder="Ontario"
+								name="province"
+								onChangeText={handleChange("province")}
+								onBlur={handleBlur}
+								value={values.province}
+							/>
+							<Text style={general.question}>Postal Code</Text>
+							<Input
+								placeholder="M5V 3E9"
+								name="postalCode"
+								onChangeText={handleChange("postalCode")}
+								onBlur={handleBlur}
+								value={values.postalCode}
+							/>
+							{/* {errors.password && touched.password && errors.password} */}
+						</ScrollView>
 						<PostJobBottomButtons
 							navigation={props.navigation}
 							storeReduxData={values}

@@ -1,11 +1,14 @@
 import React from 'react'
 
-import { Text, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import { Input } from 'react-native-elements'
 
 import { connect } from 'react-redux'
 
+import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { backgroundStyles } from '../../../Styles/GeneralStyles'
 import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+import { overview } from '../../../Styles/PostJob/OverviewStyles'
 
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
@@ -32,14 +35,16 @@ const SeniorUploadAvatar = props => {
 	}
 
 	return (
-		<View style={createSeniorProfile.mainContainer}>
-			<Text style={createSeniorProfile.question}>
-				{/* Please add a picture of {values.seniorName}. */}
-				Please add a picture of {props.seniorName}.
-			</Text>
-			<Text>
-				Adding a picture helps complete your profile and increases your chances to be viewed.
-			</Text>
+		<View style={{...backgroundStyles.background, ...overview.mainContainer}}>
+			<ScrollView style={createSeniorProfile.mainContainer}>
+				<Text style={general.question}>
+					{/* Please add a picture of {values.seniorName}. */}
+					Please add a picture of {props.seniorName}.
+				</Text>
+				<Text>
+					Adding a picture helps complete your profile and increases your chances to be viewed.
+				</Text>
+			</ScrollView>
 			<PostJobBottomButtons
 				navigation={props.navigation}
 				storeReduxData={props.seniorName}

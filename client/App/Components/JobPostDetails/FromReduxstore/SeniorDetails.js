@@ -29,14 +29,14 @@ export default SeniorDetails = props => {
 				</Text>
 			</View>
 
-			{/* <View style={sectionContent.dualColumn}>
+			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>
 					Age
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData.birthdate}
+					{/* {props.sectionData.birthdate} */}
 				</Text>
-			</View> */}
+			</View>
 
 			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>

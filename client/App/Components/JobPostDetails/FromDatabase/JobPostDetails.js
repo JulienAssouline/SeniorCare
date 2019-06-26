@@ -27,7 +27,7 @@ export default JobPostDetails = props => {
 			return { ...prevState, [key]: !prevState[key]}
 		})
 	}
-	
+
 	return (
 		<View>
 			<ListItem
@@ -65,7 +65,7 @@ export default JobPostDetails = props => {
 					sectionName='Service Details'
 					sectionData={props.serviceDetails}
 					collapsableState={activeSections['serviceDetails']}
-					handleCollapsable={() => handleCollapsable['serviceDetails']}
+					handleCollapsable={() => handleCollapsable('serviceDetails')}
 				/>
 			<JobDetailsAccordion
 				sectionName='House Details'

@@ -19,19 +19,19 @@ export default SeniorDetails = props => {
 				</View>
 				<View style={chooseProfile.buttonContainer}>
 					<Button
-						type='outline'
 						title='Create new profile'
-						style={chooseProfile.button}
+						buttonStyle={chooseProfile.button}
 						containerStyle={chooseProfile.buttonOuter}
 						titleStyle={chooseProfile.buttonText}
+						type='outline'
 						onPress={handleCreateNewProfile}
 					/>
 					<Button
-						type='outline'
 						title='Use existing profile'
-						style={chooseProfile.button}
-						containerStyle={chooseProfile.buttonOuter}
 						titleStyle={chooseProfile.buttonText}
+						buttonStyle={chooseProfile.button}
+						containerStyle={chooseProfile.buttonOuter}
+						type='outline'
 					/>
 				</View>
 			</View>
