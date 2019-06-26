@@ -19,6 +19,7 @@ module.exports = gql`
     getCaregiverConvos(key_contact_id: ID): [ConversationRoom]
     getKeyContactConvos(caregiver_id: ID): [ConversationRoom]
 		getJobPosts: [JobPost]
+		getJobPost(id: ID!): JobPost
   }
 
 
@@ -104,7 +105,7 @@ module.exports = gql`
 		id: ID
 		key_contact_id: ID
 		date_created: Date
-		
+
 		getKeyContact: KeyContact
 		getBasicInformation: BasicInformation
 		getServiceDetails: [ServiceDetails]

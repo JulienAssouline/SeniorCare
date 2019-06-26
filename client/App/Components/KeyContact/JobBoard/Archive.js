@@ -129,7 +129,6 @@ const ArchiveScreen = (props) => {
 
     <ScrollView style={styles.MainContainer}>
       {data.ArchivedJobs.map(elem => {
-
         let date = new Date(parseInt(elem.date_created));
         let options = {
           month: 'long', year: 'numeric', day: 'numeric',

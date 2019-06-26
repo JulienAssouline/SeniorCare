@@ -2,11 +2,11 @@ import React from 'react'
 
 import { Text, View } from 'react-native'
 
-import BasicInformation from './BasicInformation'
-import ServiceDetails from './ServiceDetails'
-import SeniorDetails from './SeniorDetails'
-import HouseDetails from './HouseDetails'
-import CaregiverPreferences from './CaregiverPreferences'
+import BasicInformation from '../../../JobPostDetails/FromReduxstore/BasicInformation'
+import ServiceDetails from '../../../JobPostDetails/FromReduxstore/ServiceDetails'
+import SeniorDetails from '../../../JobPostDetails/FromReduxstore/SeniorDetails'
+import HouseDetails from '../../../JobPostDetails/FromReduxstore/HouseDetails'
+import CaregiverPreferences from '../../../JobPostDetails/FromReduxstore/CaregiverPreferences'
 
 export default SubmitJobAccordionBody = props => {
 	switch (props.sectionName) {

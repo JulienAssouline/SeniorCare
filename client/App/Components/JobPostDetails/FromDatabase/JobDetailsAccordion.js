@@ -3,10 +3,10 @@ import React from 'react'
 import { Text, TouchableOpacity, View} from 'react-native'
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome'
 
-import { backgroundStyles } from '../../../Styles/GeneralStyles'
-import { submitJobOverview } from '../../../Styles/PostJob/SubmitJobStyles'
+import { backgroundStyles } from '../../Styles/GeneralStyles'
+import { submitJobOverview } from '../../Styles/PostJob/SubmitJobStyles'
 
-import SubmitJobAccordionBody from './SubmitJobAccordionBody';
+import SubmitJobAccordionBody from './JobDetailsAccordionBody';
 
 export default SubmitJobAccordion = props => {
 	const { sectionName, sectionData, collapsableState, handleCollapsable } = props

@@ -45,7 +45,6 @@ class ServicesDatabase extends DataSource {
 	async addJobServices(input) {
 		try {
 			const { jobId } = input
-			// console.log(input.serviceDetails)
 
 			const selectServicesArray = Object.keys(input.serviceDetails).filter(service => 
 				input.serviceDetails[service]
@@ -65,8 +64,6 @@ class ServicesDatabase extends DataSource {
 				const insertServicesJobsQuery = createInsertQuery(serviceObject, 'seniorcare.services_job', true)
 				await this.context.postgres.query(insertServicesJobsQuery)
 			})
-
-			// console.log(selectServicesObject)
 		} catch(err) {
 			throw err
 		}

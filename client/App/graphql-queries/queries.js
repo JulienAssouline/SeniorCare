@@ -46,9 +46,37 @@ export const GET_KEY_CONTACT = gql`
 	}
 `
 
-export const GET_JOB_POSTING = gql`
+export const GET_BASIC_JOB_POSTING = gql`
 	query {
 		getJobPosts {
+			id
+			date_created
+			key_contact_id
+			getKeyContact {
+				id
+				fullname
+				avatar
+			}
+			getBasicInformation {
+				title
+				city
+				hourly_rate
+			}
+			getServiceDetails {
+				job_id
+				service_id
+				getService {
+					id
+					title
+				}
+			}
+		}
+	}
+`
+
+export const GET_FULL_JOB_POSTING = gql`
+	query getJobVars($id: ID!) {
+		getJobPost(id: $id) {
 			id
 			key_contact_id
 			date_created

@@ -3,22 +3,24 @@ import React from 'react'
 import { Text, View} from 'react-native'
 import { Avatar, ListItem } from 'react-native-elements'
 
-import { sectionContent } from '../../../Styles/PostJob/SubmitJobStyles'
+import calcAge from '../../utils/calcAge'
+
+import { sectionContent } from '../../Styles/PostJob/SubmitJobStyles'
+import { jobPostListItemStyles } from '../../Styles/Caregiver/caregiverJobPostStyles'
 
 export default SeniorDetails = props => {
-
-	console.log(props)
-
 	return (
 		<View style={sectionContent.container}>
-
+			
 			<ListItem
-				title={props.sectionData.seniorName}
+				title={props.sectionData && props.sectionData.fullname}
+				titleStyle={jobPostListItemStyles.title}
+				containerStyle={jobPostListItemStyles.container}
 				leftAvatar={
 					<Avatar
 						rounded
 						size='small'
-						title={props.sectionData.seniorName}
+						title={props.sectionData.fullname && props.sectionData.fullname.substring(0, 2)}
 					/>
 				}
 			/>
@@ -32,21 +34,22 @@ export default SeniorDetails = props => {
 				</Text>
 			</View>
 
-			{/* <View style={sectionContent.dualColumn}>
+			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>
 					Age
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData.birthdate}
+					{/* {console.log(props.sectionData.birthdate)} */}
+					{/* {calcAge(props.sectionData.birthdate)} */}
 				</Text>
-			</View> */}
+			</View>
 
 			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>
 					Relationship
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{props.sectionData.relationship}
+					{props.sectionData.relation}
 				</Text>
 			</View>
 
@@ -73,7 +76,7 @@ export default SeniorDetails = props => {
 					Medical Condition
 				</Text>
 				<Text style={sectionContent.singleColumnValue}>
-					{props.sectionData.medicalCondition}
+					{props.sectionData.medical_condition}
 				</Text>
 			</View>
 

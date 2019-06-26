@@ -1,11 +1,14 @@
 import React from 'react'
 
-import { Text, TextInput, View } from 'react-native'		
+import { ScrollView, Text, TextInput, View } from 'react-native'		
 
 import { Formik } from 'formik'
 import { connect } from 'react-redux'
 
+import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { backgroundStyles } from '../../../Styles/GeneralStyles'
 import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+import { overview } from '../../../Styles/PostJob/OverviewStyles'
 
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
@@ -57,21 +60,23 @@ const SeniorMedicalCondition = props => {
 				} = formikProps
 
 				return (
-					<View style={createSeniorProfile.mainContainer}>
-						<Text style={createSeniorProfile.question}>
-							Are there any medical conditions to be aware of?
-						</Text>
-						<View style={createSeniorProfile.multilineTextBox}>
-							<TextInput
-								value={values.medicalCondition}
-								onChangeText={handleChange('medicalCondition')}
-								placeholder='Tell us about any medical conditions that we need to be aware of.'
-								editable={true}
-								multiline={true}
-								numberOfLines={4}
-								style={createSeniorProfile.multilineTextArea}
-							/>
-						</View>
+					<View style={{...backgroundStyles.background, ...overview.mainContainer}}>
+						<ScrollView style={createSeniorProfile.mainContainer}>
+							<Text style={general.question}>
+								Are there any medical conditions to be aware of?
+							</Text>
+							<View style={createSeniorProfile.multilineTextBox}>
+								<TextInput
+									value={values.medicalCondition}
+									onChangeText={handleChange('medicalCondition')}
+									placeholder='Tell us about any medical conditions that we need to be aware of.'
+									editable={true}
+									multiline={true}
+									numberOfLines={4}
+									style={createSeniorProfile.multilineTextArea}
+								/>
+							</View>
+						</ScrollView>
 						<PostJobBottomButtons
 							navigation={props.navigation}
 							storeReduxData={values.medicalCondition}

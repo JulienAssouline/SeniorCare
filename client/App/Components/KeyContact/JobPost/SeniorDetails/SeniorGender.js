@@ -1,12 +1,15 @@
 import React from 'react'
 
-import { Text, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 
 import { Formik } from 'formik'
 import { connect } from 'react-redux'
 
+import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles'
+import { backgroundStyles } from '../../../Styles/GeneralStyles'
 import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
+import { overview } from '../../../Styles/PostJob/OverviewStyles'
 
 import PostJobBottomButtons from '../PostJobBottomButtons'
 
@@ -60,25 +63,40 @@ const SeniorGender = props => {
 				} = formikProps
 
 				return (
-					<View style={createSeniorProfile.mainContainer}>
-						<Text style={createSeniorProfile.question}>
-							What is {props.seniorName}'s Gender?
-						</Text>
-						<Button
-							title='Female'
-							type={values.gender === 'female' ? 'solid' : 'outline'}
-							onPress={() => setFieldValue('gender', 'female')}
-						/>
-						<Button
-							title='Male'
-							type={values.gender === 'male' ? 'solid' : 'outline'}
-							onPress={() => setFieldValue('gender', 'male')}
-						/>
-						<Button
-							title='Other'
-							type={values.gender === 'other' ? 'solid' : 'outline'}
-							onPress={() => setFieldValue('gender', 'other')}
-						/>
+					<View style={{...backgroundStyles.background, ...overview.mainContainer}}>
+						<ScrollView style={createSeniorProfile.mainContainer}>
+							<Text style={general.question}>
+								What is {props.seniorName}'s Gender?
+							</Text>
+							<View style={postJobButtons.mainButtonContainer}>
+								<Button
+									title='Female'
+									titleStye={values.gender === 'female' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									containerStyle={postJobButtons.buttonContainer}
+									buttonStyle={values.gender === 'female' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+									type={values.gender === 'female' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('gender', 'female')}
+								/>
+								<Button
+									title='Male'
+									titleStye={values.gender === 'male' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									containerStyle={postJobButtons.buttonContainer}
+									buttonStyle={values.gender === 'male' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+									type={values.gender === 'male' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('gender', 'male')}
+								/>
+							</View>
+							<View style={postJobButtons.mainButtonContainer}>
+								<Button
+									title='Other'
+									titleStye={values.gender === 'other' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									containerStyle={postJobButtons.buttonContainer}
+									buttonStyle={values.gender === 'other' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+									type={values.gender === 'other' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('gender', 'other')}
+								/>
+							</View>
+						</ScrollView>
 						<PostJobBottomButtons
 							navigation={props.navigation}
 							storeReduxData={values.gender}
