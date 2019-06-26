@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/seniorcare-aws1-local-20190613124344-deployment/amplify-cfn-templates/auth/seniorcareaws106871de8-cloudformation-template.yml",
 				"logicalId": "authseniorcareaws106871de8"
 			},
-			"lastPushTimeStamp": "2019-06-13T16:47:56.031Z",
+			"lastPushTimeStamp": "2019-06-25T19:36:55.185Z",
 			"output": {
 				"AppClientSecret": "17qqa6j1paqud8847gfbfpr69ikbu7fj8nq15cmtgjdtbjnirb7u",
 				"UserPoolId": "us-east-1_PSlRc9dPQ",
@@ -30,6 +30,22 @@
 				"UserPoolName": "seniorcareaws106871de8_userpool_06871de8"
 			},
 			"lastPushDirHash": "Tki4qYTDEWP6/U0s7VZxoq9bUjg="
+		}
+	},
+	"storage": {
+		"seniorcare": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/seniorcare-aws1-local-20190613124344-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"logicalId": "storageseniorcare"
+			},
+			"lastPushTimeStamp": "2019-06-25T19:36:55.187Z",
+			"output": {
+				"BucketName": "seniorcare-local",
+				"Region": "us-east-1"
+			},
+			"lastPushDirHash": "fIen/yXRRLvi5Zfap1qNZPefSvM="
 		}
 	}
 }

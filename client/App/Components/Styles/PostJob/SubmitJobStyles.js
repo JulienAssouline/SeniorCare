@@ -6,6 +6,17 @@ const mainFontColor = '#525252'
 const sectionFontColor = '#777'
 const labelFontColor = '#333'
 
+export const listItemStyles = StyleSheet.create({
+	container: {
+		marginBottom: -10,
+	},
+
+	title: {
+		fontSize: 14,
+		marginLeft: -4,
+	},
+})
+
 export const submitJobOverview = StyleSheet.create({
 	mainContainer: {
 		flex: 1,
@@ -14,6 +25,7 @@ export const submitJobOverview = StyleSheet.create({
 	jobTitle: {
 		fontSize: 22,
 		margin: 10,
+		marginLeft: 16,
 		marginBottom: 20,
 	},
 
@@ -23,7 +35,7 @@ export const submitJobOverview = StyleSheet.create({
 		justifyContent: 'space-between',
 
 		padding: 10,
-		paddingLeft: 15,
+		paddingLeft: 16,
 		paddingRight: 20,
 	},
 
@@ -41,7 +53,15 @@ export const submitJobOverview = StyleSheet.create({
 
 export const sectionContent = StyleSheet.create({
 	container: {
-		padding: 10,
+		padding: 16,
+	},
+
+	servicesContainer: {
+		flex: 1,
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+
+		padding: 16,
 	},
 
 	dualColumn: {
@@ -73,5 +93,4 @@ export const sectionContent = StyleSheet.create({
 	singleColumnValue: {
 		color: mainFontColor,
 	},
-
 })

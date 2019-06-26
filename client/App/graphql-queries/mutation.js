@@ -32,3 +32,10 @@ export const ADD_CARGIVER_DETAILS = gql`
     }
   }
 `
+export const EDIT_KEY_CONTACT_DETAILS = gql`
+  mutation editKeyContactVars($input: KeyContactDetails!) {
+    addKeyContactDetails(input: $input) {
+      message
+    }
+  }
+`

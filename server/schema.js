@@ -104,6 +104,7 @@ module.exports = gql`
 		id: ID
 		key_contact_id: ID
 		date_created: Date
+		
 		getKeyContact: KeyContact
 		getBasicInformation: BasicInformation
 		getServiceDetails: [ServiceDetails]
@@ -183,6 +184,8 @@ module.exports = gql`
 		addJobRequest(input: NewJobObject!): MessageResponse!
     addCaregiverDetails(input: CaregiverDetails): addCaregiverDetailsResponse!
     addKeyContactDetails(input: KeyContactDetails): addKeyContactDetailsResponse!
+		changeKeyContactAvatar(input:ProfileDetails): changeAvatarResponse!
+		changeCaregiverAvatar(input:ProfileDetails): changeAvatarResponse!
 	}
 
   input KeyContactDetails {
@@ -324,6 +327,15 @@ module.exports = gql`
 
 	type duplicateRepostMessage{
 		message: String
+	}
+
+	input ProfileDetails {
+		id: ID!
+		avatar: String!
+	}
+
+	type changeAvatarResponse {
+		avatar: String
 	}
 
 `
