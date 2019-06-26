@@ -436,7 +436,7 @@ const seed = async () => {
 						.toParam()
 				)
 			),
-			)
+			
 		)
 		await pg.query('COMMIT')
 	} catch (e) {
