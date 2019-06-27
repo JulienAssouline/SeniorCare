@@ -1,13 +1,12 @@
 import React from 'react'
-import { Dimensions, ScrollView, Text, View } from 'react-native'
+import { Dimensions, ScrollView, Text, View, Image } from 'react-native'
 import styles from '../../Styles/Messages/MessagesStyles'
-import { useQuery, useMutation } from 'react-apollo-hooks'
-import {GET_KEY_CONTACT_CONVO} from "../../../graphql-queries/queries"
-import { Avatar, Button } from 'react-native-elements'
-import Icon from "react-native-vector-icons/Ionicons";
-import { List, ListItem } from 'react-native-elements'
-import { NavigationEvents } from 'react-navigation';
+import { useQuery } from 'react-apollo-hooks'
+import { GET_KEY_CONTACT_CONVO } from "../../../graphql-queries/queries"
+import { ListItem } from 'react-native-elements'
 import { connect } from 'react-redux'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+const blueCurve = require('../../../Images/WelcomeScreen/blue-curve.png')
 
 const mapStateToProps = state => {
   return {
@@ -17,40 +16,46 @@ const mapStateToProps = state => {
 
 const CaregiverConversationScreen = (props) => {
 
-  const {data, error, loading, refetch} = useQuery(GET_KEY_CONTACT_CONVO, {
+  const { data, error, loading, refetch } = useQuery(GET_KEY_CONTACT_CONVO, {
     variables: { caregiver_id: props.user_id }
   })
 
-  if (data.getKeyContactConvos === undefined) { return (<Text> ...loading </Text>)}
+  if (data.getKeyContactConvos === undefined) { return (<Text> ...loading </Text>) }
 
   function handlePress(conversation_id, user_id) {
-     props.navigation.navigate("MessagesScreen", {
+    props.navigation.navigate("MessagesScreen", {
       conversation_id: conversation_id,
       user_id: user_id
-     })
+    })
   }
 
   const height = Dimensions.get("window").height
 
   return (
-    <ScrollView>
-      <View style = {{flex: 1, backgroundColor: '#EEF5FB', height: height}}>
+    <View style={styles.MainContainer}>
+      <Image
+        source={blueCurve}
+        style={{ height: hp(44), width: wp(100), position: 'absolute', bottom: 0, padding: 0, margin: 0 }}
+      />
+      <ScrollView>
+        <View style={{ flex: 1, backgroundColor: 'transparent', height: height, position: 'relative' }}>
 
-      {
-        data.getKeyContactConvos.map((d,i) =>
-          <View key = {i} style = {styles.conversationContainer}>
-            <ListItem
-              onPress = {() => handlePress(d.conversation_id, props.user_id)}
-              leftAvatar
-              title={<Text> {d.fullname}</Text>}
-              rightIcon={{ name: 'chevron-right' }}
-            />
-          </View>
+          {
+            data.getKeyContactConvos.map((d, i) =>
+              <View key={i} style={styles.conversationContainer}>
+                <ListItem
+                  onPress={() => handlePress(d.conversation_id, props.user_id)}
+                  leftAvatar
+                  title={<Text> {d.fullname}</Text>}
+                  rightIcon={{ name: 'chevron-right' }}
+                />
+              </View>
 
-          )
-      }
-      </View>
-    </ScrollView>
+            )
+          }
+        </View>
+      </ScrollView>
+    </View>
   )
 }
 

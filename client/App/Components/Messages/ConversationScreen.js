@@ -1,7 +1,7 @@
 import React from 'react'
 import { Dimensions, ScrollView, Text, View, Image } from 'react-native'
 import styles from '../Styles/Messages/MessagesStyles'
-import { useQuery, useMutation } from 'react-apollo-hooks'
+import { useQuery } from 'react-apollo-hooks'
 import { GET_CAREGIVER_CONVO } from "../../graphql-queries/queries"
 import { ListItem } from 'react-native-elements'
 import { connect } from 'react-redux'
