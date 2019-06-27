@@ -1,12 +1,12 @@
 import React from 'react'
-import {StyleSheet, View, ActivityIndicator} from 'react-native'
-import {connect} from 'react-redux'
+import { StyleSheet, View, ActivityIndicator } from 'react-native'
+import { connect } from 'react-redux'
 import Auth from '@aws-amplify/auth'
 
 
-const mapStateToProps =  state => {
+const mapStateToProps = state => {
   const { user_id } = state.user_id
-  return{
+  return {
     user_id: user_id
   }
 }
@@ -18,13 +18,13 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
- class AuthLoadingScreen extends React.Component {
+class AuthLoadingScreen extends React.Component {
   state = {
     userToken: null,
     role: ''
   }
   async componentDidMount() {
-    
+
     await this.loadApp()
   }
   // Get the logged in users and remember them
@@ -34,14 +34,13 @@ const mapDispatchToProps = dispatch => {
         this.setState({ role: user.attributes['custom:role'] })
         this.setState({ userToken: user.signInUserSession.accessToken.jwtToken })
         this.props.getAuthToken(user.signInUserSession.accessToken.jwtToken)
-      
-        this.state.role === 'family' ? 
-          this.props.navigation.navigate('App') : 
+
+        this.state.role === 'family' ?
+          this.props.navigation.navigate('App') :
           this.props.navigation.navigate('CaregiverApp')
 
       })
       .catch(err => {
-        
         this.props.navigation.navigate('Auth')
       })
 

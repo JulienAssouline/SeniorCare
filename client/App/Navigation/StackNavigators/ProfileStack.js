@@ -32,11 +32,11 @@ export const ProfileStack = createStackNavigator(
         title: 'Seniors'
       },
     },
-    SeniorDetails:{
+    SeniorDetails: {
       screen: SeniorDetails,
-        navigationOptions: {
-          title: 'Caregiver for'
-        },
+      navigationOptions: {
+        title: 'Caregiver for'
+      },
     },
     Edit: {
       screen: Edit,
@@ -57,7 +57,22 @@ export const ProfileStack = createStackNavigator(
               <Text style={{ fontFamily: 'SFProText-Medium', color: '#3F7DFB', fontSize: 17 }}>Edit</Text>
             </TouchableOpacity>
           </View>
-        })
+      })
+    },
+    AccountCaregiver: {
+      screen: AccountDetails,
+      navigationOptions: ({ navigation }) => ({
+        title: 'Account',
+        headerRight:
+          <View style={{ padding: 10 }}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Edit')}
+              style={{ flex: 1, flexDirection: 'row' }}
+            >
+              <Text style={{ fontFamily: 'SFProText-Medium', color: '#3F7DFB', fontSize: 17 }}>Edit</Text>
+            </TouchableOpacity>
+          </View>
+      })
     },
 
 
