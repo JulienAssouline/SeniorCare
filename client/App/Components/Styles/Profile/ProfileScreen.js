@@ -27,6 +27,16 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginLeft: 20,
   },
+  ProfileButtonNoBottom: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderWidth: 2,
+    borderColor: '#fff',
+    borderStyle: 'solid',
+    marginRight: 20,
+    marginLeft: 20,
+  },
   ProfileButtonForgot: {
     display: 'flex',
     flexDirection: 'row',
