@@ -26,7 +26,9 @@ export const general = StyleSheet.create({
 	},
 
 	title: {
-		marginBottom: 10
+		marginBottom: 10,
+		marginLeft: 15,
+		marginTop: 25
 	},
 
 	formInputTitle: {

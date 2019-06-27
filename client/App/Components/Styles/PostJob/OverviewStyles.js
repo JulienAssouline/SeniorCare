@@ -10,6 +10,7 @@ export const overview = StyleSheet.create({
 	mainContainer: {
 		flex: 1,
 		flexDirection: 'column',
+		justifyContent: 'flex-end'
 	},
 
 	explanationContainer: {
