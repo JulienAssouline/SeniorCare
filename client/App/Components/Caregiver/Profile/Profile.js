@@ -154,11 +154,6 @@ const Profile = props => {
   return (
     <ScrollView style={styles.MainContainer}>
       <View style={styles.Profile}>
-        <Image style={styles.ProfileImage}
-          style={{ width: 200, height: 200, borderRadius: 100, alignContent: 'center' }}
-          source={{ uri: data.getCaregiverProfile && data.getCaregiverProfile.avatar }}
-        />
-        <Text style={styles.ProfileName}> {data.getCaregiverProfile && data.getCaregiverProfile.fullname} </Text>
         <TouchableOpacity onPress={() => pickAnImage(id)}>
           <Image style={styles.ProfileImage}
             style={{ width: 200, height: 200, borderRadius: 100, borderWidth: 3, borderColor: '#3F7DFB' }}
@@ -207,7 +202,3 @@ const Profile = props => {
 }
 
 export default connect(mapStateToProps)(Profile)
-
-
-
-
