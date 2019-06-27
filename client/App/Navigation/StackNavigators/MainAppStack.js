@@ -29,6 +29,9 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 // Import Caregiver Tab Navigator
 import CaregiverAppTabNavigator from '../TabNavigators/CaregiverAppTabNavigator/CaregiverAppTabNavigator'
 
+//Import Job Auth Loading
+import AuthJobLoading from '../../Components/AuthLoading/AuthJobLoading'
+
 
 // Amplify imports and config
 import Amplify from '@aws-amplify/core'
@@ -176,7 +179,8 @@ const AuthStackNavigator = createStackNavigator({
 })
 
 const MainAppStack = createSwitchNavigator({
-  Authloading: AuthLoadingScreen,
+  AuthJobLoading:AuthJobLoading,
+ 
   Auth: AuthStackNavigator, // the Auth stack
 	App: AppTabNavigator, // the App stack
 	CaregiverApp: CaregiverAppTabNavigator, // Caregiver App Stack
@@ -184,3 +188,4 @@ const MainAppStack = createSwitchNavigator({
 
 export default MainAppStack
 
+ // Authloading: AuthLoadingScreen,

@@ -1,113 +1,63 @@
 const initialState = {
 
-	key_contact_id: '',
 	user_id: '',
 
-	// postJob: {
-	// 	position: {
-	// 		formPosition: 0,
-	// 		overviewPosition: 0,
-	// 		completedSections: [0, 1, 2, 3, 4]
-	// 	},
-	// 	serviceDetails: {
-	// 		appointments: true,
-	// 		bathing: false,
-	// 		companionship: true,
-	// 		dressing: false,
-	// 		driving: false,
-	// 		errands: true,
-	// 		feeding: true,
-	// 		grooming: true,
-	// 		housekeeping: false,
-	// 		laundry: false,
-	// 		mealPrep: true,
-	// 		mobility: true,
-	// 		shopping: false,
-	// 	},
-	// 	basicInformation: {
-	// 		title: 'Finding Nemo',
-	// 		startDate: '2003-05-30 11:11:30-07',
-	// 		endDate: '2003-06-18 20:15:40-07',
-	// 		address: '42 Wallaby Way',
-	// 		city: 'Sydney',
-	// 		province: 'Austrailia?',
-	// 		postalCode: 'A1A1A1',
-	// 		rate: 20,
-	// 	},
-	// 	seniorDetails: {
-	// 		seniorName: 'Marlin',
-	// 		gender: 'MALE',
-	// 		birthdate: '2000-06-18 03:22:01-07',
-	// 		relationship: 'son',
-	// 		bio: 'a clownfish',
-	// 		medicalCondition: 'sharkphobia',
-	// 		language: 'fish',
-	// 	},
-	// 	houseDetails: {
-	// 		cigSmoking: false,
-	// 		pets: true,
-	// 		cannabis: false
-	// 	},
-	// 	caregiverPreferences: {
-	// 		availability: 'LIVEIN',
-	// 		preferredGender: 'MALE',
-	// 		validDriverLicense: true,
-	// 	},
-	// },
-	postJob: {
-		position: {
-			formPosition: 0,
-			overviewPosition: 1,
-			completedSections: []
-		},
-		serviceDetails: {
-			appointments: false,
-			bathing: false,
-			companionship: false,
-			dressing: false,
-			driving: false,
-			errands: false,
-			feeding: false,
-			grooming: false,
-			housekeeping: false,
-			laundry: false,
-			mealPrep: false,
-			mobility: false,
-			shopping: false,
-		},
-		basicInformation: {
-			title: '',
-			startDate: '',
-			endDate: '',
-			address: '',
-			city: '',
-			province: '',
-			postalCode: '',
-			rate: 0,
-		},
-		seniorDetails: {
-			seniorName: '',
-			gender: '',
-			birthdate: new Date(),
-			relationship: '',
-			bio: '',
-			medicalCondition: '',
-			language: '',
-		},
-		houseDetails: {
-			cigSmoking: '',
-			pets: '',
-			cannabis: '',
-		},
-		caregiverPreferences: {
-			availability: '',
-			preferredGender: '',
-			validDriverLicense: '',
-		},
-	}
-}
+// 	postJob: {
+// 		position: {
+// 			formPosition: 0,
+// 			overviewPosition: 0,
+// 			completedSections: [0, 1, 2, 3, 4]
+// 		},
+// 		serviceDetails: {
+// 			appointments: false,
+// 			bathing: false,
+// 			companionship: false,
+// 			dressing: false,
+// 			driving: false,
+// 			errands: true,
+// 			feeding: true,
+// 			grooming: true,
+// 			housekeeping: false,
+// 			laundry: false,
+// 			mealPrep: false,
+// 			mobility: false,
+// 			shopping: false,
+// 		},
+// 		basicInformation: {
+// 			title: 'Finding Nemo',
+// 			startDate: '2003-05-30 11:11:30-07',
+// 			endDate: '2003-06-18 20:15:40-07',
+// 			address: '42 Wallaby Way',
+// 			city: 'Sydney',
+// 			province: 'Austrailia?',
+// 			postalCode: 'A1A1A1',
+// 			rate: 20,
+// 		},
+// 		seniorDetails: {
+// 			seniorName: 'Marlin',
+// 			gender: 'MALE',
+// 			birthdate: '2000-06-18 03:22:01-07',
+// 			relationship: 'son',
+// 			bio: 'a clownfish',
+// 			medicalCondition: 'sharkphobia',
+// 			language: 'fish',
+// 		},
+// 		houseDetails: {
+// 			cigSmoking: false,
+// 			pets: true,
+// 			cannabis: false
+// 		},
+// 		caregiverPreferences: {
+// 			availability: 'LIVEIN',
+// 			preferredGender: 'MALE',
+// 			validDriverLicense: true,
+// 		},
+// 	}
+// }
 
 const reducer = (state = initialState, action )  => {
+	console.log('REDUCER', state, action)
+
 	switch (action.type) {
 		case 'BATHING':
 			return {
@@ -465,6 +415,12 @@ const reducer = (state = initialState, action )  => {
 				}
 			}
 
+		case 'GET_AUTH_TOKEN':
+			return {
+				...state,
+				user_id: action.payload.substring(0,36)
+			}	
+
 		case 'CHANGEOVERVIEWPOSITION':
 			return{
 				...state,
@@ -482,3 +438,55 @@ const reducer = (state = initialState, action )  => {
 }
 
 export default reducer
+
+	// postJob: {
+	// 	position: {
+	// 		formPosition: 0,
+	// 		overviewPosition: 1,
+	// 		completedSections: []
+	// 	},
+	// 	serviceDetails: {
+	// 		appointments: false,
+	// 		bathing: true,
+	// 		companionship: false,
+	// 		dressing: false,
+	// 		driving: false,
+	// 		errands: false,
+	// 		feeding: false,
+	// 		grooming: false,
+	// 		housekeeping: false,
+	// 		laundry: false,
+	// 		mealPrep: false,
+	// 		mobility: true,
+	// 		shopping: false,
+	// 	},
+	// 	basicInformation: {
+	// 		title: '',
+	// 		startDate: '',
+	// 		endDate: '',
+	// 		address: '',
+	// 		city: '',
+	// 		province: '',
+	// 		postalCode: '',
+	// 		rate: 0,
+	// 	},
+	// 	seniorDetails: {
+	// 		seniorName: '',
+	// 		gender: '',
+	// 		birthdate: new Date(),
+	// 		relationship: '',
+	// 		bio: '',
+	// 		medicalCondition: '',
+	// 		language: '',
+	// 	},
+	// 	houseDetails: {
+	// 		cigSmoking: '',
+	// 		pets: '',
+	// 		cannabis: '',
+	// 	},
+	// 	caregiverPreferences: {
+	// 		availability: '',
+	// 		preferredGender: '',
+	// 		validDriverLicense: '',
+	// 	},
+	// }

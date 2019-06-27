@@ -39,11 +39,12 @@
 		2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */; };
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
-		2D1F970A74CF48CA84FA4F29 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96ACAB99803E4A91AE917AB3 /* Roboto_medium.ttf */; };
 		2DCD954D1E0B4F2C00145EB5 /* SeniorCareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SeniorCareTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		31CC3D8D713242C09D19677B /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1A18B8C3BD4F9D86A9573B /* libRNGestureHandler-tvOS.a */; };
 		321954FB94CE439B912B5C1B /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509FD42D539F46CBAD82A0D2 /* Roboto.ttf */; };
+		39C101121F184CFC9E2768C1 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48FFE306D15C42D68EADDD73 /* FontAwesome5_Solid.ttf */; };
+		46086D8238714731A1BA27C8 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B261F7B7044C71956AE685 /* libRNFetchBlob.a */; };
 		43A96EC353824530B05C928B /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD3868CF9B247ED82789A21 /* libRNImagePicker.a */; };
 		48A7AF0A267C43B1A753C677 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE2E44D6B780471EAB2E8C08 /* rubicon-icon-font.ttf */; };
 		4E914726B0E242D198E096CD /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 013E7FC17FDB42A8B5A0806C /* libRNReanimated.a */; };
@@ -1521,6 +1522,10 @@
 				66F69AFF22B033A700082EA8 /* SFProText-Heavy.otf in Resources */,
 				61A99C9722BBD57800728905 /* FontAwesome5_Brands.ttf in Resources */,
 				ADEAA09222BC0F9300C149A2 /* GothamRounded-BoldItalic.otf in Resources */,
+				61A99C0D22BBD22B00728905 /* FontAwesome.ttf in Resources */,
+				F46BD9A422B8393F00A8E653 /* Entypo.ttf in Resources */,
+				61A99C9422BBD57800728905 /* FontAwesome.ttf in Resources */,
+				321954FB94CE439B912B5C1B /* Roboto.ttf in Resources */,
 				2D1F970A74CF48CA84FA4F29 /* Roboto_medium.ttf in Resources */,
 				BFC3C4B522C4170D00B97DE3 /* messages-background.png in Resources */,
 				F46BD9A422B8393F00A8E653 /* Entypo.ttf in Resources */,
@@ -1536,6 +1541,9 @@
 				7CB63719BC2B4065A025A1F4 /* Zocial.ttf in Resources */,
 				61DA073922C2760100988DBB /* AntDesign.ttf in Resources */,
 				9C01927FC6284A0F8A23D663 /* Zocial.ttf in Resources */,
+				D18F89FBDEC64631B3484866 /* FontAwesome5_Brands.ttf in Resources */,
+				E70A9F69034C4E59A1157431 /* FontAwesome5_Regular.ttf in Resources */,
+				39C101121F184CFC9E2768C1 /* FontAwesome5_Solid.ttf in Resources */,
 				D18F89FBDEC64631B3484866 /* (null) in Resources */,
 				BF18069722C51A28000B55EC /* yellowCurve.png in Resources */,
 				E70A9F69034C4E59A1157431 /* (null) in Resources */,

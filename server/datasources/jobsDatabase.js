@@ -171,19 +171,24 @@ class JobsDatabase extends DataSource {
 
 	async getKeyContactJobPosts(input) {
 		try {
-	 		// console.log('input is getKeyContactJobPosts: ', input)
-			const { key_contact_id } = input
-			// console.log('key_contact_id', key_contact_id)
-
+	 		
+			const { id } = input
+		
       const applicantsQuery ={
-        text: "SELECT * FROM seniorcare.applicants WHERE KEYCONTACT_ID = $1",
-        values : [key_contact_id]
-      }
+				text: `SELECT seniorcare.job_posting.id, seniorcare.job_posting.title, seniorcare.job_posting.start_date, seniorcare.job_posting.end_date, seniorcare.job_posting.address, seniorcare.job_posting.city,
+				seniorcare.job_posting.province, seniorcare.job_posting.postal_code, seniorcare.job_posting.availability, seniorcare.job_posting.hourly_rate,seniorcare.job_posting.date_created
+					FROM seniorcare.applicants 
+					INNER JOIN seniorcare.job_posting ON seniorcare.applicants.keycontact_id = 			           	seniorcare.job_posting.key_contact_id
+					WHERE  
+						seniorcare.applicants.keycontact_id = $1`,
+        values : [id]
+			}
+	
       const result = await this.context.postgres.query(applicantsQuery)
-			// console.log('results in getApplicants', result)
+      
       return result.rows
-
-		} catch(err) {
+		} 
+		catch(err) {
       throw err
     }
 	}
@@ -200,7 +205,7 @@ class JobsDatabase extends DataSource {
         values : [id]
       }
       const result = await this.context.postgres.query(applicantsQuery)
-			// console.log('results in getApplicants', result)
+
       return result.rows
 
 		} catch(err) {

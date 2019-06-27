@@ -18,10 +18,10 @@ module.exports = {
 		async caregiverSignup(parent, { input }, { dataSources }) {
 			return await dataSources.userDatabase.caregiverSignup(input)
 		},
-		async addCaregiverDetails(parent, { input }, { dataSources }) {
+		async addCaregiverDetails(parent, { input }, { dataSources }){
 			return await dataSources.caregiverDatabase.addCaregiverDetails(input)
 		},
-		async addKeyContactDetails(parent, { input }, { dataSources }) {
+		async addKeyContactDetails(parent, { input }, { dataSources }){
 			return await dataSources.keyContactDatabase.addKeyContactDetails(input)
 		},
 		async addMessages(parent, input, { dataSources }) {
