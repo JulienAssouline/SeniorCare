@@ -101,14 +101,12 @@
 		B6FD984ADDD147988ECAF5A3 /* libRNAWSCognito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA73CBA72314FCFBEC2D424 /* libRNAWSCognito.a */; };
 		BF18068E22C514D9000B55EC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF18068D22C514D9000B55EC /* Launch Screen.storyboard */; };
 		BF18068F22C514D9000B55EC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF18068D22C514D9000B55EC /* Launch Screen.storyboard */; };
-		BF18069122C51813000B55EC /* logo-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069022C51813000B55EC /* logo-circle.png */; };
-		BF18069222C51813000B55EC /* logo-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069022C51813000B55EC /* logo-circle.png */; };
-		BF18069422C519BA000B55EC /* seniorcareType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069322C519BA000B55EC /* seniorcareType.png */; };
-		BF18069522C519BA000B55EC /* seniorcareType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069322C519BA000B55EC /* seniorcareType.png */; };
-		BF18069722C51A28000B55EC /* yellowCurve.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069622C51A28000B55EC /* yellowCurve.png */; };
-		BF18069822C51A28000B55EC /* yellowCurve.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069622C51A28000B55EC /* yellowCurve.png */; };
-		BFC3C4B522C4170D00B97DE3 /* messages-background.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC3C48722C4170C00B97DE3 /* messages-background.png */; };
-		BFC3C4B622C4170D00B97DE3 /* messages-background.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC3C48722C4170C00B97DE3 /* messages-background.png */; };
+		BF43E0EE22C5487C007D3475 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0ED22C5487C007D3475 /* logo.png */; };
+		BF43E0EF22C5487C007D3475 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0ED22C5487C007D3475 /* logo.png */; };
+		BF43E0F122C5488E007D3475 /* seniorcareType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0F022C5488D007D3475 /* seniorcareType.png */; };
+		BF43E0F222C5488E007D3475 /* seniorcareType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0F022C5488D007D3475 /* seniorcareType.png */; };
+		BF43E0F422C54897007D3475 /* yellowCurve.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0F322C54897007D3475 /* yellowCurve.png */; };
+		BF43E0F522C54897007D3475 /* yellowCurve.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0F322C54897007D3475 /* yellowCurve.png */; };
 		D18F89FBDEC64631B3484866 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		E70A9F69034C4E59A1157431 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
@@ -526,11 +524,10 @@
 		B5ACAEB47D2B4C9DBDB53AE8 /* RNReanimated.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNReanimated.xcodeproj; path = "../node_modules/react-native-reanimated/ios/RNReanimated.xcodeproj"; sourceTree = "<group>"; };
 		B70F8230DA59416FB0277F4D /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCAsyncStorage.xcodeproj; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; };
 		BF18068D22C514D9000B55EC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		BF18069022C51813000B55EC /* logo-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-circle.png"; path = "../../../../logo-circle.png"; sourceTree = "<group>"; };
-		BF18069322C519BA000B55EC /* seniorcareType.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seniorcareType.png; path = ../../../../seniorcareType.png; sourceTree = "<group>"; };
-		BF18069622C51A28000B55EC /* yellowCurve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowCurve.png; path = ../../../../yellowCurve.png; sourceTree = "<group>"; };
+		BF43E0ED22C5487C007D3475 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../App/Images/logo.png; sourceTree = "<group>"; };
+		BF43E0F022C5488D007D3475 /* seniorcareType.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seniorcareType.png; path = ../App/Images/seniorcareType.png; sourceTree = "<group>"; };
+		BF43E0F322C54897007D3475 /* yellowCurve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowCurve.png; path = ../App/Images/yellowCurve.png; sourceTree = "<group>"; };
 		BFC3C42D22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "Spinner-4.8s-200px.gif"; path = "../App/Images/Spinner-4.8s-200px.gif"; sourceTree = "<group>"; };
-		BFC3C48722C4170C00B97DE3 /* messages-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "messages-background.png"; path = "../App/Images/messages-background.png"; sourceTree = "<group>"; };
 		CB5EACB2C4A7487B993A23FC /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		D2EFDA7770484207BB4AE7C6 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -766,10 +763,9 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				BF18069622C51A28000B55EC /* yellowCurve.png */,
-				BF18069322C519BA000B55EC /* seniorcareType.png */,
-				BF18069022C51813000B55EC /* logo-circle.png */,
-				BFC3C48722C4170C00B97DE3 /* messages-background.png */,
+				BF43E0F322C54897007D3475 /* yellowCurve.png */,
+				BF43E0F022C5488D007D3475 /* seniorcareType.png */,
+				BF43E0ED22C5487C007D3475 /* logo.png */,
 				BFC3C42D22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif */,
 				66F69AFC22B033A700082EA8 /* SFProText-Bold.otf */,
 				66F69AF922B033A600082EA8 /* SFProText-Heavy.otf */,
@@ -1471,16 +1467,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				66F69B1022B033A700082EA8 /* SFProText-Light.otf in Resources */,
+				BF43E0F522C54897007D3475 /* yellowCurve.png in Resources */,
 				66F69B0422B033A700082EA8 /* SFProText-Semibold.otf in Resources */,
-				BF18069822C51A28000B55EC /* yellowCurve.png in Resources */,
-				BF18069222C51813000B55EC /* logo-circle.png in Resources */,
 				BF18068F22C514D9000B55EC /* Launch Screen.storyboard in Resources */,
-				BF18069522C519BA000B55EC /* seniorcareType.png in Resources */,
 				66F69B1422B033A700082EA8 /* SFProText-Medium.otf in Resources */,
+				BF43E0F222C5488E007D3475 /* seniorcareType.png in Resources */,
+				BF43E0EF22C5487C007D3475 /* logo.png in Resources */,
 				66F69B0822B033A700082EA8 /* SFProText-Regular.otf in Resources */,
 				66F69B0C22B033A700082EA8 /* SFProText-Bold.otf in Resources */,
 				66F69B0022B033A700082EA8 /* SFProText-Heavy.otf in Resources */,
-				BFC3C4B622C4170D00B97DE3 /* messages-background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1492,7 +1487,6 @@
 				F473E03D22BA794000D8B1E8 /* Octicons.ttf in Resources */,
 				ADEAA09622BC0F9300C149A2 /* GothamRounded-Book.otf in Resources */,
 				ADEAA09422BC0F9300C149A2 /* GothamRoundedBook_21018.ttf in Resources */,
-				BF18069422C519BA000B55EC /* seniorcareType.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				2699D50722B8072A00A12493 /* FontAwesome.ttf in Resources */,
 				ADEAA09822BC0F9300C149A2 /* GothamRoundedMedium_21022.ttf in Resources */,
@@ -1510,7 +1504,6 @@
 				66F69B0722B033A700082EA8 /* SFProText-Regular.otf in Resources */,
 				ADEAA08F22BC0F9300C149A2 /* GothamRounded-BookItalic.otf in Resources */,
 				66F69B0B22B033A700082EA8 /* SFProText-Bold.otf in Resources */,
-				BF18069122C51813000B55EC /* logo-circle.png in Resources */,
 				2699D50522B8072A00A12493 /* FontAwesome5_Solid.ttf in Resources */,
 				26F6BDF922BD4CAE00F091A1 /* SimpleLineIcons.ttf in Resources */,
 				ADEAA09722BC0F9300C149A2 /* GothamRounded-LightItalic.otf in Resources */,
@@ -1518,23 +1511,25 @@
 				9717485F3F1D45DB959FFEBC /* MaterialCommunityIcons.ttf in Resources */,
 				2699D50422B8072A00A12493 /* FontAwesome5_Regular.ttf in Resources */,
 				AD55A4F380E34E6B89513F16 /* MaterialIcons.ttf in Resources */,
+				BF43E0EE22C5487C007D3475 /* logo.png in Resources */,
 				66F69AFF22B033A700082EA8 /* SFProText-Heavy.otf in Resources */,
 				61A99C9722BBD57800728905 /* FontAwesome5_Brands.ttf in Resources */,
 				ADEAA09222BC0F9300C149A2 /* GothamRounded-BoldItalic.otf in Resources */,
 				F46BD9A422B8393F00A8E653 /* Entypo.ttf in Resources */,
 				61A99C9422BBD57800728905 /* FontAwesome.ttf in Resources */,
 				321954FB94CE439B912B5C1B /* Roboto.ttf in Resources */,
-				BFC3C4B522C4170D00B97DE3 /* messages-background.png in Resources */,
 				F46BD9A422B8393F00A8E653 /* Entypo.ttf in Resources */,
 				61A99C9422BBD57800728905 /* FontAwesome.ttf in Resources */,
 				321954FB94CE439B912B5C1B /* Roboto.ttf in Resources */,
 				48A7AF0A267C43B1A753C677 /* rubicon-icon-font.ttf in Resources */,
 				61A99C9522BBD57800728905 /* FontAwesome5_Regular.ttf in Resources */,
+				BF43E0F122C5488E007D3475 /* seniorcareType.png in Resources */,
 				ADEAA09122BC0F9300C149A2 /* GothamRounded-MediumItalic.otf in Resources */,
 				ADEAA08D22BC0F9300C149A2 /* GothamRounded-Light.otf in Resources */,
 				ADEAA08E22BC0F9300C149A2 /* GothamRounded-Bold.otf in Resources */,
 				7D5BBBA2F6E84F35B5730606 /* AntDesign.ttf in Resources */,
 				BF18068E22C514D9000B55EC /* Launch Screen.storyboard in Resources */,
+				BF43E0F422C54897007D3475 /* yellowCurve.png in Resources */,
 				7CB63719BC2B4065A025A1F4 /* Zocial.ttf in Resources */,
 				61DA073922C2760100988DBB /* AntDesign.ttf in Resources */,
 				9C01927FC6284A0F8A23D663 /* Zocial.ttf in Resources */,
@@ -1542,7 +1537,6 @@
 				E70A9F69034C4E59A1157431 /* (null) in Resources */,
 				39C101121F184CFC9E2768C1 /* (null) in Resources */,
 				D18F89FBDEC64631B3484866 /* (null) in Resources */,
-				BF18069722C51A28000B55EC /* yellowCurve.png in Resources */,
 				E70A9F69034C4E59A1157431 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
