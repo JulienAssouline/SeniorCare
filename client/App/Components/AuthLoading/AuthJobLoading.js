@@ -5,7 +5,6 @@ import Auth from '@aws-amplify/auth'
 
 
 const mapStateToProps =  state => {
-  console.log('heres my state in mapStatetoProps',state)
   const { user_id } = state.user_id
   return{
     user_id: user_id
@@ -25,7 +24,7 @@ const mapDispatchToProps = dispatch => {
     role: ''
   }
   async componentDidMount() {
-    console.log("INSIDE NEW AUTH")
+    
     await this.loadApp()
   }
   // Get the logged in users and remember them
@@ -42,7 +41,7 @@ const mapDispatchToProps = dispatch => {
 
       })
       .catch(err => {
-        console.log(err)
+        
         this.props.navigation.navigate('Auth')
       })
 

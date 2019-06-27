@@ -20,7 +20,7 @@ import checkCognitoSession from '../../utils/checkCognitoSession'
 // `
 
 const mapStateToProps =  state => {
-  console.log("props inside state2 ", state)
+
   
   const user_id = state.user_id
   return{
@@ -51,17 +51,13 @@ query getKeyContactJobPosts($key_contact_id:ID!) {
 
 const JobBoardJobs = (props) => {
 
-  console.log('here my props man', props)
+  
 
   let user_id = props.user_id
 
   const { data, error, loading } = useQuery(KEY_CONTACT_JOBS, {
     variables : {key_contact_id: user_id}
   })
-
-  console.log('here is my data',data)
-  console.log('here is my loading',loading)
-  console.log('here is my error',error)
 
   if(loading) return <Loading/>
 
