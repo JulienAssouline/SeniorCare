@@ -37,21 +37,21 @@ Amplify.configure(config)
 
 // Configurations and options for the AppTabNavigator
 const configurations = {
-  JobBoard: {
-    screen: JobBoardStack,
-    navigationOptions: {
-      tabBarLabel: 'Job',
-      tabBarIcon: ({ tintColor }) => (
-        <Icon style={{ fontSize: 24, color: tintColor }} name="briefcase" />
-      )
-    }
-  },
   Search: {
     screen: SearchStack,
     navigationOptions: {
       tabBarLabel: 'Find',
       tabBarIcon: ({ tintColor }) => (
         <Icon style={{ fontSize: 26, color: tintColor }} name="magnifier" />
+      )
+    }
+  },
+  JobBoard: {
+    screen: JobBoardStack,
+    navigationOptions: {
+      tabBarLabel: 'Job',
+      tabBarIcon: ({ tintColor }) => (
+        <Icon style={{ fontSize: 24, color: tintColor }} name="briefcase" />
       )
     }
   },

@@ -54,6 +54,7 @@ const MessagesScreen = (props) => {
       <ImageBackground source={require('../../Images/messages-background.png')} style={{ flex: 1, width: '100%', height: '100%' }}>
         <ScrollView
           // TODO: fix extra scroll height issue
+          style = {{marginBottom: 40}}
           ref={ref => setScrollView(ref)}
           onContentSizeChange={(contentWidth, contentHeight) => {
             scrollView.scrollToEnd({ animated: false });

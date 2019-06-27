@@ -8,10 +8,10 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { List, ListItem } from 'react-native-elements'
 
 
-
 const MessageInput = (props) => {
   const [value, setValue] = useState("")
   const [submit, setSubmit] = useState("")
+  const [containerHeight, setContainerHeight] = useState(null)
 
   function handleChange(text) {
     setValue(text)
@@ -25,23 +25,28 @@ const MessageInput = (props) => {
 
   let width = Dimensions.get("window").width
 
+
   return (
-		<View style={styles.InputContainer}>
-      <View style={{ flex: 1, flexDirection: 'row', justifyContent: "space-between", width: width, paddingHorizontal: 16, paddingVertical: 8, backgroundColor: "white", borderTopColor: "#CCCCCC" }}>
+		<View style={styles.InputContainer} onLayout={(event) => {
+       if (!containerHeight) {
+          setContainerHeight(event.nativeEvent.layout.height)
+       }
+      }}>
+      <View style={{ flex: 1, flexDirection: 'row', justifyContent: "space-between", width: width, paddingHorizontal: 16, backgroundColor: "white", borderColor: "white", borderWidth: 0 }}>
         <TextInput
-          style={{ borderColor: "white", borderWidth: 1, backgroundColor: "white", width: width - 70, paddingTop: 12, fontSize: 16 }}
+          style={{ textAlignVertical: 'right', borderRadius: 25, marginTop: 10, marginBottom: 10, paddingTop: 10, paddingRight: 10, paddingBottom: 10, borderColor: "#E8E8E8", borderWidth: 1, backgroundColor: "#E8E8E8", width: width - 70, fontSize: 16 }}
           placeholder="Send Message"
           className={"input-base"}
           onChangeText={(text) => handleChange(text)}
           value={value}
           multiline={true}
-        ></TextInput> 
+        ></TextInput>
         <TouchableOpacity onPress={() => handleClick(props.addMessages, props.user_id)}>
           <Icon
             name="send-o"
             color="#3F7DFB"
             size={20}
-            style={{ margin: 10, marginRight: 20, marginTop: 15 }}
+            style={{ margin: 10, marginRight: 20, marginBottom: containerHeight/3, marginTop: "auto",}}
           />
         </TouchableOpacity>
       </View>
