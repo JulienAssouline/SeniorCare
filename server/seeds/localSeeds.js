@@ -5,22 +5,6 @@ const config = require('../config/development.json')
 
 const keyContactSeeds = [
 	{
-		id: 'ThisIsSimonSternKeyContactSeed',
-		email: 'simon@simon.stern',
-		fullname: 'Simon Stern',
-		phone_number: '905-905-0001',
-		location: '123 Avocado Way',
-		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
-	},
-	{
-		id: 'ThisIsAkshayManchandaKeyContactSeed',
-		fullname: 'Akshay Manchanda',
-		email: 'akshay@akshay.com',
-		phone_number: '905-905-0002',
-		location: '123 Avocado Way',
-		avatar: 'https://www.argospetinsurance.co.uk/assets/uploads/2017/12/cat-pet-animal-domestic-104827.jpeg',
-	},
-	{
 		id: 'b5926162-57e9-44cb-8540-eda1ce2f6b36',
 		fullname: 'Vincent Dumouchel',
 		email: 'vdumouchel@me.com',
@@ -61,7 +45,7 @@ const keyContactSeeds = [
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
 	},
 	{
-		id: '642ebd5d-821e-485c-94e1-66dcc167a1f3',
+		id: 'c0589e4d-bf28-47ef-a361-c778f094606c',
 		fullname: 'Kevin Li',
 		email: 'unbakedmuffins@gmail.com',
 		phone_number: '5147466616',
@@ -71,96 +55,6 @@ const keyContactSeeds = [
 ]
 
 const caregiverSeeds = [
-	{
-		id: 'ThisIsAlamTalashCaregiverSeed',
-		fullname: 'Alam Talash',
-		email: 'alam@alam.com',
-		phone_number: '905-905-0003',
-		location: '123 Avocado Way',
-		birthdate: '2001-06-22 19:10:25-07',
-		gender: 'MALE',
-		years_experience: 5,
-		description: 'I am a cat',
-		average_rating: '4.20',
-		hourly_rate: 18,
-		availability: 'LIVEIN',
-		avatar: 'https://www.catster.com/wp-content/uploads/2018/05/A-gray-cat-crying-looking-upset.jpg',
-	},
-	{
-		id: 'ThisIsJeffreyJohnsonCaregiverSeed',
-		fullname: 'Jeffrey Johnson',
-		email: 'jeffrey@jeffrey.com',
-		phone_number: '905-905-0004',
-		location: '123 Avocado Way',
-		birthdate: '2001-06-22 19:10:25-07',
-		gender: 'MALE',
-		years_experience: 2,
-		description: 'I am a cat',
-		average_rating: '4.20',
-		hourly_rate: 18,
-		availability: 'LIVEIN',
-		avatar: 'https://cdn.britannica.com/s:300x500/67/197567-131-1645A26E.jpg',
-	},
-	{
-		id: 'ThisIsMarkOlechCaregiverSeed',
-		fullname: 'Mark Olech',
-		email: 'mark@mark.com',
-		phone_number: '905-905-0005',
-		location: '123 Avocado Way',
-		birthdate: '2001-06-22 19:10:25-07',
-		gender: 'FEMALE',
-		years_experience: 5,
-		description: 'I am a cat',
-		average_rating: '4.20',
-		hourly_rate: 18,
-		availability: 'LIVEIN',
-		avatar: 'https://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg',
-	},
-	{
-		id: 'ThisIsVincentDumouchelCaregiverSeed',
-		fullname: 'Vincent Dumouchel',
-		email: 'vincent@vincent.com',
-		phone_number: '905-905-0006',
-		location: '123 Avocado Way',
-		birthdate: '2001-06-22 19:10:25-07',
-		gender: 'MALE',
-		years_experience: 3,
-		description: 'I am a cat',
-		average_rating: '4.20',
-		hourly_rate: 18,
-		availability: 'LIVEIN',
-		avatar: 'https://timedotcom.files.wordpress.com/2018/08/new-zealand-cat-ban.jpg',
-	},
-	{
-		id: 'ThisIsJulienAssoulineCaregiverSeed',
-		fullname: 'Julien Assouline',
-		email: 'julien@julien.com',
-		phone_number: '905-905-0007',
-		location: '123 Avocado Way',
-		birthdate: '2001-06-22 19:10:25-07',
-		gender: 'MALE',
-		years_experience: 16,
-		description: 'I am a cat',
-		average_rating: '4.20',
-		hourly_rate: 18,
-		availability: 'LIVEIN',
-		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
-	},
-	{
-		id: 'ThisIsKevinLiCaregiverSeed',
-		fullname: 'Kevin Li',
-		email: 'kevin@kevin.com',
-		phone_number: '905-905-0008',
-		location: '123 Avocado Way',
-		birthdate: '2001-06-22 19:10:25-07',
-		gender: 'MALE',
-		years_experience: 7,
-		description: 'I am a cat',
-		average_rating: '4.20',
-		hourly_rate: 18,
-		availability: 'LIVEOUT',
-		avatar: 'https://timedotcom.files.wordpress.com/2018/08/new-zealand-cat-ban.jpg',
-	},
 	{
 		id: 'b3f6986c-8555-41c0-b264-69c9cdfc9e93',
 		fullname: 'Alam Talash',
@@ -207,7 +101,7 @@ const caregiverSeeds = [
 		avatar: 'https://cdn.britannica.com/s:300x500/67/197567-131-1645A26E.jpg',
 	},
 	{
-		id: 'eb1be56f-39a5-460c-acab-8d8ae77ef1e0',
+		id: 'ac187694-bcc3-44a2-bc1f-1cf573d8c5bd',
 		fullname: 'Kevin Li',
 		email: 'munchedmuffins@gmail.com',
 		phone_number: '905-905-0008',
@@ -226,7 +120,7 @@ const caregiverSeeds = [
 const seniorSeeds = [
 	{
 		fullname: 'Navi',
-		key_contact_id: 'ThisIsSimonSternKeyContactSeed',
+		key_contact_id: '835e2722-9ec2-4ffa-94f5-6c5051741261',
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'FEMALE',
 		avatar: 'https://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg',
@@ -237,7 +131,7 @@ const seniorSeeds = [
 	},
 	{
 		fullname: 'Jorrin',
-		key_contact_id: 'ThisIsSimonSternKeyContactSeed',
+		key_contact_id: '835e2722-9ec2-4ffa-94f5-6c5051741261',
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'MALE',
 		avatar: 'https://timedotcom.files.wordpress.com/2018/08/new-zealand-cat-ban.jpg',
@@ -248,7 +142,7 @@ const seniorSeeds = [
 	},
 	{
 		fullname: 'Eirian',
-		key_contact_id: 'ThisIsAkshayManchandaKeyContactSeed',
+		key_contact_id: '90908eda-ec5c-4b9d-b432-3ee2f71b228e',
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'FEMALE',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
@@ -259,7 +153,7 @@ const seniorSeeds = [
 	},
 	{
 		fullname: 'Vaughn',
-		key_contact_id: 'ThisIsAkshayManchandaKeyContactSeed',
+		key_contact_id: '90908eda-ec5c-4b9d-b432-3ee2f71b228e',
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'MALE',
 		avatar: 'https://cdn.britannica.com/s:300x500/67/197567-131-1645A26E.jpg',
@@ -270,7 +164,7 @@ const seniorSeeds = [
 	},
 	{
 		fullname: 'Eirian',
-		key_contact_id: 'ThisIsAkshayManchandaKeyContactSeed',
+		key_contact_id: 'aa0ea0ef-5d2d-494e-abaa-5198d6786aa1',
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'FEMALE',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
@@ -306,14 +200,14 @@ const applicantsSeeds = [
 	{
 		jobpost_id: '1',
 		date_created: '2001-06-22 19:10:25-07',
-		caregiver_id: 'eb1be56f-39a5-460c-acab-8d8ae77ef1e0',
-		keycontact_id: 'ea488fc4-babc-436f-883b-c873f2a4629d'
+		caregiver_id: 'ac187694-bcc3-44a2-bc1f-1cf573d8c5bd',
+		keycontact_id: 'c0589e4d-bf28-47ef-a361-c778f094606c'
 	},
 	{
-		jobpost_id: '2',
+		jobpost_id: '1',
 		date_created: '2001-06-22 19:10:25-07',
-		caregiver_id: 'b3f6986c-8555-41c0-b264-69c9cdfc9e93',
-		keycontact_id: 'ea488fc4-babc-436f-883b-c873f2a4629d'
+		caregiver_id: 'b4a92e58-899b-4762-b08a-952810670fa8',
+		keycontact_id: 'c0589e4d-bf28-47ef-a361-c778f094606c'
 	}
 ]
 
