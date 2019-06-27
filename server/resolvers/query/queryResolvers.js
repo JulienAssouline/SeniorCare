@@ -47,9 +47,8 @@ module.exports = {
 			return await dataSources.jobsDatabase.getJobPosts()
 		},
     
-		async getKeyContactJobPosts(parent, input, { dataSources }) {
-			console.log('checkpoint A')
-			return await dataSources.jobsDatabase.getKeyContactJobPosts(input)
+		async getKeyContactJobPosts(parent, input, { dataSources }) {			
+			return await dataSources.jobsDatabase.getKeyContactJobPosts(input)			
 		},
 
 		async getJobPost(parent, input, { dataSources }) {

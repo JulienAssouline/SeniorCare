@@ -38,6 +38,15 @@ module.exports = gql`
 		id: ID
 		key_contact_id: ID
 		date_created: Date
+		title: String
+		start_date: Date
+		end_date: Date,
+		address: String
+		city: String
+		province: String
+		postal_code: String
+		availability: String
+		gender: String
 		applicants: [Applicant]
 		getKeyContact: KeyContact
 		getBasicInformation: BasicInformation

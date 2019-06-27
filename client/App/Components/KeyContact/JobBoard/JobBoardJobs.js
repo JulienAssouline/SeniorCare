@@ -20,8 +20,9 @@ import checkCognitoSession from '../../utils/checkCognitoSession'
 // `
 
 const mapStateToProps =  state => {
-  console.log('heres my state in mapStatetoProps',state)
-  const { user_id } = state.user_id
+  console.log("props inside state2 ", state)
+  
+  const user_id = state.user_id
   return{
     user_id: user_id
   }
@@ -50,49 +51,31 @@ query getKeyContactJobPosts($key_contact_id:ID!) {
 
 const JobBoardJobs = (props) => {
 
-  useEffect(
-    () => {
-      console.log("props", props)
-      checkCognitoSession(props)
-    }, [props.user_id])
+  console.log('here my props man', props)
 
-  const [id, setId] = useState('')
-
-console.log('heres my keycontactid bitch',props.user_id)
-
-  // if (loading) {
-  //   return <Loading />
-  // };
-  // if (error) {
-  //   return <Text>Error!</Text>
-  // }
-
-  // if (props.user_id == undefined) { 
-  //   return (<Loading/>)
-  // }
-
-  setId(props.user_id)
-
-  console.log(id)
-
-  if (id !== undefined) {
-
-  console.log('heres my keycontactid after the props check', props.user_id)
+  let user_id = props.user_id
 
   const { data, error, loading } = useQuery(KEY_CONTACT_JOBS, {
-    variables : {key_contact_id: id }
+    variables : {key_contact_id: user_id}
   })
 
-  console.log(data)
+  console.log('here is my data',data)
+  console.log('here is my loading',loading)
+  console.log('here is my error',error)
 
-  setId(props.user_id)
+  if(loading) return <Loading/>
 
-
+  if(error) return <Loading/>
+   
+  
+ 
 
   return (
+    
     <ScrollView style={styles.MainContainer}>
 
       {data.getKeyContactJobPosts.map(elem => {
+
         let date = new Date(parseInt(elem.date_created));
         let options = {
           month: 'long', year: 'numeric', day: 'numeric',
@@ -139,10 +122,7 @@ console.log('heres my keycontactid bitch',props.user_id)
       })}
     </ScrollView>
   )
-    }else {
-
-      return null
-    }
+   
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(JobBoardJobs) 
