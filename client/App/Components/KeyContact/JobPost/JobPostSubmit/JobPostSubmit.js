@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { ScrollView, Text, View} from 'react-native'
+import { Alert, ScrollView, Text, View} from 'react-native'
 import { Avatar, Button, ListItem } from 'react-native-elements'
 
 import { useQuery, useMutation } from 'react-apollo-hooks'
@@ -41,9 +41,19 @@ const JobPostSubmit = props => {
 		})
 	}
 
+	const handleConfirmSubmitJob = () => {
+		Alert.alert(
+			'Confirm Job Posting',
+			'Are you sure you want to post this job?',
+			[
+				{text: 'Yes', onPress: () => handleSubmitJob()},
+				{text: 'Not yet', style: 'cancel'}
+			]
+		)
+	}
+
 	const handleSubmitJob = async () => {
 		try {
-			console.log(props.postJob)
 			const result = await submitJobPost({
 				variables: {input: {
 					key_contact_id: props.user_id,
@@ -93,7 +103,9 @@ const JobPostSubmit = props => {
 					},
 				}}
 			})
-			console.log(result)
+			if (result.data.addJobRequest.message === 'success') {
+				props.navigation.navigate('JobPostComplete')
+			}
 		} catch(err) {
 			throw err
 		}
@@ -160,7 +172,7 @@ const JobPostSubmit = props => {
 				<Button
 					title='Post'
 					buttonStyle={submitJobOverview.postButton}
-					onPress={handleSubmitJob}
+					onPress={handleConfirmSubmitJob}
 				/>
 			</View>
 		</View>

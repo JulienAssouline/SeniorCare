@@ -30,22 +30,30 @@ const ApplyToJobs = props => {
 			'Confirm Application',
 			'Are you sure you want to apply for this job?',
 			[
-				{text: 'Yes', onPress:() => handleApplyJob()},
-				{text: 'No', onPress:() => console.log('cancel'), style: 'cancel'}
+				{text: 'Yes', onPress: () => handleApplyJob()},
+				{text: 'No', style: 'cancel'}
 			]
 		)
 	}
 
 	const handleApplyJob = async () => {
-		const result = await applyJob({
-			variables: {input: {
-				jobpost_id: data.getJobPost.id,
-				keycontact_id: data.getJobPost.getKeyContact.id,
-				caregiver_id: props.user_id,
-			}}
-		})
-		if (result.data.applyJob.message === 'success') {
-			props.navigation.navigate('CaregiverDoneApply')
+		try {
+			const result = await applyJob({
+				variables: {input: {
+					jobpost_id: data.getJobPost.id,
+					keycontact_id: data.getJobPost.getKeyContact.id,
+					caregiver_id: props.user_id,
+				}}
+			})
+			if (result.data.applyJob.message === 'success') {
+				props.navigation.navigate('CaregiverDoneApply')
+			}
+		} catch (err) {
+			if (err.message === 'GraphQL error: duplicate application') {
+				Alert.alert(
+					'Sorry, it looks like you already applied for this job.',
+				)
+			}
 		}
 	}
 

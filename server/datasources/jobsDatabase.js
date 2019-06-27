@@ -215,6 +215,19 @@ class JobsDatabase extends DataSource {
 
 	async applyJob(input) {
 		try {
+			const { jobpost_id, caregiver_id } = input
+
+			const checkUniqueApplicationColumns = [
+				'jobpost_id', 
+				'caregiver_id',
+			]
+			const checkUniqueApplicationQuery = createSelectQuery(checkUniqueApplicationColumns, 'seniorcare.applicants', 'jobpost_id', jobpost_id)
+			const checkUniqueApplicationResult = await this.context.postgres.query(checkUniqueApplicationQuery)
+
+			checkUniqueApplicationResult.rows.forEach(application => {
+				if (application.caregiver_id === caregiver_id) throw 'duplicate application'
+			})
+
 			const addApplicantsQuery = createInsertQuery(input, 'seniorcare.applicants')
 			await this.context.postgres.query(addApplicantsQuery)
 			return {
