@@ -119,7 +119,7 @@ exports.up = pgm => {
 
 		pgm.sql(`
 		CREATE TABLE "seniorcare"."applicants" (
-			"id" INT NOT NULL,
+			"id" SERIAL PRIMARY KEY,
 			"jobpost_id" INT NOT NULL,
 			"caregiver_id" VARCHAR(255) NOT NULL,
 			"keycontact_id" VARCHAR(255) NOT NULL,
