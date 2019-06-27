@@ -127,3 +127,43 @@ export const GET_FULL_JOB_POSTING = gql`
 		}
 	}
 `
+
+export const GET_APPLIED_JOBS = gql`
+	query getJobsVars($id: ID!) {
+		getCaregiverJobApplications(id: $id) {
+			id
+			jobpost_id
+			caregiver_id
+			keycontact_id
+			date_created
+			getJobPost {
+				id
+				key_contact_id
+				date_created
+				getKeyContact {
+					id
+					fullname
+					avatar
+				}
+				getBasicInformation {
+					title
+					start_date
+					end_date
+					address
+					city
+					province
+					postal_code
+					hourly_rate
+				}
+				getServiceDetails {
+					job_id
+					service_id
+					getService {
+						id
+						title
+					}
+				}
+			}
+		}
+	}
+`
