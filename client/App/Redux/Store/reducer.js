@@ -2,10 +2,65 @@ const initialState = {
 
 	user_id: '',
 
+	postJob: {
+		position: {
+			formPosition: 0,
+			overviewPosition: 1,
+			completedSections: []
+		},
+		serviceDetails: {
+			appointments: false,
+			bathing: true,
+			companionship: false,
+			dressing: false,
+			driving: false,
+			errands: false,
+			feeding: false,
+			grooming: false,
+			housekeeping: false,
+			laundry: false,
+			mealPrep: false,
+			mobility: true,
+			shopping: false,
+		},
+		basicInformation: {
+			title: '',
+			startDate: '',
+			endDate: '',
+			address: '',
+			city: '',
+			province: '',
+			postalCode: '',
+			rate: 0,
+		},
+		seniorDetails: {
+			seniorName: '',
+			gender: '',
+			birthdate: new Date(),
+			relationship: '',
+			bio: '',
+			medicalCondition: '',
+			language: '',
+		},
+		houseDetails: {
+			cigSmoking: '',
+			pets: '',
+			cannabis: '',
+		},
+		caregiverPreferences: {
+			availability: '',
+			preferredGender: '',
+			validDriverLicense: '',
+		},
+	}
+
 }
 
 const reducer = (state = initialState, action )  => {
 	console.log('REDUCER', state, action)
+
+
+
 
 	switch (action.type) {
 		case 'BATHING':
@@ -141,7 +196,7 @@ const reducer = (state = initialState, action )  => {
 					}
 				}
 
-			
+
 			case 'LAUNDRY':
 				return {
 					...state,
@@ -368,7 +423,7 @@ const reducer = (state = initialState, action )  => {
 			return {
 				...state,
 				user_id: action.payload.substring(0,36)
-			}	
+			}
 
 		case 'CHANGEOVERVIEWPOSITION':
 			return{
@@ -388,54 +443,3 @@ const reducer = (state = initialState, action )  => {
 
 export default reducer
 
-	// postJob: {
-	// 	position: {
-	// 		formPosition: 0,
-	// 		overviewPosition: 1,
-	// 		completedSections: []
-	// 	},
-	// 	serviceDetails: {
-	// 		appointments: false,
-	// 		bathing: true,
-	// 		companionship: false,
-	// 		dressing: false,
-	// 		driving: false,
-	// 		errands: false,
-	// 		feeding: false,
-	// 		grooming: false,
-	// 		housekeeping: false,
-	// 		laundry: false,
-	// 		mealPrep: false,
-	// 		mobility: true,
-	// 		shopping: false,
-	// 	},
-	// 	basicInformation: {
-	// 		title: '',
-	// 		startDate: '',
-	// 		endDate: '',
-	// 		address: '',
-	// 		city: '',
-	// 		province: '',
-	// 		postalCode: '',
-	// 		rate: 0,
-	// 	},
-	// 	seniorDetails: {
-	// 		seniorName: '',
-	// 		gender: '',
-	// 		birthdate: new Date(),
-	// 		relationship: '',
-	// 		bio: '',
-	// 		medicalCondition: '',
-	// 		language: '',
-	// 	},
-	// 	houseDetails: {
-	// 		cigSmoking: '',
-	// 		pets: '',
-	// 		cannabis: '',
-	// 	},
-	// 	caregiverPreferences: {
-	// 		availability: '',
-	// 		preferredGender: '',
-	// 		validDriverLicense: '',
-	// 	},
-	// }
