@@ -47,6 +47,10 @@ module.exports = {
 		async changeCaregiverAvatar(parent, { input }, { dataSources }) {
 			return await dataSources.userDatabase.changeCaregiverAvatar(input)
 		},
+
+		async applyJob(parent, { input }, { dataSources }) {
+			return await dataSources.jobsDatabase.applyJob(input)
+		},
 	}
 }
 

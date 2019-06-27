@@ -183,8 +183,7 @@ class JobsDatabase extends DataSource {
 			// console.log('results in getApplicants', result)
       return result.rows
 
-		} 
-		catch(err) {
+		} catch(err) {
       throw err
     }
 	}
@@ -204,10 +203,21 @@ class JobsDatabase extends DataSource {
 			// console.log('results in getApplicants', result)
       return result.rows
 
-		} 
-		catch(err) {
+		} catch(err) {
       throw err
     }
+	}
+
+	async applyJob(input) {
+		try {
+			const addApplicantsQuery = createInsertQuery(input, 'seniorcare.applicants')
+			await this.context.postgres.query(addApplicantsQuery)
+			return {
+				message: 'success'
+			}
+		} catch(err) {
+			throw err
+		}
 	}
 }
 

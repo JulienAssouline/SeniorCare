@@ -54,6 +54,7 @@ class ServicesDatabase extends DataSource {
 				const selectServiceColumns = ['id']
 				const selectServiceQuery = createSelectQuery(selectServiceColumns, 'seniorcare.services', 'title', service)
 				const selectServiceResult = await this.context.postgres.query(selectServiceQuery)
+
 				return {
 					job_id: jobId,
 					service_id: selectServiceResult.rows[0].id,

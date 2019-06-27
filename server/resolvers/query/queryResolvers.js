@@ -47,10 +47,10 @@ module.exports = {
 			return await dataSources.jobsDatabase.getJobPosts()
 		},
     
-		async getKeyContactJobPosts(parent, input, { dataSources }) {
-			console.log('checkpoint A')
-			return await dataSources.jobsDatabase.getKeyContactJobPosts(input)
-		},
+		// async getKeyContactJobPosts(parent, input, { dataSources }) {
+		// 	console.log('checkpoint A')
+		// 	return await dataSources.jobsDatabase.getKeyContactJobPosts(input)
+		// },
 
 		async getJobPost(parent, input, { dataSources }) {
 			return await dataSources.jobsDatabase.getJobPost(input)
@@ -62,9 +62,9 @@ module.exports = {
 			return await dataSources.keyContactDatabase.getKeyContactProfile({id: parent.key_contact_id})
 		},
 
-		async applicants(parent, { input }, { dataSources }) {
-			return await dataSources.jobsDatabase.getApplicants(parent)
-		},
+		// async applicants(parent, { input }, { dataSources }) {
+		// 	return await dataSources.jobsDatabase.getApplicants(parent)
+		// },
 
 		async getBasicInformation(parent, { input }, { dataSources }) {
 			return await dataSources.jobsDatabase.getBasicInformation(parent)
