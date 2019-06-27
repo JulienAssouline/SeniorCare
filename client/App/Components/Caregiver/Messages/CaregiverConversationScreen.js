@@ -6,7 +6,9 @@ import { GET_KEY_CONTACT_CONVO } from "../../../graphql-queries/queries"
 import { ListItem } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import EmptyConversation from "./EmptyConversation"
 const blueCurve = require('../../../Images/WelcomeScreen/blue-curve.png')
+
 
 const mapStateToProps = state => {
   return {
@@ -41,6 +43,7 @@ const CaregiverConversationScreen = (props) => {
         <View style={{ flex: 1, backgroundColor: 'transparent', height: height, position: 'relative' }}>
 
           {
+            data.getKeyContactConvos.length > 0 ?
             data.getKeyContactConvos.map((d, i) =>
               <View key={i} style={styles.conversationContainer}>
                 <ListItem
@@ -51,7 +54,7 @@ const CaregiverConversationScreen = (props) => {
                 />
               </View>
 
-            )
+            ) : <EmptyConversation />
           }
         </View>
       </ScrollView>
