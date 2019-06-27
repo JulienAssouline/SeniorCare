@@ -78,7 +78,7 @@ const ProfileScreen = props => {
   const handleGoToSeniors = () => {
     props.navigation.navigate('Seniors', {
       data: data.getKeyContactProfile
-      })
+    })
   }
 
 
@@ -192,7 +192,7 @@ const ProfileScreen = props => {
           <Text style={styles.ProfileButtonText}> Account</Text>
           <Icons name={`cog`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.ProfileButton} onPress={handleGoToHelp}>
+        <TouchableOpacity style={styles.ProfileButtonNoBottom} onPress={handleGoToHelp}>
           <Text style={styles.ProfileButtonText}> Help Center</Text>
           <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>
