@@ -7,9 +7,17 @@ import { Card } from 'native-base'
 const EmptyConversation = (props) => {
 
   return (
-      <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5), padding: 20 }}>
-          <Text style={{fontSize: 15, fontWeight: 'bold'}}>You have no messages. Only a Key Contact can start a conversatin.</Text>
+    <View>
+      <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5), padding: 20, marginTop: 20 }}>
+        <Text style={{ fontSize: 15, fontWeight: 'bold' }}>You have no messages yet.</Text>
       </Card>
+      <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5), padding: 20 }}>
+        <Text style={{ fontSize: 15, fontWeight: 'bold' }}>Only a family member or a senior's key contact currently looking for a caregiver can start a conversation with you.</Text>
+      </Card>
+      <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5), padding: 20 }}>
+        <Text style={{ fontSize: 15, fontWeight: 'bold' }}> Tip! Try applying for more jobs </Text>
+      </Card>
+    </View>
   )
 }
 
