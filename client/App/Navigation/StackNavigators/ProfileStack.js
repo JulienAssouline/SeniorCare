@@ -15,7 +15,10 @@ export const ProfileStack = createStackNavigator(
       screen: ProfileScreen
     },
     Help: {
-      screen: Help
+      screen: Help,
+      navigationOptions: {
+        title: 'Help Center',
+      }
     },
     Overview: {
       screen: Overview,
@@ -38,12 +41,13 @@ export const ProfileStack = createStackNavigator(
     Edit: {
       screen: Edit,
       navigationOptions: {
-        title: 'Edit Profile'
+        title: 'Edit Account'
       },
     },
     Account: {
       screen: AccountDetails,
       navigationOptions: ({ navigation }) => ({
+        title: 'Account',
         headerRight:
           <View style={{ padding: 10 }}>
             <TouchableOpacity

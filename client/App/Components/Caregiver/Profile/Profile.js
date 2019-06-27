@@ -182,7 +182,9 @@ const Profile = props => {
           <Text style={styles.ProfileButtonText}> Account</Text>
           <Icons name={`cog`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.ProfileButtonNoBottom}>
+        <TouchableOpacity style={styles.ProfileButtonNoBottom}
+        onPress={handleGoToHelp}
+        >
           <Text style={styles.ProfileButtonText}> Help Center</Text>
           <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>

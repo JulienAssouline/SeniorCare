@@ -4,7 +4,7 @@ import Profile from '../../Components/Caregiver/Profile/Profile'
 import JobDashboard from '../../Components/Caregiver/Jobs/Jobs'
 import React from 'react'
 import EditCaregiver from '../../Components/Caregiver/Profile/EditCaregiver'
-
+import Help from '../../Components/Profile/Help/Help'
 
 import Account from '../../Components/Profile/Account'
 
@@ -16,6 +16,12 @@ export const CaregiverProfileStack = createStackNavigator(
         title: 'Profile',
       }
     },
+    Help: {
+      screen: Help,
+      navigationOptions: {
+        title: 'Help Center',
+      }
+    },
     JobDashboard: {
       screen: JobDashboard,
       navigationOptions: {
@@ -24,10 +30,14 @@ export const CaregiverProfileStack = createStackNavigator(
     },
     EditCaregiver: {
       screen: EditCaregiver,
+      navigationOptions: {
+        title: 'Edit Account'
+      },
     },
     Account: {
       screen: Account,
       navigationOptions: (props) => ({
+        title: 'Account',
         headerRight:
           <View  style={{ padding: 10 }}>
             <TouchableOpacity
