@@ -2,14 +2,13 @@ const { Pool } = require('pg')
 const squel = require('squel').useFlavour('postgres')
 const config = require('../config/development.json')
 
-
 const keyContactSeeds = [
 	{
 		id: 'ThisIsSimonSternKeyContactSeed',
 		email: 'simon@simon.stern',
 		fullname: 'Simon Stern',
 		phone_number: '905-905-0001',
-		location: '123 Avocado Way',
+		location: 'Trinity Bellwoods',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
 	},
 	{
@@ -17,7 +16,7 @@ const keyContactSeeds = [
 		fullname: 'Akshay Manchanda',
 		email: 'akshay@akshay.com',
 		phone_number: '905-905-0002',
-		location: '123 Avocado Way',
+		location: 'Kensington',
 		avatar: 'https://www.argospetinsurance.co.uk/assets/uploads/2017/12/cat-pet-animal-domestic-104827.jpeg',
 	},
 	{
@@ -25,7 +24,7 @@ const keyContactSeeds = [
 		fullname: 'Vincent Dumouchel',
 		email: 'vdumouchel@me.com',
 		phone_number: '5147466616',
-		location: '245 Google Drive',
+		location: 'Queen West',
 		avatar: 'https://www.argospetinsurance.co.uk/assets/uploads/2017/12/cat-pet-animal-domestic-104827.jpeg',
 	},
 	{
@@ -33,7 +32,7 @@ const keyContactSeeds = [
 		fullname: 'Jeff Johnson',
 		email: 'jeffalanjohnson22@gmail.com',
 		phone_number: '5147466616',
-		location: '245 Mulholland',
+		location: 'South Core',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
 	},
 	{
@@ -41,7 +40,7 @@ const keyContactSeeds = [
 		fullname: 'Alam Talash',
 		email: 'mail@alamtalash.com',
 		phone_number: '5147466616',
-		location: '245 Mulholland',
+		location: 'Kensington',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
 	},
 	{
@@ -49,7 +48,7 @@ const keyContactSeeds = [
 		fullname: 'Marl Olech',
 		email: '	mark@olechconsulting.com',
 		phone_number: '5147466616',
-		location: '2356 Apollo Circle',
+		location: 'Little Italy',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
 	},
 	{
@@ -57,7 +56,7 @@ const keyContactSeeds = [
 		fullname: 'Julien Assouline',
 		email: 'jassouline@ryerson.ca',
 		phone_number: '5147466616',
-		location: '2356 Apollo Circle',
+		location: 'Bayview',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
 	},
 	{
@@ -65,7 +64,7 @@ const keyContactSeeds = [
 		fullname: 'Kevin Li',
 		email: 'unbakedmuffins@gmail.com',
 		phone_number: '5147466616',
-		location: '2356 Apollo Circle',
+		location: 'Chinatown',
 		avatar: 'https://www.argospetinsurance.co.uk/assets/uploads/2017/12/cat-pet-animal-domestic-104827.jpeg',
 	},
 ]
@@ -76,7 +75,7 @@ const caregiverSeeds = [
 		fullname: 'Alam Talash',
 		email: 'alam@alam.com',
 		phone_number: '905-905-0003',
-		location: '123 Avocado Way',
+		location: 'Chinatown, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'male',
 		years_experience: 5,
@@ -91,7 +90,7 @@ const caregiverSeeds = [
 		fullname: 'Jeffrey Johnson',
 		email: 'jeffrey@jeffrey.com',
 		phone_number: '905-905-0004',
-		location: '123 Avocado Way',
+		location: 'Queen West, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'male',
 		years_experience: 2,
@@ -106,7 +105,7 @@ const caregiverSeeds = [
 		fullname: 'Mark Olech',
 		email: 'mark@mark.com',
 		phone_number: '905-905-0005',
-		location: '123 Avocado Way',
+		location: 'Markham, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'female',
 		years_experience: 5,
@@ -121,7 +120,7 @@ const caregiverSeeds = [
 		fullname: 'Vincent Dumouchel',
 		email: 'vincent@vincent.com',
 		phone_number: '905-905-0006',
-		location: '123 Avocado Way',
+		location: 'City Place, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'male',
 		years_experience: 3,
@@ -136,7 +135,7 @@ const caregiverSeeds = [
 		fullname: 'Julien Assouline',
 		email: 'julien@julien.com',
 		phone_number: '905-905-0007',
-		location: '123 Avocado Way',
+		location: 'Grange Park, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'male',
 		years_experience: 16,
@@ -151,7 +150,7 @@ const caregiverSeeds = [
 		fullname: 'Kevin Li',
 		email: 'kevin@kevin.com',
 		phone_number: '905-905-0008',
-		location: '123 Avocado Way',
+		location: 'South Annex, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'male',
 		years_experience: 7,
@@ -166,7 +165,7 @@ const caregiverSeeds = [
 		fullname: 'Alam Talash',
 		email: 'talash.alam@gmail.com',
 		phone_number: '905-905-0008',
-		location: '123 Avocado Way',
+		location: 'South Core, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'male',
 		years_experience: 7,
@@ -181,7 +180,7 @@ const caregiverSeeds = [
 		fullname: 'Julien Assouline',
 		email: 'julien1993@hotmail.ca',
 		phone_number: '905-905-0003',
-		location: '1233 Apple Circle',
+		location: 'Corktown, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'male',
 		years_experience: 5,
@@ -196,7 +195,7 @@ const caregiverSeeds = [
 		fullname: 'Vincent Dumouchel',
 		email: 'vincent@storydoc.ai',
 		phone_number: '905-905-0008',
-		location: '453 Apple Circle',
+		location: 'Downtown West, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'male',
 		years_experience: 7,
@@ -211,7 +210,7 @@ const caregiverSeeds = [
 		fullname: 'Kevin Li',
 		email: 'munchedmuffins@gmail.com',
 		phone_number: '905-905-0008',
-		location: '1233 Google Drive',
+		location: 'Kensington, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'male',
 		years_experience: 7,
@@ -318,25 +317,7 @@ const services = [
 	{ title: 'Shopping' },
 ]
 
-
-const applicantsSeeds = [
-	{
-		id: '1',
-		jobpost_id: '1',
-		date_created: '2001-06-22 19:10:25-07',
-		caregiver_id: '31f71974-f547-4701-a0b2-7dad4ae19832',
-		keycontact_id: 'ea488fc4-babc-436f-883b-c873f2a4629d'
-	},
-	{
-		id: '2',
-		jobpost_id: '2',
-		date_created: '2001-06-22 19:10:25-07',
-		caregiver_id: 'b3f6986c-8555-41c0-b264-69c9cdfc9e93',
-		keycontact_id: 'ea488fc4-babc-436f-883b-c873f2a4629d'
-	}
-]
-
-const servicesJobJoin = [
+const services_job = [
 	{
 		job_id: 1,
 		service_id: 1,
@@ -372,7 +353,6 @@ const seed = async () => {
 		console.log('Seeding...')
 
 		await Promise.all(
-
 			keyContactSeeds.map(seed =>
 				pg.query(
 					squel
@@ -408,34 +388,7 @@ const seed = async () => {
 						.setFields(seed)
 						.toParam()
 				)
-			),
-			services.map(seed =>
-				pg.query(
-					squel
-						.insert()
-						.into('seniorcare.services')
-						.setFields(seed)
-						.toParam()
-				)
-			),
-			servicesJobJoin.map(seed =>
-				pg.query(
-					squel
-						.insert()
-						.into('seniorcare.services_job')
-						.setFields(seed)
-						.toParam()
-				)
-			),
-			applicantsSeeds.map(seed =>
-				pg.query(
-					squel
-						.insert()
-						.into('seniorcare.applicants')
-						.setFields(seed)
-						.toParam()
-				)
-			),
+			)
 		)
 		await pg.query('COMMIT')
 	} catch (e) {
