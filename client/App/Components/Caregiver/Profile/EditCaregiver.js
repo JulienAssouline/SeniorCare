@@ -21,7 +21,7 @@ let id = props.user_id
 
 const date = new Date()
 
-const [detailsObj, setDetailsObj] = useState({id: id, location: "", birthdate: date, gender: "female", availability: "live out", hourly_rate: 14, years_experience: 0, description: "" })
+const [detailsObj, setDetailsObj] = useState({id: id, location: "", birthdate: date, gender: "Female", availability: "live out", hourly_rate: 14, years_experience: 0, description: "" })
 
 const [availability, setAvailability] = useState(false)
 
@@ -92,29 +92,29 @@ function handleGenderChange(text) {
           <Text style = {styles.headingsTextGender}> Gender </Text>
           <View style = {styles.fieldGenderContainer}>
             <Button
-              onPress={() => handleGenderChange("female")}
+              onPress={() => handleGenderChange("Female")}
               containerStyle={{ width: "33%" }}
               buttonStyle={{
-                backgroundColor: detailsObj.gender === "female" ? "#244397" : "white",
+                backgroundColor: detailsObj.gender === "Female" ? "#244397" : "white",
                 borderWidth: 1,
                 borderColor: '#244397',
                 borderRadius: 0,
                 borderBottomLeftRadius: 10,
                 borderTopLeftRadius: 10,
               }}
-              titleStyle={{ color: detailsObj.gender === "female" ? "white" : "#244397" }}
-              title="female" />
+              titleStyle={{ color: detailsObj.gender === "Female" ? "white" : "#244397" }}
+              title="Female" />
             <Button
-              onPress={() => handleGenderChange("male")}
+              onPress={() => handleGenderChange("Male")}
               containerStyle={{ width: "33%" }}
               buttonStyle={{
-                backgroundColor: detailsObj.gender === "male" ? "#244397" : "white",
+                backgroundColor: detailsObj.gender === "Male" ? "#244397" : "white",
                 borderWidth: 1,
                 borderColor: '#244397',
                 borderRadius: 0,
               }}
-              titleStyle={{ color: detailsObj.gender === "male" ? "white" : "#244397" }}
-              title="male" />
+              titleStyle={{ color: detailsObj.gender === "Male" ? "white" : "#244397" }}
+              title="Male" />
             <Button
               onPress={() => handleGenderChange("other")}
               containerStyle={{ width: "33%" }}
