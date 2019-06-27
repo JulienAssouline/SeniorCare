@@ -7,8 +7,6 @@ import PostJobBottomButtons from '../PostJobBottomButtons'
 
 import { general } from '../../../Styles/PostJob/PostJobGeneralStyles'
 import { createSeniorProfile } from '../../../Styles/PostJob/SeniorDetailsStyles'
-import { backgroundStyles } from '../../../Styles/GeneralStyles'
-import { overview } from '../../../Styles/PostJob/OverviewStyles'
 
 const mapStateToProps = state => {
 	const { title } = state.postJob.basicInformation
@@ -26,7 +24,7 @@ const mapDispatchToProps = dispatch => {
 const BasicInformationTitle = (props) => {
   return (
 		<Formik
-			initialValues={{ title: '' }}
+			initialValues={{ title: props.title }}
 			//onSubmit={values => console.log(values)}
 			// onSubmit={values => submitTitleValue(values)}
 			onSubmit={values => props.onTitleUpdate(values)}
@@ -57,13 +55,14 @@ const BasicInformationTitle = (props) => {
 				handleSubmit,
 				isSubmitting,
 			}) => (
-				<View style={{...backgroundStyles.background, ...overview.mainContainer}}>
+				<>
 					<ScrollView style={createSeniorProfile.mainContainer}>
 						<Text style={general.question}>What is the title of this job?</Text>
 						<View>
 							<Input
-								placeholder='Granny Needs Help'
 								name="title"
+								placeholder='Granny Needs Help'
+								containerStyle={general.inputContainer}
 								onChangeText={handleChange('title')}
 								onBlur={handleBlur}
 								value={values.title}
@@ -79,7 +78,7 @@ const BasicInformationTitle = (props) => {
 						touched={touched}
 						lastPosition={3}
 					/>
-    		</View>
+    		</>
 			)}
 		</Formik>
   )

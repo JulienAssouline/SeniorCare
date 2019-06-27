@@ -74,8 +74,7 @@ const JobBoardJobs = (props) => {
     
     <ScrollView style={styles.MainContainer}>
 
-      {data.getKeyContactJobPosts.map(elem => {
-
+      {data.ArchivedJobs.map((elem, index) => {
         let date = new Date(parseInt(elem.date_created));
         let options = {
           month: 'long', year: 'numeric', day: 'numeric',
@@ -87,7 +86,7 @@ const JobBoardJobs = (props) => {
 
         return (
 
-          <ScrollView>
+          <ScrollView key={index}>
             <View style={styles.CutCard}>
               <View>
                 <Card containerStyle={styles.CutCard}>

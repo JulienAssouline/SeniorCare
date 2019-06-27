@@ -48,7 +48,15 @@ export const basicInformationStyles = StyleSheet.create({
 
 	buttonText: {
 		color: basicBlueColor
-	}
+	},
+
+	descriptorContainer: {
+		marginBottom: 24,
+	},
+
+	addressSectionContainer: {
+		marginBottom: 24,
+	},
 })
 
 export const createSeniorProfile = StyleSheet.create({

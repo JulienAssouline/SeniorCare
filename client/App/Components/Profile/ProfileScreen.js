@@ -69,9 +69,9 @@ const ProfileScreen = props => {
     return (<Loading />)
   }
   if (error) {
-    console.log('my error', error)
-    return
+    throw (error)
   }
+
   if (!avatarSource) setAvatarSource(data.getKeyContactProfile.avatar)
 
 
@@ -94,7 +94,7 @@ const ProfileScreen = props => {
     })
   }
 
-  // adding the iOS image picker logic 
+  // adding the iOS image picker logic
   const options = {
     title: 'Select Your Profile Picture',
     storageOptions: {
@@ -106,13 +106,9 @@ const ProfileScreen = props => {
   const pickAnImage = id => {
     // let myMutationùfunction = useMutation();
     ImagePicker.showImagePicker(options, response => {
-      console.log('Response = ', response)
       if (response.didCancel) {
-        console.log('User cancelled image picker')
       } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error)
       } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton)
       } else {
         // uploadImageToS3(response.uri)
         RNFetchBlob.config({
@@ -163,18 +159,18 @@ const ProfileScreen = props => {
   }
 
   return (
-    <ScrollView style={styles.MainContainer}>
+    <View style={styles.MainContainer}>
       <View style={styles.Profile}>
         <TouchableOpacity onPress={() => pickAnImage(id)}>
-          <Image style={styles.ProfileImage}
-            style={{ width: 200, height: 200, borderRadius: 100, borderWidth: 5, borderColor: '#3F7DFB' }}
+          <Image
+            style={{ width: 200, height: 200, borderRadius: 100, borderWidth: 3, borderColor: '#3F7DFB', }}
             source={{ uri: avatarSource }}
           />
           <View style={styles.Camera}>
-            <Icons name="camera" size={25} color={'#3F7DFB'} />
+            <Icons name="camera" size={20} color={'#3F7DFB'} />
           </View>
-          <Text style={styles.ProfileName}> {data.getKeyContactProfile && data.getKeyContactProfile.fullname} </Text>
         </TouchableOpacity>
+          <Text style={styles.ProfileName}> {data.getKeyContactProfile && data.getKeyContactProfile.fullname} </Text>
       </View>
       <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5) }}>
 
@@ -192,7 +188,7 @@ const ProfileScreen = props => {
           <Text style={styles.ProfileButtonText}> Account</Text>
           <Icons name={`cog`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.ProfileButton} onPress={handleGoToHelp}>
+        <TouchableOpacity style={styles.ProfileButtonNoBottom} onPress={handleGoToHelp}>
           <Text style={styles.ProfileButtonText}> Help Center</Text>
           <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>
@@ -201,8 +197,7 @@ const ProfileScreen = props => {
         source={yellowCurve}
         style={{ height: hp(44), width: wp(100), zIndex: 0, position: 'relative', padding: 0, margin: 0 }}
       />
-
-    </ScrollView >
+    </View>
   )
 }
 

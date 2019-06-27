@@ -62,6 +62,7 @@ module.exports = gql`
     fullname: String
     conversation_id: ID
     key_contact_id: ID
+		avatar: String
   }
 
   type QueryPlaceholder{

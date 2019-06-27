@@ -8,13 +8,25 @@ const styles = StyleSheet.create({
   searchContainer: {
     flex: 1,
     flexDirection: 'row',
-    margin: 20,
-    backgroundColor: "#FFFFFF",
+    marginHorizontal: 20,
+    marginVertical: 10,
+    backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: '#CCCCCC',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.20,
+    shadowRadius: 1.41,
+
+    elevation: 2,
   },
   infoContainer: {
     flex: 1,
     margin: 10,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#fff",
   },
   ratingLocationContainer: {
     flex: 1,
@@ -32,7 +44,8 @@ const styles = StyleSheet.create({
   },
   locationText: {
     color: "#6F6F6F",
-    fontSize: 14,
+    fontSize: 13,
+
   },
   backgroundInfoText: {
     color: "#6F6F6F",
@@ -44,7 +57,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   starRating: {
-    paddingRight: 3,
+    paddingRight: 1,
     paddingLeft: 1,
   },
 })

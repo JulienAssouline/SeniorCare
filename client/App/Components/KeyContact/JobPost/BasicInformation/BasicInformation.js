@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
-import { ScrollView, Text } from 'react-native'
+import React from 'react'
 import { connect } from 'react-redux'
+
+import { View } from 'react-native'
+
+import { backgroundStyles } from '../../../Styles/GeneralStyles'
+import { overview } from '../../../Styles/PostJob/OverviewStyles'
+
 import PostJobTop from '../PostJobTop'
 import BasicInformationBody from './BasicInformationBody'
-import { basicInformationStyles } from '../../../Styles/PostJob/BasicInformationStyles'
 
 
 const mapStateToProps = state => {
@@ -15,7 +19,7 @@ const mapStateToProps = state => {
 
 const BasicInformation = props => {
 	return (
-		<ScrollView style={basicInformationStyles.mainContainer}>
+		<View style={{...backgroundStyles.background, ...overview.mainContainer}}>
 			<PostJobTop
 				title={'Basic information'}
 				currentPosition={props.formPosition}
@@ -25,7 +29,7 @@ const BasicInformation = props => {
 				formPosition={props.formPosition}
 				navigation={props.navigation}
 			/>
-		</ScrollView>
+		</View>
 	)
 };
 

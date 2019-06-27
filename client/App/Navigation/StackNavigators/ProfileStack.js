@@ -5,29 +5,35 @@ import ProfileScreen from '../../Components/Profile/ProfileScreen'
 import Senior from '../../Components/Profile/Senior/Senior'
 import Help from '../../Components/Profile/Help/Help'
 import AccountDetails from '../../Components/Profile/Account'
-import SeniorIndex from '../../Components/Profile/Senior/Index'
+import SeniorDetails from '../../Components/Profile/Senior/SeniorDetails'
 import Edit from '../../Components/Profile/Edit'
+import Overview from '../../Components/KeyContact/JobPost/Overview'
 
 export const ProfileStack = createStackNavigator(
   {
-    Profile: { 
-      screen: ProfileScreen 
+    Profile: {
+      screen: ProfileScreen
     },
     Help: {
-      screen: Help
+      screen: Help,
+      navigationOptions: {
+        title: 'Help Center',
+      }
+    },
+    Overview: {
+      screen: Overview,
+      navigationOptions: {
+        title: 'Overview',
+      }
     },
     Seniors: {
       screen: Senior,
       navigationOptions: {
         title: 'Seniors'
       },
-      Help: {
-        screen: Help
-      },
-
     },
     SeniorDetails:{
-      screen: SeniorIndex,
+      screen: SeniorDetails,
         navigationOptions: {
           title: 'Caregiver for'
         },
@@ -35,12 +41,13 @@ export const ProfileStack = createStackNavigator(
     Edit: {
       screen: Edit,
       navigationOptions: {
-        title: 'Edit Profile'
+        title: 'Edit Account'
       },
     },
     Account: {
       screen: AccountDetails,
       navigationOptions: ({ navigation }) => ({
+        title: 'Account',
         headerRight:
           <View style={{ padding: 10 }}>
             <TouchableOpacity
@@ -52,7 +59,7 @@ export const ProfileStack = createStackNavigator(
           </View>
         })
     },
-    
+
 
   },
 

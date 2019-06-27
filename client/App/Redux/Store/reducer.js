@@ -9,9 +9,9 @@ const initialState = {
 			completedSections: [0, 1, 2, 3, 4]
 		},
 		serviceDetails: {
-			appointments: true,
+			appointments: false,
 			bathing: false,
-			companionship: true,
+			companionship: false,
 			dressing: false,
 			driving: false,
 			errands: true,
@@ -19,8 +19,8 @@ const initialState = {
 			grooming: true,
 			housekeeping: false,
 			laundry: false,
-			mealPrep: true,
-			mobility: true,
+			mealPrep: false,
+			mobility: false,
 			shopping: false,
 		},
 		basicInformation: {

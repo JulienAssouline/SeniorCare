@@ -4,7 +4,6 @@ import { Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 
 import { general, postJobButtons } from '../../../Styles/PostJob/PostJobGeneralStyles'
-import { style } from '../../../Styles/PostJob/PostJobButtonsStyles'
 
 export default Cannabis = props => {
 	const { setFieldValue, values } = props
@@ -12,7 +11,7 @@ export default Cannabis = props => {
 	return (
 		<View style={general.sectionContainer}>
 			<Text style={general.question}>
-			Cannabis?
+				Cannabis?
 			</Text>
 			<View style={postJobButtons.mainButtonContainer}>
 				<Button

@@ -44,7 +44,8 @@ export const postJobButtons = StyleSheet.create({
   mainButtonContainer: {
     flex: 1,
 		flexDirection: 'row',
-    marginVertical: 7,
+		marginHorizontal: -4,
+		marginVertical: 7,
   },
 
   buttonContainer: {
@@ -62,6 +63,8 @@ export const postJobButtons = StyleSheet.create({
   selectedButton: {
 		marginHorizontal: 5,
 		backgroundColor: mainBlue,
+		borderWidth: 0.5,
+		borderColor: mainBlue,
     borderRadius: 20,
 	},
 	

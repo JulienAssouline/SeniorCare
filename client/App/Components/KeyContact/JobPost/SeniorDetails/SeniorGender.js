@@ -71,29 +71,29 @@ const SeniorGender = props => {
 							<View style={postJobButtons.mainButtonContainer}>
 								<Button
 									title='Female'
-									titleStye={values.gender === 'female' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									titleStye={values.gender === 'FEMALE' ? postJobButtons.selectedText : postJobButtons.deselectedText}
 									containerStyle={postJobButtons.buttonContainer}
-									buttonStyle={values.gender === 'female' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
-									type={values.gender === 'female' ? 'solid' : 'outline'}
-									onPress={() => setFieldValue('gender', 'female')}
+									buttonStyle={values.gender === 'FEMALE' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+									type={values.gender === 'FEMALE' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('gender', 'FEMALE')}
 								/>
 								<Button
 									title='Male'
-									titleStye={values.gender === 'male' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									titleStye={values.gender === 'MALE' ? postJobButtons.selectedText : postJobButtons.deselectedText}
 									containerStyle={postJobButtons.buttonContainer}
-									buttonStyle={values.gender === 'male' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
-									type={values.gender === 'male' ? 'solid' : 'outline'}
-									onPress={() => setFieldValue('gender', 'male')}
+									buttonStyle={values.gender === 'MALE' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+									type={values.gender === 'MALE' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('gender', 'MALE')}
 								/>
 							</View>
 							<View style={postJobButtons.mainButtonContainer}>
 								<Button
 									title='Other'
-									titleStye={values.gender === 'other' ? postJobButtons.selectedText : postJobButtons.deselectedText}
+									titleStye={values.gender === 'OTHER' ? postJobButtons.selectedText : postJobButtons.deselectedText}
 									containerStyle={postJobButtons.buttonContainer}
-									buttonStyle={values.gender === 'other' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
-									type={values.gender === 'other' ? 'solid' : 'outline'}
-									onPress={() => setFieldValue('gender', 'other')}
+									buttonStyle={values.gender === 'OTHER' ? postJobButtons.selectedButton : postJobButtons.deselectedButton}
+									type={values.gender === 'OTHER' ? 'solid' : 'outline'}
+									onPress={() => setFieldValue('gender', 'OTHER')}
 								/>
 							</View>
 						</ScrollView>
