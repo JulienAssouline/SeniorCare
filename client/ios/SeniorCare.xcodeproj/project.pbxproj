@@ -19,7 +19,6 @@
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
@@ -100,6 +99,14 @@
 		ADEAA09722BC0F9300C149A2 /* GothamRounded-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = ADEAA08B22BC0F9200C149A2 /* GothamRounded-LightItalic.otf */; };
 		ADEAA09822BC0F9300C149A2 /* GothamRoundedMedium_21022.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADEAA08C22BC0F9200C149A2 /* GothamRoundedMedium_21022.ttf */; };
 		B6FD984ADDD147988ECAF5A3 /* libRNAWSCognito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA73CBA72314FCFBEC2D424 /* libRNAWSCognito.a */; };
+		BF18068E22C514D9000B55EC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF18068D22C514D9000B55EC /* Launch Screen.storyboard */; };
+		BF18068F22C514D9000B55EC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF18068D22C514D9000B55EC /* Launch Screen.storyboard */; };
+		BF18069122C51813000B55EC /* logo-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069022C51813000B55EC /* logo-circle.png */; };
+		BF18069222C51813000B55EC /* logo-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069022C51813000B55EC /* logo-circle.png */; };
+		BF18069422C519BA000B55EC /* seniorcareType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069322C519BA000B55EC /* seniorcareType.png */; };
+		BF18069522C519BA000B55EC /* seniorcareType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069322C519BA000B55EC /* seniorcareType.png */; };
+		BF18069722C51A28000B55EC /* yellowCurve.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069622C51A28000B55EC /* yellowCurve.png */; };
+		BF18069822C51A28000B55EC /* yellowCurve.png in Resources */ = {isa = PBXBuildFile; fileRef = BF18069622C51A28000B55EC /* yellowCurve.png */; };
 		BFC3C4B522C4170D00B97DE3 /* messages-background.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC3C48722C4170C00B97DE3 /* messages-background.png */; };
 		BFC3C4B622C4170D00B97DE3 /* messages-background.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC3C48722C4170C00B97DE3 /* messages-background.png */; };
 		D18F89FBDEC64631B3484866 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -446,10 +453,9 @@
 		0C66A68B9CAF48B4A3F60486 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* SeniorCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeniorCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Senior Care Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Senior Care Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SeniorCare/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SeniorCare/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SeniorCare/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SeniorCare/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SeniorCare/main.m; sourceTree = "<group>"; };
@@ -519,6 +525,10 @@
 		AFD3868CF9B247ED82789A21 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		B5ACAEB47D2B4C9DBDB53AE8 /* RNReanimated.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNReanimated.xcodeproj; path = "../node_modules/react-native-reanimated/ios/RNReanimated.xcodeproj"; sourceTree = "<group>"; };
 		B70F8230DA59416FB0277F4D /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCAsyncStorage.xcodeproj; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; };
+		BF18068D22C514D9000B55EC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		BF18069022C51813000B55EC /* logo-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-circle.png"; path = "../../../../logo-circle.png"; sourceTree = "<group>"; };
+		BF18069322C519BA000B55EC /* seniorcareType.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seniorcareType.png; path = ../../../../seniorcareType.png; sourceTree = "<group>"; };
+		BF18069622C51A28000B55EC /* yellowCurve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowCurve.png; path = ../../../../yellowCurve.png; sourceTree = "<group>"; };
 		BFC3C42D22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "Spinner-4.8s-200px.gif"; path = "../App/Images/Spinner-4.8s-200px.gif"; sourceTree = "<group>"; };
 		BFC3C48722C4170C00B97DE3 /* messages-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "messages-background.png"; path = "../App/Images/messages-background.png"; sourceTree = "<group>"; };
 		CB5EACB2C4A7487B993A23FC /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
@@ -689,8 +699,8 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				BF18068D22C514D9000B55EC /* Launch Screen.storyboard */,
 			);
 			name = SeniorCare;
 			sourceTree = "<group>";
@@ -756,6 +766,9 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BF18069622C51A28000B55EC /* yellowCurve.png */,
+				BF18069322C519BA000B55EC /* seniorcareType.png */,
+				BF18069022C51813000B55EC /* logo-circle.png */,
 				BFC3C48722C4170C00B97DE3 /* messages-background.png */,
 				BFC3C42D22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif */,
 				66F69AFC22B033A700082EA8 /* SFProText-Bold.otf */,
@@ -875,7 +888,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* SeniorCare.app */,
+				13B07F961A680F5B00A75B9A /* Senior Care Connect.app */,
 				00E356EE1AD99517003FC87E /* SeniorCareTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* SeniorCare-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* SeniorCare-tvOSTests.xctest */,
@@ -985,7 +998,7 @@
 			);
 			name = SeniorCare;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* SeniorCare.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Senior Care Connect.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* SeniorCare-tvOS */ = {
@@ -1035,7 +1048,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 6622Y9DG8R;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 6622Y9DG8R;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1455,6 +1472,10 @@
 			files = (
 				66F69B1022B033A700082EA8 /* SFProText-Light.otf in Resources */,
 				66F69B0422B033A700082EA8 /* SFProText-Semibold.otf in Resources */,
+				BF18069822C51A28000B55EC /* yellowCurve.png in Resources */,
+				BF18069222C51813000B55EC /* logo-circle.png in Resources */,
+				BF18068F22C514D9000B55EC /* Launch Screen.storyboard in Resources */,
+				BF18069522C519BA000B55EC /* seniorcareType.png in Resources */,
 				66F69B1422B033A700082EA8 /* SFProText-Medium.otf in Resources */,
 				66F69B0822B033A700082EA8 /* SFProText-Regular.otf in Resources */,
 				66F69B0C22B033A700082EA8 /* SFProText-Bold.otf in Resources */,
@@ -1471,11 +1492,11 @@
 				F473E03D22BA794000D8B1E8 /* Octicons.ttf in Resources */,
 				ADEAA09622BC0F9300C149A2 /* GothamRounded-Book.otf in Resources */,
 				ADEAA09422BC0F9300C149A2 /* GothamRoundedBook_21018.ttf in Resources */,
+				BF18069422C519BA000B55EC /* seniorcareType.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				2699D50722B8072A00A12493 /* FontAwesome.ttf in Resources */,
 				ADEAA09822BC0F9300C149A2 /* GothamRoundedMedium_21022.ttf in Resources */,
 				F46BD9A622B8393F00A8E653 /* Foundation.ttf in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				ADEAA09022BC0F9300C149A2 /* GothamRounded-Medium.otf in Resources */,
 				F46BD99C22B8393F00A8E653 /* MaterialIcons.ttf in Resources */,
 				ADEAA09322BC0F9300C149A2 /* GothamRoundedBold_21016.ttf in Resources */,
@@ -1489,6 +1510,7 @@
 				66F69B0722B033A700082EA8 /* SFProText-Regular.otf in Resources */,
 				ADEAA08F22BC0F9300C149A2 /* GothamRounded-BookItalic.otf in Resources */,
 				66F69B0B22B033A700082EA8 /* SFProText-Bold.otf in Resources */,
+				BF18069122C51813000B55EC /* logo-circle.png in Resources */,
 				2699D50522B8072A00A12493 /* FontAwesome5_Solid.ttf in Resources */,
 				26F6BDF922BD4CAE00F091A1 /* SimpleLineIcons.ttf in Resources */,
 				ADEAA09722BC0F9300C149A2 /* GothamRounded-LightItalic.otf in Resources */,
@@ -1510,10 +1532,12 @@
 				ADEAA08D22BC0F9300C149A2 /* GothamRounded-Light.otf in Resources */,
 				ADEAA08E22BC0F9300C149A2 /* GothamRounded-Bold.otf in Resources */,
 				7D5BBBA2F6E84F35B5730606 /* AntDesign.ttf in Resources */,
+				BF18068E22C514D9000B55EC /* Launch Screen.storyboard in Resources */,
 				7CB63719BC2B4065A025A1F4 /* Zocial.ttf in Resources */,
 				61DA073922C2760100988DBB /* AntDesign.ttf in Resources */,
 				9C01927FC6284A0F8A23D663 /* Zocial.ttf in Resources */,
 				D18F89FBDEC64631B3484866 /* (null) in Resources */,
+				BF18069722C51A28000B55EC /* yellowCurve.png in Resources */,
 				E70A9F69034C4E59A1157431 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1627,23 +1651,12 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B07FB21A68108700A75B9A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = SeniorCare;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6622Y9DG8R;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1688,6 +1701,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 6622Y9DG8R;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
@@ -1729,6 +1743,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 6622Y9DG8R;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
@@ -1747,7 +1762,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = SeniorCare;
+				PRODUCT_NAME = "Senior Care Connect";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1757,6 +1772,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6622Y9DG8R;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
@@ -1775,7 +1791,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = SeniorCare;
+				PRODUCT_NAME = "Senior Care Connect";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
