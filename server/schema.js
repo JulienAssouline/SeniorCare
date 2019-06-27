@@ -19,10 +19,9 @@ module.exports = gql`
     getCaregiverConvos(key_contact_id: ID): [ConversationRoom]
     getKeyContactConvos(caregiver_id: ID): [ConversationRoom]
 		getJobPosts: [JobPost]
-		getKeyContactJobPosts(key_contact_id: ID): [JobPost]
-		getApplicants(key_contact_id: ID): [Applicant]
 		getJobPost(id: ID!): JobPost
   }
+
 
 	type Applicant {
 		id: ID
@@ -62,7 +61,6 @@ module.exports = gql`
     fullname: String
     conversation_id: ID
     key_contact_id: ID
-		avatar: String
   }
 
   type QueryPlaceholder{
@@ -134,7 +132,19 @@ module.exports = gql`
     cannabis: Boolean
 
 	}
-	
+
+	type JobPost {
+		id: ID
+		key_contact_id: ID
+		date_created: Date
+		getKeyContact: KeyContact
+		getBasicInformation: BasicInformation
+		getServiceDetails: [ServiceDetails]
+		getSeniorDetails: SeniorDetails
+		getHouseDetails: HouseDetails
+		getCaregiverPreferences: CaregiverPreferences
+	}
+
 	type BasicInformation {
 		title: String
 		start_date: Date
@@ -206,8 +216,9 @@ module.exports = gql`
 		addJobRequest(input: NewJobObject!): MessageResponse!
     addCaregiverDetails(input: CaregiverDetails): addCaregiverDetailsResponse!
     addKeyContactDetails(input: KeyContactDetails): addKeyContactDetailsResponse!
-		changeKeyContactAvatar(input:ProfileDetails): changeAvatarResponse!
-		changeCaregiverAvatar(input:ProfileDetails): changeAvatarResponse!
+		changeKeyContactAvatar(input: ProfileDetails): changeAvatarResponse!
+		changeCaregiverAvatar(input: ProfileDetails): changeAvatarResponse!
+		applyJob(input: JobApplicationObject!): MessageResponse
 	}
 
   input KeyContactDetails {
@@ -248,7 +259,8 @@ module.exports = gql`
 	type MessageResponse {
 		message: String
 	}
-  	input SignupObject{
+  
+	input SignupObject{
 		id: ID!,
 	  fullname: String,
 		email: String,
@@ -329,6 +341,12 @@ module.exports = gql`
 		MALE
 		OTHER
 		NOPREFERENCE
+	}
+
+	input JobApplicationObject {
+		jobpost_id: ID
+		caregiver_id: ID
+		keycontact_id: ID
 	}
 
   type LoginResponse {

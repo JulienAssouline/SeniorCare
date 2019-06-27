@@ -185,12 +185,10 @@ class JobsDatabase extends DataSource {
 			}
 			console.log(key_contact_id)
       const result = await this.context.postgres.query(applicantsQuery)
-
-			console.log('rows in getKeyContactJobPosts', result.rows)
+      
       return result.rows
 		} 
 		catch(err) {
-			console.log("Is error ", err)
       throw err
     }
 	}
@@ -211,10 +209,23 @@ class JobsDatabase extends DataSource {
       return result.rows
 
 		} 
-		catch(err) {
-			console.log('log my err',err)
+	
+		} catch(err) {
+
       throw err
     }
+	}
+
+	async applyJob(input) {
+		try {
+			const addApplicantsQuery = createInsertQuery(input, 'seniorcare.applicants')
+			await this.context.postgres.query(addApplicantsQuery)
+			return {
+				message: 'success'
+			}
+		} catch(err) {
+			throw err
+		}
 	}
 }
 
