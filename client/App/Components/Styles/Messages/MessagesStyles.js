@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
   },
   InputContainer: {
     position: "absolute",
-    bottom: 0,
     borderTopWidth: 0,
     borderColor: 'white',
   },

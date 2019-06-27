@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dimensions, ScrollView, Text, View, TextInput, TouchableOpacity } from 'react-native'
+import { Dimensions, ScrollView, Text, View, TextInput, TouchableOpacity, Keyboard } from 'react-native'
 import styles from '../Styles/Messages/MessagesStyles'
 import { useQuery, useMutation } from 'react-apollo-hooks'
 import { GET_CAREGIVER_CONVO } from "../../graphql-queries/queries"
@@ -27,14 +27,14 @@ const MessageInput = (props) => {
 
 
   return (
-		<View style={styles.InputContainer} onLayout={(event) => {
+		<View style={[styles.InputContainer, {bottom: props.keyBoardHeight}]} onLayout={(event) => {
        if (!containerHeight) {
           setContainerHeight(event.nativeEvent.layout.height)
        }
       }}>
       <View style={{ flex: 1, flexDirection: 'row', justifyContent: "space-between", width: width, paddingHorizontal: 16, backgroundColor: "white", borderColor: "white", borderWidth: 0 }}>
         <TextInput
-          style={{ textAlignVertical: 'right', borderRadius: 25, marginTop: 10, marginBottom: 10, paddingTop: 10, paddingRight: 10, paddingBottom: 10, borderColor: "#E8E8E8", borderWidth: 1, backgroundColor: "#E8E8E8", width: width - 70, fontSize: 16 }}
+          style={{ borderRadius: 25, marginTop: 10, marginBottom: 10, paddingTop: 10, paddingRight: 10, paddingBottom: 10, borderColor: "#f4f4f4", borderLeftWidth: 20, borderRightWidth: 20, backgroundColor: "#f4f4f4", width: width - 70, fontSize: 16 }}
           placeholder="Send Message"
           className={"input-base"}
           onChangeText={(text) => handleChange(text)}
