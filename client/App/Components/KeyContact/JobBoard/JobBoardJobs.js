@@ -54,7 +54,6 @@ query getKeyContactJobPosts($id:ID!) {
 
 const JobBoardJobs = (props) => {
 
-  
 
   let user_id = props.user_id
 
