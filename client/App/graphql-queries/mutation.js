@@ -10,11 +10,11 @@ export const ADD_CONVERSATION_MUTATION = gql`
 `
 
 export const ADD_MESSAGES = gql`
-mutation addMessageMutation($content: String, $conversation_id: ID, $from_user: ID){
-  addMessages(content: $content, conversation_id: $conversation_id, from_user: $from_user) {
-    message
-  }
-}
+	mutation addMessageMutation($content: String, $conversation_id: ID, $from_user: ID){
+		addMessages(content: $content, conversation_id: $conversation_id, from_user: $from_user) {
+			message
+		}
+	}
 `
 
 export const SUBMIT_JOB_POST = gql`
@@ -38,4 +38,12 @@ export const EDIT_KEY_CONTACT_DETAILS = gql`
       message
     }
   }
+`
+
+export const APPLY_JOB = gql`
+	mutation applyJobVars($input: JobApplicationObject!) {
+		applyJob(input: $input) {
+			message
+		}
+	}
 `

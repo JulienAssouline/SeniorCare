@@ -1,11 +1,12 @@
 import React from 'react'
 
-import { ScrollView, Text, View, TouchableOpacity } from 'react-native'
+import { Alert, ScrollView, Text, View, TouchableOpacity } from 'react-native'
 import { Button } from 'react-native-elements'
 
 import { connect } from 'react-redux'
-import { useQuery } from 'react-apollo-hooks'
+import { useQuery, useMutation } from 'react-apollo-hooks'
 import { GET_FULL_JOB_POSTING } from '../../../graphql-queries/queries'
+import { APPLY_JOB } from '../../../graphql-queries/mutation'
 
 import { mainOverviewStyles } from '../../Styles/Caregiver/caregiverJobPostStyles'
 
@@ -22,9 +23,30 @@ const ApplyToJobs = props => {
 	const {data, loading, error } = useQuery(GET_FULL_JOB_POSTING, {
 		variables: { id: props.navigation.state.params.id }
 	})
+	const applyJob = useMutation(APPLY_JOB)
 
-	const handleApplyJob = () => {
-		console.log('apply')
+	const handleConfirmApply = () => {
+		Alert.alert(
+			'Confirm Application',
+			'Are you sure you want to apply for this job?',
+			[
+				{text: 'Yes', onPress:() => handleApplyJob()},
+				{text: 'No', onPress:() => console.log('cancel'), style: 'cancel'}
+			]
+		)
+	}
+
+	const handleApplyJob = async () => {
+		const result = await applyJob({
+			variables: {input: {
+				jobpost_id: data.getJobPost.id,
+				keycontact_id: data.getJobPost.getKeyContact.id,
+				caregiver_id: props.user_id,
+			}}
+		})
+		if (result.data.applyJob.message === 'success') {
+			props.navigation.navigate('CaregiverDoneApply')
+		}
 	}
 
 	if (loading) return <View><Text>loading</Text></View>
@@ -47,7 +69,7 @@ const ApplyToJobs = props => {
 				<Button
 					title='Apply'
 					buttonStyle={mainOverviewStyles.applyButton}
-					onPress={handleApplyJob}
+					onPress={handleConfirmApply}
 				/>
 			</View>
 		</View>

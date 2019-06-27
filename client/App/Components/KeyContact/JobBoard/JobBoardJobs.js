@@ -35,10 +35,13 @@ const mapDispatchToProps = dispatch => {
 }
 
 const KEY_CONTACT_JOBS = gql`
-query getKeyContactJobPosts($key_contact_id:ID!) {
-	getKeyContactJobPosts(key_contact_id: $key_contact_id) {
+query getKeyContactJobPosts($id:ID!) {
+	getKeyContactJobPosts(id: $id) {
 		id
+    title
+    start_date
     date_created
+    hourly_rate
     applicants {
       id
       fullname
@@ -56,13 +59,17 @@ const JobBoardJobs = (props) => {
   let user_id = props.user_id
 
   const { data, error, loading } = useQuery(KEY_CONTACT_JOBS, {
-    variables : {key_contact_id: user_id}
+    variables: {id: user_id}
   })
 
   if(loading) return <Loading/>
 
-  if(error) return <Loading/>
+  if(error) {
+ 
+    return <Loading/>
+  }
    
+  
   
  
 
@@ -70,7 +77,8 @@ const JobBoardJobs = (props) => {
     
     <ScrollView style={styles.MainContainer}>
 
-      {data.ArchivedJobs.map((elem, index) => {
+      {data.getKeyContactJobPosts.map((elem, index) => {
+     
         let date = new Date(parseInt(elem.date_created));
         let options = {
           month: 'long', year: 'numeric', day: 'numeric',
@@ -89,7 +97,7 @@ const JobBoardJobs = (props) => {
                   <View>
                     <View>
                       <Text style={styles.DateText}> Posted {dateCreated}</Text>
-                      <Text key={elem.id} style={styles.JobText}> {elem.description}</Text>
+                      <Text key={elem.id} style={styles.JobText}> {elem.title}</Text>
                     </View>
 
                     <View style={styles.JobInfo}>
