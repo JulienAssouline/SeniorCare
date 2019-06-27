@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginHorizontal: 20,
     marginVertical: 10,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#fff",
     borderWidth: 1,
     borderColor: '#CCCCCC',
     shadowColor: "#000",
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   infoContainer: {
     flex: 1,
     margin: 10,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#fff",
   },
   ratingLocationContainer: {
     flex: 1,
