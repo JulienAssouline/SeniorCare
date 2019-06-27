@@ -79,11 +79,12 @@ const Profile = props => {
   }
 
   const handleGoToAccount = (id) => {
-    props.navigation.navigate('Account', {
+    props.navigation.navigate('AccountCaregiver', {
       user_id: id,
       data: data.getCaregiverProfile
     })
   }
+
   // adding the iOS image picker logic
   const options = {
     title: 'Select Your Profile Picture',
@@ -163,10 +164,6 @@ const Profile = props => {
             <Icons name="camera" size={20} color={'#3F7DFB'} />
           </View>
         </TouchableOpacity>
-        {/* <Image style={styles.ProfileImage}
-            style={{ width: 200, height: 200, borderRadius: 100, alignContent: 'center' }}
-            source={{ uri: data.getCaregiverProfile.avatar }}
-          /> */}
         <Text style={styles.ProfileName}> {data.getCaregiverProfile.fullname} </Text>
       </View>
       <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5) }}>
@@ -187,7 +184,7 @@ const Profile = props => {
           <Icons name={`cog`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.ProfileButtonNoBottom}
-        onPress={handleGoToHelp}
+          onPress={handleGoToHelp}
         >
           <Text style={styles.ProfileButtonText}> Help Center</Text>
           <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
