@@ -13,7 +13,7 @@ import checkCognitoSession from '../../utils/checkCognitoSession'
 //     ArchivedJobs{
 //       id
 //       title
-//     
+//
 //       key_contact_id
 //     }
 //   }
@@ -21,7 +21,7 @@ import checkCognitoSession from '../../utils/checkCognitoSession'
 
 const mapStateToProps =  state => {
 
-  
+
   const user_id = state.user_id
   return{
     user_id: user_id
@@ -37,24 +37,25 @@ const mapDispatchToProps = dispatch => {
 const KEY_CONTACT_JOBS = gql`
 query getKeyContactJobPosts($id:ID!) {
 	getKeyContactJobPosts(id: $id) {
-		id
+    id
+    key_contact_id
+    date_created
     title
     start_date
-    date_created
-    hourly_rate
     applicants {
       id
-      fullname
       email
+      phone_number
+      fullname
       avatar
+      date_created
+      caregiver_id
     }
   }
 }
 `
 
 const JobBoardJobs = (props) => {
-
-  
 
   let user_id = props.user_id
 
@@ -65,20 +66,16 @@ const JobBoardJobs = (props) => {
   if(loading) return <Loading/>
 
   if(error) {
- 
+
     return <Loading/>
   }
-   
-  
-  
- 
 
   return (
-    
+
     <ScrollView style={styles.MainContainer}>
 
       {data.getKeyContactJobPosts.map((elem, index) => {
-     
+
         let date = new Date(parseInt(elem.date_created));
         let options = {
           month: 'long', year: 'numeric', day: 'numeric',
@@ -125,9 +122,9 @@ const JobBoardJobs = (props) => {
       })}
     </ScrollView>
   )
-   
+
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(JobBoardJobs) 
+export default connect(mapStateToProps, mapDispatchToProps)(JobBoardJobs)
 
 
