@@ -5,38 +5,80 @@ import styles from '../../Styles/JobDashboardScreen/JobDashboardScreenStyle'
 import gql from 'graphql-tag'
 import { useQuery } from 'react-apollo-hooks'
 import Loading from '../../Loading/Loading'
+import {connect} from 'react-redux'
+import checkCognitoSession from '../../utils/checkCognitoSession'
 
-const ARCHIVED_JOBS = gql`
-  query{
-    ArchivedJobs{
+// const ARCHIVED_JOBS = gql`
+//   query{
+//     ArchivedJobs{
+//       id
+//       title
+//     
+//       key_contact_id
+//     }
+//   }
+// `
+
+const mapStateToProps =  state => {
+
+  
+  const user_id = state.user_id
+  return{
+    user_id: user_id
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onKeyContactIdUpdate: (value) => dispatch({ type: 'KEYCONTACTID', payload: value })
+  }
+}
+
+const KEY_CONTACT_JOBS = gql`
+query getKeyContactJobPosts($id:ID!) {
+	getKeyContactJobPosts(id: $id) {
+		id
+    title
+    start_date
+    date_created
+    hourly_rate
+    applicants {
       id
-      title
-      date_created
-      start_date
-      hourly_rate
-      key_contact_id
+      fullname
+      email
+      avatar
     }
   }
+}
 `
 
 const JobBoardJobs = (props) => {
 
-  const [jobs, setJobs] = useState({});
+  
 
-  const { data, error, loading } = useQuery(ARCHIVED_JOBS);
+  let user_id = props.user_id
 
+  const { data, error, loading } = useQuery(KEY_CONTACT_JOBS, {
+    variables: {id: user_id}
+  })
 
-  if (loading) {
-    return <Loading />
-  };
-  if (error) {
-    return <Text>Error!</Text>
+  if(loading) return <Loading/>
+
+  if(error) {
+ 
+    return <Loading/>
   }
+   
+  
+  
+ 
 
   return (
+    
     <ScrollView style={styles.MainContainer}>
 
-      {data.ArchivedJobs.map((elem, index) => {
+      {data.getKeyContactJobPosts.map((elem, index) => {
+     
         let date = new Date(parseInt(elem.date_created));
         let options = {
           month: 'long', year: 'numeric', day: 'numeric',
@@ -83,8 +125,9 @@ const JobBoardJobs = (props) => {
       })}
     </ScrollView>
   )
+   
 }
 
-export default JobBoardJobs
+export default connect(mapStateToProps, mapDispatchToProps)(JobBoardJobs) 
 
 

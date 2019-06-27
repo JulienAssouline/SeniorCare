@@ -30,18 +30,21 @@ export const SearchStack = createStackNavigator(
               <Text style={{ fontFamily: 'SFProText-Medium', color: '#3F7DFB', fontSize: 17 }}>Filter</Text>
             </TouchableOpacity>
           </View>
-        })
-       },
-       SearchFilter: {
-        screen: SearchFilter
-       },
-       Caregiver: {
-        screen: Caregiver,
-        tnavigationOptions: {
-          title: 'Caregiver'
-        },
-       },
+      })
     },
+    SearchFilter: {
+      screen: SearchFilter,
+      navigationOptions: {
+        title: 'Filter'
+      },
+    },
+    Caregiver: {
+      screen: Caregiver,
+      navigationOptions: {
+        title: 'Caregiver'
+      },
+    },
+  },
   {
     defaultNavigationOptions: {
       title: 'Find',

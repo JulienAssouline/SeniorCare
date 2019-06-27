@@ -15,12 +15,12 @@ Amplify.configure(config)
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { Card} from 'native-base'
+import { Card } from 'native-base'
 const yellowCurve = require('../../../Images/WelcomeScreen/yellow-curve.png')
 
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
   const { user_id } = state.user_id
-  return{
+  return {
     user_id: state.user_id
   }
 }
@@ -62,7 +62,7 @@ const Profile = props => {
     variables: { id }
   })
   if (loading || (data && data.getCaregiverProfile === null)) {
-    return (<Loading/>)
+    return (<Loading />)
   }
   if (error) {
     throw (error)
@@ -84,87 +84,96 @@ const Profile = props => {
       data: data.getCaregiverProfile
     })
   }
-// adding the iOS image picker logic
-const options = {
-  title: 'Select Your Profile Picture',
-  storageOptions: {
-    skipBackup: true,
-    path: 'images',
-  },
-}
+  // adding the iOS image picker logic
+  const options = {
+    title: 'Select Your Profile Picture',
+    storageOptions: {
+      skipBackup: true,
+      path: 'images',
+    },
+  }
 
-const pickAnImage = id => {
-	// let myMutationùfunction = useMutation();
-  ImagePicker.showImagePicker(options, response => {
-    if (response.didCancel) {
-    } else if (response.error) {
-    } else if (response.customButton) {
-    } else {
-      // uploadImageToS3(response.uri)
-      RNFetchBlob.config({
-        fileCache: true,
-        appendExt: 'png',
-      })
-        .fetch('GET', response.uri)
-        .then((res) => {
-          // upload to storageà
-          setAvatarSource(response.uri)
-          // setAvatarSource()
-          files.readFile(res.data)
-            .then(buffer => {
-              return Storage.put('images/avatar/' + (id.substr(0, 8) + ".png"), buffer, { contentType: 'image/png' })
-            })
-            .then(async response => {
-              const awsImageUrl = await Storage.get(response.key)
-              // setAvatarSource(awsImageUrl)
-              changeAvatar({
-                variables: { input: { id, avatar: awsImageUrl } },
-                // Optimisitc UI with Apollo
-                optimisticResponse: {
-                  __typename: "Mutation",
-                  changeKeyContactAvatar: {
-                    id: id,
-                    __typename: "avatar",
-                    avatar: awsImageUrl,
-                  }
-                },
-                update: (cache, { data: { changeKeyContactAvatar } }) => {
-                  // Read the data from our cache for this query.
-                  const data = cache.readQuery({ query: GET_KEYCONTACT, variables: { id } });
-                  // Write our data back to the cache with the new comment in it
-                  cache.writeQuery({
-                    query: GET_KEYCONTACT, data: {
-                      ...data,
-                      avatar: changeKeyContactAvatar.avatar
-                    }
-                  })
-                  setAvatarSource(changeKeyContactAvatar.avatar)
-                },
-              })
-            }
-            )
+  const pickAnImage = id => {
+    // let myMutationùfunction = useMutation();
+    ImagePicker.showImagePicker(options, response => {
+      console.log('Response = ', response)
+      if (response.didCancel) {
+        console.log('User cancelled image picker')
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error)
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton)
+      } else {
+        // uploadImageToS3(response.uri)
+        RNFetchBlob.config({
+          fileCache: true,
+          appendExt: 'png',
         })
-    }
-  })
-}
+          .fetch('GET', response.uri)
+          .then((res) => {
+            // upload to storageà
+            setAvatarSource(response.uri)
+            // setAvatarSource()
+            files.readFile(res.data)
+              .then(buffer => {
+                return Storage.put('images/avatar/' + (id.substr(0, 8) + ".png"), buffer, { contentType: 'image/png' })
+              })
+              .then(async response => {
+                const awsImageUrl = await Storage.get(response.key)
+                // setAvatarSource(awsImageUrl)
+                changeAvatar({
+                  variables: { input: { id, avatar: awsImageUrl } },
+                  // Optimisitc UI with Apollo
+                  optimisticResponse: {
+                    __typename: "Mutation",
+                    changeCaregiverAvatar: {
+                      id: id,
+                      __typename: "avatar",
+                      avatar: awsImageUrl,
+                    }
+                  },
+                  update: (cache, { data: { changeCaregiverAvatar } }) => {
+                    // Read the data from our cache for this query.
+                    const data = cache.readQuery({ query: GET_CAREGIVERPROFILE, variables: { id } });
+                    // Write our data back to the cache with the new comment in it
+                    cache.writeQuery({
+                      query: GET_CAREGIVERPROFILE, data: {
+                        ...data,
+                        avatar: changeCaregiverAvatar.avatar
+                      }
+                    })
+                    setAvatarSource(changeCaregiverAvatar.avatar)
+                  },
+                })
+              }
+              )
+          })
+      }
+    })
+  }
   return (
     <ScrollView style={styles.MainContainer}>
-        <View style={styles.Profile}>
+      <View style={styles.Profile}>
+        <Image style={styles.ProfileImage}
+          style={{ width: 200, height: 200, borderRadius: 100, alignContent: 'center' }}
+          source={{ uri: data.getCaregiverProfile && data.getCaregiverProfile.avatar }}
+        />
+        <Text style={styles.ProfileName}> {data.getCaregiverProfile && data.getCaregiverProfile.fullname} </Text>
         <TouchableOpacity onPress={() => pickAnImage(id)}>
           <Image style={styles.ProfileImage}
-            style={{ width: 200, height: 200, borderRadius: 100, borderWidth: 5, borderColor: '#3F7DFB' }}
+            style={{ width: 200, height: 200, borderRadius: 100, borderWidth: 3, borderColor: '#3F7DFB' }}
             source={{ uri: avatarSource }}
           />
           <View style={styles.Camera}>
-            <Icons name="camera" size={25} color={'#3F7DFB'} />
+            <Icons name="camera" size={20} color={'#3F7DFB'} />
           </View>
         </TouchableOpacity>
-          {/* <Image style={styles.ProfileImage}
+        {/* <Image style={styles.ProfileImage}
             style={{ width: 200, height: 200, borderRadius: 100, alignContent: 'center' }}
             source={{ uri: data.getCaregiverProfile.avatar }}
           /> */}
-          <Text style={styles.ProfileName}> {data.getCaregiverProfile.fullname} </Text>
-        </View>
+        <Text style={styles.ProfileName}> {data.getCaregiverProfile.fullname} </Text>
+      </View>
       <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5) }}>
         <TouchableOpacity
           style={styles.ProfileButton}
@@ -182,20 +191,22 @@ const pickAnImage = id => {
           <Text style={styles.ProfileButtonText}> Account</Text>
           <Icons name={`cog`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.ProfileButton}>
+        <TouchableOpacity style={styles.ProfileButtonNoBottom}
+        onPress={handleGoToHelp}
+        >
           <Text style={styles.ProfileButtonText}> Help Center</Text>
           <Icons name={`question-circle`} style={styles.ProfileButtonIcon} />
         </TouchableOpacity>
-        </Card>
-        <Image
-          source={yellowCurve}
-          style={{ height: hp(44), width: wp(100), zIndex: 0, position: 'relative', padding: 0, margin: 0 }}
-          />
+      </Card>
+      <Image
+        source={yellowCurve}
+        style={{ height: hp(44), width: wp(100), zIndex: 0, position: 'relative', padding: 0, margin: 0 }}
+      />
     </ScrollView>
   )
 }
 
-export default connect( mapStateToProps)(Profile)
+export default connect(mapStateToProps)(Profile)
 
 
 

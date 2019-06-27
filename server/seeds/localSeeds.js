@@ -2,14 +2,13 @@ const { Pool } = require('pg')
 const squel = require('squel').useFlavour('postgres')
 const config = require('../config/development.json')
 
-
 const keyContactSeeds = [
 	{
 		id: 'b5926162-57e9-44cb-8540-eda1ce2f6b36',
 		fullname: 'Vincent Dumouchel',
 		email: 'vdumouchel@me.com',
 		phone_number: '5147466616',
-		location: '245 Google Drive',
+		location: 'Queen West',
 		avatar: 'https://www.argospetinsurance.co.uk/assets/uploads/2017/12/cat-pet-animal-domestic-104827.jpeg',
 	},
 	{
@@ -17,7 +16,7 @@ const keyContactSeeds = [
 		fullname: 'Jeff Johnson',
 		email: 'jeffalanjohnson22@gmail.com',
 		phone_number: '5147466616',
-		location: '245 Mulholland',
+		location: 'South Core',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
 	},
 	{
@@ -25,7 +24,7 @@ const keyContactSeeds = [
 		fullname: 'Alam Talash',
 		email: 'mail@alamtalash.com',
 		phone_number: '5147466616',
-		location: '245 Mulholland',
+		location: 'Kensington',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
 	},
 	{
@@ -33,7 +32,7 @@ const keyContactSeeds = [
 		fullname: 'Marl Olech',
 		email: '	mark@olechconsulting.com',
 		phone_number: '5147466616',
-		location: '2356 Apollo Circle',
+		location: 'Little Italy',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
 	},
 	{
@@ -41,7 +40,7 @@ const keyContactSeeds = [
 		fullname: 'Julien Assouline',
 		email: 'jassouline@ryerson.ca',
 		phone_number: '5147466616',
-		location: '2356 Apollo Circle',
+		location: 'Bayview',
 		avatar: 'https://amp.businessinsider.com/images/55c906efdd0895b0558b45bc-1136-852.jpg',
 	},
 	{
@@ -49,7 +48,7 @@ const keyContactSeeds = [
 		fullname: 'Kevin Li',
 		email: 'unbakedmuffins@gmail.com',
 		phone_number: '5147466616',
-		location: '2356 Apollo Circle',
+		location: 'Chinatown',
 		avatar: 'https://www.argospetinsurance.co.uk/assets/uploads/2017/12/cat-pet-animal-domestic-104827.jpeg',
 	},
 ]
@@ -60,7 +59,7 @@ const caregiverSeeds = [
 		fullname: 'Alam Talash',
 		email: 'talash.alam@gmail.com',
 		phone_number: '905-905-0008',
-		location: '123 Avocado Way',
+		location: 'South Core, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'MALE',
 		years_experience: 7,
@@ -75,7 +74,7 @@ const caregiverSeeds = [
 		fullname: 'Julien Assouline',
 		email: 'julien1993@hotmail.ca',
 		phone_number: '905-905-0003',
-		location: '1233 Apple Circle',
+		location: 'Corktown, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'MALE',
 		years_experience: 5,
@@ -90,7 +89,7 @@ const caregiverSeeds = [
 		fullname: 'Vincent Dumouchel',
 		email: 'vincent@storydoc.ai',
 		phone_number: '905-905-0008',
-		location: '453 Apple Circle',
+		location: 'Downtown West, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'MALE',
 		years_experience: 7,
@@ -105,7 +104,7 @@ const caregiverSeeds = [
 		fullname: 'Kevin Li',
 		email: 'munchedmuffins@gmail.com',
 		phone_number: '905-905-0008',
-		location: '1233 Google Drive',
+		location: 'Kensington, TO',
 		birthdate: '2001-06-22 19:10:25-07',
 		gender: 'MALE',
 		years_experience: 7,
@@ -227,7 +226,7 @@ const services = [
 	{ title: 'shopping' },
 ]
 
-const servicesJobJoin = [
+const services_job = [
 	{
 		job_id: 1,
 		service_id: 1,
@@ -263,7 +262,6 @@ const seed = async () => {
 		console.log('Seeding...')
 
 		await Promise.all(
-
 			keyContactSeeds.map(seed =>
 				pg.query(
 					squel
@@ -299,34 +297,7 @@ const seed = async () => {
 						.setFields(seed)
 						.toParam()
 				)
-			),
-			services.map(seed =>
-				pg.query(
-					squel
-						.insert()
-						.into('seniorcare.services')
-						.setFields(seed)
-						.toParam()
-				)
-			),
-			servicesJobJoin.map(seed =>
-				pg.query(
-					squel
-						.insert()
-						.into('seniorcare.services_job')
-						.setFields(seed)
-						.toParam()
-				)
-			),
-			applicantsSeeds.map(seed =>
-				pg.query(
-					squel
-						.insert()
-						.into('seniorcare.applicants')
-						.setFields(seed)
-						.toParam()
-				)
-			),
+			)
 		)
 		await pg.query('COMMIT')
 	} catch (e) {

@@ -199,7 +199,6 @@ export default class VerificationCodeScreen extends React.Component {
   render() {
     let { fadeIn, fadeOut, isHidden, flag } = this.state
     const { id, fullname, email, phone_number, role, avatar } = this.state
-    console.log('this is state of VerificationCode:', this.state)
     return (
       <Mutation mutation={role === 'family' ? keyContactSignup : caregiverSignup} >
         {postMutation => (

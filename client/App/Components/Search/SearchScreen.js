@@ -1,5 +1,5 @@
 
-import { Dimensions, ScrollView, Text, View, TouchableOpacity } from 'react-native'
+import { Dimensions, ScrollView, Text, View, TouchableOpacity, Image } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useQuery, useMutation } from 'react-apollo-hooks'
 import gql from "graphql-tag";
@@ -13,6 +13,7 @@ import { ADD_CONVERSATION_MUTATION } from "../../graphql-queries/mutation"
 import Loading from '../Loading/Loading'
 import { GET_CAREGIVER_CONVO } from "../../graphql-queries/queries"
 import { connect } from 'react-redux'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const mapStateToProps = state => {
   return {
@@ -29,6 +30,9 @@ const mapDispatchToProps = dispatch => {
 // AWS Amplify modular import
 import Auth from '@aws-amplify/auth'
 
+const height = Dimensions.get("window").height
+
+const yellowCurve = require('../../Images/WelcomeScreen/yellow-curve.png')
 
 const GET_CAREGIVERS = gql`
    query GetCaregiver($input: FilterInput!) {
@@ -108,41 +112,47 @@ const SearchScreen = (props) => {
     })
   }
   return (
-    <ScrollView>
-      <View style={styles.MainContainer}>
-        {data.getCaregiver.map((d, i) => (
-          < TouchableOpacity
-            onPress={() => handleGoToCaregiverDetails(d.id)}
-            key={i}
-          >
-            <View style={styles.searchContainer}>
-              <Avatar
-                size="large"
-                containerStyle={{ height: "100%" }}
-                source={{
-                  uri: d.avatar,
-                }}
-              />
-              <View style={styles.infoContainer}>
-                <Text style={styles.fullName}> {d.fullname} </Text>
-                <View style={styles.ratingLocationContainer}>
-                  <Ratings data={d.average_rating} />
-                  <Text style={styles.ratingText}> {d.average_rating} </Text>
-                  <Text style={styles.locationText}> | </Text>
-                  <Text style={styles.locationText}> {d.location} </Text>
+    <View style={{ flex: 1, backgroundColor: '#EEF5FB' }}>
+      <Image
+        source={yellowCurve}
+        style={{ height: hp(44), width: wp(100), position: 'absolute', bottom: 0, padding: 0, margin: 0, backgroundColor: 'transparent' }}
+      />
+      <ScrollView>
+        <View>
+          {data.getCaregiver.map((d, i) => (
+            < TouchableOpacity
+              onPress={() => handleGoToCaregiverDetails(d.id)}
+              key={i}
+            >
+              <View style={styles.searchContainer}>
+                <Avatar
+                  size="large"
+                  containerStyle={{ height: "100%" }}
+                  source={{
+                    uri: d.avatar,
+                  }}
+                />
+                <View style={styles.infoContainer}>
+                  <Text style={styles.fullName}> {d.fullname} </Text>
+                  <View style={styles.ratingLocationContainer}>
+                    <Ratings data={d.average_rating} />
+                    <Text style={styles.ratingText}> {d.average_rating} </Text>
+                    <Text style={styles.locationText}> | </Text>
+                    <Text style={styles.locationText}> {d.location} </Text>
+                  </View>
+                  <View style={styles.experienceRateContainer}>
+                    <Text style={styles.backgroundInfoText}> {`${d.years_experience} years experience`} </Text>
+                    <Text style={styles.backgroundInfoText}> {`From $${d.hourly_rate / 100}/hour`} </Text>
+                  </View>
+                  <MessageButton key_contact_id={props.key_contact_id} caregiver_id={d.id} handlePress={handlePress} />
                 </View>
-                <View style={styles.experienceRateContainer}>
-                  <Text style={styles.backgroundInfoText}> {`${d.years_experience} years experience`} </Text>
-                  <Text style={styles.backgroundInfoText}> {`From $${d.hourly_rate / 100}/hour`} </Text>
-                </View>
-                <MessageButton key_contact_id={props.key_contact_id} caregiver_id={d.id} handlePress={handlePress} />
               </View>
-            </View>
-          </TouchableOpacity>
-        ))
-        }
-      </View>
-    </ScrollView >
+            </TouchableOpacity>
+          ))
+          }
+        </View>
+      </ScrollView >
+    </View >
   )
 }
 

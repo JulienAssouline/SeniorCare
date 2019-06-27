@@ -28,8 +28,8 @@ class KeyContactDatabase extends DataSource {
       throw e
     }
   }
-  async addKeyContactDetails(input) {
-    const { id, fullname, phone_number, location } = input
+    async addKeyContactDetails(input) {
+    const {id, fullname, phone_number, location} = input
 
     const keyContactDetails = {
       text: `UPDATE seniorcare.key_contact SET fullname = $2, phone_number = $3, location = $4 WHERE id = $1`,
@@ -38,10 +38,10 @@ class KeyContactDatabase extends DataSource {
 
     const result = await this.context.postgres.query(keyContactDetails)
 
-    return {
-      message: "it worked!"
+      return {
+        message: "it worked!"
+      }
     }
   }
-}
 
 module.exports = KeyContactDatabase

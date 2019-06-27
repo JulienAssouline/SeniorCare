@@ -19,7 +19,6 @@
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
@@ -40,11 +39,11 @@
 		2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */; };
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
-		2D1F970A74CF48CA84FA4F29 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96ACAB99803E4A91AE917AB3 /* Roboto_medium.ttf */; };
 		2DCD954D1E0B4F2C00145EB5 /* SeniorCareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SeniorCareTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		31CC3D8D713242C09D19677B /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1A18B8C3BD4F9D86A9573B /* libRNGestureHandler-tvOS.a */; };
 		321954FB94CE439B912B5C1B /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509FD42D539F46CBAD82A0D2 /* Roboto.ttf */; };
+		39C101121F184CFC9E2768C1 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		43A96EC353824530B05C928B /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD3868CF9B247ED82789A21 /* libRNImagePicker.a */; };
 		48A7AF0A267C43B1A753C677 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE2E44D6B780471EAB2E8C08 /* rubicon-icon-font.ttf */; };
 		4E914726B0E242D198E096CD /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 013E7FC17FDB42A8B5A0806C /* libRNReanimated.a */; };
@@ -100,8 +99,14 @@
 		ADEAA09722BC0F9300C149A2 /* GothamRounded-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = ADEAA08B22BC0F9200C149A2 /* GothamRounded-LightItalic.otf */; };
 		ADEAA09822BC0F9300C149A2 /* GothamRoundedMedium_21022.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADEAA08C22BC0F9200C149A2 /* GothamRoundedMedium_21022.ttf */; };
 		B6FD984ADDD147988ECAF5A3 /* libRNAWSCognito.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA73CBA72314FCFBEC2D424 /* libRNAWSCognito.a */; };
-		BFC3C4B522C4170D00B97DE3 /* messages-background.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC3C48722C4170C00B97DE3 /* messages-background.png */; };
-		BFC3C4B622C4170D00B97DE3 /* messages-background.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC3C48722C4170C00B97DE3 /* messages-background.png */; };
+		BF18068E22C514D9000B55EC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF18068D22C514D9000B55EC /* Launch Screen.storyboard */; };
+		BF18068F22C514D9000B55EC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF18068D22C514D9000B55EC /* Launch Screen.storyboard */; };
+		BF43E0EE22C5487C007D3475 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0ED22C5487C007D3475 /* logo.png */; };
+		BF43E0EF22C5487C007D3475 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0ED22C5487C007D3475 /* logo.png */; };
+		BF43E0F122C5488E007D3475 /* seniorcareType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0F022C5488D007D3475 /* seniorcareType.png */; };
+		BF43E0F222C5488E007D3475 /* seniorcareType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0F022C5488D007D3475 /* seniorcareType.png */; };
+		BF43E0F422C54897007D3475 /* yellowCurve.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0F322C54897007D3475 /* yellowCurve.png */; };
+		BF43E0F522C54897007D3475 /* yellowCurve.png in Resources */ = {isa = PBXBuildFile; fileRef = BF43E0F322C54897007D3475 /* yellowCurve.png */; };
 		D18F89FBDEC64631B3484866 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		E70A9F69034C4E59A1157431 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
@@ -446,10 +451,9 @@
 		0C66A68B9CAF48B4A3F60486 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* SeniorCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeniorCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Senior Care Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Senior Care Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SeniorCare/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SeniorCare/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SeniorCare/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SeniorCare/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SeniorCare/main.m; sourceTree = "<group>"; };
@@ -519,8 +523,11 @@
 		AFD3868CF9B247ED82789A21 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		B5ACAEB47D2B4C9DBDB53AE8 /* RNReanimated.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNReanimated.xcodeproj; path = "../node_modules/react-native-reanimated/ios/RNReanimated.xcodeproj"; sourceTree = "<group>"; };
 		B70F8230DA59416FB0277F4D /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCAsyncStorage.xcodeproj; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; };
+		BF18068D22C514D9000B55EC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		BF43E0ED22C5487C007D3475 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../App/Images/logo.png; sourceTree = "<group>"; };
+		BF43E0F022C5488D007D3475 /* seniorcareType.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seniorcareType.png; path = ../App/Images/seniorcareType.png; sourceTree = "<group>"; };
+		BF43E0F322C54897007D3475 /* yellowCurve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowCurve.png; path = ../App/Images/yellowCurve.png; sourceTree = "<group>"; };
 		BFC3C42D22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "Spinner-4.8s-200px.gif"; path = "../App/Images/Spinner-4.8s-200px.gif"; sourceTree = "<group>"; };
-		BFC3C48722C4170C00B97DE3 /* messages-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "messages-background.png"; path = "../App/Images/messages-background.png"; sourceTree = "<group>"; };
 		CB5EACB2C4A7487B993A23FC /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		D2EFDA7770484207BB4AE7C6 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -689,8 +696,8 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				BF18068D22C514D9000B55EC /* Launch Screen.storyboard */,
 			);
 			name = SeniorCare;
 			sourceTree = "<group>";
@@ -756,7 +763,9 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				BFC3C48722C4170C00B97DE3 /* messages-background.png */,
+				BF43E0F322C54897007D3475 /* yellowCurve.png */,
+				BF43E0F022C5488D007D3475 /* seniorcareType.png */,
+				BF43E0ED22C5487C007D3475 /* logo.png */,
 				BFC3C42D22C3BF5800B97DE3 /* Spinner-4.8s-200px.gif */,
 				66F69AFC22B033A700082EA8 /* SFProText-Bold.otf */,
 				66F69AF922B033A600082EA8 /* SFProText-Heavy.otf */,
@@ -875,7 +884,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* SeniorCare.app */,
+				13B07F961A680F5B00A75B9A /* Senior Care Connect.app */,
 				00E356EE1AD99517003FC87E /* SeniorCareTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* SeniorCare-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* SeniorCare-tvOSTests.xctest */,
@@ -985,7 +994,7 @@
 			);
 			name = SeniorCare;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* SeniorCare.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Senior Care Connect.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* SeniorCare-tvOS */ = {
@@ -1035,7 +1044,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 6622Y9DG8R;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 6622Y9DG8R;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1454,12 +1467,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				66F69B1022B033A700082EA8 /* SFProText-Light.otf in Resources */,
+				BF43E0F522C54897007D3475 /* yellowCurve.png in Resources */,
 				66F69B0422B033A700082EA8 /* SFProText-Semibold.otf in Resources */,
+				BF18068F22C514D9000B55EC /* Launch Screen.storyboard in Resources */,
 				66F69B1422B033A700082EA8 /* SFProText-Medium.otf in Resources */,
+				BF43E0F222C5488E007D3475 /* seniorcareType.png in Resources */,
+				BF43E0EF22C5487C007D3475 /* logo.png in Resources */,
 				66F69B0822B033A700082EA8 /* SFProText-Regular.otf in Resources */,
 				66F69B0C22B033A700082EA8 /* SFProText-Bold.otf in Resources */,
 				66F69B0022B033A700082EA8 /* SFProText-Heavy.otf in Resources */,
-				BFC3C4B622C4170D00B97DE3 /* messages-background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1475,7 +1491,6 @@
 				2699D50722B8072A00A12493 /* FontAwesome.ttf in Resources */,
 				ADEAA09822BC0F9300C149A2 /* GothamRoundedMedium_21022.ttf in Resources */,
 				F46BD9A622B8393F00A8E653 /* Foundation.ttf in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				ADEAA09022BC0F9300C149A2 /* GothamRounded-Medium.otf in Resources */,
 				F46BD99C22B8393F00A8E653 /* MaterialIcons.ttf in Resources */,
 				ADEAA09322BC0F9300C149A2 /* GothamRoundedBold_21016.ttf in Resources */,
@@ -1496,23 +1511,31 @@
 				9717485F3F1D45DB959FFEBC /* MaterialCommunityIcons.ttf in Resources */,
 				2699D50422B8072A00A12493 /* FontAwesome5_Regular.ttf in Resources */,
 				AD55A4F380E34E6B89513F16 /* MaterialIcons.ttf in Resources */,
+				BF43E0EE22C5487C007D3475 /* logo.png in Resources */,
 				66F69AFF22B033A700082EA8 /* SFProText-Heavy.otf in Resources */,
 				61A99C9722BBD57800728905 /* FontAwesome5_Brands.ttf in Resources */,
 				ADEAA09222BC0F9300C149A2 /* GothamRounded-BoldItalic.otf in Resources */,
-				2D1F970A74CF48CA84FA4F29 /* Roboto_medium.ttf in Resources */,
-				BFC3C4B522C4170D00B97DE3 /* messages-background.png in Resources */,
+				F46BD9A422B8393F00A8E653 /* Entypo.ttf in Resources */,
+				61A99C9422BBD57800728905 /* FontAwesome.ttf in Resources */,
+				321954FB94CE439B912B5C1B /* Roboto.ttf in Resources */,
 				F46BD9A422B8393F00A8E653 /* Entypo.ttf in Resources */,
 				61A99C9422BBD57800728905 /* FontAwesome.ttf in Resources */,
 				321954FB94CE439B912B5C1B /* Roboto.ttf in Resources */,
 				48A7AF0A267C43B1A753C677 /* rubicon-icon-font.ttf in Resources */,
 				61A99C9522BBD57800728905 /* FontAwesome5_Regular.ttf in Resources */,
+				BF43E0F122C5488E007D3475 /* seniorcareType.png in Resources */,
 				ADEAA09122BC0F9300C149A2 /* GothamRounded-MediumItalic.otf in Resources */,
 				ADEAA08D22BC0F9300C149A2 /* GothamRounded-Light.otf in Resources */,
 				ADEAA08E22BC0F9300C149A2 /* GothamRounded-Bold.otf in Resources */,
 				7D5BBBA2F6E84F35B5730606 /* AntDesign.ttf in Resources */,
+				BF18068E22C514D9000B55EC /* Launch Screen.storyboard in Resources */,
+				BF43E0F422C54897007D3475 /* yellowCurve.png in Resources */,
 				7CB63719BC2B4065A025A1F4 /* Zocial.ttf in Resources */,
 				61DA073922C2760100988DBB /* AntDesign.ttf in Resources */,
 				9C01927FC6284A0F8A23D663 /* Zocial.ttf in Resources */,
+				D18F89FBDEC64631B3484866 /* (null) in Resources */,
+				E70A9F69034C4E59A1157431 /* (null) in Resources */,
+				39C101121F184CFC9E2768C1 /* (null) in Resources */,
 				D18F89FBDEC64631B3484866 /* (null) in Resources */,
 				E70A9F69034C4E59A1157431 /* (null) in Resources */,
 			);
@@ -1627,23 +1650,12 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B07FB21A68108700A75B9A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = SeniorCare;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6622Y9DG8R;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1688,6 +1700,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 6622Y9DG8R;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
@@ -1729,6 +1742,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 6622Y9DG8R;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
@@ -1747,7 +1761,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = SeniorCare;
+				PRODUCT_NAME = "Senior Care Connect";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1757,6 +1771,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6622Y9DG8R;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
@@ -1775,7 +1790,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = SeniorCare;
+				PRODUCT_NAME = "Senior Care Connect";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

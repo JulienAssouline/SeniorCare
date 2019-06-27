@@ -20,38 +20,38 @@ const configurations = {
     navigationOptions: {
       tabBarLabel: 'Find',
       tabBarIcon: ({ tintColor }) => (
-        <Icon style={{ fontSize: 26, color: tintColor }} name="magnifier" />
+        <Icon style={{ fontSize: 24, color: tintColor }} name="magnifier" />
       )
     }
-	},
+  },
   CaregiverJobs: {
     screen: CaregiverJobsStack,
     navigationOptions: {
       tabBarLabel: 'Jobs',
       tabBarIcon: ({ tintColor }) => (
-        <Icon style={{ fontSize: 26, color: tintColor }} name="briefcase" />
+        <Icon style={{ fontSize: 24, color: tintColor }} name="briefcase" />
       )
     }
-	},
+  },
   CaregiverMessages: {
     screen: CaregiverMessagesStack,
     navigationOptions: {
       tabBarLabel: 'Messages',
       tabBarIcon: ({ tintColor }) => (
-        <Icon style={{ fontSize: 26, color: tintColor }} name="bubbles" />
+        <Icon style={{ fontSize: 24, color: tintColor }} name="bubbles" />
       )
     }
-	},
+  },
   CaregiverProfile: {
     screen: CaregiverProfileStack,
     navigationOptions: {
       tabBarLabel: 'Profile',
       tabBarIcon: ({ tintColor }) => (
-        <Icon style={{ fontSize: 26, color: tintColor }} name="user" />
+        <Icon style={{ fontSize: 24, color: tintColor }} name="user" />
       )
     }
-	},
-	
+  },
+
 }
 
 const options = {
