@@ -104,7 +104,7 @@ const SeniorGender = props => {
 							handleSubmit={handleSubmit}
 							errors={errors}
 							touched={touched}
-							lastPosition={7}
+							lastPosition={6}
 						/>
 					</View>
 				)
