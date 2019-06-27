@@ -152,7 +152,7 @@ const Profile = props => {
     })
   }
   return (
-    <ScrollView style={styles.MainContainer}>
+    <View style={styles.MainContainer}>
       <View style={styles.Profile}>
         <TouchableOpacity onPress={() => pickAnImage(id)}>
           <Image style={styles.ProfileImage}
@@ -197,7 +197,7 @@ const Profile = props => {
         source={yellowCurve}
         style={{ height: hp(44), width: wp(100), zIndex: 0, position: 'relative', padding: 0, margin: 0 }}
       />
-    </ScrollView>
+    </View>
   )
 }
 
