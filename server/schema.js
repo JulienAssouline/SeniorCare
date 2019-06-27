@@ -29,6 +29,7 @@ module.exports = gql`
 		phone_number: String
 		fullname: String
 		avatar: String
+
 		date_created: Date
 		caregiver_id: ID
 	}
@@ -37,16 +38,9 @@ module.exports = gql`
 		id: ID
 		key_contact_id: ID
 		date_created: Date
-		title: String
-		start_date: Date
-		end_date: Date
-		hourly_rate:String
-		address: String
-		city: String
-		province: String
-		postal_code: String
-		availability: String
-		gender: String
+    title: String
+    start_date: Date
+		hourly_rate: Int
 		applicants: [Applicant]
 		getKeyContact: KeyContact
 		getBasicInformation: BasicInformation
@@ -135,7 +129,7 @@ module.exports = gql`
 
 	}
 
-	
+
 
 	type BasicInformation {
 		title: String
@@ -251,7 +245,7 @@ module.exports = gql`
 	type MessageResponse {
 		message: String
 	}
-  
+
 	input SignupObject{
 		id: ID!,
 	  fullname: String,

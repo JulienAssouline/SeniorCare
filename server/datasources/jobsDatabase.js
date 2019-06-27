@@ -15,7 +15,7 @@ class JobsDatabase extends DataSource {
   async queryArchiveJobs(input) {
 
     try {
-   
+
       const ArchiveJob = {
         text: "SELECT * FROM seniorcare.job_posting",
       }
@@ -29,7 +29,7 @@ class JobsDatabase extends DataSource {
   }
 
   async deleteit(input){
-  
+
     try{
       const removeJob ={
         text: "DELETE FROM seniorcare.job_posting WHERE ID = $1",
@@ -55,19 +55,19 @@ class JobsDatabase extends DataSource {
       const newJob = {
         ...result.rows[0]
       }
-       
+
       const addNewJob = {
         text:`INSERT INTO seniorcare.job_posting(title, start_date, key_contact_id, end_date, hourly_rate ) VALUES($1, $2, $3, $4, $5) RETURNING *`,
         values:[ newJob.title, newJob.start_date, newJob.key_contact_id, newJob.end_date, newJob.hourly_rate  ]
       }
       const answer = await this.context.postgres.query(addNewJob)
-    
-      return answer.rows[0]    
+
+      return answer.rows[0]
     } catch(err) {
       throw err
     }
 	}
-	
+
 	async addJobRequest(input) {
 		try {
 			const insertJobObject = {
@@ -171,23 +171,22 @@ class JobsDatabase extends DataSource {
 
 	async getKeyContactJobPosts(input) {
 		try {
-	 		
+
 			const { id } = input
-		
-      const applicantsQuery ={
-				text: `SELECT seniorcare.job_posting.id, seniorcare.job_posting.title, seniorcare.job_posting.start_date, seniorcare.job_posting.end_date, seniorcare.job_posting.address, seniorcare.job_posting.city,
-				seniorcare.job_posting.province, seniorcare.job_posting.postal_code, seniorcare.job_posting.availability, seniorcare.job_posting.hourly_rate,seniorcare.job_posting.date_created
-					FROM seniorcare.applicants 
-					INNER JOIN seniorcare.job_posting ON seniorcare.applicants.keycontact_id = 			           	seniorcare.job_posting.key_contact_id
-					WHERE  
-						seniorcare.applicants.keycontact_id = $1`,
-        values : [id]
-			}
-	
-      const result = await this.context.postgres.query(applicantsQuery)
-      
-      return result.rows
-		} 
+      const selectJobsColumns = [
+        'id',
+        'key_contact_id',
+        'date_created',
+        'title',
+				'start_date',
+				'hourly_rate',
+      ]
+      const selectJobsQuery = createSelectQuery(selectJobsColumns, 'seniorcare.job_posting', 'key_contact_id', id)
+      const selectJobsResult = await this.context.postgres.query(selectJobsQuery)
+
+      return selectJobsResult.rows
+
+		}
 		catch(err) {
       throw err
     }
@@ -195,11 +194,11 @@ class JobsDatabase extends DataSource {
 
 	async getApplicants(parent) {
     try {
-	 
+
 			const { id } = parent
 
       const applicantsQuery ={
-        text: `SELECT * FROM seniorcare.caregiver 
+        text: `SELECT * FROM seniorcare.caregiver
 				INNER JOIN seniorcare.applicants ON seniorcare.applicants.caregiver_id = seniorcare.caregiver.id
 				WHERE  seniorcare.applicants.jobpost_id = $1`,
         values : [id]
@@ -215,6 +214,19 @@ class JobsDatabase extends DataSource {
 
 	async applyJob(input) {
 		try {
+			const { jobpost_id, caregiver_id } = input
+
+			const checkUniqueApplicationColumns = [
+				'jobpost_id', 
+				'caregiver_id',
+			]
+			const checkUniqueApplicationQuery = createSelectQuery(checkUniqueApplicationColumns, 'seniorcare.applicants', 'jobpost_id', jobpost_id)
+			const checkUniqueApplicationResult = await this.context.postgres.query(checkUniqueApplicationQuery)
+
+			checkUniqueApplicationResult.rows.forEach(application => {
+				if (application.caregiver_id === caregiver_id) throw 'duplicate application'
+			})
+
 			const addApplicantsQuery = createInsertQuery(input, 'seniorcare.applicants')
 			await this.context.postgres.query(addApplicantsQuery)
 			return {

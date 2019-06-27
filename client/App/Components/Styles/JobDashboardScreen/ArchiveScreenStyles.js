@@ -39,15 +39,15 @@ const styles = StyleSheet.create({
   },
   ActionSheet:{
     position: 'absolute',
-    left:     330,
+    left:     290,
     top:      -20,
     fontSize:30
   }, 
   HourlyRate:{
     fontSize: 16,
     position: 'absolute',
-    left:     285,
-    top:     5,
+    left:     230,
+    top:     0,
   }, 
   }
 )
