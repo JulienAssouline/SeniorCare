@@ -182,11 +182,11 @@ const JobPostings = [
 		start_date: "2001-07-22 19:10:25-07",
 		end_date: "2001-06-22 19:10:25-07",
 		address: '',
-		city: '',
+		city: 'Trinity Bellwoods',
 		province: '',
 		postal_code: '',
 		availability: 'LIVEIN',
-		hourly_rate: 12,
+		hourly_rate: 17,
 		gender_pref: 'FEMALE',
 		req_drivers_license: true,
 		cig_smoking: false,
@@ -210,7 +210,7 @@ const applicantsSeeds = [
 	}
 ]
 
-const services = [ 
+const services = [
 	{ title: 'appointments' },
 	{ title: 'bathing' },
 	{ title: 'companionship' },

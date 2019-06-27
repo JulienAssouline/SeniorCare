@@ -4,6 +4,7 @@ import { Text, View } from 'react-native'
 import { Avatar, Card, ListItem } from 'react-native-elements'
 import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons'
 import IonIcons from 'react-native-vector-icons/Ionicons'
+import Icons from 'react-native-vector-icons/FontAwesome5'
 
 import moment from 'moment'
 
@@ -14,7 +15,7 @@ export default JobPosting = props => {
 
 	return (
 		<Card containerStyle={jobPostStyles.mainContainer}>
-						
+
 			<ListItem
 				title={keyContact && keyContact.fullname}
 				titleStyle={jobPostListItemStyles.title}
@@ -25,7 +26,7 @@ export default JobPosting = props => {
 					<Avatar
 						rounded
 						size='small'
-						title={keyContact && keyContact.fullname.substring(0,2)}
+						title={keyContact && keyContact.fullname.substring(0, 2)}
 						source={{
 							uri:
 								keyContact && keyContact.avatar,
@@ -38,12 +39,12 @@ export default JobPosting = props => {
 
 			<View style={jobPostStyles.basicInfoContainer}>
 				<View style={jobPostStyles.basicInfoItemContainer}>
-					<SimpleLineIcon name='location-pin' size={12} color='#3F7DFB'/>
+					<SimpleLineIcon name='location-pin' size={12} color='#3F7DFB' />
 					<Text style={jobPostStyles.basicInfoItemText}>{basicInformation.city}</Text>
 				</View>
 				<View style={jobPostStyles.basicInfoItemContainer}>
-					<IonIcons name='ios-timer' size={16} color='#3F7DFB'/>
-					<Text style={jobPostStyles.basicInfoItemText}>{basicInformation.hourly_rate}</Text>
+					<Icons name='dollar-sign' size={16} color='#3F7DFB' />
+					<Text style={jobPostStyles.basicInfoItemText}>{basicInformation.hourly_rate}.00 / hour</Text>
 				</View>
 			</View>
 
