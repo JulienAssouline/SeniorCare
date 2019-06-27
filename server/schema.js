@@ -56,8 +56,6 @@ module.exports = gql`
 		getCaregiverPreferences: CaregiverPreferences
 	}
 
-	
-
   type ConversationRoom {
     email:String
     caregiver_id: ID

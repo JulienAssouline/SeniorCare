@@ -185,12 +185,10 @@ class JobsDatabase extends DataSource {
 			}
 	
       const result = await this.context.postgres.query(applicantsQuery)
-
-	
+      
       return result.rows
 		} 
 		catch(err) {
-		
       throw err
     }
 	}
