@@ -32,7 +32,7 @@ const Jobs = props => {
 				style={{ height: hp(44), width: wp(100), position: 'absolute', bottom: 0, padding: 0, margin: 0, backgroundColor: 'transparent' }}
 			/>
 			<ScrollView>
-				<View>
+				{/* <View>
 					{data.getJobPosts.map(jobPost => (
 						<TouchableOpacity
 							key={jobPost.id}
@@ -46,7 +46,7 @@ const Jobs = props => {
 							/>
 						</TouchableOpacity>
 					))}
-				</View>
+				</View> */}
 			</ScrollView>
 		</View>
 	)
