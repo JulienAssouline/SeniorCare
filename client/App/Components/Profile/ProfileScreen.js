@@ -14,6 +14,7 @@ import config from '../../../aws-exports'
 import RNFetchBlob from 'react-native-fetch-blob';
 import files from '../utils/files'
 
+
 Amplify.configure(config)
 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';

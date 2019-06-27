@@ -10,9 +10,8 @@ const styles = StyleSheet.create({
   },
   InputContainer: {
     position: "absolute",
-    bottom: 0,
-    borderTopWidth: 1,
-    borderColor: '#cccccc',
+    borderTopWidth: 0,
+    borderColor: 'white',
   },
   MessagesContainer: {
     padding: 20,
