@@ -22,7 +22,7 @@
                                 <rect key="frame" x="-11" y="420" width="437" height="344"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="W7c-Iy-2aO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="W7c-Iy-2aO">
                                 <rect key="frame" x="46" y="109" width="283" height="283"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -41,7 +41,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo-circle.png" width="1024" height="1024"/>
+        <image name="logo.png" width="1024" height="1024"/>
         <image name="seniorcareType.png" width="453.33334350585938" height="95"/>
         <image name="yellowCurve.png" width="375" height="217"/>
     </resources>
