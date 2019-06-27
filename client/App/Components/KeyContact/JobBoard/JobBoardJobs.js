@@ -42,6 +42,7 @@ query getKeyContactJobPosts($id:ID!) {
     date_created
     title
     start_date
+    hourly_rate
     applicants {
       id
       email
@@ -62,14 +63,14 @@ const JobBoardJobs = (props) => {
   const { data, error, loading } = useQuery(KEY_CONTACT_JOBS, {
     variables: {id: user_id}
   })
-
+console.log('here is my data',data)
   if(loading) return <Loading/>
 
   if(error) {
 
     return <Loading/>
   }
-
+  
   return (
 
     <ScrollView style={styles.MainContainer}>
@@ -89,29 +90,24 @@ const JobBoardJobs = (props) => {
 
           <ScrollView key={index}>
             <View style={styles.CutCard}>
-              <View>
-                <Card containerStyle={styles.CutCard}>
-                  <View>
+                <View style = {styles.Card}>
                     <View>
                       <Text style={styles.DateText}> Posted {dateCreated}</Text>
                       <Text key={elem.id} style={styles.JobText}> {elem.title}</Text>
                     </View>
 
                     <View style={styles.JobInfo}>
-                      <Text style={{ fontSize: 16 }}> Starts {startDate}</Text>
-                      <Text style={{ fontSize: 16 }}> ${elem.hourly_rate}/hr</Text>
+                      <Text>{elem.fullname}</Text>
+                      <Text style={{ fontSize: 14 }}> Starts {startDate}</Text>
+                      <Text style={{ fontSize: 14 }}> ${elem.hourly_rate}/hr</Text>
                     </View>
-                  </View>
-
-                </Card>
               </View>
 
-              <View>
-                <Card containerStyle={styles.Applicants}>
-                  <Text>3</Text>
-                  <Text>{elem.id}</Text>
-                  <Text featuredTitle={styles.JobText}>Applicants</Text>
-                </Card>
+              <View >
+                <View style={styles.Applicants}>
+                  <Text style={{color:'white', fontSize:45,paddingTop:20}}>{elem.applicants.length}</Text>
+                  <Text style={styles.JobText2}>Applicants</Text>
+                </View>
               </View>
             </View>
 

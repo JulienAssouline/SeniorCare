@@ -3,12 +3,11 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
   MainContainer: {
     flex: 1,
-    backgroundColor: '#E9F6FF'
+    backgroundColor: '#E9F6FF',
   },
   MainView:{
     flex: 1,
     flexDirection: 'row',
-    margin: 20,
     backgroundColor: "#FFFFFF",
   },
   ExempleText: {
@@ -20,21 +19,39 @@ const styles = StyleSheet.create({
     backgroundColor: '#569CF2',
   },
   bluebox:{
-    width: 100,
-    height: 90,
-    backgroundColor: '#0000FF',
+    backgroundColor: '#244397',
     position: 'absolute',
-    left:     250,
-    top:      0,
+    // left:     100,
+    // top:      0,
   },
+  Card: {
+    padding: 10,
+    marginTop: 20,
+    marginBottom: 20,
+    backgroundColor: "white",
+    marginLeft: 15,
+
+    },
   CutCard:{
     flex: 1,
     flexDirection: 'row',
-    margin: 5,
+    shadowOffset:{  width: 1,  height: 1,  },
+shadowColor: '#CCCCCC',
+shadowOpacity: 1.0,
   },
   Applicants:{
+    marginTop: 20,
+    marginBottom: 20,
     backgroundColor:"#3633ff",
-  },  AppText:{
+    height: 140,
+    marginLeft:5,
+    padding: 10,
+    marginRight: 0,
+    justifyContent: "center",
+    alignItems: "center"
+
+  }, 
+   AppText:{
     fontFamily: 'SFProText-Bold',
     fontSize: 14,
     color: 'blue',
@@ -42,19 +59,28 @@ const styles = StyleSheet.create({
   },
   DateText: {
     fontFamily: 'SFProText-Bold',
-    fontSize: 14,
+    fontSize: 12,
     color: '#98A6B5',
+    lineHeight:20
   }, 
   JobText: {
     fontFamily: 'SFProText-Bold',
     fontSize: 20,
-    color: 'black',
-    flex: 1,
-    marginBottom: '10%'
+    color: '#151515',
+    marginBottom: '10%',    
+  },  
+  JobText2: {
+    fontFamily: 'SFProText-Bold',
+    fontSize: 15,
+    color: 'white',
+    marginTop: "auto",
+    fontWeight:'600',
+    paddingBottom:20
   },  
   JobInfo:{
     flex: 1,
     flexDirection: 'row',
+    paddingTop:25
   },
 })
 

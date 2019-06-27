@@ -178,7 +178,8 @@ class JobsDatabase extends DataSource {
         'key_contact_id',
         'date_created',
         'title',
-        'start_date',
+				'start_date',
+				'hourly_rate',
       ]
       const selectJobsQuery = createSelectQuery(selectJobsColumns, 'seniorcare.job_posting', 'key_contact_id', id)
       const selectJobsResult = await this.context.postgres.query(selectJobsQuery)
