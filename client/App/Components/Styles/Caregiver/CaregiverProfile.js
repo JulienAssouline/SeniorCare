@@ -9,12 +9,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 10,
+    padding: 25,
   },
   ProfileName: {
     fontSize: 20,
-    paddingBottom: 15,
+    padding: 15,
     fontWeight: '600',
   },
   ProfileButton: {
@@ -61,14 +60,12 @@ const styles = StyleSheet.create({
   Camera: {
     borderWidth: 1,
     borderColor: '#3F7DFB',
-    backgroundColor: '#FFF',
-    borderRadius: 20,
-    width: 40,
-    height: 40,
+    backgroundColor: '#fff',
+    borderRadius: 26,
+    width: 52,
+    height: 52,
     alignItems: 'center',
     justifyContent: 'center',
-    top: -40,
-    left: 150,
   },
 })
 
