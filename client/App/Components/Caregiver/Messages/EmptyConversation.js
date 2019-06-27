@@ -15,7 +15,7 @@ const EmptyConversation = (props) => {
         <Text style={{ fontSize: 15, fontWeight: 'bold' }}>Only a family member or a senior's key contact currently looking for a caregiver can start a conversation with you.</Text>
       </Card>
       <Card style={{ zIndex: 100, position: 'relative', width: wp(90), marginLeft: wp(5), padding: 20 }}>
-        <Text style={{ fontSize: 15, fontWeight: 'bold' }}> Tip! Try applying for more jobs </Text>
+        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#3F7DFB' }}> Tip! Try applying for more jobs </Text>
       </Card>
     </View>
   )
