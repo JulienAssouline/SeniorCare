@@ -31,8 +31,6 @@ const CaregiverConversationScreen = (props) => {
     })
   }
 
-  console.log(data.getKeyContactConvos)
-
   const height = Dimensions.get("window").height
 
   return (
