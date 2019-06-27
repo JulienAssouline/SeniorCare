@@ -53,7 +53,11 @@ module.exports = {
 
 		async getJobPost(parent, input, { dataSources }) {
 			return await dataSources.jobsDatabase.getJobPost(input)
-		}
+		},
+
+		async getCaregiverJobApplications(parent, input, { dataSources }) {
+			return await dataSources.jobsDatabase.getCaregiverJobApplications(input)
+		},
 	},
 
 	JobPost: {
@@ -84,14 +88,20 @@ module.exports = {
 		async getCaregiverPreferences(parent, { input }, { dataSources }) {
 			return await dataSources.jobsDatabase.getCaregiverPreferences(parent)
 		},
-
 	},
 
 	ServiceDetails: {
-		async getService(parent, { inpout }, { dataSources }) {
+		async getService(parent, { input }, { dataSources }) {
 			return await dataSources.servicesDatabase.getService(parent)
 		},
 	},
+
+	Applications: {
+		async getJobPost(parent, { input }, { dataSources }) {
+			const id = parent.jobpost_id 
+			return await dataSources.jobsDatabase.getJobPost({id: id})
+		}
+	}
 
 
 }

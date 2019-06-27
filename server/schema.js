@@ -20,7 +20,8 @@ module.exports = gql`
     getKeyContactConvos(caregiver_id: ID): [ConversationRoom]
 		getJobPosts: [JobPost]
 		getJobPost(id: ID!): JobPost
-		getKeyContactJobPosts(id: ID!):[JobPost]
+		getKeyContactJobPosts(id: ID!): [JobPost]
+		getCaregiverJobApplications(id: ID!): [Applications]
   }
 
 	type Applicant {
@@ -29,9 +30,17 @@ module.exports = gql`
 		phone_number: String
 		fullname: String
 		avatar: String
-
 		date_created: Date
 		caregiver_id: ID
+	}
+
+	type Applications {
+		id: ID,
+		jobpost_id: ID,
+		caregiver_id: ID,
+		keycontact_id: ID,
+		date_created: Date,
+		getJobPost: JobPost
 	}
 
 	type JobPost {

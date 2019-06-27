@@ -297,7 +297,34 @@ const seed = async () => {
 						.setFields(seed)
 						.toParam()
 				)
-			)
+			),
+			applicantsSeeds.map(seed =>
+				pg.query(
+					squel
+						.insert()
+						.into('seniorcare.applicants')
+						.setFields(seed)
+						.toParam()
+				)
+			),
+			services.map(seed =>
+				pg.query(
+					squel
+						.insert()
+						.into('seniorcare.services')
+						.setFields(seed)
+						.toParam()
+				)
+			),
+			services_job.map(seed =>
+				pg.query(
+					squel
+						.insert()
+						.into('seniorcare.services_job')
+						.setFields(seed)
+						.toParam()
+				)
+			),
 		)
 		await pg.query('COMMIT')
 	} catch (e) {

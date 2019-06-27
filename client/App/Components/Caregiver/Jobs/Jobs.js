@@ -1,29 +1,38 @@
-import { useQuery, useMutation } from 'react-apollo-hooks'
+import React from 'react'
+import { useQuery } from 'react-apollo-hooks'
 import { Dimensions, ScrollView, Text, View, TouchableOpacity, Image } from 'react-native'
-import React, { useState, useEffect } from 'react'
 import gql from "graphql-tag";
 import styles from "../../Styles/searchStyles/searchStyles"
 import { Avatar, Button } from 'react-native-elements'
 import Loading from '../../Loading/Loading'
-import { GET_BASIC_JOB_POSTING } from '../../../graphql-queries/queries'
+import { GET_APPLIED_JOBS } from '../../../graphql-queries/queries'
 import { connect } from 'react-redux'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
+const blueCurve = require('../../../Images/WelcomeScreen/blue-curve.png')
+
 const mapStateToProps = state => {
+	const { user_id } = state
 	return {
-		key_contact_id: state.user_id
+		user_id: user_id
 	}
 }
 
-const blueCurve = require('../../../Images/WelcomeScreen/blue-curve.png')
-// const height = Dimensions.get("window").height
-
 const Jobs = props => {
-	const { data, error, loading } = useQuery(GET_BASIC_JOB_POSTING)
+	console.log(props.user_id)
+	const { data, error, loading } = useQuery(GET_APPLIED_JOBS, {
+		variables: { id: props.user_id }
+	})
 
 	const handleGoJobInformation = (id) => {
 		props.navigation.navigate('CaregiverApplyToJob', { id: id })
 	}
+
+	if (loading) return <View><Text>loading!</Text></View>
+
+	if (error) return <View><Text>Error!</Text></View>
+
+	console.log('data', data)
 
 	return (
 		<View style={{ flex: 1, backgroundColor: '#EEF5FB' }}>
@@ -32,21 +41,22 @@ const Jobs = props => {
 				style={{ height: hp(44), width: wp(100), position: 'absolute', bottom: 0, padding: 0, margin: 0, backgroundColor: 'transparent' }}
 			/>
 			<ScrollView>
-				{/* <View>
-					{data.getJobPosts.map(jobPost => (
+				<View>
+					{data.getCaregiverJobApplications.map(jobPost => (
 						<TouchableOpacity
 							key={jobPost.id}
 							onPress={() => handleGoJobInformation(jobPost.id)}
 						>
+							{console.log(jobPost)}
 							<JobPosting
-								keyContact={jobPost.getKeyContact}
-								dateCreated={jobPost.date_created}
-								basicInformation={jobPost.getBasicInformation}
-								serviceDetails={jobPost.getServiceDetails}
+								keyContact={jobPost.getJobPost.getKeyContact}
+								dateCreated={jobPost.getJobPost.date_created}
+								basicInformation={jobPost.getJobPost.getBasicInformation}
+								serviceDetails={jobPost.getJobPost.getServiceDetails}
 							/>
 						</TouchableOpacity>
 					))}
-				</View> */}
+				</View>
 			</ScrollView>
 		</View>
 	)

@@ -235,6 +235,25 @@ class JobsDatabase extends DataSource {
 			throw err
 		}
 	}
+
+	async getCaregiverJobApplications(input) {
+		try {
+			const { id } = input
+
+			const selectAppliedJobsColumns = [
+				'id',
+				'jobpost_id',
+				'caregiver_id',
+				'keycontact_id',
+				'date_created',
+			]
+			const selectAppliedJobsQuery = createSelectQuery(selectAppliedJobsColumns, 'seniorcare.applicants', 'caregiver_id', id)
+			const selectAppliedJobsResult = await this.context.postgres.query(selectAppliedJobsQuery)
+			return selectAppliedJobsResult.rows
+		} catch(err) {
+			throw err
+		}
+	}
 }
 
 module.exports = JobsDatabase
