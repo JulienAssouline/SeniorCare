@@ -156,11 +156,11 @@ const Profile = props => {
       <View style={styles.Profile}>
         <TouchableOpacity onPress={() => pickAnImage(id)}>
           <Image style={styles.ProfileImage}
-            style={{ width: 200, height: 200, borderRadius: 100, borderWidth: 5, borderColor: '#3F7DFB' }}
+            style={{ width: 200, height: 200, borderRadius: 100, borderWidth: 3, borderColor: '#3F7DFB' }}
             source={{ uri: avatarSource }}
           />
           <View style={styles.Camera}>
-            <Icons name="camera" size={25} color={'#3F7DFB'} />
+            <Icons name="camera" size={20} color={'#3F7DFB'} />
           </View>
         </TouchableOpacity>
         {/* <Image style={styles.ProfileImage}
