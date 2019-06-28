@@ -17,7 +17,7 @@ const keyContactSeeds = [
 		email: 'jeffalanjohnson22@gmail.com',
 		phone_number: '5147466616',
 		location: 'South Core',
-		avatar: 'https://files.slack.com/files-tmb/T753M060L-FL1AZJNMV-17dc37c1ad/image_from_ios_720.png',
+		avatar: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/381079_2021461996262_2020060162_n.jpg?_nc_cat=108&_nc_oc=AQkMhrjmETABhWl4m9wzSjTnukuKJQcgdZ4JbCDXfqLa6JKwg43n_PxR2IWsQabxlfw&_nc_ht=scontent-yyz1-1.xx&oh=23cf1e9aaeb087b2e133c4d7d968d22a&oe=5DB8A76A',
 	},
 	{
 		id: '90908eda-ec5c-4b9d-b432-3ee2f71b228e',
@@ -130,7 +130,7 @@ const seniorSeeds = [
 	},
 	{
 		fullname: 'Jorrin',
-		key_contact_id: '835e2722-9ec2-4ffa-94f5-6c5051741261',
+		key_contact_id: 'aa0ea0ef-5d2d-494e-abaa-5198d6786aa1',
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'MALE',
 		avatar: 'https://timedotcom.files.wordpress.com/2018/08/new-zealand-cat-ban.jpg',
@@ -152,7 +152,7 @@ const seniorSeeds = [
 	},
 	{
 		fullname: 'Vaughn',
-		key_contact_id: '90908eda-ec5c-4b9d-b432-3ee2f71b228e',
+		key_contact_id: 'ea488fc4-babc-436f-883b-c873f2a4629d',
 		birthdate: '1950-06-22 19:10:25-07',
 		gender: 'MALE',
 		avatar: 'https://cdn.britannica.com/s:300x500/67/197567-131-1645A26E.jpg',
@@ -192,6 +192,60 @@ const JobPostings = [
 		cig_smoking: false,
 		pets: true,
 		cannabis: true
+	},
+	{
+		key_contact_id: '835e2722-9ec2-4ffa-94f5-6c5051741261',
+		date_created: '2002-02-22 19:10:25-07',
+		title: "Take Care of Dad",
+		start_date: "2001-09-22 19:10:25-07",
+		end_date: "2001-10-12 19:10:25-07",
+		address: '352 King Street West',
+		city: 'Toronto',
+		province: 'Ontario',
+		postal_code: 'h1h2h3',
+		availability: 'LIVEIN',
+		hourly_rate: 12,
+		gender_pref: 'FEMALE',
+		req_drivers_license: true,
+		cig_smoking: false,
+		pets: false,
+		cannabis: true
+	},
+	{
+		key_contact_id: 'c0589e4d-bf28-47ef-a361-c778f094606c',
+		date_created: '2001-06-22 19:10:25-07',
+		title: "Keep mom company",
+		start_date: "2008-07-22 19:10:25-07",
+		end_date: "2009-06-22 19:10:25-07",
+		address: '123 Queen Street',
+		city: 'Toronto',
+		province: 'Ontario',
+		postal_code: 'k1k2k3',
+		availability: 'LIVEOUT',
+		hourly_rate: 12,
+		gender_pref: 'FEMALE',
+		req_drivers_license: true,
+		cig_smoking: false,
+		pets: true,
+		cannabis: false
+	},
+	{
+		key_contact_id: 'aa0ea0ef-5d2d-494e-abaa-5198d6786aa1',
+		date_created: '2001-06-22 19:10:25-07',
+		title: "Granny needs help",
+		start_date: "2005-02-22 19:10:25-07",
+		end_date: "2005-04-22 19:10:25-07",
+		address: '50 John St',
+		city: 'Toronto',
+		province: 'Ontario',
+		postal_code: 'p1p1p1',
+		availability: 'LIVEIN',
+		hourly_rate: 12,
+		gender_pref: 'FEMALE',
+		req_drivers_license: true,
+		cig_smoking: false,
+		pets: false,
+		cannabis: false
 	},
 ]
 
@@ -250,6 +304,81 @@ const services_job = [
 	{
 		job_id: 1,
 		service_id: 6,
+	},
+
+	{
+		job_id: 2,
+		service_id: 2,
+	},
+	{
+		job_id: 2,
+		service_id: 4,
+	},
+	{
+		job_id: 2,
+		service_id: 6,
+	},
+	{
+		job_id: 2,
+		service_id: 8,
+	},
+
+	{
+		job_id: 3,
+		service_id: 1,
+	},
+	{
+		job_id: 3,
+		service_id: 2,
+	},
+	{
+		job_id: 3,
+		service_id: 3,
+	},
+	{
+		job_id: 3,
+		service_id: 4,
+	},
+	{
+		job_id: 3,
+		service_id: 5,
+	},
+	{
+		job_id: 3,
+		service_id: 6,
+	},
+	{
+		job_id: 3,
+		service_id: 7,
+	},
+	{
+		job_id: 3,
+		service_id: 8,
+	},
+
+	{
+		job_id: 4,
+		service_id: 2,
+	},
+	{
+		job_id: 4,
+		service_id: 3,
+	},
+	{
+		job_id: 4,
+		service_id: 5,
+	},
+	{
+		job_id: 4,
+		service_id: 6,
+	},
+	{
+		job_id: 4,
+		service_id: 8,
+	},
+	{
+		job_id: 4,
+		service_id: 9,
 	},
 ]
 
