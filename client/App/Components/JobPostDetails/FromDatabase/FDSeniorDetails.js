@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Text, View} from 'react-native'
+import { Text, View } from 'react-native'
 import { Avatar, ListItem } from 'react-native-elements'
 
 import calcAge from '../../utils/calcAge'
@@ -11,7 +11,7 @@ import { jobPostListItemStyles } from '../../Styles/Caregiver/caregiverJobPostSt
 export default SeniorDetails = props => {
 	return (
 		<View style={sectionContent.container}>
-			
+
 			<ListItem
 				title={props.sectionData && props.sectionData.fullname}
 				titleStyle={jobPostListItemStyles.title}
@@ -21,6 +21,10 @@ export default SeniorDetails = props => {
 						rounded
 						size='small'
 						title={props.sectionData.fullname && props.sectionData.fullname.substring(0, 2)}
+						source={{
+							uri:
+								props.keyContact && props.keyContact.avatar,
+						}}
 					/>
 				}
 			/>

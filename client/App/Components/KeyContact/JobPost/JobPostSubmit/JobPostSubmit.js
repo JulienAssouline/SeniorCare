@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Alert, ScrollView, Text, View} from 'react-native'
+import { Alert, ScrollView, Text, View } from 'react-native'
 import { Avatar, Button, ListItem } from 'react-native-elements'
 
 import { useQuery, useMutation } from 'react-apollo-hooks'
@@ -30,14 +30,14 @@ const initialActiveSections = {
 
 const JobPostSubmit = props => {
 	const { data, loading, error } = useQuery(GET_KEY_CONTACT, {
-		variables: { id: props.user_id}
+		variables: { id: props.user_id }
 	})
 	const submitJobPost = useMutation(SUBMIT_JOB_POST)
 	const [activeSections, setActiveSections] = useState(initialActiveSections)
 
 	const handleCollapsable = key => {
 		setActiveSections(prevState => {
-			return { ...prevState, [key]: !prevState[key]}
+			return { ...prevState, [key]: !prevState[key] }
 		})
 	}
 
@@ -46,8 +46,8 @@ const JobPostSubmit = props => {
 			'Confirm Job Posting',
 			'Are you sure you want to post this job?',
 			[
-				{text: 'Yes', onPress: () => handleSubmitJob()},
-				{text: 'Not yet', style: 'cancel'}
+				{ text: 'Yes', onPress: () => handleSubmitJob() },
+				{ text: 'Not yet', style: 'cancel' }
 			]
 		)
 	}
@@ -55,58 +55,60 @@ const JobPostSubmit = props => {
 	const handleSubmitJob = async () => {
 		try {
 			const result = await submitJobPost({
-				variables: {input: {
-					key_contact_id: props.user_id,
-					basicInformation: {
-						title: props.postJob.basicInformation.title,
-						start_date: props.postJob.basicInformation.startDate,
-						end_date: props.postJob.basicInformation.endDate,
-						address: props.postJob.basicInformation.address,
-						city: props.postJob.basicInformation.city,
-						province: props.postJob.basicInformation.province,
-						postal_code: props.postJob.basicInformation.postalCode,
-						hourly_rate: props.postJob.basicInformation.rate,
-					},
-					serviceDetails: {
-						appointments: props.postJob.serviceDetails.appointments,
-						bathing: props.postJob.serviceDetails.bathing,
-						companionship: props.postJob.serviceDetails.companionship,
-						dressing: props.postJob.serviceDetails.dressing,
-						driving: props.postJob.serviceDetails.driving,
-						errands: props.postJob.serviceDetails.errands,
-						feeding: props.postJob.serviceDetails.feeding,
-						grooming: props.postJob.serviceDetails.grooming,
-						housekeeping: props.postJob.serviceDetails.housekeeping,
-						laundry: props.postJob.serviceDetails.laundry,
-						meal_prep: props.postJob.serviceDetails.mealPrep,
-						mobility: props.postJob.serviceDetails.mobility,
-						shopping: props.postJob.serviceDetails.shopping,
-					},
-					seniorDetails: {
-						fullname: props.postJob.seniorDetails.seniorName,
-						gender: props.postJob.seniorDetails.gender,
-						birthdate: props.postJob.seniorDetails.birthdate,
-						relation: props.postJob.seniorDetails.relationship,
-						bio: props.postJob.seniorDetails.bio,
-						medical_condition: props.postJob.seniorDetails.medicalCondition,
-						language: props.postJob.seniorDetails.language,
-					},
-					houseDetails: {
-						cig_smoking: props.postJob.houseDetails.cigSmoking,
-						pets: props.postJob.houseDetails.pets,
-						cannabis: props.postJob.houseDetails.cannabis,
-					},
-					caregiverPreferences: {
-						availability: props.postJob.caregiverPreferences.availability,
-						gender_pref: props.postJob.caregiverPreferences.preferredGender,
-						req_drivers_license: props.postJob.caregiverPreferences.validDriverLicense,
-					},
-				}}
+				variables: {
+					input: {
+						key_contact_id: props.user_id,
+						basicInformation: {
+							title: props.postJob.basicInformation.title,
+							start_date: props.postJob.basicInformation.startDate,
+							end_date: props.postJob.basicInformation.endDate,
+							address: props.postJob.basicInformation.address,
+							city: props.postJob.basicInformation.city,
+							province: props.postJob.basicInformation.province,
+							postal_code: props.postJob.basicInformation.postalCode,
+							hourly_rate: props.postJob.basicInformation.rate,
+						},
+						serviceDetails: {
+							appointments: props.postJob.serviceDetails.appointments,
+							bathing: props.postJob.serviceDetails.bathing,
+							companionship: props.postJob.serviceDetails.companionship,
+							dressing: props.postJob.serviceDetails.dressing,
+							driving: props.postJob.serviceDetails.driving,
+							errands: props.postJob.serviceDetails.errands,
+							feeding: props.postJob.serviceDetails.feeding,
+							grooming: props.postJob.serviceDetails.grooming,
+							housekeeping: props.postJob.serviceDetails.housekeeping,
+							laundry: props.postJob.serviceDetails.laundry,
+							meal_prep: props.postJob.serviceDetails.mealPrep,
+							mobility: props.postJob.serviceDetails.mobility,
+							shopping: props.postJob.serviceDetails.shopping,
+						},
+						seniorDetails: {
+							fullname: props.postJob.seniorDetails.seniorName,
+							gender: props.postJob.seniorDetails.gender,
+							birthdate: props.postJob.seniorDetails.birthdate,
+							relation: props.postJob.seniorDetails.relationship,
+							bio: props.postJob.seniorDetails.bio,
+							medical_condition: props.postJob.seniorDetails.medicalCondition,
+							language: props.postJob.seniorDetails.language,
+						},
+						houseDetails: {
+							cig_smoking: props.postJob.houseDetails.cigSmoking,
+							pets: props.postJob.houseDetails.pets,
+							cannabis: props.postJob.houseDetails.cannabis,
+						},
+						caregiverPreferences: {
+							availability: props.postJob.caregiverPreferences.availability,
+							gender_pref: props.postJob.caregiverPreferences.preferredGender,
+							req_drivers_license: props.postJob.caregiverPreferences.validDriverLicense,
+						},
+					}
+				}
 			})
 			if (result.data.addJobRequest.message === 'success') {
 				props.navigation.navigate('JobPostComplete')
 			}
-		} catch(err) {
+		} catch (err) {
 			throw err
 		}
 	}
@@ -127,7 +129,11 @@ const JobPostSubmit = props => {
 							<Avatar
 								rounded
 								size='small'
-								title={data.getKeyContactProfile && 	data.getKeyContactProfile.fullname.substring(0, 2)}
+								title={data.getKeyContactProfile && data.getKeyContactProfile.fullname.substring(0, 2)}
+								source={{
+									uri:
+										data.getKeyContactProfile && data.getKeyContactProfile.avatar
+								}}
 							/>
 						}
 					/>
@@ -166,7 +172,7 @@ const JobPostSubmit = props => {
 					collapsableState={activeSections['caregiverPreferences']}
 					handleCollapsable={() => handleCollapsable('caregiverPreferences')}
 				/>
-				
+
 			</ScrollView>
 			<View>
 				<Button
