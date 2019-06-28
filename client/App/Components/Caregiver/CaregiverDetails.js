@@ -41,7 +41,7 @@ const CaregiverDetails = props => {
           </View>
           <View style={styles.iconCover}>
             <Icon style={{fontSize: 12,  color: "#3F7DFB"}} name="clock" />
-            <Text style = {styles.backgroundInfoText}> {`From $${d.hourly_rate}.00/ hour`} </Text>
+            <Text style = {styles.backgroundInfoText}> {`From $${d.hourly_rate}.00 / hour`} </Text>
           </View>
         </View>
       </View>
