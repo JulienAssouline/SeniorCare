@@ -19,8 +19,6 @@ const buildSelect = (input) => {
     })
     .join(" AND ")
 
-    console.log(finalString)
-
   const queryValues = validKeys.map(key => input[key]);
 
   if (Object.keys(input).length > 0) {
