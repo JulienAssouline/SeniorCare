@@ -25,7 +25,7 @@ export default JobPosting = props => {
 				leftAvatar={
 					<Avatar
 						rounded
-						size='small'
+						size='medium'
 						title={keyContact && keyContact.fullname.substring(0, 2)}
 						source={{
 							uri:
@@ -39,7 +39,7 @@ export default JobPosting = props => {
 
 			<View style={jobPostStyles.basicInfoContainer}>
 				<View style={jobPostStyles.basicInfoItemContainer}>
-					<SimpleLineIcon name='location-pin' size={12} color='#3F7DFB' />
+					<IonIcons name='ios-pin' size={16} color='#3F7DFB' />
 					<Text style={jobPostStyles.basicInfoItemText}>{basicInformation.city}</Text>
 				</View>
 				<View style={jobPostStyles.basicInfoItemContainer}>
