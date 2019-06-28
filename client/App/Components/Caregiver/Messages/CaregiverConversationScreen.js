@@ -3,7 +3,7 @@ import { Dimensions, ScrollView, Text, View, Image } from 'react-native'
 import styles from '../../Styles/Messages/MessagesStyles'
 import { useQuery } from 'react-apollo-hooks'
 import { GET_KEY_CONTACT_CONVO } from "../../../graphql-queries/queries"
-import { ListItem } from 'react-native-elements'
+import { ListItem, Avatar } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import EmptyConversation from "./EmptyConversation"
@@ -44,17 +44,27 @@ const CaregiverConversationScreen = (props) => {
 
           {
             data.getKeyContactConvos.length > 0 ?
-            data.getKeyContactConvos.map((d, i) =>
-              <View key={i} style={styles.conversationContainer}>
-                <ListItem
-                  onPress={() => handlePress(d.conversation_id, props.user_id)}
-                  leftAvatar
-                  title={<Text> {d.fullname}</Text>}
-                  rightIcon={{ name: 'chevron-right' }}
-                />
-              </View>
+              data.getKeyContactConvos.map((d, i) =>
+                <View key={i} style={styles.conversationContainer}>
+                  <ListItem
+                    onPress={() => handlePress(d.conversation_id, props.user_id)}
+                    title={<Text> {d.fullname}</Text>}
+                    rightIcon={{ name: 'chevron-right' }}
+                    leftAvatar={
+                      <Avatar
+                        rounded
+                        size='small'
+                        title={d && d.fullname.substring(0, 2)}
+                        source={{
+                          uri:
+                            d && d.avatar,
+                        }}
+                      />
+                    }
+                  />
+                </View>
 
-            ) : <EmptyConversation />
+              ) : <EmptyConversation />
           }
         </View>
       </ScrollView>

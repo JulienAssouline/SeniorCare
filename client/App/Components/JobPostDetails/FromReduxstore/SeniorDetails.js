@@ -18,7 +18,7 @@ export default SeniorDetails = props => {
 						title={props.sectionData.seniorName && props.sectionData.seniorName.substring(0, 2)}
 						source={{
 							uri:
-								props.keyContact && props.keyContact.avatar,
+								props.sectionData.seniorName && props.sectionData.seniorName.avatar
 						}}
 					/>
 				}
