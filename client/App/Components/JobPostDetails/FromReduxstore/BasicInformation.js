@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Text, View} from 'react-native'
+import { Text, View } from 'react-native'
 
 import moment from 'moment'
 
@@ -36,7 +36,7 @@ export default BasicInformation = props => {
 					{props.sectionData.rate}
 				</Text>
 			</View>
-			
+
 			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>
 					Address
