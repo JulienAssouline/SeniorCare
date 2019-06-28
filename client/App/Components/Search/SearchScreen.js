@@ -142,7 +142,7 @@ const SearchScreen = (props) => {
                   </View>
                   <View style={styles.experienceRateContainer}>
                     <Text style={styles.backgroundInfoText}> {`${d.years_experience} years experience`} </Text>
-                    <Text style={styles.backgroundInfoText}> {`From $${d.hourly_rate}/hour`} </Text>
+                    <Text style={styles.backgroundInfoText}> {`From $${d.hourly_rate}.00 / hour`} </Text>
                   </View>
                   <MessageButton key_contact_id={props.key_contact_id} caregiver_id={d.id} handlePress={handlePress} />
                 </View>
