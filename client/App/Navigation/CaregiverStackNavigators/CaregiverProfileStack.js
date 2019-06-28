@@ -41,7 +41,7 @@ export const CaregiverProfileStack = createStackNavigator(
         headerRight:
           <View style={{ padding: 10 }}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Edit')}
+              onPress={() => navigation.navigate('EditCaregiver')}
               style={{ flex: 1, flexDirection: 'row' }}
             >
               <Text style={{ fontFamily: 'SFProText-Medium', color: '#3F7DFB', fontSize: 17 }}>Edit</Text>
