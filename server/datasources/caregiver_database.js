@@ -17,10 +17,9 @@ class CaregiverDatabase extends DataSource {
       if(input.gender) {
         input.gender = input.gender.toUpperCase()
       }
-      if(input.availability){
+      if(input.availability) {
         input.availability = input.availability.toUpperCase().replace(/\s/g, "")
       }
-
 
       const selectCaregiver = buildSelect(input)
 
