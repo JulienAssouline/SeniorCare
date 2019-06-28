@@ -9,7 +9,7 @@ import calcAge from '../../utils/calcAge';
 
 const SeniorDetails = (props) => {
   const seniorData = props.navigation.getParam('data');
-  console.log(seniorData)
+
   calcAge(seniorData)
   return (
     <ScrollView style={styles.MainContainer}>
