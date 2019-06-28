@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Text, View} from 'react-native'
+import { Text, View } from 'react-native'
 
 import moment from 'moment'
 
@@ -15,7 +15,7 @@ export default BasicInformation = props => {
 					Start Date
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{moment(props.sectionData.start_date).format('LL')}
+					{moment(props.sectionData.startDate).format('LL')}
 				</Text>
 			</View>
 
@@ -24,7 +24,7 @@ export default BasicInformation = props => {
 					End Date
 				</Text>
 				<Text style={sectionContent.dualColumnValue}>
-					{moment(props.sectionData.end_date).format('LL')}
+					{moment(props.sectionData.endDate).format('LL')}
 				</Text>
 			</View>
 
@@ -36,7 +36,7 @@ export default BasicInformation = props => {
 					{props.sectionData.hourly_rate}
 				</Text>
 			</View>
-			
+
 			<View style={sectionContent.dualColumn}>
 				<Text style={sectionContent.dualColumnLabel}>
 					Address
