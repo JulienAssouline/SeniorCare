@@ -6,14 +6,18 @@ import { Avatar, Button } from 'react-native-elements'
 const ToUserMessage = (props) => {
 
   return (
-    <View style = {styles.toMessages}>
-      <Avatar
-        icon={{name: 'user', type: 'font-awesome'}}
-        size="small"
+    <View style={styles.toMessages}>
+      {/* <Avatar
         rounded
-      />
-      <View style = {styles.toMessageBubble}>
-        <Text style = {styles.fromText}> {props.d.content} </Text>
+        size='small'
+        title={props.d && props.d.substring(0, 2)}
+        source={{
+          uri:
+            props.d && props.d.avatar,
+        }}
+      /> */}
+      <View style={styles.toMessageBubble}>
+        <Text style={styles.fromText}> {props.d.content} </Text>
       </View>
     </View>
 

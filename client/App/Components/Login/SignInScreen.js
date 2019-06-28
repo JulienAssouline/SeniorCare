@@ -77,7 +77,7 @@ export default class SignInScreen extends React.Component {
     await Auth.signIn(username, password)
       .then(user => {
         this.setState({ user })
-        this.props.navigation.navigate('Authloading')
+        this.props.navigation.navigate('AuthJobLoading')
       })
       .catch(err => {
         if (!err.message) {

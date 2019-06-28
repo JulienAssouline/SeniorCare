@@ -49,6 +49,7 @@ module.exports = gql`
 		date_created: Date
     title: String
     start_date: Date
+		hourly_rate: Int
 		applicants: [Applicant]
 		getKeyContact: KeyContact
 		getBasicInformation: BasicInformation

@@ -1,5 +1,7 @@
 
 const buildSelect = (input) => {
+  console.log(input)
+
   const validKeys = Object.keys(input).filter(
       key => input[key] != undefined
     );

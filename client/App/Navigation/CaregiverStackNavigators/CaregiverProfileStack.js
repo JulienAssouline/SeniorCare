@@ -6,7 +6,7 @@ import React from 'react'
 import EditCaregiver from '../../Components/Caregiver/Profile/EditCaregiver'
 import Help from '../../Components/Profile/Help/Help'
 
-import Account from '../../Components/Profile/Account'
+import Account from '../../Components/Caregiver/Profile/Account'
 
 export const CaregiverProfileStack = createStackNavigator(
   {
@@ -34,26 +34,22 @@ export const CaregiverProfileStack = createStackNavigator(
         title: 'Edit Account'
       },
     },
-    Account: {
+    AccountCaregiver: {
       screen: Account,
-      navigationOptions: (props) => ({
+      navigationOptions: ({ navigation }) => ({
         title: 'Account',
         headerRight:
-          <View  style={{ padding: 10 }}>
+          <View style={{ padding: 10 }}>
             <TouchableOpacity
-              onPress={() => props.navigation.navigate("Account")}
+              onPress={() => navigation.navigate('Edit')}
               style={{ flex: 1, flexDirection: 'row' }}
             >
-              <Text
-               onPress = {() => props.navigation.navigate("EditCaregiver")}
-               style={{ fontFamily: 'SFProText-Medium', color: '#3F7DFB', fontSize: 17 }}>
-                Edit
-              </Text>
+              <Text style={{ fontFamily: 'SFProText-Medium', color: '#3F7DFB', fontSize: 17 }}>Edit</Text>
             </TouchableOpacity>
           </View>
-        })
-    }
-	},
+      })
+    },
+  },
   {
     defaultNavigationOptions: {
       title: 'Profile',

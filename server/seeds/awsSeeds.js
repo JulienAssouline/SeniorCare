@@ -175,40 +175,55 @@ const seniorSeeds = [
 ]
 
 const JobPostings = [
-	{
-		key_contact_id: 'aa0ea0ef-5d2d-494e-abaa-5198d6786aa1',
-		date_created: '2001-06-22 19:10:25-07',
-		title: "Take Care of Mom",
-		start_date: "2001-07-22 19:10:25-07",
-		end_date: "2001-06-22 19:10:25-07",
-		address: '',
-		city: '',
-		province: '',
-		postal_code: '',
-		availability: 'LIVEIN',
-		hourly_rate: 12,
-		gender_pref: 'FEMALE',
-		req_drivers_license: true,
-		cig_smoking: false,
-		pets: true,
-		cannabis: true
-	},
+  {
+    key_contact_id: 'aa0ea0ef-5d2d-494e-abaa-5198d6786aa1',
+    date_created: '2001-06-22 19:10:25-07',
+    title: "Take Care of Mom",
+    start_date: "2001-07-22 19:10:25-07",
+    end_date: "2001-06-22 19:10:25-07",
+    address: '',
+    city: 'Trinity Bellwoods',
+    province: '',
+    postal_code: '',
+    availability: 'LIVEIN',
+    hourly_rate: 17,
+    gender_pref: 'FEMALE',
+    req_drivers_license: true,
+    cig_smoking: false,
+    pets: true,
+    cannabis: true
+  },
 ]
 
-const services = [ 
-	{ title: 'appointments' },
-	{ title: 'bathing' },
-	{ title: 'companionship' },
-	{ title: 'dressing' },
-	{ title: 'driving' },
-	{ title: 'errands' },
-	{ title: 'feeding' },
-	{ title: 'grooming' },
-	{ title: 'housekeeping' },
-	{ title: 'laundry' },
-	{ title: 'meal_prep' },
-	{ title: 'mobility' },
-	{ title: 'shopping' },
+const applicantsSeeds = [
+  {
+    jobpost_id: '1',
+    date_created: '2001-06-22 19:10:25-07',
+    caregiver_id: 'ac187694-bcc3-44a2-bc1f-1cf573d8c5bd',
+    keycontact_id: 'c0589e4d-bf28-47ef-a361-c778f094606c'
+  },
+  {
+    jobpost_id: '1',
+    date_created: '2001-06-22 19:10:25-07',
+    caregiver_id: 'b4a92e58-899b-4762-b08a-952810670fa8',
+    keycontact_id: 'c0589e4d-bf28-47ef-a361-c778f094606c'
+  }
+]
+
+const services = [
+  { title: 'appointments' },
+  { title: 'bathing' },
+  { title: 'companionship' },
+  { title: 'dressing' },
+  { title: 'driving' },
+  { title: 'errands' },
+  { title: 'feeding' },
+  { title: 'grooming' },
+  { title: 'housekeeping' },
+  { title: 'laundry' },
+  { title: 'meal_prep' },
+  { title: 'mobility' },
+  { title: 'shopping' },
 ]
 
 const services_job = [

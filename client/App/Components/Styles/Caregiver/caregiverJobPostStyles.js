@@ -25,12 +25,12 @@ export const jobPostListItemStyles = StyleSheet.create({
 	},
 
 	title: {
-		fontSize: 14,
+		fontSize: 17,
 		marginLeft: -4,
 	},
-	
+
 	subtitle: {
-		color: lightGreyText,
+		color: '#707070',
 		fontSize: 10,
 		marginLeft: -4,
 	},
@@ -38,7 +38,17 @@ export const jobPostListItemStyles = StyleSheet.create({
 
 export const jobPostStyles = StyleSheet.create({
 	mainContainer: {
-		borderWidth: 0,
+		borderWidth: 0.5,
+		borderColor: '#CCCCCC',
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 0,
+			height: 1,
+		},
+		shadowOpacity: 0.20,
+		shadowRadius: 1.41,
+
+		elevation: 2,
 	},
 
 	jobTitle: {
@@ -56,13 +66,13 @@ export const jobPostStyles = StyleSheet.create({
 		flex: 1,
 		flexDirection: 'row',
 		flexWrap: 'nowrap',
-		
+
 		marginVertical: 10,
 	},
 
 	basicInfoItemText: {
 		color: mainGreyText,
-		fontSize: 14,
+		fontSize: 15,
 		marginLeft: 6,
 	},
 

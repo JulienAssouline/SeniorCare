@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Text, View} from 'react-native'
+import { Text, View } from 'react-native'
 import { Avatar, ListItem } from 'react-native-elements'
 
 import { sectionContent } from '../../Styles/PostJob/SubmitJobStyles'
@@ -8,14 +8,18 @@ import { sectionContent } from '../../Styles/PostJob/SubmitJobStyles'
 export default SeniorDetails = props => {
 	return (
 		<View style={sectionContent.container}>
-			
+
 			<ListItem
 				title={props.sectionData && props.sectionData.seniorName}
 				leftAvatar={
 					<Avatar
 						rounded
-						size='small'
+						size='medium'
 						title={props.sectionData.seniorName && props.sectionData.seniorName.substring(0, 2)}
+						source={{
+							uri:
+								props.sectionData.seniorName && props.sectionData.seniorName.avatar
+						}}
 					/>
 				}
 			/>

@@ -52,7 +52,7 @@ const SeniorUploadAvatar = props => {
 				handleSubmit={handleSubmit}
 				errors={{}}
 				touched={{yes: 'yes'}}
-				lastPosition={7}
+				lastPosition={6}
 			/>
 		</View>
 	)

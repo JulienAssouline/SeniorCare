@@ -25,6 +25,7 @@ import reducer from '../Redux/Store/reducer'
 const store = createStore(reducer, undefined, Reactotron.createEnhancer())
 
 const App = () => {
+
   return (
     <ApolloProvider client={apolloClient}>
       <ApolloHooksProvider client={apolloClient}>

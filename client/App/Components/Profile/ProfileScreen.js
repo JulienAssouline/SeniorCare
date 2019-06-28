@@ -43,6 +43,10 @@ const GET_KEYCONTACT = gql`
         relation
         birthdate
         avatar
+        language
+        bio
+        medical_condition
+        gender
       }
     }
   }

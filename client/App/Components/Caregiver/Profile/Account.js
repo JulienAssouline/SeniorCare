@@ -1,11 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ScrollView, Text, Alert } from 'react-native'
-import { useQuery } from 'react-apollo-hooks';
-import gql from "graphql-tag";
-import styles from '../Styles/Profile/Account'
 import Icons from 'react-native-vector-icons/FontAwesome5'
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import styles from '../../Styles/Profile/Account'
 
 // AWS Amplify modular import
 import Auth from '@aws-amplify/auth'

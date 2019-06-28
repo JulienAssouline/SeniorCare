@@ -14,6 +14,13 @@ class CaregiverDatabase extends DataSource {
   async queryCaregiver(input) {
     try {
 
+      if(input.gender) {
+        input.gender = input.gender.toUpperCase()
+      }
+      if(input.availability) {
+        input.availability = input.availability.toUpperCase().replace(/\s/g, "")
+      }
+
       const selectCaregiver = buildSelect(input)
 
       const result = await this.context.postgres.query(selectCaregiver)

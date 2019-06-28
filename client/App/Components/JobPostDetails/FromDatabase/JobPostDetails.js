@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Text, View} from 'react-native'
+import { Text, View } from 'react-native'
 import { Avatar, ListItem } from 'react-native-elements'
 
 import { listItemStyles, submitJobOverview } from '../../Styles/PostJob/SubmitJobStyles'
@@ -24,7 +24,7 @@ export default JobPostDetails = props => {
 
 	const handleCollapsable = key => {
 		setActiveSections(prevState => {
-			return { ...prevState, [key]: !prevState[key]}
+			return { ...prevState, [key]: !prevState[key] }
 		})
 	}
 
@@ -41,6 +41,10 @@ export default JobPostDetails = props => {
 						rounded
 						size='small'
 						title={props.keyContact && props.keyContact.fullname.substring(0, 2)}
+						source={{
+							uri:
+								props.keyContact && props.keyContact.avatar
+						}}
 					/>
 				}
 			/>
@@ -62,11 +66,11 @@ export default JobPostDetails = props => {
 				handleCollapsable={() => handleCollapsable('basicInformation')}
 			/>
 			<JobDetailsAccordion
-					sectionName='Service Details'
-					sectionData={props.serviceDetails}
-					collapsableState={activeSections['serviceDetails']}
-					handleCollapsable={() => handleCollapsable('serviceDetails')}
-				/>
+				sectionName='Service Details'
+				sectionData={props.serviceDetails}
+				collapsableState={activeSections['serviceDetails']}
+				handleCollapsable={() => handleCollapsable('serviceDetails')}
+			/>
 			<JobDetailsAccordion
 				sectionName='House Details'
 				sectionData={props.houseDetails}

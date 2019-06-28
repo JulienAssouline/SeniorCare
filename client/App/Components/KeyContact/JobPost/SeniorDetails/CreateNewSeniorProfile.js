@@ -23,7 +23,7 @@ const CreateNewSeniorProfile = props => {
 			<PostJobTop
 				title="Senior's Profile"
 				currentPosition={props.formPosition}
-				stepCount={8}
+				stepCount={7}
 			/>
 		</View>
 

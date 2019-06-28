@@ -179,11 +179,10 @@ const AuthStackNavigator = createStackNavigator({
 })
 
 const MainAppStack = createSwitchNavigator({
-  AuthJobLoading:AuthJobLoading,
- 
+  AuthJobLoading: AuthJobLoading,
   Auth: AuthStackNavigator, // the Auth stack
-	App: AppTabNavigator, // the App stack
-	CaregiverApp: CaregiverAppTabNavigator, // Caregiver App Stack
+  App: AppTabNavigator, // the App stack
+  CaregiverApp: CaregiverAppTabNavigator, // Caregiver App Stack
 })
 
 export default MainAppStack

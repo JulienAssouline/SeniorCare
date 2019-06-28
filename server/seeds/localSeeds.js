@@ -181,12 +181,12 @@ const JobPostings = [
 		title: "Take Care of Mom",
 		start_date: "2001-07-22 19:10:25-07",
 		end_date: "2001-06-22 19:10:25-07",
-		address: '123 Avocado Way',
+		address: 'Trinity Bellwoods',
 		city: 'Toronto',
 		province: 'Ontario',
 		postal_code: 'a1s2d3',
 		availability: 'LIVEIN',
-		hourly_rate: 12,
+		hourly_rate: 17,
 		gender_pref: 'FEMALE',
 		req_drivers_license: true,
 		cig_smoking: false,
@@ -264,7 +264,7 @@ const applicantsSeeds = [
 	}
 ]
 
-const services = [ 
+const services = [
 	{ title: 'appointments' },
 	{ title: 'bathing' },
 	{ title: 'companionship' },
