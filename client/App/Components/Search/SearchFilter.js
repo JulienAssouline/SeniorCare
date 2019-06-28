@@ -15,10 +15,12 @@ const SearchFilter = (props) => {
 
   function handleGenderPress(newGender) {
     // spread operator takes all other keys and sticks them into the object
+
     setFilterObj({ ...filterObj, gender: newGender })
   }
 
   function handleLivePress(newLive) {
+
     setFilterObj({ ...filterObj, availability: newLive })
   }
 

@@ -1,5 +1,7 @@
 
 const buildSelect = (input) => {
+  console.log(input)
+
   const validKeys = Object.keys(input).filter(
       key => input[key] != undefined
     );
@@ -16,6 +18,8 @@ const buildSelect = (input) => {
       }
     })
     .join(" AND ")
+
+    console.log(finalString)
 
   const queryValues = validKeys.map(key => input[key]);
 
