@@ -1,6 +1,6 @@
 # Seniorcare
 
-Seniorcare is a full stack mobile application for the client Senior Care Connect. It was built with five other developers over a 2 and a half week span while I was at Red Academy. The stack we used was React Native, Redux, Apollo, GraphQL, and PostgreSQL.
+Seniorcare is a full stack mobile application for the client Senior Care Connect, which was built with five other developers. The stack we used was React Native, Redux, Apollo, GraphQL, Express, and PostgreSQL.
 
 I built the chat which uses subscriptions to send results every time a particular event happens (exp. a message).
 
